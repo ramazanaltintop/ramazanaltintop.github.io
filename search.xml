@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2023/08/29/the-authenticity-of-host-github-com-cant-be-established/"/>
+      <url>/2023/08/29/the-authenticity-of-host-github-com-cant-be-established/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure><div class="gallery">    <div class="fj-gallery  data" data-rowHeight="220" data-limit="10">    <span class="gallery-data">[{"url":"/2023/08/29/the-authenticity-of-host-github-com-cant-be-established/the-authenticity-of-host-github-com-cant-be-established-1.png","alt":""}]</span>    </div>    <button class="gallery-load-more"><span>Daha Fazla Yükle</span><i class="fa-solid fa-arrow-down"></i></button>    </div><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keyscan github.com &gt;&gt; ~/.ssh/known_hosts</span><br></pre></td></tr></table></figure><div class="gallery">    <div class="fj-gallery  data" data-rowHeight="220" data-limit="10">    <span class="gallery-data">[{"url":"/2023/08/29/the-authenticity-of-host-github-com-cant-be-established/the-authenticity-of-host-github-com-cant-be-established-2.png","alt":""}]</span>    </div>    <button class="gallery-load-more"><span>Daha Fazla Yükle</span><i class="fa-solid fa-arrow-down"></i></button>    </div><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure><div class="gallery">    <div class="fj-gallery  data" data-rowHeight="220" data-limit="10">    <span class="gallery-data">[{"url":"/2023/08/29/the-authenticity-of-host-github-com-cant-be-established/the-authenticity-of-host-github-com-cant-be-established-3.png","alt":""}]</span>    </div>    <button class="gallery-load-more"><span>Daha Fazla Yükle</span><i class="fa-solid fa-arrow-down"></i></button>    </div><p>Kaynaklar:</p><ul><li><a href="https://gist.github.com/vikpe/34454d69fe03a9617f2b009cc3ba200b">https://gist.github.com/vikpe</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+            <tag> Github </tag>
+            
+            <tag> Ssh </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Merhaba Dünya</title>
       <link href="/2023/08/28/hello-world/"/>
       <url>/2023/08/28/hello-world/</url>
