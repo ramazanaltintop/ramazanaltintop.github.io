@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Ramazan Altıntop</title>
+  
+  <subtitle>Kişisel Web Sitesi</subtitle>
+  <link href="https://ramazanaltintop.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://ramazanaltintop.github.io/"/>
+  <updated>2023-10-07T10:25:50.033Z</updated>
+  <id>https://ramazanaltintop.github.io/</id>
+  
+  <author>
+    <name>Ramazan Altıntop</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows Powershell Özelleştirme Nasıl Yapılır?</title>
+    <link href="https://ramazanaltintop.github.io/post/3218656048.html"/>
+    <id>https://ramazanaltintop.github.io/post/3218656048.html</id>
+    <published>2023-09-29T04:30:00.000Z</published>
+    <updated>2023-10-07T10:25:50.033Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Windows Terminal kurulumunu Microsoft Store üzerinden yapalım.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/post/3218656048/1.png&quot; alt=&quot;Resim 1&quot; style=&quot;zoom:85%;&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Windows" scheme="https://ramazanaltintop.github.io/categories/Windows/"/>
+    
+    
+    <category term="Windows" scheme="https://ramazanaltintop.github.io/tags/Windows/"/>
+    
+    <category term="Powershell" scheme="https://ramazanaltintop.github.io/tags/Powershell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo Blog Rehberi</title>
+    <link href="https://ramazanaltintop.github.io/post/1160298273.html"/>
+    <id>https://ramazanaltintop.github.io/post/1160298273.html</id>
+    <published>2023-09-05T03:30:00.000Z</published>
+    <updated>2023-10-07T10:25:50.027Z</updated>
+    
+    
+    <summary type="html">Burada şifrelenmiş bir şey var. Okumaya devam etmek için parola gerekiyor</summary>
+    
+    
+    
+    <category term="Hexo" scheme="https://ramazanaltintop.github.io/categories/Hexo/"/>
+    
+    
+    <category term="Markdown" scheme="https://ramazanaltintop.github.io/tags/Markdown/"/>
+    
+    <category term="Hexo" scheme="https://ramazanaltintop.github.io/tags/Hexo/"/>
+    
+    <category term="Hexo Butterfly" scheme="https://ramazanaltintop.github.io/tags/Hexo-Butterfly/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo new ile gönderi eklerken Brackets otomatik olarak nasıl açılır?</title>
+    <link href="https://ramazanaltintop.github.io/post/3478573742.html"/>
+    <id>https://ramazanaltintop.github.io/post/3478573742.html</id>
+    <published>2023-09-01T03:30:00.000Z</published>
+    <updated>2023-10-07T10:25:50.010Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;“&lt;strong&gt;hexo new&lt;/strong&gt;“ komutunu kullanarak yeni bir gönderi oluşturmak istediğimizde “&lt;strong&gt;Brackets&lt;/strong&gt;“ programının</summary>
+        
+      
+    
+    
+    
+    <category term="Hexo" scheme="https://ramazanaltintop.github.io/categories/Hexo/"/>
+    
+    
+    <category term="Hexo" scheme="https://ramazanaltintop.github.io/tags/Hexo/"/>
+    
+    <category term="Brackets" scheme="https://ramazanaltintop.github.io/tags/Brackets/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>The authenticity of host github com cant be established</title>
+    <link href="https://ramazanaltintop.github.io/post/2046058107.html"/>
+    <id>https://ramazanaltintop.github.io/post/2046058107.html</id>
+    <published>2023-08-29T03:30:00.000Z</published>
+    <updated>2023-10-07T10:25:50.001Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Almış olduğum hatanın giderilmesi için izlenmesi gereken adım aşağıda yer almaktadır.&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="Git" scheme="https://ramazanaltintop.github.io/categories/Git/"/>
+    
+    
+    <category term="Git" scheme="https://ramazanaltintop.github.io/tags/Git/"/>
+    
+    <category term="Github" scheme="https://ramazanaltintop.github.io/tags/Github/"/>
+    
+    <category term="Ssh" scheme="https://ramazanaltintop.github.io/tags/Ssh/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Merhaba Dünya</title>
+    <link href="https://ramazanaltintop.github.io/post/1658322667.html"/>
+    <id>https://ramazanaltintop.github.io/post/1658322667.html</id>
+    <published>2023-08-28T09:48:00.000Z</published>
+    <updated>2023-10-07T10:25:49.991Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;‘ya hoşgeldin! Bu senin ilk gönderin. Daha fazla bilgi için &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Hexo" scheme="https://ramazanaltintop.github.io/categories/Hexo/"/>
+    
+    
+    <category term="Hexo" scheme="https://ramazanaltintop.github.io/tags/Hexo/"/>
+    
+    <category term="Hexo Butterfly" scheme="https://ramazanaltintop.github.io/tags/Hexo-Butterfly/"/>
+    
+  </entry>
+  
+</feed>
