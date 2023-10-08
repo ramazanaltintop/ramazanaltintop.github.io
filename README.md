@@ -1,4 +1,4 @@
-## Gönderilerim  
+## My posts  
 ### **2023-09** (3)  
 - 2023-09-29 [Windows Powershell Özelleştirme Nasıl Yapılır?](https://ramazanaltintop.github.io/post/3218656048.html)  
 - 2023-09-05 [Hexo Blog Rehberi](https://ramazanaltintop.github.io/post/1160298273.html)  
