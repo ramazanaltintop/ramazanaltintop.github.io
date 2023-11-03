@@ -6,7 +6,7 @@
   <link href="https://ramazanaltintop.github.io/atom.xml" rel="self"/>
   
   <link href="https://ramazanaltintop.github.io/"/>
-  <updated>2023-10-07T10:25:50.033Z</updated>
+  <updated>2023-11-03T11:14:49.656Z</updated>
   <id>https://ramazanaltintop.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Wemos D1 R1 Yapılandırması Nasıl Yapılır?</title>
+    <link href="https://ramazanaltintop.github.io/post/1729220706.html"/>
+    <id>https://ramazanaltintop.github.io/post/1729220706.html</id>
+    <published>2023-11-03T06:30:00.000Z</published>
+    <updated>2023-11-03T11:14:49.656Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;IoT dersi için satın aldığım &lt;wavy&gt;Wemos D1 R1&lt;/wavy&gt; kartının kullanabilmemiz için yapılması gereken yapılandırma ayarlarından</summary>
+        
+      
+    
+    
+    
+    <category term="Nesnelerin İnterneti" scheme="https://ramazanaltintop.github.io/categories/Nesnelerin-Interneti/"/>
+    
+    
+    <category term="Wemos" scheme="https://ramazanaltintop.github.io/tags/Wemos/"/>
+    
+    <category term="Arduino" scheme="https://ramazanaltintop.github.io/tags/Arduino/"/>
+    
+    <category term="ESP8266" scheme="https://ramazanaltintop.github.io/tags/ESP8266/"/>
+    
+    <category term="IoT" scheme="https://ramazanaltintop.github.io/tags/IoT/"/>
+    
+    <category term="CH340" scheme="https://ramazanaltintop.github.io/tags/CH340/"/>
+    
+  </entry>
   
   <entry>
     <title>Windows Powershell Özelleştirme Nasıl Yapılır?</title>
@@ -148,6 +181,387 @@
     <category term="Hexo Butterfly" scheme="https://ramazanaltintop.github.io/tags/Hexo-Butterfly/"/>
     
     <category term="Hexo" scheme="https://ramazanaltintop.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Algoritmalar Ders Notları</title>
+    <link href="https://ramazanaltintop.github.io/post/2905381219.html"/>
+    <id>https://ramazanaltintop.github.io/post/2905381219.html</id>
+    <published>2020-05-19T07:00:00.000Z</published>
+    <updated>2023-10-27T18:58:01.405Z</updated>
+    
+    
+    <summary type="html">Burada şifrelenmiş bir şey var. Okumaya devam etmek için parola gerekiyor</summary>
+    
+    
+    
+    <category term="Algoritmalar" scheme="https://ramazanaltintop.github.io/categories/Algoritmalar/"/>
+    
+    
+    <category term="recursive" scheme="https://ramazanaltintop.github.io/tags/recursive/"/>
+    
+    <category term="bitwise operations" scheme="https://ramazanaltintop.github.io/tags/bitwise-operations/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>STM32F103C8T6 - Ledin Birinci Buton 10Hz İkinci Butona Basıldığında 20Hz Yanması</title>
+    <link href="https://ramazanaltintop.github.io/post/3051233684.html"/>
+    <id>https://ramazanaltintop.github.io/post/3051233684.html</id>
+    <published>2020-05-06T07:00:00.000Z</published>
+    <updated>2023-10-27T19:03:50.800Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;Örnek:&lt;/strong&gt; PC_13’e bağlı olan LED’i birinci butona bastığımda 10Hz ikinci butona bastığımda 20Hz yakıp söndüren programı</summary>
+        
+      
+    
+    
+    
+    <category term="Mikroişlemciler" scheme="https://ramazanaltintop.github.io/categories/Mikroislemciler/"/>
+    
+    
+    <category term="stm32f103c8t6" scheme="https://ramazanaltintop.github.io/tags/stm32f103c8t6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>STM32F103C8T6 - SysTick</title>
+    <link href="https://ramazanaltintop.github.io/post/477999524.html"/>
+    <id>https://ramazanaltintop.github.io/post/477999524.html</id>
+    <published>2020-05-05T05:00:00.000Z</published>
+    <updated>2023-10-27T19:05:31.968Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Sabit bir zaman aralığında “SysTick Kesintileri” oluşturun.&lt;/p&gt;
+&lt;img src=&quot;/post/477999524/1.png&quot; class=&quot;&quot;&gt;
+&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Mikroişlemciler" scheme="https://ramazanaltintop.github.io/categories/Mikroislemciler/"/>
+    
+    
+    <category term="stm32f103c8t6" scheme="https://ramazanaltintop.github.io/tags/stm32f103c8t6/"/>
+    
+    <category term="systick" scheme="https://ramazanaltintop.github.io/tags/systick/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>STM32F103C8T6 - Yanıp Sönen Led Uygulaması - 2</title>
+    <link href="https://ramazanaltintop.github.io/post/680701429.html"/>
+    <id>https://ramazanaltintop.github.io/post/680701429.html</id>
+    <published>2020-05-04T11:35:00.000Z</published>
+    <updated>2023-10-27T19:06:28.247Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Sistem Mimarimizi(3.1) inceleyelim.&lt;/p&gt;
+&lt;img src=&quot;/post/680701429/1.png&quot; class=&quot;&quot;&gt;
+&lt;p&gt;Burada C portumuzun ‘Bridge 1’ ve ‘AHB System Bus’</summary>
+        
+      
+    
+    
+    
+    <category term="Mikroişlemciler" scheme="https://ramazanaltintop.github.io/categories/Mikroislemciler/"/>
+    
+    
+    <category term="stm32f103c8t6" scheme="https://ramazanaltintop.github.io/tags/stm32f103c8t6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>STM32F103C8T6 - Yanıp Sönen Led Uygulaması - 1</title>
+    <link href="https://ramazanaltintop.github.io/post/2979789903.html"/>
+    <id>https://ramazanaltintop.github.io/post/2979789903.html</id>
+    <published>2020-05-03T11:30:00.000Z</published>
+    <updated>2023-10-27T19:07:47.567Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Sistem Mimarimizi(3.1) inceleyelim.&lt;/p&gt;
+&lt;img src=&quot;/post/2979789903/1.png&quot; class=&quot;&quot;&gt;
+&lt;p&gt;Burada C portumuzun ‘Bridge 1’ ve ‘AHB System</summary>
+        
+      
+    
+    
+    
+    <category term="Mikroişlemciler" scheme="https://ramazanaltintop.github.io/categories/Mikroislemciler/"/>
+    
+    
+    <category term="stm32f103c8t6" scheme="https://ramazanaltintop.github.io/tags/stm32f103c8t6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>STM32F103C8T6 - Sürekli Yanan Led Uygulaması</title>
+    <link href="https://ramazanaltintop.github.io/post/2533557600.html"/>
+    <id>https://ramazanaltintop.github.io/post/2533557600.html</id>
+    <published>2020-05-02T09:00:00.000Z</published>
+    <updated>2023-10-27T19:08:45.882Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Devre şemamızı çizelim.&lt;/p&gt;
+&lt;img src=&quot;/post/2533557600/1.png&quot; class=&quot;&quot;&gt;
+&lt;p&gt;Sistem Mimarimizi(3.1) inceleyelim.&lt;/p&gt;
+&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Mikroişlemciler" scheme="https://ramazanaltintop.github.io/categories/Mikroislemciler/"/>
+    
+    
+    <category term="stm32f103c8t6" scheme="https://ramazanaltintop.github.io/tags/stm32f103c8t6/"/>
+    
+    <category term="interrupt" scheme="https://ramazanaltintop.github.io/tags/interrupt/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>STM32F103C8T6 - Interrupt - 2</title>
+    <link href="https://ramazanaltintop.github.io/post/2847049547.html"/>
+    <id>https://ramazanaltintop.github.io/post/2847049547.html</id>
+    <published>2020-05-01T08:00:00.000Z</published>
+    <updated>2023-10-27T19:10:04.607Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Sistem mimarimizi inceleyelim.&lt;/p&gt;
+&lt;img src=&quot;/post/2847049547/1.png&quot; class=&quot;&quot;&gt;
+&lt;p&gt;Port C, Port A ve Alternate Function RCC’ye bağlı</summary>
+        
+      
+    
+    
+    
+    <category term="Mikroişlemciler" scheme="https://ramazanaltintop.github.io/categories/Mikroislemciler/"/>
+    
+    
+    <category term="stm32f103c8t6" scheme="https://ramazanaltintop.github.io/tags/stm32f103c8t6/"/>
+    
+    <category term="interrupt" scheme="https://ramazanaltintop.github.io/tags/interrupt/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>STM32F103C8T6 - Interrupt</title>
+    <link href="https://ramazanaltintop.github.io/post/3820960494.html"/>
+    <id>https://ramazanaltintop.github.io/post/3820960494.html</id>
+    <published>2020-04-30T07:00:00.000Z</published>
+    <updated>2023-10-27T19:11:10.044Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;Interrupt:&lt;/strong&gt; Program akışında devam ederken, kurulu olan özel durum için o an yapmakta olan işini bırakıp, bu özel</summary>
+        
+      
+    
+    
+    
+    <category term="Mikroişlemciler" scheme="https://ramazanaltintop.github.io/categories/Mikroislemciler/"/>
+    
+    
+    <category term="stm32f103c8t6" scheme="https://ramazanaltintop.github.io/tags/stm32f103c8t6/"/>
+    
+    <category term="interrupt" scheme="https://ramazanaltintop.github.io/tags/interrupt/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VirtualBox Secure Boot Problemi Nasıl Çözülür?</title>
+    <link href="https://ramazanaltintop.github.io/post/25933388.html"/>
+    <id>https://ramazanaltintop.github.io/post/25933388.html</id>
+    <published>2020-04-20T07:00:00.000Z</published>
+    <updated>2023-10-27T18:58:01.364Z</updated>
+    
+    
+    <summary type="html">Burada şifrelenmiş bir şey var. Okumaya devam etmek için parola gerekiyor</summary>
+    
+    
+    
+    <category term="GNU/Linux" scheme="https://ramazanaltintop.github.io/categories/GNU-Linux/"/>
+    
+    
+    <category term="Debian" scheme="https://ramazanaltintop.github.io/tags/Debian/"/>
+    
+    <category term="Secure Boot" scheme="https://ramazanaltintop.github.io/tags/Secure-Boot/"/>
+    
+    <category term="VirtualBox" scheme="https://ramazanaltintop.github.io/tags/VirtualBox/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>XFCE Panel Tasarım Bütünlüğü Nasıl Sağlanır?</title>
+    <link href="https://ramazanaltintop.github.io/post/2501555113.html"/>
+    <id>https://ramazanaltintop.github.io/post/2501555113.html</id>
+    <published>2020-01-28T09:00:00.000Z</published>
+    <updated>2023-10-27T19:11:36.602Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Xfce üzerinde tema değişikliği yaptığımız zaman panel üzerinde menü ve pulse-audio plugin’in arkaplan rengiyle xfce panelin arkaplan</summary>
+        
+      
+    
+    
+    
+    <category term="GNU/Linux" scheme="https://ramazanaltintop.github.io/categories/GNU-Linux/"/>
+    
+    
+    <category term="debian" scheme="https://ramazanaltintop.github.io/tags/debian/"/>
+    
+    <category term="xfce" scheme="https://ramazanaltintop.github.io/tags/xfce/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Unable to locate theme engine in module path murrine</title>
+    <link href="https://ramazanaltintop.github.io/post/2544525991.html"/>
+    <id>https://ramazanaltintop.github.io/post/2544525991.html</id>
+    <published>2020-01-27T07:00:00.000Z</published>
+    <updated>2023-10-27T19:12:00.265Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;.xsession-errors çıktısını incelediğimizde bazı uyarılarla karşılaşıyoruz.&lt;/p&gt;
+&lt;img src=&quot;/post/2544525991/1.png&quot; class=&quot;&quot;&gt;
+&lt;p&gt;Problemin</summary>
+        
+      
+    
+    
+    
+    <category term="GNU/Linux" scheme="https://ramazanaltintop.github.io/categories/GNU-Linux/"/>
+    
+    
+    <category term="murrine" scheme="https://ramazanaltintop.github.io/tags/murrine/"/>
+    
+    <category term="gtk" scheme="https://ramazanaltintop.github.io/tags/gtk/"/>
+    
+    <category term="debian" scheme="https://ramazanaltintop.github.io/tags/debian/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kuyruklar</title>
+    <link href="https://ramazanaltintop.github.io/post/1062291645.html"/>
+    <id>https://ramazanaltintop.github.io/post/1062291645.html</id>
+    <published>2020-01-19T07:00:00.000Z</published>
+    <updated>2023-10-27T19:12:32.487Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Kuyruğa 10 adet eleman ekledik. Ardından kuyruktaki eleman sayısını yazdırdık.&lt;br&gt;Kuyruktan 10 tane eleman aldık. Ardından tekrar</summary>
+        
+      
+    
+    
+    
+    <category term="Veri Yapıları" scheme="https://ramazanaltintop.github.io/categories/Veri-Yapilari/"/>
+    
+    
+    <category term="dotnet core" scheme="https://ramazanaltintop.github.io/tags/dotnet-core/"/>
+    
+    <category term="kuyruklar" scheme="https://ramazanaltintop.github.io/tags/kuyruklar/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Arduino ile Mantıksal Devre Tasarımı Uygulamaları</title>
+    <link href="https://ramazanaltintop.github.io/post/363226186.html"/>
+    <id>https://ramazanaltintop.github.io/post/363226186.html</id>
+    <published>2019-12-31T07:00:00.000Z</published>
+    <updated>2023-10-27T19:15:33.220Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;Uygulama-1:&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="Mantıksal Devre Tasarımı" scheme="https://ramazanaltintop.github.io/categories/Mantiksal-Devre-Tasarimi/"/>
+    
+    
+    <category term="arduino" scheme="https://ramazanaltintop.github.io/tags/arduino/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Yığınlarla Infix Postfix İşlemleri Nasıl Yapılır?</title>
+    <link href="https://ramazanaltintop.github.io/post/2431698849.html"/>
+    <id>https://ramazanaltintop.github.io/post/2431698849.html</id>
+    <published>2019-12-24T07:00:00.000Z</published>
+    <updated>2023-10-27T19:16:47.803Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Yığın yapısı kullanarak Infix’ten Postfix’e dönüşüm işlemlerini şu şekillerle daha iyi anlayabiliriz.&lt;/p&gt;
+&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Veri Yapıları" scheme="https://ramazanaltintop.github.io/categories/Veri-Yapilari/"/>
+    
+    
+    <category term="dotnet core" scheme="https://ramazanaltintop.github.io/tags/dotnet-core/"/>
+    
+    <category term="stack" scheme="https://ramazanaltintop.github.io/tags/stack/"/>
+    
+    <category term="infix" scheme="https://ramazanaltintop.github.io/tags/infix/"/>
+    
+    <category term="postfix" scheme="https://ramazanaltintop.github.io/tags/postfix/"/>
     
   </entry>
   
