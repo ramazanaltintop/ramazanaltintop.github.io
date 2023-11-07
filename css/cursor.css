@@ -1,1 +1,73 @@
-#cursor{position:fixed;width:16px;height:16px;background:#ff4500;border-radius:8px;opacity:.25;z-index:10086;pointer-events:none;transition:.2s ease-in-out;transition-property:background,opacity,transform}#cursor.hidden{opacity:0}#cursor.hover{opacity:.1;transform:scale(2.5)}#cursor.active{opacity:.5;transform:scale(.5)}
+/* Cursor Option-1
+#cursor {
+    position: fixed;
+    width: 16px;
+    height: 16px;
+    background:orangered;
+    border-radius: 8px;
+    opacity: 0.25;
+    z-index: 10086;
+    pointer-events: none;
+    transition: 0.2s ease-in-out;
+    transition-property: background, opacity, transform;
+}
+
+#cursor.hidden {
+    opacity: 0;
+}
+
+#cursor.hover {
+    opacity: 0.1;
+    transform: scale(2.5);
+}
+
+#cursor.active {
+    opacity: 0.5;
+    transform: scale(0.5);
+}
+*/
+
+/* Cursor Option-2 */
+body, html {
+    cursor: url('/img/cur/arrow.cur'),auto !important;
+}
+
+/* Resmin üzerine gelindiğinde fare işaretçisi */
+img {
+    cursor: url('/img/cur/move.cur'),auto !important;
+}
+
+/* Bağlantı üzerine gelindiğinde fare işaretçisi */
+a:hover{
+    cursor: url('/img/cur/link.cur'),auto;
+}
+
+/* Giriş kutusu seçildiğinde fare işaretçisi */
+input:hover{
+    cursor: url('/img/cur/pen.cur'),auto;
+}
+
+/* Buton üzerinde fare işaretçisi */
+button:hover{
+    cursor: url('/img/cur/move.cur'),auto;
+}
+
+/* Liste etiketinin üzerinde gezinirken fare işaretçisi */
+i:hover{
+    cursor: url('/img/cur/link.cur'),auto;
+}
+
+/* Alt-bilgi bağlantı etiketleri üzerinde fare işaretçisi */
+#footer-wrap a:hover{
+    cursor: url('/img/cur/hand.cur'),auto;
+}
+
+/* Sayfa numarasının üzerine gelindiğinde fare işaretçisi */
+#pagination .page-number:hover{
+    cursor: url('/img/cur/hori.cur'),auto;
+}
+
+/* menü üzerinde fare işaretçisi */
+#nav .site-page:hover{
+    cursor: url('/img/cur/hand.cur'),auto;
+}
