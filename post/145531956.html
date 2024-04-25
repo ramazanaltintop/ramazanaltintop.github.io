@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="teal" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ramazanaltintop.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.19.2","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"teal","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Aranıyor...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Nesnelerin İnternetinde Arduino Cloud üzerinden nasıl bir bulut uygulamasının yapılabileceğini adım adım anlatacağım. Arduino Agent’ın bilgisayarımıza nasıl kurulacağı, devamında ilgili WeMos cihazını">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arduino Cloud ile Bulut Uygulaması Nasıl Yapılır?">
+<meta property="og:url" content="https://ramazanaltintop.github.io/post/145531956.html">
+<meta property="og:site_name" content="Ramazan ALTINTOP">
+<meta property="og:description" content="Nesnelerin İnternetinde Arduino Cloud üzerinden nasıl bir bulut uygulamasının yapılabileceğini adım adım anlatacağım. Arduino Agent’ın bilgisayarımıza nasıl kurulacağı, devamında ilgili WeMos cihazını">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/1.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/2.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/3.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/4.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/5.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/6.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/7.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/8.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/9.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/10.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/11.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/12.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/13.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/14.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/15.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/16.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/17.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/18.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/19.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/20.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/21.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/22.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/23.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/24.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/25.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/26.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/27.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/28.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/29.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/30.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/31.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/32.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/33.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/34.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/35.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/36.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/37.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/38.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/39.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/40.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/41.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/42.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/43.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/44.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/45.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/46.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/47.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/48.png">
+<meta property="og:image" content="https://ramazanaltintop.github.io/post/145531956/49.png">
+<meta property="article:published_time" content="2024-02-03T16:38:32.000Z">
+<meta property="article:modified_time" content="2024-04-25T07:49:23.950Z">
+<meta property="article:author" content="Ramazan ALTINTOP">
+<meta property="article:tag" content="Arduino Cloud Agent">
+<meta property="article:tag" content="Arduino">
+<meta property="article:tag" content="WeMos D1 R1">
+<meta property="article:tag" content="Cloud Application">
+<meta property="article:tag" content="Led Blink Application">
+<meta property="article:tag" content="Internet of Things">
+<meta property="article:tag" content="ESP8266">
+<meta property="article:tag" content="CH340">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ramazanaltintop.github.io/post/145531956/1.png">
+
+
+<link rel="canonical" href="https://ramazanaltintop.github.io/post/145531956.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"tr","comments":true,"permalink":"https://ramazanaltintop.github.io/post/145531956.html","path":"post/145531956.html","title":"Arduino Cloud ile Bulut Uygulaması Nasıl Yapılır?"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Arduino Cloud ile Bulut Uygulaması Nasıl Yapılır? | Ramazan ALTINTOP</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Gezinti çubuğunu değiştir" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ramazan ALTINTOP</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Kişisel Web Sitesi</p>
+      <img class="custom-logo-image" src="/uploads/custom-logo.png" alt="Ramazan ALTINTOP">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Ara" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-anasayfa"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Anasayfa</a></li><li class="menu-item menu-item-hakkımda"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>Hakkımda</a></li><li class="menu-item menu-item-çalışmalarım"><a href="/calismalarim/" rel="section"><i class="fa fa-user fa-fw"></i>Çalışmalarım</a></li><li class="menu-item menu-item-etiketler"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Etiketler</a></li><li class="menu-item menu-item-kategoriler"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Kategoriler</a></li><li class="menu-item menu-item-arşiv"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Arşiv</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Ara
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Aranıyor..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          İçindekiler
+        </li>
+        <li class="sidebar-nav-overview">
+          Genel Bakış
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Arduino-Cloud-Kayit-Olun"><span class="nav-number">1.</span> <span class="nav-text">Arduino Cloud Kayıt Olun</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Arduino-Cloud-Agent-Kurulumu-Nasil-Yapilir"><span class="nav-number">2.</span> <span class="nav-text">Arduino Cloud Agent Kurulumu Nasıl Yapılır?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Uyari"><span class="nav-number">2.1.</span> <span class="nav-text">Uyarı</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Uyari"><span class="nav-number">2.2.</span> <span class="nav-text">Uyarı</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nesne-Nasil-Eklenir"><span class="nav-number">3.</span> <span class="nav-text">Nesne Nasıl Eklenir?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nesneye-Bagli-Cihaz-Nasil-Eklenir"><span class="nav-number">4.</span> <span class="nav-text">Nesneye Bağlı Cihaz Nasıl Eklenir?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cihazin-Baglanacagi-Ag-Nasil-Tanimlanir"><span class="nav-number">5.</span> <span class="nav-text">Cihazın Bağlanacağı Ağ Nasıl Tanımlanır?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kod-Nasil-Dogrulanir-ve-Cihaza-Yuklenir"><span class="nav-number">6.</span> <span class="nav-text">Kod Nasıl Doğrulanır ve Cihaza Yüklenir?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cihazin-Online-Olup-Olmadigini-Nasil-Anlariz"><span class="nav-number">7.</span> <span class="nav-text">Cihazın Online Olup Olmadığını Nasıl Anlarız?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kodun-Gozden-Gecirilmesi-Islemleri"><span class="nav-number">8.</span> <span class="nav-text">Kodun Gözden Geçirilmesi İşlemleri</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nesneler"><span class="nav-number">9.</span> <span class="nav-text">Nesneler</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cihazlar"><span class="nav-number">10.</span> <span class="nav-text">Cihazlar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Simdiye-Kadar-Hangi-Islemler-Yapildi"><span class="nav-number">11.</span> <span class="nav-text">Şimdiye Kadar Hangi İşlemler Yapıldı?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basit-Bir-Led-Acip-Kapatma-Uygulamasi-Nasil-Yapilir"><span class="nav-number">12.</span> <span class="nav-text">Basit Bir Led Açıp Kapatma Uygulaması Nasıl Yapılır?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Degiskenler-Nasil-Eklenir"><span class="nav-number">13.</span> <span class="nav-text">Değişkenler Nasıl Eklenir?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dashboard-Nasil-Olusturulur"><span class="nav-number">14.</span> <span class="nav-text">Dashboard Nasıl Oluşturulur?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kodun-Revize-Edilmesi"><span class="nav-number">15.</span> <span class="nav-text">Kodun Revize Edilmesi</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kodun-Tekrardan-Cihaza-Yuklenmesi"><span class="nav-number">16.</span> <span class="nav-text">Kodun Tekrardan Cihaza Yüklenmesi</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sonuc"><span class="nav-number">17.</span> <span class="nav-text">Sonuç</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ramazan ALTINTOP"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Ramazan ALTINTOP</p>
+  <div class="site-description" itemprop="description">Edinmiş olduğum tecrübeleri, karşılaşmış olduğum problemlerin çözümlerini paylaştığım kişisel web siteme hoşgeldiniz.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">gönderiler</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">kategoriler</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-name">etiketler</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JhbWF6YW5hbHRpbnRvcA==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ramazanaltintop"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly95b3V0dWJlLmNvbS9yYW1hemFuYWx0aW50b3A=" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;ramazanaltintop"><i class="fab fa-youtube fa-fw"></i>YouTube</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9pbnN0YWdyYW0uY29tL3JhbWF6YW4uYWx0aW50b3A=" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;ramazan.altintop"><i class="fab fa-instagram fa-fw"></i>Instagram</span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC90cg=="><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <span class="exturl" data-url="aHR0cHM6Ly93ZWJyYXp6aS5jb20v" title="https:&#x2F;&#x2F;webrazzi.com&#x2F;">Webrazzi</span>
+            </li>
+            <li class="links-of-blogroll-item">
+              <span class="exturl" data-url="aHR0cHM6Ly93d3cuYnRoYWJlci5jb20v" title="https:&#x2F;&#x2F;www.bthaber.com&#x2F;">BThaber</span>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="tr">
+    <link itemprop="mainEntityOfPage" href="https://ramazanaltintop.github.io/post/145531956.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Ramazan ALTINTOP">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ramazan ALTINTOP">
+      <meta itemprop="description" content="Edinmiş olduğum tecrübeleri, karşılaşmış olduğum problemlerin çözümlerini paylaştığım kişisel web siteme hoşgeldiniz.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Arduino Cloud ile Bulut Uygulaması Nasıl Yapılır? | Ramazan ALTINTOP">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Arduino Cloud ile Bulut Uygulaması Nasıl Yapılır?
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Yayınlandı</span>
+
+      <time title="Oluşturuldu: 03-02-2024 19:38:32" itemprop="dateCreated datePublished" datetime="2024-02-03T19:38:32+03:00">03-02-2024</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">İçinde</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Nesnelerin-Interneti/" itemprop="url" rel="index"><span itemprop="name">Nesnelerin Interneti</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>Nesnelerin İnternetinde Arduino Cloud üzerinden nasıl bir bulut uygulamasının yapılabileceğini adım adım anlatacağım. Arduino Agent’ın bilgisayarımıza nasıl kurulacağı, devamında ilgili WeMos cihazının nasıl ekleneceği, oluşturmuş olduğumuz nesneyle nasıl ilişkilendirileceği, nesnemizi yöneteceğimiz bir Dashboard’un nasıl oluşturulacağı anlatılmıştır. Nesnemizi internete bağlayıp gömülü olan Led üzerinden basit bir led açıp kapatma uygulaması yapılmıştır.</p>
+<span id="more"></span>
+
+<h2 id="Arduino-Cloud-Kayit-Olun"><a href="#Arduino-Cloud-Kayit-Olun" class="headerlink" title="Arduino Cloud Kayıt Olun"></a>Arduino Cloud Kayıt Olun</h2><span class="exturl" data-url="aHR0cHM6Ly9jbG91ZC5hcmR1aW5vLmNjLw==">Arduino<i class="fa fa-external-link-alt"></i></span> butonuna tıklayarak ilgili kayıt işlemlerini gerçekleştirdikten sonra sisteme giriş yapalım.
+
+<h2 id="Arduino-Cloud-Agent-Kurulumu-Nasil-Yapilir"><a href="#Arduino-Cloud-Agent-Kurulumu-Nasil-Yapilir" class="headerlink" title="Arduino Cloud Agent Kurulumu Nasıl Yapılır?"></a>Arduino Cloud Agent Kurulumu Nasıl Yapılır?</h2><p>Üst menü üzerinden <mark class="label primary">Arduino Cloud</mark>a tıklayarak da ilgili sayfaya ulaşabilirsiniz. Başlamak için iyi seçeneklerden birisi olan <mark class="label primary">Discover Arduino Cloud</mark> bağlantısına tıklayalım.</p>
+<img data-src="/post/145531956/1.png" alt="Resim 1" style="zoom:85%;" />
+
+<p>Arduino Cloud’da birşey yapmaya başlayın. Arduino Cloud, çeşitli cihazlarda Arduino projeleri geliştirmek için uygulamalar, web hizmetleri ve kaynaklar sağlar. Bu başlangıç rehberi sayesinde Arduino kartını yada bir cep telefonunu kullanarak Cloud’un neler sunabileceğini keşfedeceğiz.</p>
+<mark class="label primary">LET'S MAKE</mark> butonuna tıklayarak devam edelim.
+
+<img data-src="/post/145531956/2.png" alt="Resim 2" style="zoom:85%;" />
+
+<p>Cihazımızın keşfedilebilir hale gelmesi ve yazmış olduğumuz kodların Arduino Cloud platformundan cihazımıza yükleyebilmemiz için <mark class="label primary">Arduino Cloud Agent</mark>’ın son sürümünü yükleyelim. Bunun için <mark class="label primary">DOWNLOAD</mark> butonuna tıklayalım.</p>
+<img data-src="/post/145531956/3.png" alt="Resim 3" style="zoom:85%;" />
+
+<div class="note danger"><h3 id="Uyari"><a href="#Uyari" class="headerlink" title="Uyarı"></a>Uyarı</h3><p>Eğer <mark class="label primary">File not found</mark> hatası alırsanız <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGUuYXJkdWluby5jYy9nZXR0aW5nLXN0YXJ0ZWQvcGx1Z2luL3dlbGNvbWU=">buradaki<i class="fa fa-external-link-alt"></i></span> bağlantıya gidiniz.</p>
+</div>
+
+<mark class="label primary">START</mark> butonuna tıklayalım ve devam edelim.
+
+<img data-src="/post/145531956/4.png" alt="Resim 4" style="zoom:85%;" />
+
+<mark class="label primary">DOWNLOAD FOR WIN64</mark> diyerek devam edelim(sisteminize göre seçim yapınız!) ve ilgili kurulum dosyasını bilgisayarımıza kaydedelim. İlgili kurulumu tamamlayalım.
+
+<div class="note warning"><h3 id="Uyari"><a href="#Uyari" class="headerlink" title="Uyarı"></a>Uyarı</h3><p>Kurulum esnasında karşılaştığınız izinleri vermeyi unutmayınız!…</p>
+</div>
+
+<img data-src="/post/145531956/5.png" alt="Resim 5" style="zoom:85%;" />
+
+<p>Antivirüs tarafından karantinaya alınma gibi birşey ile karşılaşırsanız aşağıdaki gibi bir durum ile karşılaşabilirsiniz.</p>
+<img data-src="/post/145531956/6.png" alt="Resim 6" style="zoom:85%;" />
+
+<p>Eksik driver’lar var ise kurulumlarını tamamlayalım.</p>
+<img data-src="/post/145531956/7.png" alt="Resim 7" style="zoom:85%;" />
+
+<p>Başarılı bir şekilde Agent’ımızı kurduk.</p>
+<img data-src="/post/145531956/8.png" alt="Resim 8" style="zoom:85%;" />
+
+<h2 id="Nesne-Nasil-Eklenir"><a href="#Nesne-Nasil-Eklenir" class="headerlink" title="Nesne Nasıl Eklenir?"></a>Nesne Nasıl Eklenir?</h2><p>Daha önceden eklediğimiz nesnelerin interneti cihazlarımızı görmek yada nesnelerin interneti cihazlarımızı yeniden eklemek için <mark class="label primary">IoT Cloud</mark> seçeneğine tıklayalım.</p>
+<img data-src="/post/145531956/9.png" alt="Resim 9" style="zoom:85%;" />
+
+<p>Henüz hiç nesnemiz bulunmamaktadır. <mark class="label primary">CREATE THING</mark> butonuna tıklayarak yeni bir nesne ekleyelim.</p>
+<img data-src="/post/145531956/10.png" alt="Resim 10" style="zoom:85%;" />
+
+<p>Bir tane IoT cihazına ihtiyacımız vardır. Biz burada WeMos D1 R1 kullanacağız. Bu kartın görselini aşağıda görebilirsiniz.</p>
+<img data-src="/post/145531956/11.png" alt="Resim 11" style="zoom:85%;" />
+
+<p>Oluşturduğumuz nesnenin adını koyalım.</p>
+<h2 id="Nesneye-Bagli-Cihaz-Nasil-Eklenir"><a href="#Nesneye-Bagli-Cihaz-Nasil-Eklenir" class="headerlink" title="Nesneye Bağlı Cihaz Nasıl Eklenir?"></a>Nesneye Bağlı Cihaz Nasıl Eklenir?</h2><p>İlgili kartımızı bilgisayarımıza bağlayalım. <mark class="label primary">Associated Device</mark> başlığı altında yer alan <mark class="label primary">Select Device</mark> butonuna tıklayarak yeni bir cihaz ile ilişkilendirelim.</p>
+<img data-src="/post/145531956/12.png" alt="Resim 12" style="zoom:85%;" />
+
+<mark class="label primary">Thing 1</mark> ile ilişkinlendirmek istediğiniz cihazı seçmemizi istiyor. Bunun için <mark class="label primary">SET UP NEW DEVICE</mark> butonuna tıklayalım.
+
+<img data-src="/post/145531956/13.png" alt="Resim 13" style="zoom:85%;" />
+
+<p>Arduino değil de Wemos kartı kullandığım için <mark class="label primary">Third party device</mark> seçeneğiyle devam ediyorum.</p>
+<img data-src="/post/145531956/14.png" alt="Resim 14" style="zoom:85%;" />
+
+<p>Yapılandırmak istediğimiz cihazın modelini seçelim.</p>
+<img data-src="/post/145531956/15.png" alt="Resim 15" style="zoom:85%;" />
+
+<p>Cihazımıza bir isim verelim ve <mark class="label primary">NEXT</mark> seçeneğiyle ilerleyelim.</p>
+<img data-src="/post/145531956/16.png" alt="Resim 16" style="zoom:85%;" />
+
+<p>Burada <mark class="label primary">Cihaz ID</mark>’mizi ve <mark class="label primary">Gizli Anahtar</mark>ımızı bir yere kaydedelim. Herhangi bir gizli anahtarın kaybolması durumunda cihazı silip yeniden kurmamız gerekecektir.</p>
+<img data-src="/post/145531956/17.png" alt="Resim 17" style="zoom:85%;" />
+
+<mark class="label primary">Download the PDF</mark> bağlantısına tıklayarak önem arz eden bilgilerimizi bilgisayarımıza kaydedebiliriz.
+
+<img data-src="/post/145531956/18.png" alt="Resim 18" style="zoom:85%;" />
+
+<p>Önemli olan bilgilerimizi bir yere kaydettikten sonra <mark class="label primary">I saved my device ID and Secret Key</mark> seçeneğini işaretli hale getirelim ve <mark class="label primary">Continue</mark> seçeneğiyle devam edelim.</p>
+<img data-src="/post/145531956/19.png" alt="Resim 19" style="zoom:85%;" />
+
+<mark class="label primary">Done</mark> seçeneğine tıklayarak işlemimizi tamamladık.
+
+<img data-src="/post/145531956/20.png" alt="Resim 20" style="zoom:85%;" />
+
+<h2 id="Cihazin-Baglanacagi-Ag-Nasil-Tanimlanir"><a href="#Cihazin-Baglanacagi-Ag-Nasil-Tanimlanir" class="headerlink" title="Cihazın Bağlanacağı Ağ Nasıl Tanımlanır?"></a>Cihazın Bağlanacağı Ağ Nasıl Tanımlanır?</h2><p>Cihazımızı bağlayacağımız ağı burada tanıtmamız gerekiyor. Bunun için <mark class="label primary">Network</mark> başlığı altında <mark class="label primary">Configure</mark> seçeneği ile devam edelim.</p>
+<img data-src="/post/145531956/21.png" alt="Resim 21" style="zoom:85%;" />
+
+<p>Kullanacağımız <mark class="label primary">ağın adı</mark>nı, <mark class="label primary">parola</mark>sını ve biraz önce önemli olarak atıfta bulunduğumuz <mark class="label primary">Gizli Anahtar</mark>ı girip <mark class="label primary">Save</mark> seçeneğiyle kaydediyoruz.</p>
+<img data-src="/post/145531956/22.png" alt="Resim 22" style="zoom:85%;" />
+
+<h2 id="Kod-Nasil-Dogrulanir-ve-Cihaza-Yuklenir"><a href="#Kod-Nasil-Dogrulanir-ve-Cihaza-Yuklenir" class="headerlink" title="Kod Nasıl Doğrulanır ve Cihaza Yüklenir?"></a>Kod Nasıl Doğrulanır ve Cihaza Yüklenir?</h2><mark class="label primary">Setup</mark> sekmesinde yapmış olduğumuz işlemler bitti. Burada yapmış olduğumuz ayarlamalar ile arkaplanda bir kod yazıldı. Şimdi bu kodu <mark class="label primary">Verify and Upload</mark> diyip kartımıza yüklememiz gerekiyor. Bunun için <mark class="label primary">Sketch</mark> sekmesine geçelim ve ilgili kodu kartımıza yükleyelim.
+
+<img data-src="/post/145531956/23.png" alt="Resim 23" style="zoom:85%;" />
+
+<p>Başarılı bir upload işleminin olduğuna dair çıktıyı elde ettik.</p>
+<img data-src="/post/145531956/24.png" alt="Resim 24" style="zoom:85%;" />
+
+<h2 id="Cihazin-Online-Olup-Olmadigini-Nasil-Anlariz"><a href="#Cihazin-Online-Olup-Olmadigini-Nasil-Anlariz" class="headerlink" title="Cihazın Online Olup Olmadığını Nasıl Anlarız?"></a>Cihazın Online Olup Olmadığını Nasıl Anlarız?</h2><mark class="label primary">Setup</mark> sekmesine geri dönüp sayfamızı yenileyelim. Artık cihazımızın <mark class="label primary">Online</mark> durumda olduğunu görebiliyoruz. Yani tanımlamış olduğumuz Wemos D1 R1 kartımız yine bizim tanımlamış olduğumuz ağa bağlıdır.
+
+<img data-src="/post/145531956/25.png" alt="Resim 25" style="zoom:85%;" />
+
+<h2 id="Kodun-Gozden-Gecirilmesi-Islemleri"><a href="#Kodun-Gozden-Gecirilmesi-Islemleri" class="headerlink" title="Kodun Gözden Geçirilmesi İşlemleri"></a>Kodun Gözden Geçirilmesi İşlemleri</h2><p>Kodu net bir şekilde görüp değiştirebilmemiz için <mark class="label primary">Sketch</mark> sekmesine geri dönüp buradan <mark class="label primary">Open full editor</mark> seçeneğine tıklayalım.</p>
+<img data-src="/post/145531956/26.png" alt="Resim 26" style="zoom:85%;" />
+
+<mark class="label primary">thingProperties</mark> adında bir header dosyamız mevcuttur. Bu, kodumuza dahil edilmiştir. Şimdi <mark class="label primary">thingProperties.h</mark> dosyamızı açalım.
+
+<img data-src="/post/145531956/27.png" alt="Resim 27" style="zoom:85%;" />
+
+<p>Kablosuz ağımızın adı ve parolası, ilgili cihazımızın gizli anahtarı gibi bilgiler buraya gelecektir. Ancak bu bilgiler buradan doğrudan verilmek yerine <mark class="label primary">Secret</mark>‘tan alınmıştır.</p>
+<img data-src="/post/145531956/28.png" alt="Resim 28" style="zoom:85%;" />
+
+<mark class="label primary">Secret</mark> dosyamızda aşağıdaki gibi bilgiler vardır.
+
+<img data-src="/post/145531956/29.png" alt="Resim 29" style="zoom:85%;" />
+
+<h2 id="Nesneler"><a href="#Nesneler" class="headerlink" title="Nesneler"></a>Nesneler</h2><p>Şu anda toplam 1 tane cihazımızı kurduk. Wemos D1 R1 kartımızı kurduk. Ücretsiz bir versiyon kullandığımız için <em>maksimum 2 tane cihaz</em> tanımlayabiliyoruz.</p>
+<img data-src="/post/145531956/30.png" alt="Resim 30" style="zoom:85%;" />
+
+<mark class="label primary">Templates</mark> sayfası altında yer alan hazır şablonları kullanabilmemiz için destekli olan kartları kullanıyor olmamız gereklidir.
+
+<h2 id="Cihazlar"><a href="#Cihazlar" class="headerlink" title="Cihazlar"></a>Cihazlar</h2><p>Wemos D1 R1 kartımızı yani ilgili cihazımızı internete bağladık. Sonrasında bununla bir IoT nesnesi oluşturduk. <mark class="label primary">Devices</mark> kısmına gelecek olursak zaten ilgili cihazımızı tanımladığımızı göreceğiz.</p>
+<img data-src="/post/145531956/31.png" alt="Resim 31" style="zoom:85%;" />
+
+<h2 id="Simdiye-Kadar-Hangi-Islemler-Yapildi"><a href="#Simdiye-Kadar-Hangi-Islemler-Yapildi" class="headerlink" title="Şimdiye Kadar Hangi İşlemler Yapıldı?"></a>Şimdiye Kadar Hangi İşlemler Yapıldı?</h2><p>Sonuç olarak bir cihaz oluşturduk. Sonrasında bir nesne oluşturduk (Thing1) ve ilgili nesnemize kullanacağımız cihaz olan Wemos kartımızı ilişkilendirdik. Ardından nesnemizi internete bağladık. Thing1 nesnemizi Wemos D1 R1 kartı ile yapıyorum. Birisi karttır. Birisi de bu kart ile kontrol edeceğimiz nesneyi ifade ediyor.</p>
+<p>Things: İçerisinde nesnelerim yer alır.<br>Devices: Nesnelerin içerisinde kullanacağımız kartlar yer alır.</p>
+<h2 id="Basit-Bir-Led-Acip-Kapatma-Uygulamasi-Nasil-Yapilir"><a href="#Basit-Bir-Led-Acip-Kapatma-Uygulamasi-Nasil-Yapilir" class="headerlink" title="Basit Bir Led Açıp Kapatma Uygulaması Nasıl Yapılır?"></a>Basit Bir Led Açıp Kapatma Uygulaması Nasıl Yapılır?</h2><p>Ben, Things1 ile Wemos D1 R1 kartım üzerinde bulunan gömülü olan Led’imi açıp kapatacağım.</p>
+<p>Öncelikle <mark class="label primary">Arduino Cloud</mark>umuza gidelim ve <mark class="label primary">Get started with IoT projects</mark>‘e tıklayalım.</p>
+<img data-src="/post/145531956/32.png" alt="Resim 32" style="zoom:85%;" />
+
+<p>Menü üzerinden <mark class="label primary">ESP32 / ESP8266</mark>‘ya tıklayalım. Devamında <mark class="label primary">Connecting ESP32 & ESP8266 to Arduino Cloud IoT</mark>‘ye tıklayalım.</p>
+<img data-src="/post/145531956/33.png" alt="Resim 33" style="zoom:85%;" />
+
+<mark class="label primary">Device</mark> ve <mark class="label primary">Thing</mark> ekleme aşamalarını yapmıştık. Bu yüzden o kısımları atlayalım.
+
+<h2 id="Degiskenler-Nasil-Eklenir"><a href="#Degiskenler-Nasil-Eklenir" class="headerlink" title="Değişkenler Nasıl Eklenir?"></a>Değişkenler Nasıl Eklenir?</h2><p>Bu sistemde uzaktan kontrol sağlayabilmemiz için 2 tane değişkene ihtiyacımız vardır. Şu anda ledin yanıp yanmadığını hafızada tutabilmemiz için bir değişken ve led’i açma – kapama sinyalini göndereceğimiz değişkendir.</p>
+<ul>
+<li>random_value</li>
+<li>led_switch</li>
+</ul>
+<img data-src="/post/145531956/34.png" alt="Resim 34" style="zoom:85%;" />
+
+<p>Öncelikle <mark class="label primary">IoT Cloud</mark>umuza dönelim ve oluşturduğumuz <mark class="label primary">Thing1</mark> adlı nesneyi açalım.</p>
+<img data-src="/post/145531956/35.png" alt="Resim 35" style="zoom:85%;" />
+
+<mark class="label primary">Add Variable</mark> seçeneğine tıklayalım.
+
+<img data-src="/post/145531956/36.png" alt="Resim 36" style="zoom:85%;" />
+
+<p>İlk değişkenimizi ekleyelim.</p>
+<ul>
+<li>random_value</li>
+<li>int</li>
+<li>read only</li>
+</ul>
+<p>İlgili özelliklerimizi seçtikten sonra <mark class="label primary">Add Variable</mark> ile ilk değişkenimizi ekleyelim.</p>
+<img data-src="/post/145531956/37.png" alt="Resim 37" style="zoom:85%;" />
+
+<p>İkinci değişkenimizi ekleyelim.</p>
+<ul>
+<li>led_switch</li>
+<li>boolean</li>
+<li>read &amp; write</li>
+</ul>
+<p>İlgili özelliklerimizi seçtikten sonra <mark class="label primary">Add Variable</mark> ile ikinci değişkenimizi ekleyelim.</p>
+<img data-src="/post/145531956/38.png" alt="Resim 38" style="zoom:85%;" />
+
+<p>Değişkenlerimizi ekledik.</p>
+<p>Bu şekilde arayüz üzerinden aslında arkaplanda otomatik olarak Arduino kodunun oluşturulmasını sağlıyoruz.</p>
+<img data-src="/post/145531956/39.png" alt="Resim 39" style="zoom:85%;" />
+
+<h2 id="Dashboard-Nasil-Olusturulur"><a href="#Dashboard-Nasil-Olusturulur" class="headerlink" title="Dashboard Nasıl Oluşturulur?"></a>Dashboard Nasıl Oluşturulur?</h2><mark class="label primary">Thing1</mark> nesnemin durumunu görüp komut gönderebilmek amacıyla bir <mark class="label primary">Dashboard</mark> oluşturmamız gerekir. Menü üzerinden <mark class="label primary">Dashboards</mark>'a tıklayalım. <mark class="label primary">Build Dashboard</mark> diyelim.
+
+<img data-src="/post/145531956/40.png" alt="Resim 40" style="zoom:85%;" />
+
+<p><strong>“Add” &gt; “Things” &gt; “Thing1”</strong> diyerek ilgili nesnemizi seçelim.</p>
+<img data-src="/post/145531956/41.png" alt="Resim 41" style="zoom:85%;" />
+
+<p>İlgili değişkenler seçili halde geliyor. <mark class="label primary">Create Widgets</mark> diyelim.</p>
+<img data-src="/post/145531956/42.png" alt="Resim 42" style="zoom:85%;" />
+
+<h2 id="Kodun-Revize-Edilmesi"><a href="#Kodun-Revize-Edilmesi" class="headerlink" title="Kodun Revize Edilmesi"></a>Kodun Revize Edilmesi</h2><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmFyZHVpbm8uY2MvYXJkdWluby1jbG91ZC9nZXR0aW5nLXN0YXJ0ZWQvZXNwLTMyLWNsb3VkI2NvbXBsZXRlLXNrZXRjaA==">Buradaki<i class="fa fa-external-link-alt"></i></span> adrese dönecek olursak kodumuzu şu şekilde revize edelim.
+
+<img data-src="/post/145531956/43.png" alt="Resim 43" style="zoom:85%;" />
+
+<img data-src="/post/145531956/44.png" alt="Resim 44" style="zoom:85%;" />
+
+<img data-src="/post/145531956/45.png" alt="Resim 45" style="zoom:85%;" />
+
+<h2 id="Kodun-Tekrardan-Cihaza-Yuklenmesi"><a href="#Kodun-Tekrardan-Cihaza-Yuklenmesi" class="headerlink" title="Kodun Tekrardan Cihaza Yüklenmesi"></a>Kodun Tekrardan Cihaza Yüklenmesi</h2><p>Kodumuzu düzenledikten sonra <mark class="label primary">ESP8266 WeMos D1 R1</mark>e tıklayalım. COM4 portunu seçelim.</p>
+<img data-src="/post/145531956/46.png" alt="Resim 46" style="zoom:85%;" />
+
+<mark class="label primary">ESP8266 WeMos D1 R1</mark>i seçelim ve <mark class="label primary">OK</mark> seçeneğine tıklayalım.
+
+<img data-src="/post/145531956/47.png" alt="Resim 47" style="zoom:85%;" />
+
+<mark class="label primary">Upload and Save</mark> seçeneğiyle devam edelim.
+
+<img data-src="/post/145531956/48.png" alt="Resim 48" style="zoom:85%;" />
+
+<p>Başarılı bir şekilde kodumuz yüklendi.</p>
+<img data-src="/post/145531956/49.png" alt="Resim 49" style="zoom:85%;" />
+
+<h2 id="Sonuc"><a href="#Sonuc" class="headerlink" title="Sonuç"></a>Sonuç</h2><p>Şimdi Dashboard’umuza gelelim. Random sayıların 500 ms’de bir değiştiğini görebiliriz. Led’i de switch aracılığıyla başarılı bir şekilde açıp kapatabiliyoruz.</p>
+<p>Basit bir led açıp kapatma uygulamasını bu şekilde yapmış olduk.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Gönderiyi yazan:  </strong>Ramazan ALTINTOP
+  </li>
+  <li class="post-copyright-link">
+      <strong>Gönderi bağlantısı: </strong>
+      <a href="https://ramazanaltintop.github.io/post/145531956.html" title="Arduino Cloud ile Bulut Uygulaması Nasıl Yapılır?">https://ramazanaltintop.github.io/post/145531956.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Telif Hakkı Bildirimi:  </strong>Bu blogdaki tüm makaleler aksi belirtilmediği sürece <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC90cg=="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> altında lisanslıdır.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Arduino-Cloud-Agent/" rel="tag"><i class="fa fa-tag"></i> Arduino Cloud Agent</a>
+              <a href="/tags/Arduino/" rel="tag"><i class="fa fa-tag"></i> Arduino</a>
+              <a href="/tags/WeMos-D1-R1/" rel="tag"><i class="fa fa-tag"></i> WeMos D1 R1</a>
+              <a href="/tags/Cloud-Application/" rel="tag"><i class="fa fa-tag"></i> Cloud Application</a>
+              <a href="/tags/Led-Blink-Application/" rel="tag"><i class="fa fa-tag"></i> Led Blink Application</a>
+              <a href="/tags/Internet-of-Things/" rel="tag"><i class="fa fa-tag"></i> Internet of Things</a>
+              <a href="/tags/ESP8266/" rel="tag"><i class="fa fa-tag"></i> ESP8266</a>
+              <a href="/tags/CH340/" rel="tag"><i class="fa fa-tag"></i> CH340</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/1729220706.html" rel="prev" title="Wemos D1 R1 Yapılandırması Nasıl Yapılır?">
+                  <i class="fa fa-angle-left"></i> Wemos D1 R1 Yapılandırması Nasıl Yapılır?
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-code"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ramazan ALTINTOP</span>
+  </div>
+  <div class="powered-by"><span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> tarafından desteklenmektedir
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JhbWF6YW5hbHRpbnRvcA==" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.12/pdfobject.min.js","integrity":"sha256-g2xji1rlE3KsGVClvuxTbcR0Kn2+wtQADSff2Tbb4zA="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"ramazanaltintop/ramazanaltintop.github.io","issue_term":"pathname","theme":"icy-dark"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>
