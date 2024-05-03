@@ -37,25 +37,28 @@
       </tags>
   </entry>
   <entry>
-    <title>KVM, BIOS Tarafından Devredışı Bırakıldı Problemi Nasıl Çözülür?</title>
-    <url>/post/3236384314.html</url>
-    <content><![CDATA[<p>KVM, linux çekirdekli sistemler üzerinde, “çekirdek seviyesinde” sanallaştırma yapmamıza imkan veren bir sanallaştırma uygulamasıdır. Diğer sanallaştırma teknolojilerinin aksine hızlı, ve çekirdek seviyesinde çalışmasından dolayıda çok güvenlidir.</p>
+    <title>Touchpad Kurulumu ve Yapılandırması Nasıl Yapılır?</title>
+    <url>/post/611388161.html</url>
+    <content><![CDATA[<p>Extra deposundaki xf86-input-synaptics paketini yüklemeliyiz. Aşağıdaki komutlarla kurulumu tamamlayalım.</p>
 <span id="more"></span>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ egrep <span class="string">&#x27;^flags.*(vmx|svm)&#x27;</span> /proc/cpuinfo</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S xf86-input-synaptics</span><br></pre></td></tr></table></figure>
 
-<p>komutu ile sisteminizin kvm ‘ yi destekleyip desteklemediğini görebilirsiniz.</p>
-<p>Açılışta aldığım kvm disabled by bios hatası için bios ayarlarımı düzenledim.</p>
-<p>Intel Virtual Technology kısmını Enable olarak ayarlayıp reboot ettikten sonra sorun düzeldi.</p>
-<img data-src="/post/3236384314/1.png" class="">
+<p>Şimdi Touchpad’imizi yapılandıralım. Kurulumu tamamladıktan sonra öntanımlı yapılandırma dosyası aşağıdaki yere gidecektir.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/share/X11/xorg.conf.d/70-synaptics.conf</span><br></pre></td></tr></table></figure>
+
+<p>70-synaptics.conf dosyasını &#x2F;etc&#x2F;X11&#x2F;xorg.conf.d ‘ ye kopyalayalım.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo <span class="built_in">cp</span> /usr/share/X11/xorg.conf.d/70-synaptics.conf /etc/X11/xorg.conf.d</span><br></pre></td></tr></table></figure>
+
+<p>Bilgisayarımızı yeniden başlatalım.</p>
+<p>Bu yazıda touchpad yapılandırması ve kurulumundan bahsettik. Daha fazla bilgi için <span class="exturl" data-url="aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvaW5kZXgucGhwL1RvdWNocGFkX1N5bmFwdGljcyNDb25maWd1cmF0aW9u">https://wiki.archlinux.org/index.php/Touchpad_Synaptics#Configuration<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <categories>
         <category>GNU/Linux</category>
       </categories>
       <tags>
         <tag>arch linux</tag>
-        <tag>kvm</tag>
-        <tag>bios</tag>
+        <tag>touchpad</tag>
       </tags>
   </entry>
   <entry>
@@ -93,28 +96,24 @@
       </tags>
   </entry>
   <entry>
-    <title>Touchpad Kurulumu ve Yapılandırması Nasıl Yapılır?</title>
-    <url>/post/611388161.html</url>
-    <content><![CDATA[<p>Extra deposundaki xf86-input-synaptics paketini yüklemeliyiz. Aşağıdaki komutlarla kurulumu tamamlayalım.</p>
+    <title>Steam Kurulum Problemi Nasıl Çözülür?</title>
+    <url>/post/1616795057.html</url>
+    <content><![CDATA[<p>Birkaç gün önce steam yükledim. Fakat Steam’i açmaya çalıştığımda açılmadı. Bu yüzden uçbirim üzerinde Steam’i açıp çıktılarına baktım ve aşağıdaki çıktıları elde ettim.</p>
 <span id="more"></span>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S xf86-input-synaptics</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/home/ramazan/.local/share/Steam/steam.sh: line 154: VERSION_ID: unbound variable</span><br><span class="line">/home/ramazan/.local/share/Steam/steam.sh: line 154: VERSION_ID: unbound variable</span><br><span class="line">Running Steam on <span class="built_in">arch</span>  64-bit</span><br><span class="line">/home/ramazan/.local/share/Steam/steam.sh: line 154: VERSION_ID: unbound variable</span><br><span class="line">STEAM_RUNTIME is enabled automatically</span><br><span class="line">Installing breakpad exception handler <span class="keyword">for</span> appid(steam)/version(1468023329)</span><br><span class="line">libGL error: unable to load driver: i965_dri.so</span><br><span class="line">libGL error: driver pointer missing</span><br><span class="line">libGL error: failed to load driver: i965</span><br><span class="line">libGL error: unable to load driver: i965_dri.so</span><br><span class="line">libGL error: driver pointer missing</span><br><span class="line">libGL error: failed to load driver: i965</span><br><span class="line">libGL error: unable to load driver: swrast_dri.so</span><br><span class="line">libGL error: failed to load driver: swrast</span><br></pre></td></tr></table></figure>
 
-<p>Şimdi Touchpad’imizi yapılandıralım. Kurulumu tamamladıktan sonra öntanımlı yapılandırma dosyası aşağıdaki yere gidecektir.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/share/X11/xorg.conf.d/70-synaptics.conf</span><br></pre></td></tr></table></figure>
+<p>Bunun çözümü için Aşağıdaki komutları sırasıyla girdim.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find ~/.steam/root/ \( -name <span class="string">&quot;libgcc_s.so*&quot;</span> -o -name <span class="string">&quot;libstdc++.so*&quot;</span> -o -name <span class="string">&quot;libxcb.so*&quot;</span> -o -name <span class="string">&quot;libgpg-error.so*&quot;</span> \) -<span class="built_in">print</span> -delete</span><br><span class="line">find ~/.local/share/Steam/ \( -name <span class="string">&quot;libgcc_s.so*&quot;</span> -o -name <span class="string">&quot;libstdc++.so*&quot;</span> -o -name <span class="string">&quot;libxcb.so*&quot;</span> -o -name <span class="string">&quot;libgpg-error.so*&quot;</span> \) -<span class="built_in">print</span> -delete</span><br><span class="line"><span class="built_in">rm</span> -f ~/.local/share/Steam/ubuntu12_32/steam-runtime/i386/usr/lib/i386-linux-gnu/libstdc++.so.6</span><br><span class="line"><span class="built_in">rm</span> -f ~/.local/share/Steam/ubuntu12_32/steam-runtime/i386/usr/lib/i386-linux-gnu/libgcc_s.so.1</span><br><span class="line">LC_ALL=C steam</span><br></pre></td></tr></table></figure>
 
-<p>70-synaptics.conf dosyasını &#x2F;etc&#x2F;X11&#x2F;xorg.conf.d ‘ ye kopyalayalım.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo <span class="built_in">cp</span> /usr/share/X11/xorg.conf.d/70-synaptics.conf /etc/X11/xorg.conf.d</span><br></pre></td></tr></table></figure>
-
-<p>Bilgisayarımızı yeniden başlatalım.</p>
-<p>Bu yazıda touchpad yapılandırması ve kurulumundan bahsettik. Daha fazla bilgi için <span class="exturl" data-url="aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvaW5kZXgucGhwL1RvdWNocGFkX1N5bmFwdGljcyNDb25maWd1cmF0aW9u">https://wiki.archlinux.org/index.php/Touchpad_Synaptics#Configuration<i class="fa fa-external-link-alt"></i></span></p>
+<p>Kurulumdan sonra menümde steam’i açabilirim.</p>
 ]]></content>
       <categories>
         <category>GNU/Linux</category>
       </categories>
       <tags>
         <tag>arch linux</tag>
-        <tag>touchpad</tag>
+        <tag>steam</tag>
       </tags>
   </entry>
   <entry>
@@ -141,24 +140,25 @@
       </tags>
   </entry>
   <entry>
-    <title>Steam Kurulum Problemi Nasıl Çözülür?</title>
-    <url>/post/1616795057.html</url>
-    <content><![CDATA[<p>Birkaç gün önce steam yükledim. Fakat Steam’i açmaya çalıştığımda açılmadı. Bu yüzden uçbirim üzerinde Steam’i açıp çıktılarına baktım ve aşağıdaki çıktıları elde ettim.</p>
+    <title>KVM, BIOS Tarafından Devredışı Bırakıldı Problemi Nasıl Çözülür?</title>
+    <url>/post/3236384314.html</url>
+    <content><![CDATA[<p>KVM, linux çekirdekli sistemler üzerinde, “çekirdek seviyesinde” sanallaştırma yapmamıza imkan veren bir sanallaştırma uygulamasıdır. Diğer sanallaştırma teknolojilerinin aksine hızlı, ve çekirdek seviyesinde çalışmasından dolayıda çok güvenlidir.</p>
 <span id="more"></span>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/home/ramazan/.local/share/Steam/steam.sh: line 154: VERSION_ID: unbound variable</span><br><span class="line">/home/ramazan/.local/share/Steam/steam.sh: line 154: VERSION_ID: unbound variable</span><br><span class="line">Running Steam on <span class="built_in">arch</span>  64-bit</span><br><span class="line">/home/ramazan/.local/share/Steam/steam.sh: line 154: VERSION_ID: unbound variable</span><br><span class="line">STEAM_RUNTIME is enabled automatically</span><br><span class="line">Installing breakpad exception handler <span class="keyword">for</span> appid(steam)/version(1468023329)</span><br><span class="line">libGL error: unable to load driver: i965_dri.so</span><br><span class="line">libGL error: driver pointer missing</span><br><span class="line">libGL error: failed to load driver: i965</span><br><span class="line">libGL error: unable to load driver: i965_dri.so</span><br><span class="line">libGL error: driver pointer missing</span><br><span class="line">libGL error: failed to load driver: i965</span><br><span class="line">libGL error: unable to load driver: swrast_dri.so</span><br><span class="line">libGL error: failed to load driver: swrast</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ egrep <span class="string">&#x27;^flags.*(vmx|svm)&#x27;</span> /proc/cpuinfo</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br></pre></td></tr></table></figure>
 
-<p>Bunun çözümü için Aşağıdaki komutları sırasıyla girdim.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find ~/.steam/root/ \( -name <span class="string">&quot;libgcc_s.so*&quot;</span> -o -name <span class="string">&quot;libstdc++.so*&quot;</span> -o -name <span class="string">&quot;libxcb.so*&quot;</span> -o -name <span class="string">&quot;libgpg-error.so*&quot;</span> \) -<span class="built_in">print</span> -delete</span><br><span class="line">find ~/.local/share/Steam/ \( -name <span class="string">&quot;libgcc_s.so*&quot;</span> -o -name <span class="string">&quot;libstdc++.so*&quot;</span> -o -name <span class="string">&quot;libxcb.so*&quot;</span> -o -name <span class="string">&quot;libgpg-error.so*&quot;</span> \) -<span class="built_in">print</span> -delete</span><br><span class="line"><span class="built_in">rm</span> -f ~/.local/share/Steam/ubuntu12_32/steam-runtime/i386/usr/lib/i386-linux-gnu/libstdc++.so.6</span><br><span class="line"><span class="built_in">rm</span> -f ~/.local/share/Steam/ubuntu12_32/steam-runtime/i386/usr/lib/i386-linux-gnu/libgcc_s.so.1</span><br><span class="line">LC_ALL=C steam</span><br></pre></td></tr></table></figure>
-
-<p>Kurulumdan sonra menümde steam’i açabilirim.</p>
+<p>komutu ile sisteminizin kvm ‘ yi destekleyip desteklemediğini görebilirsiniz.</p>
+<p>Açılışta aldığım kvm disabled by bios hatası için bios ayarlarımı düzenledim.</p>
+<p>Intel Virtual Technology kısmını Enable olarak ayarlayıp reboot ettikten sonra sorun düzeldi.</p>
+<img data-src="/post/3236384314/1.png" class="">
 ]]></content>
       <categories>
         <category>GNU/Linux</category>
       </categories>
       <tags>
         <tag>arch linux</tag>
-        <tag>steam</tag>
+        <tag>kvm</tag>
+        <tag>bios</tag>
       </tags>
   </entry>
   <entry>
@@ -190,26 +190,27 @@
       </tags>
   </entry>
   <entry>
-    <title>glxinfo Komut Yok Hatası Nasıl Çözülür?</title>
-    <url>/post/950666780.html</url>
-    <content><![CDATA[<p>Komutu girdiğimde şu şekilde bir hata alıyorum.</p>
+    <title>Spice Grafikleri Desteklenmedi Problemi Nasıl Çözülür?</title>
+    <url>/post/331929281.html</url>
+    <content><![CDATA[<p>Virt-manager programını açtım. Sanal makineyi oluşturma esnasında hata aldım.</p>
 <span id="more"></span>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ glxinfo | grep direct</span><br><span class="line">bash: glxinfo: <span class="built_in">command</span> not found</span><br></pre></td></tr></table></figure>
+<img data-src="/post/331929281/1.png" class="">
 
-<p>Bu problemin kalkması için aşağıdaki paketi kurunuz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S mesa-demos</span><br><span class="line">paket bağımlılıkları çözümleniyor...</span><br><span class="line">varsa paketler arası çakışmalara bakılıyor...</span><br><span class="line"></span><br><span class="line">Paketler (3) freeglut-3.0.0-2  glew-2.1.0-1  mesa-demos-8.4.0-1</span><br><span class="line"></span><br><span class="line">Toplam İndirme Boyutu:  1,84 MiB</span><br><span class="line">Toplam Kurulum Boyutu:  9,82 MiB</span><br><span class="line"></span><br><span class="line">:: Kuruluma onay veriyor musunuz? [E/h] E</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">:: Bağlantılı işlemler listesi çalışıyor...</span><br><span class="line">(1/1) Arming ConditionNeedsUpdate...</span><br></pre></td></tr></table></figure>
-
-<p>Ardından komutumuzu tekrar girelim.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ glxinfo | grep direct</span><br><span class="line">direct rendering: Yes</span><br><span class="line">    GL_ARB_depth_clamp, GL_ARB_derivative_control, GL_ARB_direct_state_access,</span><br><span class="line">    GL_ARB_draw_elements_base_vertex, GL_ARB_draw_indirect,</span><br><span class="line">    GL_ARB_indirect_parameters, GL_ARB_instanced_arrays,</span><br><span class="line">    GL_ARB_map_buffer_range, GL_ARB_multi_bind, GL_ARB_multi_draw_indirect,</span><br><span class="line">    GL_ARB_draw_elements_base_vertex, GL_ARB_draw_indirect,</span><br><span class="line">    GL_ARB_indirect_parameters, GL_ARB_instanced_arrays,</span><br><span class="line">    GL_ARB_map_buffer_range, GL_ARB_multi_bind, GL_ARB_multi_draw_indirect,</span><br></pre></td></tr></table></figure>
+<p>unsupported configuration: spice graphics are not supported with this QEMU.</p>
+<p>Bunun çözümü için;</p>
+<p>qemu-git paketini bağımlılıklarıyla beraber sildim. Sonra qemu-spice paketinin kurulumunu yaptım.</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9hdXIuYXJjaGxpbnV4Lm9yZy9wYWNrYWdlcy9xZW11LXNwaWNlLw==">qemu-spice-AUR<i class="fa fa-external-link-alt"></i></span></p>
+<p>Bu problemi bu paketin kurulumuyla çözdüm.</p>
 ]]></content>
       <categories>
         <category>GNU/Linux</category>
       </categories>
       <tags>
         <tag>arch linux</tag>
-        <tag>glxinfo</tag>
-        <tag>mesa demos</tag>
+        <tag>qemu</tag>
+        <tag>virt manager</tag>
+        <tag>spice</tag>
       </tags>
   </entry>
   <entry>
@@ -236,6 +237,48 @@
         <tag>arch linux</tag>
         <tag>conky</tag>
         <tag>compiling</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>glxinfo Komut Yok Hatası Nasıl Çözülür?</title>
+    <url>/post/950666780.html</url>
+    <content><![CDATA[<p>Komutu girdiğimde şu şekilde bir hata alıyorum.</p>
+<span id="more"></span>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ glxinfo | grep direct</span><br><span class="line">bash: glxinfo: <span class="built_in">command</span> not found</span><br></pre></td></tr></table></figure>
+
+<p>Bu problemin kalkması için aşağıdaki paketi kurunuz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S mesa-demos</span><br><span class="line">paket bağımlılıkları çözümleniyor...</span><br><span class="line">varsa paketler arası çakışmalara bakılıyor...</span><br><span class="line"></span><br><span class="line">Paketler (3) freeglut-3.0.0-2  glew-2.1.0-1  mesa-demos-8.4.0-1</span><br><span class="line"></span><br><span class="line">Toplam İndirme Boyutu:  1,84 MiB</span><br><span class="line">Toplam Kurulum Boyutu:  9,82 MiB</span><br><span class="line"></span><br><span class="line">:: Kuruluma onay veriyor musunuz? [E/h] E</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">:: Bağlantılı işlemler listesi çalışıyor...</span><br><span class="line">(1/1) Arming ConditionNeedsUpdate...</span><br></pre></td></tr></table></figure>
+
+<p>Ardından komutumuzu tekrar girelim.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ glxinfo | grep direct</span><br><span class="line">direct rendering: Yes</span><br><span class="line">    GL_ARB_depth_clamp, GL_ARB_derivative_control, GL_ARB_direct_state_access,</span><br><span class="line">    GL_ARB_draw_elements_base_vertex, GL_ARB_draw_indirect,</span><br><span class="line">    GL_ARB_indirect_parameters, GL_ARB_instanced_arrays,</span><br><span class="line">    GL_ARB_map_buffer_range, GL_ARB_multi_bind, GL_ARB_multi_draw_indirect,</span><br><span class="line">    GL_ARB_draw_elements_base_vertex, GL_ARB_draw_indirect,</span><br><span class="line">    GL_ARB_indirect_parameters, GL_ARB_instanced_arrays,</span><br><span class="line">    GL_ARB_map_buffer_range, GL_ARB_multi_bind, GL_ARB_multi_draw_indirect,</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>glxinfo</tag>
+        <tag>mesa demos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Requested operation is not valid network &#39;default&#39; is not active Problemi Nasıl Çözülür?</title>
+    <url>/post/2393086311.html</url>
+    <content><![CDATA[<p>Bu problemin çözümü için aşağıdaki komutu yazmanız yeterli olacaktır.</p>
+<span id="more"></span>
+
+<img data-src="/post/2393086311/1.png" class="">
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo virsh net-start default</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>virt manager</tag>
+        <tag>virsh</tag>
       </tags>
   </entry>
   <entry>
@@ -300,30 +343,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Spice Grafikleri Desteklenmedi Problemi Nasıl Çözülür?</title>
-    <url>/post/331929281.html</url>
-    <content><![CDATA[<p>Virt-manager programını açtım. Sanal makineyi oluşturma esnasında hata aldım.</p>
-<span id="more"></span>
-
-<img data-src="/post/331929281/1.png" class="">
-
-<p>unsupported configuration: spice graphics are not supported with this QEMU.</p>
-<p>Bunun çözümü için;</p>
-<p>qemu-git paketini bağımlılıklarıyla beraber sildim. Sonra qemu-spice paketinin kurulumunu yaptım.</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9hdXIuYXJjaGxpbnV4Lm9yZy9wYWNrYWdlcy9xZW11LXNwaWNlLw==">qemu-spice-AUR<i class="fa fa-external-link-alt"></i></span></p>
-<p>Bu problemi bu paketin kurulumuyla çözdüm.</p>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
-        <tag>qemu</tag>
-        <tag>virt manager</tag>
-        <tag>spice</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Device /dev/loop/ not initialized in udev database even after waiting 100000000 microseconds.</title>
     <url>/post/2777482735.html</url>
     <content><![CDATA[<p>Arch Linux kurulumu grup yapılandırması esnasında böyle bir uyarıyla karşılaşıyor ve kurulumunuzu tamamlıyamıyor iseniz şu adımları izleyebilirsiniz.</p>
@@ -347,6 +366,26 @@
       <tags>
         <tag>arch linux</tag>
         <tag>grub</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>İşlem gerçekleştirilemedi (Çakışan dosyalar) Hatası Nasıl Çözülür?</title>
+    <url>/post/1871179136.html</url>
+    <content><![CDATA[<p>Aşağıdaki komut ile kurulum yapmaya çalıştığımda hata ile karşılaştım.</p>
+<span id="more"></span>
+
+<p>Bu hatayı aşağıdaki çıktıdan görüntüleyebilirsiniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S retext</span><br><span class="line">[sudo] password <span class="keyword">for</span> ramarcher:</span><br><span class="line">paket bağımlılıkları çözümleniyor...</span><br><span class="line">varsa paketler arası çakışmalara bakılıyor...</span><br><span class="line"></span><br><span class="line">Paketler (4) python-markdown-2.6.11-2  python-markdown-math-0.6-2  python-markups-3.0.0-5  retext-7.0.4-3</span><br><span class="line"></span><br><span class="line">Toplam Kurulum Boyutu:  1,60 MiB</span><br><span class="line"></span><br><span class="line">:: Kuruluma onay veriyor musunuz? [E/h] e</span><br><span class="line">(4/4) anahtarlıktaki anahtarlar kontrol ediliyor                                           [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) paket bütü<span class="built_in">nl</span>üğü kontrol ediliyor                                                     [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) paket dosyaları yükleniyor                                                           [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) dosya çakışmaları kontrol ediliyor                                                   [<span class="comment">#####################################################] 100%</span></span><br><span class="line">hata: işlem gerçekleştirilemedi (çakışan dosyalar)</span><br><span class="line">python-markdown: /usr/bin/markdown_py dosya sisteminde mevcut</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/__init__.py dosya sisteminde mevcut</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/__main__.py dosya sisteminde mevcut</span><br><span class="line">..</span><br><span class="line">..</span><br><span class="line">..</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/util.py dosya sisteminde mevcut</span><br><span class="line">Hata oluştu, hiçbir paket güncellenmedi.</span><br></pre></td></tr></table></figure>
+
+<p>Böyle bir hata ile karşılaştığımız için aşağıdaki komutla bu paketi yükleyebilirsiniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pip install retext</span><br><span class="line">Collecting retext</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/31/91/6eff0afd947ca945dd63bb4f7fd0ea1872f80acef338eec4076642a824a8/ReText-7.0.4.tar.gz (402kB)</span><br><span class="line">    100% |████████████████████████████████| 409kB 2.1MB/s</span><br><span class="line">Collecting docutils (from retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/36/fa/08e9e6e0e3cbd1d362c3bbee8d01d0aedb2155c4ac112b19ef3cae8eed8d/docutils-0.14-py3-none-any.whl (543kB)</span><br><span class="line">    100% |████████████████████████████████| 552kB 7.3MB/s</span><br><span class="line">Requirement already satisfied: Markdown <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (3.0.1)</span><br><span class="line">Collecting Markups&gt;=2.0 (from retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/56/c0/d77c6af4f43c00268372fcbaee715dc798ce70c6c6a93ae30bec32af94ed/Markups-3.0.0-py2.py3-none-any.whl</span><br><span class="line">Requirement already satisfied: Pygments <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (2.3.1)</span><br><span class="line">Requirement already satisfied: chardet&gt;=2.3 <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (3.0.4)</span><br><span class="line">Collecting python-markdown-math (from Markups&gt;=2.0-&gt;retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/7c/81/2c86570437821d77b90a6d939d54e11b507b71785850840a5e56d8febeca/python_markdown_math-0.6-py2.py3-none-any.whl</span><br><span class="line">Installing collected packages: docutils, python-markdown-math, Markups, retext</span><br><span class="line">  Running setup.py install <span class="keyword">for</span> retext ... <span class="keyword">done</span></span><br><span class="line">Successfully installed Markups-3.0.0 docutils-0.14 python-markdown-math-0.6 retext-7.0.4</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>retext</tag>
       </tags>
   </entry>
   <entry>
@@ -390,42 +429,52 @@
       </tags>
   </entry>
   <entry>
-    <title>Requested operation is not valid network &#39;default&#39; is not active Problemi Nasıl Çözülür?</title>
-    <url>/post/2393086311.html</url>
-    <content><![CDATA[<p>Bu problemin çözümü için aşağıdaki komutu yazmanız yeterli olacaktır.</p>
+    <title>Unrecognized Archive Format Hatası Nasıl Çözülür?</title>
+    <url>/post/3747547321.html</url>
+    <content><![CDATA[<p>Arch Linux sistemimi güncellemek istediğimde bir hata ile karşılaştım.</p>
 <span id="more"></span>
 
-<img data-src="/post/2393086311/1.png" class="">
+<img data-src="/post/3747547321/1.png" class="">
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo virsh net-start default</span><br></pre></td></tr></table></figure>
+<p>Hatanın çıktısını aşağıdan inceleyebilirsiniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -Syu</span><br><span class="line">[sudo] password <span class="keyword">for</span> ramazan:</span><br><span class="line">:: Synchronizing package databases...</span><br><span class="line"> core is up to <span class="built_in">date</span>         0,0   B  0,00B/s 00:00 [co  o  o  o  o  o  o  ]   0%</span><br><span class="line"> extra is up to <span class="built_in">date</span>        0,0   B  0,00B/s 00:00 [co  o  o  o  o  o  o  ]   0%</span><br><span class="line"> community is up to <span class="built_in">date</span>    0,0   B  0,00B/s 00:00 [co  o  o  o  o  o  o  ]   0%</span><br><span class="line"> multilib is up to <span class="built_in">date</span>     0,0   B  0,00B/s 00:00 [co  o  o  o  o  o  o  ]   0%</span><br><span class="line"> archmanrepo is up to <span class="built_in">date</span></span><br><span class="line">:: Starting full system upgrade...</span><br><span class="line">error: could not open file /var/lib/pacman/sync/archmanrepo.db: Unrecognized archive format</span><br><span class="line">error: failed to prepare transaction (invalid or corrupted database)</span><br></pre></td></tr></table></figure>
+
+<p>Bu hatanın çözümü için yukarıdaki çıktıyı okumamız bize çok yardımcı olacaktır.</p>
+<p>İlk önce hataya sebebiyet veren dosyayı siliniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo <span class="built_in">rm</span> -R /var/lib/pacman/sync/</span><br></pre></td></tr></table></figure>
+
+<p>Ardından sistemi ve paketleri güncelleme işlemlerini başarıyla gerçekleştirebilirsiniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -Syu</span><br><span class="line">:: Synchronizing package databases...</span><br><span class="line"> core                             134,2 KiB   610K/s 00:00 [-------------------------------] 100%</span><br><span class="line"> extra                           1692,7 KiB  1141K/s 00:01 [-------------------------------] 100%</span><br><span class="line"> community                          4,8 MiB  3,03M/s 00:02 [-------------------------------] 100%</span><br><span class="line"> multilib                         174,6 KiB  10,7M/s 00:00 [-------------------------------] 100%</span><br><span class="line"> archmanrepo                       11,6 KiB  3,78M/s 00:00 [-------------------------------] 100%</span><br><span class="line">:: Starting full system upgrade...</span><br><span class="line">resolving dependencies...</span><br><span class="line">looking <span class="keyword">for</span> conflicting packages...</span><br><span class="line"></span><br><span class="line">Packages (17) bind-tools-9.13.5-4  curl-7.63.0-4  dnsmasq-2.80-2  gnutls-3.6.5-4</span><br><span class="line">              iputils-20180629.f6aac8d-3  kauth-5.54.0-2  lftp-4.8.4-4  libidn2-2.1.0-1</span><br><span class="line">              libpsl-0.20.2-3  libsystemd-240.34-3  s-nail-14.9.11-2  systemd-240.34-3</span><br><span class="line">              systemd-sysvcompat-240.34-3  tar-1.31-2  vim-8.1.0751-1  vim-runtime-8.1.0751-1</span><br><span class="line">              wget-1.20.1-2</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">( 5/12) Updating udev hardware database...</span><br><span class="line">( 6/12) Applying kernel sysctl settings...</span><br><span class="line">( 7/12) Creating system user accounts...</span><br><span class="line">( 8/12) Creating temporary files...</span><br><span class="line">( 9/12) Reloading device manager configuration...</span><br><span class="line">(10/12) Arming ConditionNeedsUpdate...</span><br><span class="line">(11/12) Updating the info directory file...</span><br><span class="line">(12/12) Updating the desktop file MIME <span class="built_in">type</span> cache...</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>GNU/Linux</category>
       </categories>
       <tags>
         <tag>arch linux</tag>
-        <tag>virt manager</tag>
-        <tag>virsh</tag>
       </tags>
   </entry>
   <entry>
-    <title>İşlem gerçekleştirilemedi (Çakışan dosyalar) Hatası Nasıl Çözülür?</title>
-    <url>/post/1871179136.html</url>
-    <content><![CDATA[<p>Aşağıdaki komut ile kurulum yapmaya çalıştığımda hata ile karşılaştım.</p>
+    <title>Failed to open disk image file Hatası Nasıl Çözülür?</title>
+    <url>/post/2158402559.html</url>
+    <content><![CDATA[<p>Archman Linux dağıtımı üzerinde Oracle VirtualBox kullanımı esnasında bir hata ile karşılaştım.</p>
 <span id="more"></span>
 
-<p>Bu hatayı aşağıdaki çıktıdan görüntüleyebilirsiniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S retext</span><br><span class="line">[sudo] password <span class="keyword">for</span> ramarcher:</span><br><span class="line">paket bağımlılıkları çözümleniyor...</span><br><span class="line">varsa paketler arası çakışmalara bakılıyor...</span><br><span class="line"></span><br><span class="line">Paketler (4) python-markdown-2.6.11-2  python-markdown-math-0.6-2  python-markups-3.0.0-5  retext-7.0.4-3</span><br><span class="line"></span><br><span class="line">Toplam Kurulum Boyutu:  1,60 MiB</span><br><span class="line"></span><br><span class="line">:: Kuruluma onay veriyor musunuz? [E/h] e</span><br><span class="line">(4/4) anahtarlıktaki anahtarlar kontrol ediliyor                                           [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) paket bütü<span class="built_in">nl</span>üğü kontrol ediliyor                                                     [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) paket dosyaları yükleniyor                                                           [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) dosya çakışmaları kontrol ediliyor                                                   [<span class="comment">#####################################################] 100%</span></span><br><span class="line">hata: işlem gerçekleştirilemedi (çakışan dosyalar)</span><br><span class="line">python-markdown: /usr/bin/markdown_py dosya sisteminde mevcut</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/__init__.py dosya sisteminde mevcut</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/__main__.py dosya sisteminde mevcut</span><br><span class="line">..</span><br><span class="line">..</span><br><span class="line">..</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/util.py dosya sisteminde mevcut</span><br><span class="line">Hata oluştu, hiçbir paket güncellenmedi.</span><br></pre></td></tr></table></figure>
+<p>Daha öncesinde osboxes.org adresi üzerinden indirmiş olduğum .vdi uzantılı hazır arch linux’un CLI versiyonunu kurmuştum.</p>
+<p>Ardından bir vdi dosyası ile ikinci bir sanal makine oluşturmaya çalıştığımda ise şöyle bir hata ile karşılaştım.</p>
+<img data-src="/post/2158402559/1.png" class="">
 
-<p>Böyle bir hata ile karşılaştığımız için aşağıdaki komutla bu paketi yükleyebilirsiniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pip install retext</span><br><span class="line">Collecting retext</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/31/91/6eff0afd947ca945dd63bb4f7fd0ea1872f80acef338eec4076642a824a8/ReText-7.0.4.tar.gz (402kB)</span><br><span class="line">    100% |████████████████████████████████| 409kB 2.1MB/s</span><br><span class="line">Collecting docutils (from retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/36/fa/08e9e6e0e3cbd1d362c3bbee8d01d0aedb2155c4ac112b19ef3cae8eed8d/docutils-0.14-py3-none-any.whl (543kB)</span><br><span class="line">    100% |████████████████████████████████| 552kB 7.3MB/s</span><br><span class="line">Requirement already satisfied: Markdown <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (3.0.1)</span><br><span class="line">Collecting Markups&gt;=2.0 (from retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/56/c0/d77c6af4f43c00268372fcbaee715dc798ce70c6c6a93ae30bec32af94ed/Markups-3.0.0-py2.py3-none-any.whl</span><br><span class="line">Requirement already satisfied: Pygments <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (2.3.1)</span><br><span class="line">Requirement already satisfied: chardet&gt;=2.3 <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (3.0.4)</span><br><span class="line">Collecting python-markdown-math (from Markups&gt;=2.0-&gt;retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/7c/81/2c86570437821d77b90a6d939d54e11b507b71785850840a5e56d8febeca/python_markdown_math-0.6-py2.py3-none-any.whl</span><br><span class="line">Installing collected packages: docutils, python-markdown-math, Markups, retext</span><br><span class="line">  Running setup.py install <span class="keyword">for</span> retext ... <span class="keyword">done</span></span><br><span class="line">Successfully installed Markups-3.0.0 docutils-0.14 python-markdown-math-0.6 retext-7.0.4</span><br></pre></td></tr></table></figure>
+<p>Bu hatanın çözümünü yeni bir UUID ayarlaması yapmak olacaktır.</p>
+<p>Bunun için uçbirimi açınız ve aşağıdaki komutu giriniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">VBoxManage internalcommands sethduuid <span class="string">&#x27;vdi/uzantılı/dosyanin/dizini/dosya.vdi&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>Ardından başarılı bir şekilde .vdi uzantılı dosyanızı ekleyip sanal makinenizi oluşturabilirsiniz.</p>
 ]]></content>
       <categories>
         <category>GNU/Linux</category>
       </categories>
       <tags>
         <tag>arch linux</tag>
-        <tag>retext</tag>
+        <tag>virtualbox</tag>
       </tags>
   </entry>
   <entry>
@@ -462,55 +511,6 @@
       <tags>
         <tag>arch linux</tag>
         <tag>adobe digital editions</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Failed to open disk image file Hatası Nasıl Çözülür?</title>
-    <url>/post/2158402559.html</url>
-    <content><![CDATA[<p>Archman Linux dağıtımı üzerinde Oracle VirtualBox kullanımı esnasında bir hata ile karşılaştım.</p>
-<span id="more"></span>
-
-<p>Daha öncesinde osboxes.org adresi üzerinden indirmiş olduğum .vdi uzantılı hazır arch linux’un CLI versiyonunu kurmuştum.</p>
-<p>Ardından bir vdi dosyası ile ikinci bir sanal makine oluşturmaya çalıştığımda ise şöyle bir hata ile karşılaştım.</p>
-<img data-src="/post/2158402559/1.png" class="">
-
-<p>Bu hatanın çözümünü yeni bir UUID ayarlaması yapmak olacaktır.</p>
-<p>Bunun için uçbirimi açınız ve aşağıdaki komutu giriniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">VBoxManage internalcommands sethduuid <span class="string">&#x27;vdi/uzantılı/dosyanin/dizini/dosya.vdi&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>Ardından başarılı bir şekilde .vdi uzantılı dosyanızı ekleyip sanal makinenizi oluşturabilirsiniz.</p>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
-        <tag>virtualbox</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unrecognized Archive Format Hatası Nasıl Çözülür?</title>
-    <url>/post/3747547321.html</url>
-    <content><![CDATA[<p>Arch Linux sistemimi güncellemek istediğimde bir hata ile karşılaştım.</p>
-<span id="more"></span>
-
-<img data-src="/post/3747547321/1.png" class="">
-
-<p>Hatanın çıktısını aşağıdan inceleyebilirsiniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -Syu</span><br><span class="line">[sudo] password <span class="keyword">for</span> ramazan:</span><br><span class="line">:: Synchronizing package databases...</span><br><span class="line"> core is up to <span class="built_in">date</span>         0,0   B  0,00B/s 00:00 [co  o  o  o  o  o  o  ]   0%</span><br><span class="line"> extra is up to <span class="built_in">date</span>        0,0   B  0,00B/s 00:00 [co  o  o  o  o  o  o  ]   0%</span><br><span class="line"> community is up to <span class="built_in">date</span>    0,0   B  0,00B/s 00:00 [co  o  o  o  o  o  o  ]   0%</span><br><span class="line"> multilib is up to <span class="built_in">date</span>     0,0   B  0,00B/s 00:00 [co  o  o  o  o  o  o  ]   0%</span><br><span class="line"> archmanrepo is up to <span class="built_in">date</span></span><br><span class="line">:: Starting full system upgrade...</span><br><span class="line">error: could not open file /var/lib/pacman/sync/archmanrepo.db: Unrecognized archive format</span><br><span class="line">error: failed to prepare transaction (invalid or corrupted database)</span><br></pre></td></tr></table></figure>
-
-<p>Bu hatanın çözümü için yukarıdaki çıktıyı okumamız bize çok yardımcı olacaktır.</p>
-<p>İlk önce hataya sebebiyet veren dosyayı siliniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo <span class="built_in">rm</span> -R /var/lib/pacman/sync/</span><br></pre></td></tr></table></figure>
-
-<p>Ardından sistemi ve paketleri güncelleme işlemlerini başarıyla gerçekleştirebilirsiniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -Syu</span><br><span class="line">:: Synchronizing package databases...</span><br><span class="line"> core                             134,2 KiB   610K/s 00:00 [-------------------------------] 100%</span><br><span class="line"> extra                           1692,7 KiB  1141K/s 00:01 [-------------------------------] 100%</span><br><span class="line"> community                          4,8 MiB  3,03M/s 00:02 [-------------------------------] 100%</span><br><span class="line"> multilib                         174,6 KiB  10,7M/s 00:00 [-------------------------------] 100%</span><br><span class="line"> archmanrepo                       11,6 KiB  3,78M/s 00:00 [-------------------------------] 100%</span><br><span class="line">:: Starting full system upgrade...</span><br><span class="line">resolving dependencies...</span><br><span class="line">looking <span class="keyword">for</span> conflicting packages...</span><br><span class="line"></span><br><span class="line">Packages (17) bind-tools-9.13.5-4  curl-7.63.0-4  dnsmasq-2.80-2  gnutls-3.6.5-4</span><br><span class="line">              iputils-20180629.f6aac8d-3  kauth-5.54.0-2  lftp-4.8.4-4  libidn2-2.1.0-1</span><br><span class="line">              libpsl-0.20.2-3  libsystemd-240.34-3  s-nail-14.9.11-2  systemd-240.34-3</span><br><span class="line">              systemd-sysvcompat-240.34-3  tar-1.31-2  vim-8.1.0751-1  vim-runtime-8.1.0751-1</span><br><span class="line">              wget-1.20.1-2</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">( 5/12) Updating udev hardware database...</span><br><span class="line">( 6/12) Applying kernel sysctl settings...</span><br><span class="line">( 7/12) Creating system user accounts...</span><br><span class="line">( 8/12) Creating temporary files...</span><br><span class="line">( 9/12) Reloading device manager configuration...</span><br><span class="line">(10/12) Arming ConditionNeedsUpdate...</span><br><span class="line">(11/12) Updating the info directory file...</span><br><span class="line">(12/12) Updating the desktop file MIME <span class="built_in">type</span> cache...</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
       </tags>
   </entry>
   <entry>
@@ -612,6 +612,52 @@
       </tags>
   </entry>
   <entry>
+    <title>Yığınlar</title>
+    <url>/post/1582621396.html</url>
+    <content><![CDATA[<p>Veri Yapıları dersinde işlenen Stack konusunu bu gönderi altında inceleyebilirsiniz.</p>
+<span id="more"></span>
+
+<ul>
+<li><a href="#1">Örnek-1</a></li>
+<li><a href="#2">Örnek-2</a></li>
+</ul>
+<img data-src="/post/1582621396/1.png" class="">
+
+<p><a name="1"></a> <strong>Örnek-1:</strong></p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">stack</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span>[] stack = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">100</span>];</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span>(<span class="params"><span class="built_in">int</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            sp++;</span><br><span class="line">            stack[sp] = data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">int</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> data = stack[sp];</span><br><span class="line">            sp--;</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            push(<span class="number">10</span>);</span><br><span class="line">            push(<span class="number">20</span>);</span><br><span class="line">            push(<span class="number">30</span>);</span><br><span class="line">            push(<span class="number">40</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(pop());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a name="2"></a> <strong>Örnek-2:</strong></p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">stack_2</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> max = <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span>[] stack = <span class="keyword">new</span> <span class="built_in">int</span>[max];</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">push</span>(<span class="params"><span class="built_in">int</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &gt;= max)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Overflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                sp++;</span><br><span class="line">                stack[sp] = data;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">int</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Underflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">int</span> data = stack[sp];</span><br><span class="line">                sp--;</span><br><span class="line">                <span class="keyword">return</span> data;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStack</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Underflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Yığın İçeriği&quot;</span>);</span><br><span class="line">                <span class="keyword">for</span> (<span class="built_in">int</span> i = sp; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">                &#123;</span><br><span class="line">                    Console.WriteLine(stack[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Peek</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Underflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Yığının en üstündeki eleman: &#123;0&#125;&quot;</span>, stack[sp]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// Şu an sp=-1</span></span><br><span class="line">            push(<span class="number">10</span>); <span class="comment">// sp&#x27;yi 1 arttır. 10&#x27;u ekle              sp = 0  stack[0] = 10;</span></span><br><span class="line">            push(<span class="number">20</span>); <span class="comment">// sp&#x27;yi 1 arttır 20&#x27;yi ekle              sp = 1  stack[1] = 20;</span></span><br><span class="line">            push(<span class="number">30</span>); <span class="comment">// sp&#x27;yi 1 arttır 30&#x27;u ekle               sp = 2  stack[2] = 30;</span></span><br><span class="line">            push(<span class="number">40</span>); <span class="comment">// sp&#x27;yi 1 arttır 40&#x27;ı ekle               sp = 3  stack[3] = 40;</span></span><br><span class="line">            printStack();</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Stack&#x27;tan silindi: &#123;0&#125;&quot;</span>, pop()); <span class="comment">// 40&#x27;ı döndür sp&#x27;yi 1 azalt.            sp = 2</span></span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Stack&#x27;tan silindi: &#123;0&#125;&quot;</span>, pop()); <span class="comment">// 30&#x27;u döndür sp&#x27;yi 1 azalt.            sp = 1</span></span><br><span class="line">            printStack();</span><br><span class="line">            Peek();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Veri Yapıları</category>
+      </categories>
+      <tags>
+        <tag>stack</tag>
+        <tag>dotnet core</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Çiftli Bağlı Liste Yapısını Kullanarak Yığın Nasıl Oluşturulur?</title>
+    <url>/post/1183902384.html</url>
+    <content><![CDATA[<p>Örnek: Çiftli Bağlı Liste yapısını kullanarak Yığın oluşturunuz.</p>
+<span id="more"></span>
+
+<img data-src="/post/1183902384/1.png" class="">
+
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ciftli_Stack</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> Ciftli sp;</span><br><span class="line">        <span class="keyword">static</span> Ciftli Head;</span><br><span class="line">        <span class="keyword">class</span> <span class="title">Ciftli</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">public</span> <span class="built_in">int</span> data;</span><br><span class="line">            <span class="keyword">public</span> Ciftli next;</span><br><span class="line">            <span class="keyword">public</span> Ciftli prev;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span>(<span class="params"><span class="built_in">int</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            Ciftli q = <span class="keyword">new</span> Ciftli();</span><br><span class="line">            q.data = data;</span><br><span class="line">            q.next = <span class="literal">null</span>;</span><br><span class="line">            q.prev = sp;</span><br><span class="line">            <span class="keyword">if</span> (sp == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Head = q;</span><br><span class="line">                sp = q;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                sp.next = q;</span><br><span class="line">                sp = q;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">int</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> data = sp.data;</span><br><span class="line">            sp = sp.prev;</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            push(<span class="number">10</span>);</span><br><span class="line">            push(<span class="number">20</span>);</span><br><span class="line">            push(<span class="number">30</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(pop());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Veri Yapıları</category>
+      </categories>
+      <tags>
+        <tag>linked list</tag>
+        <tag>stack</tag>
+        <tag>dotnet core</tag>
+        <tag>çiftli bağlı listeler</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Çiftli Bağlı Listeler</title>
     <url>/post/3237563777.html</url>
     <content><![CDATA[<p>Çiftli bağlı liste oluşturma ve bunun bir döngü ile gerçekleştirilmesi, listenen başına ve sonuna eleman ekleme, ilgili listeden eleman silme örneklerini inceleyebilirsiniz.</p>
@@ -654,7 +700,25 @@
       </categories>
       <tags>
         <tag>linked list</tag>
+        <tag>dotnet core</tag>
         <tag>çiftli bağlı listeler</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Yığın ile Dizinlerin İçiçe Listelenmesi Nasıl Yapılır?</title>
+    <url>/post/4002331297.html</url>
+    <content><![CDATA[<p><strong>Örnek:</strong> Yığın(Stack) yapısını kullanarak dizinleri alt dizinleriyle beraber listeleyen kodu yazınız.</p>
+<span id="more"></span>
+
+<img data-src="/post/4002331297/1.png" class="">
+
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.IO;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">stack_4</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            Stack myStack = <span class="keyword">new</span> Stack();</span><br><span class="line">            myStack.Push(<span class="string">@&quot;/home/ramazan/Paketler&quot;</span>);</span><br><span class="line">            <span class="keyword">while</span> (myStack.Count &gt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Object o = myStack.Pop();</span><br><span class="line">                System.IO.DirectoryInfo di = <span class="keyword">new</span> System.IO.DirectoryInfo(o.ToString());</span><br><span class="line">                System.IO.DirectoryInfo[] directories = di.GetDirectories();</span><br><span class="line">                <span class="keyword">foreach</span> (DirectoryInfo dir <span class="keyword">in</span> directories)</span><br><span class="line">                &#123;</span><br><span class="line">                    myStack.Push(dir.FullName);</span><br><span class="line">                    Console.WriteLine(<span class="string">&quot;--&gt;&quot;</span> + dir.FullName + <span class="string">&quot;\r\n&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Veri Yapıları</category>
+      </categories>
+      <tags>
+        <tag>stack</tag>
         <tag>dotnet core</tag>
       </tags>
   </entry>
@@ -700,56 +764,10 @@
         <category>Veri Yapıları</category>
       </categories>
       <tags>
-        <tag>dotnet core</tag>
         <tag>stack</tag>
+        <tag>dotnet core</tag>
         <tag>infix</tag>
         <tag>postfix</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Yığınlar</title>
-    <url>/post/1582621396.html</url>
-    <content><![CDATA[<p>Veri Yapıları dersinde işlenen Stack konusunu bu gönderi altında inceleyebilirsiniz.</p>
-<span id="more"></span>
-
-<ul>
-<li><a href="#1">Örnek-1</a></li>
-<li><a href="#2">Örnek-2</a></li>
-</ul>
-<img data-src="/post/1582621396/1.png" class="">
-
-<p><a name="1"></a> <strong>Örnek-1:</strong></p>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">stack</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span>[] stack = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">100</span>];</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span>(<span class="params"><span class="built_in">int</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            sp++;</span><br><span class="line">            stack[sp] = data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">int</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> data = stack[sp];</span><br><span class="line">            sp--;</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            push(<span class="number">10</span>);</span><br><span class="line">            push(<span class="number">20</span>);</span><br><span class="line">            push(<span class="number">30</span>);</span><br><span class="line">            push(<span class="number">40</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(pop());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><a name="2"></a> <strong>Örnek-2:</strong></p>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">stack_2</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> max = <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span>[] stack = <span class="keyword">new</span> <span class="built_in">int</span>[max];</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">push</span>(<span class="params"><span class="built_in">int</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &gt;= max)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Overflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                sp++;</span><br><span class="line">                stack[sp] = data;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">int</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Underflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">int</span> data = stack[sp];</span><br><span class="line">                sp--;</span><br><span class="line">                <span class="keyword">return</span> data;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStack</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Underflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Yığın İçeriği&quot;</span>);</span><br><span class="line">                <span class="keyword">for</span> (<span class="built_in">int</span> i = sp; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">                &#123;</span><br><span class="line">                    Console.WriteLine(stack[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Peek</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Underflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Yığının en üstündeki eleman: &#123;0&#125;&quot;</span>, stack[sp]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// Şu an sp=-1</span></span><br><span class="line">            push(<span class="number">10</span>); <span class="comment">// sp&#x27;yi 1 arttır. 10&#x27;u ekle              sp = 0  stack[0] = 10;</span></span><br><span class="line">            push(<span class="number">20</span>); <span class="comment">// sp&#x27;yi 1 arttır 20&#x27;yi ekle              sp = 1  stack[1] = 20;</span></span><br><span class="line">            push(<span class="number">30</span>); <span class="comment">// sp&#x27;yi 1 arttır 30&#x27;u ekle               sp = 2  stack[2] = 30;</span></span><br><span class="line">            push(<span class="number">40</span>); <span class="comment">// sp&#x27;yi 1 arttır 40&#x27;ı ekle               sp = 3  stack[3] = 40;</span></span><br><span class="line">            printStack();</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Stack&#x27;tan silindi: &#123;0&#125;&quot;</span>, pop()); <span class="comment">// 40&#x27;ı döndür sp&#x27;yi 1 azalt.            sp = 2</span></span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Stack&#x27;tan silindi: &#123;0&#125;&quot;</span>, pop()); <span class="comment">// 30&#x27;u döndür sp&#x27;yi 1 azalt.            sp = 1</span></span><br><span class="line">            printStack();</span><br><span class="line">            Peek();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Veri Yapıları</category>
-      </categories>
-      <tags>
-        <tag>dotnet core</tag>
-        <tag>stack</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Çiftli Bağlı Liste Yapısını Kullanarak Yığın Nasıl Oluşturulur?</title>
-    <url>/post/1183902384.html</url>
-    <content><![CDATA[<p>Örnek: Çiftli Bağlı Liste yapısını kullanarak Yığın oluşturunuz.</p>
-<span id="more"></span>
-
-<img data-src="/post/1183902384/1.png" class="">
-
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ciftli_Stack</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> Ciftli sp;</span><br><span class="line">        <span class="keyword">static</span> Ciftli Head;</span><br><span class="line">        <span class="keyword">class</span> <span class="title">Ciftli</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">public</span> <span class="built_in">int</span> data;</span><br><span class="line">            <span class="keyword">public</span> Ciftli next;</span><br><span class="line">            <span class="keyword">public</span> Ciftli prev;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span>(<span class="params"><span class="built_in">int</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            Ciftli q = <span class="keyword">new</span> Ciftli();</span><br><span class="line">            q.data = data;</span><br><span class="line">            q.next = <span class="literal">null</span>;</span><br><span class="line">            q.prev = sp;</span><br><span class="line">            <span class="keyword">if</span> (sp == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Head = q;</span><br><span class="line">                sp = q;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                sp.next = q;</span><br><span class="line">                sp = q;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">int</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> data = sp.data;</span><br><span class="line">            sp = sp.prev;</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            push(<span class="number">10</span>);</span><br><span class="line">            push(<span class="number">20</span>);</span><br><span class="line">            push(<span class="number">30</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(pop());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Veri Yapıları</category>
-      </categories>
-      <tags>
-        <tag>linked list</tag>
-        <tag>çiftli bağlı listeler</tag>
-        <tag>dotnet core</tag>
-        <tag>stack</tag>
       </tags>
   </entry>
   <entry>
@@ -806,24 +824,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Yığın ile Dizinlerin İçiçe Listelenmesi Nasıl Yapılır?</title>
-    <url>/post/4002331297.html</url>
-    <content><![CDATA[<p><strong>Örnek:</strong> Yığın(Stack) yapısını kullanarak dizinleri alt dizinleriyle beraber listeleyen kodu yazınız.</p>
-<span id="more"></span>
-
-<img data-src="/post/4002331297/1.png" class="">
-
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.IO;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">stack_4</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            Stack myStack = <span class="keyword">new</span> Stack();</span><br><span class="line">            myStack.Push(<span class="string">@&quot;/home/ramazan/Paketler&quot;</span>);</span><br><span class="line">            <span class="keyword">while</span> (myStack.Count &gt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Object o = myStack.Pop();</span><br><span class="line">                System.IO.DirectoryInfo di = <span class="keyword">new</span> System.IO.DirectoryInfo(o.ToString());</span><br><span class="line">                System.IO.DirectoryInfo[] directories = di.GetDirectories();</span><br><span class="line">                <span class="keyword">foreach</span> (DirectoryInfo dir <span class="keyword">in</span> directories)</span><br><span class="line">                &#123;</span><br><span class="line">                    myStack.Push(dir.FullName);</span><br><span class="line">                    Console.WriteLine(<span class="string">&quot;--&gt;&quot;</span> + dir.FullName + <span class="string">&quot;\r\n&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Veri Yapıları</category>
-      </categories>
-      <tags>
-        <tag>dotnet core</tag>
-        <tag>stack</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Kuyruklar</title>
     <url>/post/1062291645.html</url>
     <content><![CDATA[<p>Kuyruğa 10 adet eleman ekledik. Ardından kuyruktaki eleman sayısını yazdırdık.<br>Kuyruktan 10 tane eleman aldık. Ardından tekrar kuyruktaki eleman sayısını yazdırdık.</p>
@@ -839,102 +839,6 @@
       <tags>
         <tag>dotnet core</tag>
         <tag>kuyruklar</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>STM32 - Interrupt</title>
-    <url>/post/3820960494.html</url>
-    <content><![CDATA[<p><strong>Interrupt:</strong> Program akışında devam ederken, kurulu olan özel durum için o an yapmakta olan işini bırakıp, bu özel durumun belirtmiş olduğu fonksiyona gitmesi ve sonrasında kaldığı yerden devam etmesidir.</p>
-<span id="more"></span>
-
-<p>Bir sekreteri düşünelim, sekreter normal çalışmasını yaparken telefon geldiğinde o an yaptığı işi bırakıp telefona cevap verir. Eğer telefon sayısı birden fazla ise öncelik sırasına göre telefonlara cevap verir.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">	<span class="keyword">if</span>(read_button_input)</span><br><span class="line">	<span class="built_in">exit</span>;</span><br><span class="line">&#125;</span><br><span class="line">turn_on_led;</span><br></pre></td></tr></table></figure>
-
-<p><strong>1.Durum:</strong> Telefonun zili yoksa arama olup olmadığını anlamak için belirli aralıklar ile sürekli telefona bakıyor.</p>
-<p><strong>2.Durum:</strong> Telefonun zili var, telefon çaldığında telefona bakıyor.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">interrupt_handler()&#123;</span><br><span class="line">	turn_on_led;</span><br><span class="line">	<span class="built_in">exit</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Nested Vectored Interrupt:</strong></p>
-<p>STM32F Serisi nested vectored interrupt özelliğine sahiptir.</p>
-<p>Kısaca birden fazla kesmenin içiçe çalışabildiğini ifade eder.</p>
-<p>Önceliği düşük olan bir kesme aktif iken önceliği daha yüksek olan bir kesme aktif olursa;<br>işlemci içinde bulunduğu kesme fonksiyonunu durdurur ve önceliği yüksek olan kesme<br>fonksiyonuna gider.</p>
-<img data-src="/post/3820960494/1.png" class="">
-
-<p>Herhangi bir portun 0. pinini interrupt olarak ayarlmak istediğimizde ilgili registerı set etmemiz gerekiyor.</p>
-<img data-src="/post/3820960494/2.png" class="">
-
-<p>Interrupt kullanabilmemiz için 0 numaralı biti 1 yapmamız gerekiyor.</p>
-<img data-src="/post/3820960494/3.png" class="">
-
-<img data-src="/post/3820960494/4.png" class="">
-
-<p>Burada kullanacağımız pini aktif hale getiriyoruz. Portun 0. pinini kullanmak için…</p>
-<img data-src="/post/3820960494/5.png" class="">
-
-<img data-src="/post/3820960494/6.png" class="">
-
-<img data-src="/post/3820960494/7.png" class="">
-
-<p>Bu bayrak aktif olduğunda tekrardan interrupt’ın aktif olabilmesi için ilgili biti <strong>1</strong> yapmalıyız.</p>
-<img data-src="/post/3820960494/8.png" class="">
-
-<p><strong>External Interrupt</strong></p>
-<p>RCC-APB2ENR</p>
-<ul>
-<li><p>İlgili portun alternatif fonksiyonu 1 yapılır.</p>
-</li>
-<li><p>AFIO APB2ENR’nin 0 numaralı bitindedir.</p>
-</li>
-</ul>
-<p>AFIO-&gt;EXTICR[0-3]</p>
-<ul>
-<li>Port ve pin seçimi yapılır.</li>
-</ul>
-<p>EXTI-&gt;FTSR</p>
-<ul>
-<li>Tetikleme düşen kenar ile yapılacaksa ilgili bit 1 yapılır.</li>
-</ul>
-<p>EXTI-&gt;RTSR</p>
-<ul>
-<li>Tetikleme yükselen kenar ile yapılacaksa ilgili bit 1 yapılır.</li>
-</ul>
-<p>NVIC_EnableIRQ(EXTIxIRQn)</p>
-<ul>
-<li>Ayarlanan pin için interrupt aktif yapılır.</li>
-</ul>
-<img data-src="/post/3820960494/9.png" class="">
-
-<img data-src="/post/3820960494/10.png" class="">
-]]></content>
-      <categories>
-        <category>Mikroişlemciler</category>
-      </categories>
-      <tags>
-        <tag>stm32f103c8t6</tag>
-        <tag>interrupt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>XFCE Panel Tasarım Bütünlüğü Nasıl Sağlanır?</title>
-    <url>/post/2501555113.html</url>
-    <content><![CDATA[<p>Xfce üzerinde tema değişikliği yaptığımız zaman panel üzerinde menü ve pulse-audio plugin’in arkaplan rengiyle xfce panelin arkaplan panel rengi uyuşmadığından tasarımın bütünlüğü bozuluyor. Bu da daha çirkin bir görüntünün ortaya çıkmasına sebebiyet veriyor.</p>
-<span id="more"></span>
-
-<p>Yaşadığım problemi aşağıdaki resimde gözlemleyebilirsiniz.</p>
-<img data-src="/post/2501555113/1.png" class="">
-
-<p>Bunun için ev dizinimizde .config&#x2F;gtk-3.0 dizini altında gtk.css adlı bir dosya oluşturalım ve<br>aşağıdaki kodları kendi ihtiyaçlarımıza göre düzenleyip kaydedelim.</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.xfce4-panel</span><span class="selector-class">.panel</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fefefe</span>;</span><br><span class="line">  <span class="attribute">text-shadow</span>: none;</span><br><span class="line">  -gtk-<span class="attribute">icon</span>-shadow: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xfce4-panel</span><span class="selector-class">.panel</span> <span class="selector-tag">button</span><span class="selector-class">.flat</span>,</span><br><span class="line"><span class="selector-class">.xfce4-panel</span><span class="selector-class">.panel</span> <span class="selector-tag">button</span><span class="selector-class">.sidebar-button</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#000000</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xfce4-panel</span><span class="selector-class">.panel</span> <span class="selector-tag">button</span><span class="selector-class">.flat</span><span class="selector-pseudo">:hover</span>,</span><br><span class="line"><span class="selector-class">.xfce4-panel</span><span class="selector-class">.panel</span> <span class="selector-tag">button</span><span class="selector-class">.sidebar-button</span><span class="selector-pseudo">:hover</span> &gt;&gt;&gt; &#123;</span><br><span class="line">  <span class="attribute">border</span>: none;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fefefe</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xfce4-panel</span><span class="selector-class">.panel</span> <span class="selector-tag">button</span><span class="selector-class">.flat</span><span class="selector-pseudo">:active</span>,</span><br><span class="line"><span class="selector-class">.xfce4-panel</span><span class="selector-class">.panel</span> <span class="selector-tag">button</span><span class="selector-class">.sidebar-button</span><span class="selector-pseudo">:active</span>,</span><br><span class="line"><span class="selector-class">.xfce4-panel</span><span class="selector-class">.panel</span> <span class="selector-tag">button</span><span class="selector-class">.flat</span><span class="selector-pseudo">:checked</span>,</span><br><span class="line"><span class="selector-class">.xfce4-panel</span><span class="selector-class">.panel</span> <span class="selector-tag">button</span><span class="selector-class">.sidebar-button</span><span class="selector-pseudo">:checked</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#000000</span>;</span><br><span class="line">  <span class="attribute">border</span>: none;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fefefe</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Ardından dosyayı kaydedip bilgisayarımızı yeniden başlattığımızda panelin daha iyi bir görünüme sahip olduğunu gözlemleyebiliriz.</p>
-<img data-src="/post/2501555113/2.png" class="">
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>xfce</tag>
-        <tag>debian</tag>
       </tags>
   </entry>
   <entry>
@@ -962,95 +866,32 @@
         <category>GNU/Linux</category>
       </categories>
       <tags>
-        <tag>debian</tag>
         <tag>murrine</tag>
         <tag>gtk</tag>
+        <tag>debian</tag>
       </tags>
   </entry>
   <entry>
-    <title>STM32 - Yanıp Sönen Led Uygulaması - 1</title>
-    <url>/post/2979789903.html</url>
-    <content><![CDATA[<p>Sistem Mimarimizi(3.1) inceleyelim.</p>
+    <title>XFCE Panel Tasarım Bütünlüğü Nasıl Sağlanır?</title>
+    <url>/post/2501555113.html</url>
+    <content><![CDATA[<p>Xfce üzerinde tema değişikliği yaptığımız zaman panel üzerinde menü ve pulse-audio plugin’in arkaplan rengiyle xfce panelin arkaplan panel rengi uyuşmadığından tasarımın bütünlüğü bozuluyor. Bu da daha çirkin bir görüntünün ortaya çıkmasına sebebiyet veriyor.</p>
 <span id="more"></span>
 
-<img data-src="/post/2979789903/1.png" class="">
+<p>Yaşadığım problemi aşağıdaki resimde gözlemleyebilirsiniz.</p>
+<img data-src="/post/2501555113/1.png" class="">
 
-<p>Burada C portumuzun ‘Bridge 1’ ve ‘AHB System Bus’ üzerinden RCC registerlarına bağlı olduğunu görüyoruz.</p>
-<p>Ledimiz PC13’te olduğu için C portunu aktif etmemiz gerekiyor.</p>
-<p>Portları aktif eden register APB2ENR olduğu için RCC registerlarından APB2ENR’yi bulalım. (7.3.7)</p>
-<img data-src="/post/2979789903/2.png" class="">
+<p>Bunun için ev dizinimizde .config&#x2F;gtk-3.0 dizini altında gtk.css adlı bir dosya oluşturalım ve<br>aşağıdaki kodları kendi ihtiyaçlarımıza göre düzenleyip kaydedelim.</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.xfce4-panel</span><span class="selector-class">.panel</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fefefe</span>;</span><br><span class="line">  <span class="attribute">text-shadow</span>: none;</span><br><span class="line">  -gtk-<span class="attribute">icon</span>-shadow: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xfce4-panel</span><span class="selector-class">.panel</span> <span class="selector-tag">button</span><span class="selector-class">.flat</span>,</span><br><span class="line"><span class="selector-class">.xfce4-panel</span><span class="selector-class">.panel</span> <span class="selector-tag">button</span><span class="selector-class">.sidebar-button</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#000000</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xfce4-panel</span><span class="selector-class">.panel</span> <span class="selector-tag">button</span><span class="selector-class">.flat</span><span class="selector-pseudo">:hover</span>,</span><br><span class="line"><span class="selector-class">.xfce4-panel</span><span class="selector-class">.panel</span> <span class="selector-tag">button</span><span class="selector-class">.sidebar-button</span><span class="selector-pseudo">:hover</span> &gt;&gt;&gt; &#123;</span><br><span class="line">  <span class="attribute">border</span>: none;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fefefe</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xfce4-panel</span><span class="selector-class">.panel</span> <span class="selector-tag">button</span><span class="selector-class">.flat</span><span class="selector-pseudo">:active</span>,</span><br><span class="line"><span class="selector-class">.xfce4-panel</span><span class="selector-class">.panel</span> <span class="selector-tag">button</span><span class="selector-class">.sidebar-button</span><span class="selector-pseudo">:active</span>,</span><br><span class="line"><span class="selector-class">.xfce4-panel</span><span class="selector-class">.panel</span> <span class="selector-tag">button</span><span class="selector-class">.flat</span><span class="selector-pseudo">:checked</span>,</span><br><span class="line"><span class="selector-class">.xfce4-panel</span><span class="selector-class">.panel</span> <span class="selector-tag">button</span><span class="selector-class">.sidebar-button</span><span class="selector-pseudo">:checked</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#000000</span>;</span><br><span class="line">  <span class="attribute">border</span>: none;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fefefe</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<img data-src="/post/2979789903/3.png" class="">
-
-<p>4 nolu biti 1 yaptığımızda C portu aktif hale gelecek.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">RCC-&gt;APB2ENR|=(<span class="number">1</span>&lt;&lt;<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
-
-<p>Şimdi GPIO registerlarına gidelim.(9.2)</p>
-<p>Port C , 13 nolu pini kullanıyor. Bu yüzden GPIOx_CRH kullanmalıyız.</p>
-<img data-src="/post/2979789903/4.png" class="">
-
-<p>Buradaki 4 bit (20, 21, 22, 23) 13 nolu pinimizi yönetiyor.</p>
-<p>Portumuzun Clocklama frekansını 50MHz olarak ayarlayıp, PortC-13’ü çıkış olarak ayarladık.</p>
-<img data-src="/post/2979789903/5.png" class="">
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">GPIOC-&gt;CRH|=((<span class="number">1</span>&lt;&lt;<span class="number">20</span>)|(<span class="number">1</span>&lt;&lt;<span class="number">21</span>));</span><br><span class="line">GPIOC-&gt;CRH&amp;=~((<span class="number">1</span>&lt;&lt;<span class="number">22</span>)|(<span class="number">1</span>&lt;&lt;<span class="number">23</span>));</span><br></pre></td></tr></table></figure>
-
-<p>Şimdi Bit Set Reset Registerlarını kullanacağız.</p>
-<img data-src="/post/2979789903/6.png" class="">
-
-<p>Burada 13 numaralı biti 1 yaptığımızda Led sönecektir. 29 numaralı biti 1 yaptığımızda set edeceğinden Led yanacaktır. Aralarına birer uzun for döngüsü ekleyerek yanıp sönen bir led çalışmasını tamamlayalım.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">GPIOC-&gt;BSRR|=(<span class="number">1</span>&lt;&lt;<span class="number">13</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">500000</span>;i++)&#123;&#125;</span><br><span class="line">GPIOC-&gt;BSRR|=(<span class="number">1</span>&lt;&lt;(<span class="number">13</span>+<span class="number">16</span>));</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">500000</span>;i++)&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Kodumuzun son hali aşağıdaki gibi olacaktır.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stm32f10x.h&quot;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">        RCC-&gt;APB2ENR|=(<span class="number">1</span>&lt;&lt;<span class="number">4</span>);</span><br><span class="line">        GPIOC-&gt;CRH|=((<span class="number">1</span>&lt;&lt;<span class="number">20</span>)|(<span class="number">1</span>&lt;&lt;<span class="number">21</span>));</span><br><span class="line">        GPIOC-&gt;CRH&amp;=~((<span class="number">1</span>&lt;&lt;<span class="number">22</span>)|(<span class="number">1</span>&lt;&lt;<span class="number">23</span>));</span><br><span class="line">        <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">                GPIOC-&gt;BSRR|=(<span class="number">1</span>&lt;&lt;<span class="number">13</span>);</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">250000</span>; i++)&#123;&#125;</span><br><span class="line">                GPIOC-&gt;BSRR|=(<span class="number">1</span>&lt;&lt;(<span class="number">13</span>+<span class="number">16</span>));</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">250000</span>; i++)&#123;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Ardından dosyayı kaydedip bilgisayarımızı yeniden başlattığımızda panelin daha iyi bir görünüme sahip olduğunu gözlemleyebiliriz.</p>
+<img data-src="/post/2501555113/2.png" class="">
 ]]></content>
       <categories>
-        <category>Mikroişlemciler</category>
+        <category>GNU/Linux</category>
       </categories>
       <tags>
-        <tag>stm32f103c8t6</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>STM32 - Yanıp Sönen Led Uygulaması - 2</title>
-    <url>/post/680701429.html</url>
-    <content><![CDATA[<p>Sistem Mimarimizi(3.1) inceleyelim.</p>
-<span id="more"></span>
-
-<img data-src="/post/680701429/1.png" class="">
-
-<p>Burada C portumuzun ‘Bridge 1’ ve ‘AHB System Bus’ üzerinden RCC registerlarına bağlı olduğunu görüyoruz.</p>
-<p>Ledimiz PC13’te olduğu için C portunu aktif etmemiz gerekiyor.</p>
-<p>Portları aktif eden register APB2ENR olduğu için RCC registerlarından APB2ENR’yi bulalım. (7.3.7)</p>
-<img data-src="/post/680701429/2.png" class="">
-
-<img data-src="/post/680701429/3.png" class="">
-
-<p>4 nolu biti 1 yaptığımızda C portu aktif hale gelecek.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">RCC-&gt;APB2ENR|=(<span class="number">1</span>&lt;&lt;<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
-
-<p>Şimdi GPIO registerlarına gidelim.(9.2)</p>
-<p>Port C , 13 nolu pini kullanıyor. Bu yüzden GPIOx_CRH kullanmalıyız.</p>
-<img data-src="/post/680701429/4.png" class="">
-
-<p>Buradaki 4 bit (20, 21, 22, 23) 13 nolu pinimizi yönetiyor.</p>
-<p>Portumuzun Clocklama frekansını 50MHz olarak ayarlayıp, PortC-13’ü çıkış olarak ayarladık.</p>
-<img data-src="/post/680701429/5.png" class="">
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">GPIOC-&gt;CRH|=((<span class="number">1</span>&lt;&lt;<span class="number">20</span>)|(<span class="number">1</span>&lt;&lt;<span class="number">21</span>));</span><br><span class="line">GPIOC-&gt;CRH&amp;=~((<span class="number">1</span>&lt;&lt;<span class="number">22</span>)|(<span class="number">1</span>&lt;&lt;<span class="number">23</span>));</span><br></pre></td></tr></table></figure>
-
-<p>Output Data Registerına bakalım.</p>
-<img data-src="/post/680701429/6.png" class="">
-
-<p>Output Data Register’ın 13 nolu bitini 1 yaptığımızda LED sönecek, 0 yaptığımızda ise LED yanacaktır.</p>
-<p>Led’in sürekli yanıp sönmesini sağlamak için aralarına birer for döngüsü koyalım ve çalışmamızı noktalayalım.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stm32f10x.h&quot;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">        RCC-&gt;APB2ENR|=(<span class="number">1</span>&lt;&lt;<span class="number">4</span>);                               <span class="comment">// Port C aktif edildi.</span></span><br><span class="line">        GPIOC-&gt;CRH|=((<span class="number">1</span>&lt;&lt;<span class="number">20</span>)|(<span class="number">1</span>&lt;&lt;<span class="number">21</span>));                      <span class="comment">// Portun clocklama frekansini 50MHz olarak ayarladik.</span></span><br><span class="line">        GPIOC-&gt;CRH&amp;=~((<span class="number">1</span>&lt;&lt;<span class="number">22</span>)|(<span class="number">1</span>&lt;&lt;<span class="number">23</span>));                     <span class="comment">// Port C’nin 13 nolu biti çıkış olarak ayarlanir.</span></span><br><span class="line">        <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">                GPIOC-&gt;ODR|=(<span class="number">1</span>&lt;&lt;<span class="number">13</span>);                        <span class="comment">// ODR&#x27;nin 13 nolu bitini 1 yaptik.</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">500000</span>; i++)&#123;&#125;</span><br><span class="line">                GPIOC-&gt;ODR&amp;=~(<span class="number">1</span>&lt;&lt;<span class="number">13</span>);                       <span class="comment">// ODR&#x27;nin 13 nolu bitini 0 yaptik.</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">500000</span>; i++)&#123;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Mikroişlemciler</category>
-      </categories>
-      <tags>
-        <tag>stm32f103c8t6</tag>
+        <tag>debian</tag>
+        <tag>xfce</tag>
       </tags>
   </entry>
   <entry>
@@ -1178,6 +1019,92 @@
       </tags>
   </entry>
   <entry>
+    <title>STM32 - Yanıp Sönen Led Uygulaması - 1</title>
+    <url>/post/2979789903.html</url>
+    <content><![CDATA[<p>Sistem Mimarimizi(3.1) inceleyelim.</p>
+<span id="more"></span>
+
+<img data-src="/post/2979789903/1.png" class="">
+
+<p>Burada C portumuzun ‘Bridge 1’ ve ‘AHB System Bus’ üzerinden RCC registerlarına bağlı olduğunu görüyoruz.</p>
+<p>Ledimiz PC13’te olduğu için C portunu aktif etmemiz gerekiyor.</p>
+<p>Portları aktif eden register APB2ENR olduğu için RCC registerlarından APB2ENR’yi bulalım. (7.3.7)</p>
+<img data-src="/post/2979789903/2.png" class="">
+
+<img data-src="/post/2979789903/3.png" class="">
+
+<p>4 nolu biti 1 yaptığımızda C portu aktif hale gelecek.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">RCC-&gt;APB2ENR|=(<span class="number">1</span>&lt;&lt;<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+
+<p>Şimdi GPIO registerlarına gidelim.(9.2)</p>
+<p>Port C , 13 nolu pini kullanıyor. Bu yüzden GPIOx_CRH kullanmalıyız.</p>
+<img data-src="/post/2979789903/4.png" class="">
+
+<p>Buradaki 4 bit (20, 21, 22, 23) 13 nolu pinimizi yönetiyor.</p>
+<p>Portumuzun Clocklama frekansını 50MHz olarak ayarlayıp, PortC-13’ü çıkış olarak ayarladık.</p>
+<img data-src="/post/2979789903/5.png" class="">
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">GPIOC-&gt;CRH|=((<span class="number">1</span>&lt;&lt;<span class="number">20</span>)|(<span class="number">1</span>&lt;&lt;<span class="number">21</span>));</span><br><span class="line">GPIOC-&gt;CRH&amp;=~((<span class="number">1</span>&lt;&lt;<span class="number">22</span>)|(<span class="number">1</span>&lt;&lt;<span class="number">23</span>));</span><br></pre></td></tr></table></figure>
+
+<p>Şimdi Bit Set Reset Registerlarını kullanacağız.</p>
+<img data-src="/post/2979789903/6.png" class="">
+
+<p>Burada 13 numaralı biti 1 yaptığımızda Led sönecektir. 29 numaralı biti 1 yaptığımızda set edeceğinden Led yanacaktır. Aralarına birer uzun for döngüsü ekleyerek yanıp sönen bir led çalışmasını tamamlayalım.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">GPIOC-&gt;BSRR|=(<span class="number">1</span>&lt;&lt;<span class="number">13</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">500000</span>;i++)&#123;&#125;</span><br><span class="line">GPIOC-&gt;BSRR|=(<span class="number">1</span>&lt;&lt;(<span class="number">13</span>+<span class="number">16</span>));</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">500000</span>;i++)&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Kodumuzun son hali aşağıdaki gibi olacaktır.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stm32f10x.h&quot;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">        RCC-&gt;APB2ENR|=(<span class="number">1</span>&lt;&lt;<span class="number">4</span>);</span><br><span class="line">        GPIOC-&gt;CRH|=((<span class="number">1</span>&lt;&lt;<span class="number">20</span>)|(<span class="number">1</span>&lt;&lt;<span class="number">21</span>));</span><br><span class="line">        GPIOC-&gt;CRH&amp;=~((<span class="number">1</span>&lt;&lt;<span class="number">22</span>)|(<span class="number">1</span>&lt;&lt;<span class="number">23</span>));</span><br><span class="line">        <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">                GPIOC-&gt;BSRR|=(<span class="number">1</span>&lt;&lt;<span class="number">13</span>);</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">250000</span>; i++)&#123;&#125;</span><br><span class="line">                GPIOC-&gt;BSRR|=(<span class="number">1</span>&lt;&lt;(<span class="number">13</span>+<span class="number">16</span>));</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">250000</span>; i++)&#123;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Mikroişlemciler</category>
+      </categories>
+      <tags>
+        <tag>stm32f103c8t6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>STM32 - Yanıp Sönen Led Uygulaması - 2</title>
+    <url>/post/680701429.html</url>
+    <content><![CDATA[<p>Sistem Mimarimizi(3.1) inceleyelim.</p>
+<span id="more"></span>
+
+<img data-src="/post/680701429/1.png" class="">
+
+<p>Burada C portumuzun ‘Bridge 1’ ve ‘AHB System Bus’ üzerinden RCC registerlarına bağlı olduğunu görüyoruz.</p>
+<p>Ledimiz PC13’te olduğu için C portunu aktif etmemiz gerekiyor.</p>
+<p>Portları aktif eden register APB2ENR olduğu için RCC registerlarından APB2ENR’yi bulalım. (7.3.7)</p>
+<img data-src="/post/680701429/2.png" class="">
+
+<img data-src="/post/680701429/3.png" class="">
+
+<p>4 nolu biti 1 yaptığımızda C portu aktif hale gelecek.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">RCC-&gt;APB2ENR|=(<span class="number">1</span>&lt;&lt;<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+
+<p>Şimdi GPIO registerlarına gidelim.(9.2)</p>
+<p>Port C , 13 nolu pini kullanıyor. Bu yüzden GPIOx_CRH kullanmalıyız.</p>
+<img data-src="/post/680701429/4.png" class="">
+
+<p>Buradaki 4 bit (20, 21, 22, 23) 13 nolu pinimizi yönetiyor.</p>
+<p>Portumuzun Clocklama frekansını 50MHz olarak ayarlayıp, PortC-13’ü çıkış olarak ayarladık.</p>
+<img data-src="/post/680701429/5.png" class="">
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">GPIOC-&gt;CRH|=((<span class="number">1</span>&lt;&lt;<span class="number">20</span>)|(<span class="number">1</span>&lt;&lt;<span class="number">21</span>));</span><br><span class="line">GPIOC-&gt;CRH&amp;=~((<span class="number">1</span>&lt;&lt;<span class="number">22</span>)|(<span class="number">1</span>&lt;&lt;<span class="number">23</span>));</span><br></pre></td></tr></table></figure>
+
+<p>Output Data Registerına bakalım.</p>
+<img data-src="/post/680701429/6.png" class="">
+
+<p>Output Data Register’ın 13 nolu bitini 1 yaptığımızda LED sönecek, 0 yaptığımızda ise LED yanacaktır.</p>
+<p>Led’in sürekli yanıp sönmesini sağlamak için aralarına birer for döngüsü koyalım ve çalışmamızı noktalayalım.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stm32f10x.h&quot;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">        RCC-&gt;APB2ENR|=(<span class="number">1</span>&lt;&lt;<span class="number">4</span>);                               <span class="comment">// Port C aktif edildi.</span></span><br><span class="line">        GPIOC-&gt;CRH|=((<span class="number">1</span>&lt;&lt;<span class="number">20</span>)|(<span class="number">1</span>&lt;&lt;<span class="number">21</span>));                      <span class="comment">// Portun clocklama frekansini 50MHz olarak ayarladik.</span></span><br><span class="line">        GPIOC-&gt;CRH&amp;=~((<span class="number">1</span>&lt;&lt;<span class="number">22</span>)|(<span class="number">1</span>&lt;&lt;<span class="number">23</span>));                     <span class="comment">// Port C’nin 13 nolu biti çıkış olarak ayarlanir.</span></span><br><span class="line">        <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">                GPIOC-&gt;ODR|=(<span class="number">1</span>&lt;&lt;<span class="number">13</span>);                        <span class="comment">// ODR&#x27;nin 13 nolu bitini 1 yaptik.</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">500000</span>; i++)&#123;&#125;</span><br><span class="line">                GPIOC-&gt;ODR&amp;=~(<span class="number">1</span>&lt;&lt;<span class="number">13</span>);                       <span class="comment">// ODR&#x27;nin 13 nolu bitini 0 yaptik.</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">500000</span>; i++)&#123;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Mikroişlemciler</category>
+      </categories>
+      <tags>
+        <tag>stm32f103c8t6</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>STM32 - SysTick</title>
     <url>/post/477999524.html</url>
     <content><![CDATA[<p>Sabit bir zaman aralığında “SysTick Kesintileri” oluşturun.</p>
@@ -1254,80 +1181,6 @@
       <tags>
         <tag>recursive</tag>
         <tag>bitwise operations</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Merhaba Dünya</title>
-    <url>/post/1658322667.html</url>
-    <content><![CDATA[<p><span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>‘ya hoşgeldin! Bu senin ilk gönderin. Daha fazla bilgi için <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">dökümantasyonu<i class="fa fa-external-link-alt"></i></span> inceleyebilirsin. Hexo kullanırken herhangi bir problemle karşılaşırsan, probleminin cevabını <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">burada<i class="fa fa-external-link-alt"></i></span> bulabilirsin yada <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span> üzerinde bize sorabilirsin.</p>
-<span id="more"></span>
-
-<h2 id="Hizli-Baslangic"><a href="#Hizli-Baslangic" class="headerlink" title="Hızlı Başlangıç"></a>Hızlı Başlangıç</h2><h3 id="Yeni-bir-gonderi-olusturun"><a href="#Yeni-bir-gonderi-olusturun" class="headerlink" title="Yeni bir gönderi oluşturun"></a>Yeni bir gönderi oluşturun</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new &lt;post-title&gt;         <span class="comment"># create new post</span></span><br><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Yeni-bir-sayfa-olusturun"><a href="#Yeni-bir-sayfa-olusturun" class="headerlink" title="Yeni bir sayfa oluşturun"></a>Yeni bir sayfa oluşturun</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new page &lt;page-title&gt;    <span class="comment"># create new page</span></span><br></pre></td></tr></table></figure>
-
-<p>Daha fazla bilgi için: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Sunucuyu-calistir"><a href="#Sunucuyu-calistir" class="headerlink" title="Sunucuyu çalıştır"></a>Sunucuyu çalıştır</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s                        <span class="comment"># [server] starts a local server</span></span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>Daha fazla bilgi için: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Statik-dosyalari-olustur"><a href="#Statik-dosyalari-olustur" class="headerlink" title="Statik dosyaları oluştur"></a>Statik dosyaları oluştur</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g                        <span class="comment"># [generate] generate static files</span></span><br><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>Daha fazla bilgi için: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Uzak-sitelere-dagitin"><a href="#Uzak-sitelere-dagitin" class="headerlink" title="Uzak sitelere dağıtın"></a>Uzak sitelere dağıtın</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d                        <span class="comment"># [deploy] deploy to github</span></span><br><span class="line">$ hexo g -d                     <span class="comment"># deploy after generation finishes</span></span><br><span class="line">$ hexo g -d -m <span class="string">&quot;message&quot;</span></span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>Daha fazla bilgi için: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Onbellek-dosyasini-ve-olusturulmus-dosyalari-temizleyin"><a href="#Onbellek-dosyasini-ve-olusturulmus-dosyalari-temizleyin" class="headerlink" title="Önbellek dosyasını ve oluşturulmuş dosyaları temizleyin"></a>Önbellek dosyasını ve oluşturulmuş dosyaları temizleyin</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean                    <span class="comment"># cleans the cache file (db.json) and generated files (public)</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Blogunuzu-Github-uzerinde-dagitin"><a href="#Blogunuzu-Github-uzerinde-dagitin" class="headerlink" title="Blogunuzu Github üzerinde dağıtın"></a>Blogunuzu Github üzerinde dağıtın</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d <span class="comment"># deploy</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Commit-gecmisini-silme-ve-sadece-en-son-surumu-nasil-gosterilir"><a href="#Commit-gecmisini-silme-ve-sadece-en-son-surumu-nasil-gosterilir" class="headerlink" title="Commit geçmişini silme ve sadece en son sürümü nasıl gösterilir"></a>Commit geçmişini silme ve sadece en son sürümü nasıl gösterilir</h3><ol>
-<li>“<strong>.deploy_git</strong>“ dizinini silin.</li>
-<li>Gitbash’i açın ve aşağıdaki komutları sırasıyla girin.</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g -d</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo Butterfly</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo new ile gönderi eklerken Brackets otomatik olarak nasıl açılır?</title>
-    <url>/post/3478573742.html</url>
-    <content><![CDATA[<p>“<strong>hexo new</strong>“ komutunu kullanarak yeni bir gönderi oluşturmak istediğimizde “<strong>Brackets</strong>“ programının otomatik olarak açılmasını istiyorsunuz.</p>
-<span id="more"></span>
-
-<p>Bunun için öncelikle proje dizinimizde “<strong>scripts</strong>“ adında bir dizin oluşturalım.</p>
-<img data-src="/post/3478573742/1.png" alt="Resim 1" style="zoom:85%;" />
-
-<p>Oluşturmuş olduğumuz dizin içerisinde “<strong>brackets.js</strong>“ adında bir dosya oluşturalım.</p>
-<p>Aşağıdaki javascript kodunu kullanacağız.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> spawn = <span class="built_in">require</span>(<span class="string">&quot;child_process&quot;</span>).<span class="property">exec</span>;</span><br><span class="line"></span><br><span class="line">hexo.<span class="title function_">on</span>(<span class="string">&quot;new&quot;</span>, <span class="keyword">function</span> (<span class="params">data</span>) &#123;</span><br><span class="line">  <span class="title function_">spawn</span>(<span class="string">&#x27;start  &quot;C:Program Files (x86)BracketsBrackets.exe&quot; &#x27;</span> + data.<span class="property">path</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>Örnek olması açısından “<strong>ramazanaltintop-deneme-brackets</strong>“ adında bir gönderi oluşturalım.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new ramazanaltintop-deneme-brackets</span><br></pre></td></tr></table></figure>
-
-<img data-src="/post/3478573742/2.png" alt="Resim 2" style="zoom:85%;" />
-
-<img data-src="/post/3478573742/3.png" alt="Resim 3" style="zoom:85%;" />
-
-<p>Gönderimiz oluşturulurken ilgili gönderiye ait “<strong>Markdown</strong>“ dosyasının “<strong>Brackets</strong>“ tarafından otomatik olarak açıldığını göreceğiz.</p>
-<img data-src="/post/3478573742/4.png" alt="Resim 4" style="zoom:85%;" />
-
-<div class="note default"><p>Kaynaklar:</p>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9vdW9ob2xseS5naXRodWIuaW8vcG9zdC9oZXhvLW5ldy1wb3N0LWF1dG8tb3Blbi10ZXh0LWVkaXRvci8jJUU1JTg5JThEJUU4JUE4JTgw">Hexo 執行 new 添加文章後，自動打開編輯器<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-</div>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Brackets</tag>
       </tags>
   </entry>
   <entry>
@@ -1419,6 +1272,243 @@
       </tags>
   </entry>
   <entry>
+    <title>The authenticity of host github com cant be established</title>
+    <url>/post/2046058107.html</url>
+    <content><![CDATA[<p>Almış olduğum hatanın giderilmesi için izlenmesi gereken adım aşağıda yer almaktadır.</p>
+<span id="more"></span>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh-keyscan github.com &gt;&gt; ~/.ssh/known_hosts</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<img data-src="/post/2046058107/1.png" alt="Resim 1" />
+
+<div class="note default"><p>Kaynaklar:</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vdmlrcGUvMzQ0NTRkNjlmZTAzYTk2MTdmMmIwMDljYzNiYTIwMGI=">https://gist.github.com/vikpe<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</div>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>Github</tag>
+        <tag>Ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo new ile gönderi eklerken Brackets otomatik olarak nasıl açılır?</title>
+    <url>/post/3478573742.html</url>
+    <content><![CDATA[<p>“<strong>hexo new</strong>“ komutunu kullanarak yeni bir gönderi oluşturmak istediğimizde “<strong>Brackets</strong>“ programının otomatik olarak açılmasını istiyorsunuz.</p>
+<span id="more"></span>
+
+<p>Bunun için öncelikle proje dizinimizde “<strong>scripts</strong>“ adında bir dizin oluşturalım.</p>
+<img data-src="/post/3478573742/1.png" alt="Resim 1" style="zoom:85%;" />
+
+<p>Oluşturmuş olduğumuz dizin içerisinde “<strong>brackets.js</strong>“ adında bir dosya oluşturalım.</p>
+<p>Aşağıdaki javascript kodunu kullanacağız.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> spawn = <span class="built_in">require</span>(<span class="string">&quot;child_process&quot;</span>).<span class="property">exec</span>;</span><br><span class="line"></span><br><span class="line">hexo.<span class="title function_">on</span>(<span class="string">&quot;new&quot;</span>, <span class="keyword">function</span> (<span class="params">data</span>) &#123;</span><br><span class="line">  <span class="title function_">spawn</span>(<span class="string">&#x27;start  &quot;C:Program Files (x86)BracketsBrackets.exe&quot; &#x27;</span> + data.<span class="property">path</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Örnek olması açısından “<strong>ramazanaltintop-deneme-brackets</strong>“ adında bir gönderi oluşturalım.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new ramazanaltintop-deneme-brackets</span><br></pre></td></tr></table></figure>
+
+<img data-src="/post/3478573742/2.png" alt="Resim 2" style="zoom:85%;" />
+
+<img data-src="/post/3478573742/3.png" alt="Resim 3" style="zoom:85%;" />
+
+<p>Gönderimiz oluşturulurken ilgili gönderiye ait “<strong>Markdown</strong>“ dosyasının “<strong>Brackets</strong>“ tarafından otomatik olarak açıldığını göreceğiz.</p>
+<img data-src="/post/3478573742/4.png" alt="Resim 4" style="zoom:85%;" />
+
+<div class="note default"><p>Kaynaklar:</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9vdW9ob2xseS5naXRodWIuaW8vcG9zdC9oZXhvLW5ldy1wb3N0LWF1dG8tb3Blbi10ZXh0LWVkaXRvci8jJUU1JTg5JThEJUU4JUE4JTgw">Hexo 執行 new 添加文章後，自動打開編輯器<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</div>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Brackets</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo Blog Rehberi</title>
+    <url>/post/1160298273.html</url>
+    <content><![CDATA[<p>Hexo içerisinde kullanabileceğimiz bazı özellikler ve bunların görünümlerini inceleyebilirsiniz.</p>
+<span id="more"></span>
+
+<h2 id="Basliklar"><a href="#Basliklar" class="headerlink" title="Başlıklar"></a>Başlıklar</h2><div class="tabs" id="başlıklar"><ul class="nav-tabs"><li class="tab active"><a href="#başlıklar-1">Kod</a></li><li class="tab"><a href="#başlıklar-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="başlıklar-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="section"># H1</span></span><br><span class="line"></span><br><span class="line"><span class="section">## H2</span></span><br><span class="line"></span><br><span class="line"><span class="section">### H3</span></span><br><span class="line"></span><br><span class="line"><span class="section">#### H4</span></span><br><span class="line"></span><br><span class="line"><span class="section">##### H5</span></span><br><span class="line"></span><br><span class="line"><span class="section">###### H6</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="başlıklar-2"><img data-src="/post/1160298273/1.png" alt="Resim 1" style="zoom:85%;" /></div></div></div>
+
+<h2 id="Metin-Stilleri"><a href="#Metin-Stilleri" class="headerlink" title="Metin Stilleri"></a>Metin Stilleri</h2><div class="tabs" id="metin-stilleri"><ul class="nav-tabs"><li class="tab active"><a href="#metin-stilleri-1">Kod</a></li><li class="tab"><a href="#metin-stilleri-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="metin-stilleri-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">u</span>&gt;</span></span>Altı çizili<span class="language-xml"><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span> metin</span><br><span class="line"><span class="strong">**Kalın**</span> metin</span><br><span class="line"><span class="strong">**Kalın**</span> metin</span><br><span class="line"><span class="emphasis">_İtalik_</span> metin</span><br><span class="line"><span class="emphasis">_İtalik_</span> metin</span><br><span class="line"><span class="strong">**<span class="emphasis">_Kalın ve İtalik_</span>**</span> metin</span><br><span class="line"><span class="code">`Vurgulanmış metin`</span></span><br><span class="line">~~Üstü çizili~~ metin</span><br><span class="line">Bu bir <span class="language-xml"><span class="tag">&lt;<span class="name">sub</span>&gt;</span></span>Alt simge<span class="language-xml"><span class="tag">&lt;/<span class="name">sub</span>&gt;</span></span> metin</span><br><span class="line">Bu bir <span class="language-xml"><span class="tag">&lt;<span class="name">sup</span>&gt;</span></span>Üst simge<span class="language-xml"><span class="tag">&lt;/<span class="name">sup</span>&gt;</span></span> metin</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span> = <span class="string">5</span>&gt;</span></span>Font büyüklüğü 5 olan<span class="language-xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span> metin</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">face</span>=<span class="string">&quot;Cascadia Code&quot;</span>&gt;</span></span>Cascadia Code<span class="language-xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">teal</span>&gt;</span></span>Teal renk<span class="language-xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span> metin</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">td</span> <span class="attr">color</span>=<span class="string">red</span> <span class="attr">bgcolor</span>=<span class="string">teal</span>&gt;</span></span>Arkaplan rengi：Teal olan metin.<span class="language-xml"><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="metin-stilleri-2"><p><u>Altı çizili</u> metin<br><strong>Kalın</strong> metin<br><strong>Kalın</strong> metin<br><em>İtalik</em> metin<br><em>İtalik</em> metin<br><strong><em>Kalın ve İtalik</em></strong> metin<br><code>Vurgulanmış metin</code><br><del>Üstü çizili</del> metin<br>Bu bir <sub>Alt simge</sub> metin<br>Bu bir <sup>Üst simge</sup> metin<br><font size = 5>Font büyüklüğü 5 olan</font> metin<br><font face="Cascadia Code">Cascadia Code</font> metin<br><font color=teal>Teal renk</font> metin</p>
+<table><tr><td bgcolor=teal>Arkaplan rengi Teal olan metin.</td></tr></table></div></div></div>
+
+<h2 id="Metinden-Alinti"><a href="#Metinden-Alinti" class="headerlink" title="Metinden Alıntı"></a>Metinden Alıntı</h2><div class="tabs" id="metinden-alıntı"><ul class="nav-tabs"><li class="tab active"><a href="#metinden-alıntı-1">Kod</a></li><li class="tab"><a href="#metinden-alıntı-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="metinden-alıntı-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="quote">&gt; Bir</span></span><br><span class="line"><span class="quote">&gt; İki</span></span><br><span class="line"><span class="quote">&gt; Üç</span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt; &gt; Üç Bir</span></span><br><span class="line"><span class="quote">&gt; &gt; Üç İki</span></span><br><span class="line"><span class="quote">&gt; &gt; Üç Üç</span></span><br><span class="line"><span class="quote">&gt; &gt; Üç Dört</span></span><br><span class="line"><span class="quote">&gt; &gt; <span class="strong">**Üç**</span> Beş</span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt; Dört</span></span><br><span class="line"><span class="quote">&gt; ....</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="metinden-alıntı-2"><blockquote>
+<p>Bir<br>İki<br>Üç</p>
+<blockquote>
+<p>Üç Bir<br>Üç İki<br>Üç Üç<br>Üç Dört<br><strong>Üç</strong> Beş</p>
+</blockquote>
+<p>Dört<br>….</p>
+</blockquote></div></div></div>
+
+<h2 id="Ayirma-Cizgisi"><a href="#Ayirma-Cizgisi" class="headerlink" title="Ayırma Çizgisi"></a>Ayırma Çizgisi</h2><div class="tabs" id="ayırma-çizgisi"><ul class="nav-tabs"><li class="tab active"><a href="#ayırma-çizgisi-1">Kod</a></li><li class="tab"><a href="#ayırma-çizgisi-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="ayırma-çizgisi-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="section">---</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="ayırma-çizgisi-2"><hr></div></div></div>
+
+<h2 id="Listeler"><a href="#Listeler" class="headerlink" title="Listeler"></a>Listeler</h2><div class="tabs" id="listeler"><ul class="nav-tabs"><li class="tab active"><a href="#listeler-1">Kod</a></li><li class="tab"><a href="#listeler-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="listeler-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> Yapay Zeka</span><br><span class="line"><span class="bullet">-</span> Makine Öğrenmesi</span><br><span class="line"><span class="bullet">-</span> ...</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> Derin Öğrenme</span><br><span class="line"><span class="bullet">*</span> Bilgisayar Mimarisi</span><br><span class="line"><span class="bullet">*</span> ...</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> Nümerik Analiz</span><br><span class="line"><span class="bullet">-</span> Diferansiyel Denklemler</span><br><span class="line"><span class="bullet">-</span> ...</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="listeler-2"><ul>
+<li>Yapay Zeka</li>
+<li>Makine Öğrenmesi</li>
+<li>…</li>
+</ul>
+<ul>
+<li>Derin Öğrenme</li>
+<li>Bilgisayar Mimarisi</li>
+<li>…</li>
+</ul>
+<ul>
+<li>Nümerik Analiz</li>
+<li>Diferansiyel Denklemler</li>
+<li>…</li>
+</ul></div></div></div>
+
+<h2 id="Sirali-Listeler"><a href="#Sirali-Listeler" class="headerlink" title="Sıralı Listeler"></a>Sıralı Listeler</h2><div class="tabs" id="sıralı-listeler"><ul class="nav-tabs"><li class="tab active"><a href="#sıralı-listeler-1">Kod</a></li><li class="tab"><a href="#sıralı-listeler-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="sıralı-listeler-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="section"># Sonrasında bir boşluk olduğuna dikkat edin.</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span></span><br><span class="line"><span class="bullet">2.</span></span><br><span class="line"><span class="bullet">3.</span></span><br><span class="line">4.</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="sıralı-listeler-2"><ol>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ol></div></div></div>
+
+<h2 id="Resim"><a href="#Resim" class="headerlink" title="Resim"></a>Resim</h2><div class="tabs" id="resim"><ul class="nav-tabs"><li class="tab active"><a href="#resim-1">Local</a></li><li class="tab"><a href="#resim-2">Local Görünüm</a></li><li class="tab"><a href="#resim-3">Çevrimiçi</a></li><li class="tab"><a href="#resim-4">Çevrimiçi Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="resim-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/uploads/custom-logo.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Default Cover&quot;</span> <span class="attr">style</span>=<span class="string">&quot;zoom:10%;&quot;</span> /&gt;</span></span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="resim-2"><img data-src="/uploads/custom-logo.png" alt="Default Cover" style="zoom:10%;" /></div><div class="tab-pane" id="resim-3"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">Default Cover</span>](<span class="link">https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg</span>)</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="resim-4"><p><img data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="Default Cover"></p></div></div></div>
+
+<h2 id="Tablo"><a href="#Tablo" class="headerlink" title="Tablo"></a>Tablo</h2><div class="tabs" id="tablo"><ul class="nav-tabs"><li class="tab active"><a href="#tablo-1">Kod</a></li><li class="tab"><a href="#tablo-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tablo-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">| Intel Mikroişlemciler | 4004      | 8008    | 8080   | 8086                 | 8088         |</span><br><span class="line">| --------------------- | --------- | ------- | ------ | -------------------- | ------------ |</span><br><span class="line">| Introduced            | 1971      | 1972    | 1974   | 1978                 | 1979         |</span><br><span class="line">| Clock speeds          | 108 kHz   | 108 kHz | 2 MHz  | 2 MHz, 8 MHz, 10 MHz | 5 MHz, 8 MHz |</span><br><span class="line">| Bus width             | 4 bits    | 8 bits  | 8 bits | 16 bits              | 8 bits       |</span><br><span class="line">| Number of transistors | 2,300     | 3,500   | 6,000  | 29,000               | 29,000       |</span><br><span class="line">| Feature size (um)     | 10        | 8       | 6      | 3                    | 6            |</span><br><span class="line">| Addresable memory     | 640 bytes | 16 KB   | 64 KB  | 1 MB                 | 1 MB         |</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="tablo-2"><table>
+<thead>
+<tr>
+<th>Intel Mikroişlemciler</th>
+<th>4004</th>
+<th>8008</th>
+<th>8080</th>
+<th>8086</th>
+<th>8088</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Introduced</td>
+<td>1971</td>
+<td>1972</td>
+<td>1974</td>
+<td>1978</td>
+<td>1979</td>
+</tr>
+<tr>
+<td>Clock speeds</td>
+<td>108 kHz</td>
+<td>108 kHz</td>
+<td>2 MHz</td>
+<td>2 MHz, 8 MHz, 10 MHz</td>
+<td>5 MHz, 8 MHz</td>
+</tr>
+<tr>
+<td>Bus width</td>
+<td>4 bits</td>
+<td>8 bits</td>
+<td>8 bits</td>
+<td>16 bits</td>
+<td>8 bits</td>
+</tr>
+<tr>
+<td>Number of transistors</td>
+<td>2,300</td>
+<td>3,500</td>
+<td>6,000</td>
+<td>29,000</td>
+<td>29,000</td>
+</tr>
+<tr>
+<td>Feature size (um)</td>
+<td>10</td>
+<td>8</td>
+<td>6</td>
+<td>3</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Addresable memory</td>
+<td>640 bytes</td>
+<td>16 KB</td>
+<td>64 KB</td>
+<td>1 MB</td>
+<td>1 MB</td>
+</tr>
+</tbody></table></div></div></div>
+
+<h2 id="Matematik"><a href="#Matematik" class="headerlink" title="Matematik"></a>Matematik</h2><div class="tabs" id="matematik"><ul class="nav-tabs"><li class="tab active"><a href="#matematik-1">Kod</a></li><li class="tab"><a href="#matematik-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="matematik-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">$$</span><br><span class="line">\hat&#123;y&#125;=\theta<span class="emphasis">_0+\theta_</span>1 x<span class="emphasis">_1</span></span><br><span class="line"><span class="emphasis">$$</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">$$</span></span><br><span class="line"><span class="emphasis">\Gamma(z)=\int_</span>0^\infty t^&#123;z-1&#125;e^&#123;-t&#125;dt.</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="matematik-2"><p>$$<br>\hat{y}&#x3D;\theta_0+\theta_1 x_1<br>$$</p>
+<p>$$<br>\Gamma(z)&#x3D;\int_0^\infty t^{z-1}e^{-t}dt.<br>$$</p></div></div></div>
+
+<h2 id="Baglantilar"><a href="#Baglantilar" class="headerlink" title="Bağlantılar"></a>Bağlantılar</h2><div class="tabs" id="bağlantılar"><ul class="nav-tabs"><li class="tab active"><a href="#bağlantılar-1">Kod</a></li><li class="tab"><a href="#bağlantılar-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="bağlantılar-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">Kişisel Web Sitem : [<span class="string">Github</span>](<span class="link">https://ramazanaltintop.github.io</span>).</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="bağlantılar-2"><p>Kişisel Web Sitem : <a href="https://ramazanaltintop.github.io/">Github</a>.</p></div></div></div>
+
+<h2 id="Icice-Listeler"><a href="#Icice-Listeler" class="headerlink" title="İçiçe Listeler"></a>İçiçe Listeler</h2><div class="tabs" id="i̇çiçe-listeler"><ul class="nav-tabs"><li class="tab active"><a href="#i̇çiçe-listeler-1">Kod</a></li><li class="tab"><a href="#i̇çiçe-listeler-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="i̇çiçe-listeler-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> First list item</span><br><span class="line"></span><br><span class="line"><span class="bullet">   -</span> First nested list item</span><br><span class="line"><span class="bullet">     -</span> Second nested list item</span><br><span class="line"></span><br><span class="line"><span class="bullet">2.</span> First list item</span><br><span class="line"><span class="bullet">   -</span> First nested list item</span><br><span class="line"><span class="bullet">     -</span> Second nested list item</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="i̇çiçe-listeler-2"><ol>
+<li><p>First list item</p>
+<ul>
+<li>First nested list item<ul>
+<li>Second nested list item</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>First list item</p>
+<ul>
+<li>First nested list item<ul>
+<li>Second nested list item</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol></div></div></div>
+
+<h2 id="Footnotes"><a href="#Footnotes" class="headerlink" title="Footnotes"></a>Footnotes</h2><div class="tabs" id="footnotes"><ul class="nav-tabs"><li class="tab active"><a href="#footnotes-1">Kod</a></li><li class="tab"><a href="#footnotes-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="footnotes-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">Here is a simple footnote[^1].</span><br><span class="line"></span><br><span class="line">A footnote can also have multiple lines[^2].</span><br><span class="line"></span><br><span class="line">[<span class="symbol">^1</span>]: <span class="link">My reference.</span></span><br><span class="line">[<span class="symbol">^2</span>]: <span class="link">To add line breaks within a footnote, prefix new lines with 2 spaces. This is a second line.</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="footnotes-2"><p>Here is a simple footnote[^1].</p>
+<p>A footnote can also have multiple lines[^2].</p>
+<p>[^1]: My reference.<br>[^2]: To add line breaks within a footnote, prefix new lines with 2 spaces. This is a second line.</p></div></div></div>
+
+<h2 id="Yorum-Satiri"><a href="#Yorum-Satiri" class="headerlink" title="Yorum Satırı"></a>Yorum Satırı</h2><div class="tabs" id="yorum-satırı"><ul class="nav-tabs"><li class="tab active"><a href="#yorum-satırı-1">Kod</a></li><li class="tab"><a href="#yorum-satırı-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="yorum-satırı-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">&lt;!-- This content will not appear in the rendered Markdown --&gt;</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="yorum-satırı-2"><!-- This content will not appear in the rendered Markdown --></div></div></div>
+
+<h2 id="Tabs"><a href="#Tabs" class="headerlink" title="Tabs"></a>Tabs</h2><div class="tabs" id="tabs"><ul class="nav-tabs"><li class="tab active"><a href="#tabs-1">Kod</a></li><li class="tab"><a href="#tabs-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tabs-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">&#123;% tabs example %&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab test1 --&gt;</span><br><span class="line"></span><br><span class="line">This is tab1.</span><br><span class="line"></span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab test2 --&gt;</span><br><span class="line"></span><br><span class="line">This is tab2.</span><br><span class="line"></span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab test3 --&gt;</span><br><span class="line"></span><br><span class="line">This is tab3.</span><br><span class="line"></span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="tabs-2"><div class="tabs" id="example"><ul class="nav-tabs"><li class="tab active"><a href="#example-1">test1</a></li><li class="tab"><a href="#example-2">test2</a></li><li class="tab"><a href="#example-3">test3</a></li></ul><div class="tab-content"><div class="tab-pane active" id="example-1"><p>This is tab1.</p></div><div class="tab-pane" id="example-2"><p>This is tab2.</p></div><div class="tab-pane" id="example-3"><p>This is tab3.</p></div></div></div></div></div></div>
+
+<h2 id="Not"><a href="#Not" class="headerlink" title="Not"></a>Not</h2><div class="tabs" id="not"><ul class="nav-tabs"><li class="tab active"><a href="#not-1">Kod</a></li><li class="tab"><a href="#not-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="not-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">&#123;% note %&#125;Modern&#123;% endnote %&#125;</span><br><span class="line">&#123;% note default %&#125;Default&#123;% endnote %&#125;</span><br><span class="line">&#123;% note primary %&#125;Primary&#123;% endnote %&#125;</span><br><span class="line">&#123;% note success %&#125;Başarılı&#123;% endnote %&#125;</span><br><span class="line">&#123;% note info %&#125;Bilgi&#123;% endnote %&#125;</span><br><span class="line">&#123;% note warning %&#125;Uyarı&#123;% endnote %&#125;</span><br><span class="line">&#123;% note danger %&#125;Tehlike&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="not-2"><div class="note "><p>Modern</p>
+</div>
+<div class="note default"><p>Default</p>
+</div>
+<div class="note primary"><p>Primary</p>
+</div>
+<div class="note success"><p>Başarılı</p>
+</div>
+<div class="note info"><p>Bilgi</p>
+</div>
+<div class="note warning"><p>Uyarı</p>
+</div>
+<div class="note danger"><p>Tehlike</p>
+</div></div></div></div>
+
+<div class="note default"><p>Kaynaklar:</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vZW4vZ2V0LXN0YXJ0ZWQvd3JpdGluZy1vbi1naXRodWIvZ2V0dGluZy1zdGFydGVkLXdpdGgtd3JpdGluZy1hbmQtZm9ybWF0dGluZy1vbi1naXRodWI=">Getting started with writing and formatting on github<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0FraWxhcmx4aC9oZXhvLWJ1dHRlcmZseS10YWctcGx1Z2lucy1wbHVz">Hexo-butterfly-tag-plugins-plus<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZm9tYWwuY2MvcG9zdHMvMjAxMzQ1NGQuaHRtbA==">Markdown 语法与外挂标签写法汇总<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9neHlzdHJ1Z2dsZS50b3AvcG9zdHMvd3JpdGUyLw==">外挂标签<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</div>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows Powershell Özelleştirme Nasıl Yapılır?</title>
     <url>/post/3218656048.html</url>
     <content><![CDATA[<p>Windows Terminal kurulumunu Microsoft Store üzerinden yapalım.</p>
@@ -1496,6 +1586,118 @@
       <tags>
         <tag>Windows</tag>
         <tag>Powershell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Merhaba Dünya</title>
+    <url>/post/1658322667.html</url>
+    <content><![CDATA[<p><span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>‘ya hoşgeldin! Bu senin ilk gönderin. Daha fazla bilgi için <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">dökümantasyonu<i class="fa fa-external-link-alt"></i></span> inceleyebilirsin. Hexo kullanırken herhangi bir problemle karşılaşırsan, probleminin cevabını <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">burada<i class="fa fa-external-link-alt"></i></span> bulabilirsin yada <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span> üzerinde bize sorabilirsin.</p>
+<span id="more"></span>
+
+<h2 id="Hizli-Baslangic"><a href="#Hizli-Baslangic" class="headerlink" title="Hızlı Başlangıç"></a>Hızlı Başlangıç</h2><h3 id="Yeni-bir-gonderi-olusturun"><a href="#Yeni-bir-gonderi-olusturun" class="headerlink" title="Yeni bir gönderi oluşturun"></a>Yeni bir gönderi oluşturun</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new &lt;post-title&gt;         <span class="comment"># create new post</span></span><br><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Yeni-bir-sayfa-olusturun"><a href="#Yeni-bir-sayfa-olusturun" class="headerlink" title="Yeni bir sayfa oluşturun"></a>Yeni bir sayfa oluşturun</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new page &lt;page-title&gt;    <span class="comment"># create new page</span></span><br></pre></td></tr></table></figure>
+
+<p>Daha fazla bilgi için: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Sunucuyu-calistir"><a href="#Sunucuyu-calistir" class="headerlink" title="Sunucuyu çalıştır"></a>Sunucuyu çalıştır</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s                        <span class="comment"># [server] starts a local server</span></span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>Daha fazla bilgi için: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Statik-dosyalari-olustur"><a href="#Statik-dosyalari-olustur" class="headerlink" title="Statik dosyaları oluştur"></a>Statik dosyaları oluştur</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g                        <span class="comment"># [generate] generate static files</span></span><br><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>Daha fazla bilgi için: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Uzak-sitelere-dagitin"><a href="#Uzak-sitelere-dagitin" class="headerlink" title="Uzak sitelere dağıtın"></a>Uzak sitelere dağıtın</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d                        <span class="comment"># [deploy] deploy to github</span></span><br><span class="line">$ hexo g -d                     <span class="comment"># deploy after generation finishes</span></span><br><span class="line">$ hexo g -d -m <span class="string">&quot;message&quot;</span></span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>Daha fazla bilgi için: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Onbellek-dosyasini-ve-olusturulmus-dosyalari-temizleyin"><a href="#Onbellek-dosyasini-ve-olusturulmus-dosyalari-temizleyin" class="headerlink" title="Önbellek dosyasını ve oluşturulmuş dosyaları temizleyin"></a>Önbellek dosyasını ve oluşturulmuş dosyaları temizleyin</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean                    <span class="comment"># cleans the cache file (db.json) and generated files (public)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Blogunuzu-Github-uzerinde-dagitin"><a href="#Blogunuzu-Github-uzerinde-dagitin" class="headerlink" title="Blogunuzu Github üzerinde dağıtın"></a>Blogunuzu Github üzerinde dağıtın</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d <span class="comment"># deploy</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Commit-gecmisini-silme-ve-sadece-en-son-surumu-nasil-gosterilir"><a href="#Commit-gecmisini-silme-ve-sadece-en-son-surumu-nasil-gosterilir" class="headerlink" title="Commit geçmişini silme ve sadece en son sürümü nasıl gösterilir"></a>Commit geçmişini silme ve sadece en son sürümü nasıl gösterilir</h3><ol>
+<li>“<strong>.deploy_git</strong>“ dizinini silin.</li>
+<li>Gitbash’i açın ve aşağıdaki komutları sırasıyla girin.</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g -d</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Hexo Butterfly</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Wemos D1 R1 Yapılandırması Nasıl Yapılır?</title>
+    <url>/post/1729220706.html</url>
+    <content><![CDATA[<p>IoT dersi için satın aldığım Wemos D1 R1 kartının kullanabilmemiz için yapılması gereken yapılandırma ayarlarından bahsedeceğim. </p>
+<span id="more"></span>
+
+<p>Arduino programını bilgisayarımıza kurduktan sonra CH340 Driver kurulumunun nasıl yapılacağını ve son olarak Wemos kütüphanelerinin arduino’ya nasıl eklenebileceğini anlatacağım.</p>
+<h2 id="Arduino-Yazilimi-Nasil-Kurulur"><a href="#Arduino-Yazilimi-Nasil-Kurulur" class="headerlink" title="Arduino Yazılımı Nasıl Kurulur?"></a>Arduino Yazılımı Nasıl Kurulur?</h2><div class="note warning"><h4 id="Uyari"><a href="#Uyari" class="headerlink" title="Uyarı"></a>Uyarı</h4><p>Kurulum sırasında karşınıza çıkacak olan gerekli izinleri vermeyi unutmayınız!</p>
+</div>
+
+<h2 id="CH340-Driver-Kurulumu-Nasil-Yapilir"><a href="#CH340-Driver-Kurulumu-Nasil-Yapilir" class="headerlink" title="CH340 Driver Kurulumu Nasıl Yapılır?"></a>CH340 Driver Kurulumu Nasıl Yapılır?</h2><p>CH340 Driver kurulumunu yapmak üzere <span class="exturl" data-url="aHR0cHM6Ly93d3cud2Vtb3MuY2MvZW4vbGF0ZXN0L2NoMzQwX2RyaXZlci5odG1s">https://www.wemos.cc/en/latest/ch340_driver.html<i class="fa fa-external-link-alt"></i></span> adresine gidelim. Windows işletim sistemi üzerinde çalıştığım için Windows V3.5 bağlantısına tıklıyorum.</p>
+<img data-src="/post/1729220706/1.png" alt="Resim 1" style="zoom:85%;" />
+
+<p>İlgili arşiv dosyasını bilgisayarımızda kaydedelim.</p>
+<img data-src="/post/1729220706/2.png" alt="Resim 2" style="zoom:85%;" />
+
+<p>Arşiv dosyasının içerisindeki .EXE uzantılı dosyayı çalıştıralım.</p>
+<img data-src="/post/1729220706/3.png" alt="Resim 3" style="zoom:85%;" />
+
+<p>Son olarak INSTALL seçeneğine tıklayarak kurulumu başlatalım.</p>
+<img data-src="/post/1729220706/4.png" alt="Resim 4" style="zoom:85%;" />
+
+<p>Kurulum tamamlandı.</p>
+<img data-src="/post/1729220706/5.png" alt="Resim 5" style="zoom:85%;" />
+
+<h2 id="Arduino-Yazilimina-Wemos-Kutuphaneleri-Nasil-Eklenir"><a href="#Arduino-Yazilimina-Wemos-Kutuphaneleri-Nasil-Eklenir" class="headerlink" title="Arduino Yazılımına Wemos Kütüphaneleri Nasıl Eklenir?"></a>Arduino Yazılımına Wemos Kütüphaneleri Nasıl Eklenir?</h2><p>Arduino programımızı açtıktan sonra File &gt; Preferences yolunu izleyelim.</p>
+<img data-src="/post/1729220706/6.png" alt="Resim 6" style="zoom:85%;" />
+
+<p>İlgili json dosyamızı ekleyelim.</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9hcmR1aW5vLmVzcDgyNjYuY29tL3N0YWJsZS9wYWNrYWdlX2VzcDgyNjZjb21faW5kZXguanNvbg==">https://arduino.esp8266.com/stable/package_esp8266com_index.json<i class="fa fa-external-link-alt"></i></span></p>
+<img data-src="/post/1729220706/7.png" alt="Resim 7" style="zoom:85%;" />
+
+<p>Üst menü üzerinden Tools &gt; Board &gt; Boards Manager… yolunu izleyelim.</p>
+<img data-src="/post/1729220706/8.png" alt="Resim 8" style="zoom:85%;" />
+
+<p>esp8266 olarak aramamızı gerçekleştirelim. Install diyerek 3.1.2 sürümünün kurulumunu başlatalım.</p>
+<img data-src="/post/1729220706/9.png" alt="Resim 9" style="zoom:85%;" />
+
+<p>Wemos D1 R1 kartımızı kullanabilmek için önce kartımızı seçelim.</p>
+<p>Bunun için Tools &gt; Board &gt; esp8266 &gt; LOLIN(WeMos) D1 R1 seçeneğini işaretleyelim.</p>
+<img data-src="/post/1729220706/10.png" alt="Resim 10" style="zoom:85%;" />
+
+<p>Son olarak kartımızın takılı olduğu Port’u seçip kullanmaya başlayabiliriz.</p>
+<p>Bunun için Tools &gt; Port &gt; COMx işaretleyelim.</p>
+<img data-src="/post/1729220706/11.png" alt="Resim 11" style="zoom:85%;" />
+
+<h2 id="Buzzer’dan-Gelen-Gurultulu-Ses-Problemi-Nasil-Cozulur"><a href="#Buzzer’dan-Gelen-Gurultulu-Ses-Problemi-Nasil-Cozulur" class="headerlink" title="Buzzer’dan Gelen Gürültülü Ses Problemi Nasıl Çözülür?"></a>Buzzer’dan Gelen Gürültülü Ses Problemi Nasıl Çözülür?</h2><p>Aşağıdaki bağlantı üzerinden buzzer’ın gürültülü ses’ine ulaşabilirsiniz.</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xNlh1Y3diWEE5RFNYemFzVzc1cUgwcTdic0VOUi15R1Qvdmlldz91c3A9c2hhcmluZw==">https://drive.google.com/file/d/16XucwbXA9DSXzasW75qH0q7bsENR-yGT/view?usp=sharing<i class="fa fa-external-link-alt"></i></span></p>
+<p>WeMos D1 R1 kartı kullanıyorken basit bir led yakıp söndürme kodunu çalıştırdığımda Buzzer’dan arkaplanda gürültü olacak şekilde ilgili sesi duyabiliyordum.</p>
+<p>Hem WiFi modülümüze ulaşıp çalışmalarımızı yapabilmek hem de buzzer’dan sıkıntısız bir çıktı elde edebilmemiz için öncelikle Boards Manager’ı açalım ve esp8266 olarak aramamızı gerçekleştirelim. Yüklü olan 3.1.2 sürümünü REMOVE butonuna tıklayarak kaldıralım.</p>
+<img data-src="/post/1729220706/12.png" alt="Resim 12" style="zoom:85%;" />
+
+<p>ESP8266 modülünün 2.5.0 sürümünü seçip INSTALL butonuna tıklayarak kurulumumuzu gerçekleştirelim.</p>
+<img data-src="/post/1729220706/13.png" alt="Resim 13" style="zoom:85%;" />
+
+<p>Artık başarılı bir şekilde kodumuzu derleyip kartımıza yükleyebiliriz. Bu sayede buzzer’dan gelen rahatsız edici ses de kaybolmuş oldu.</p>
+<img data-src="/post/1729220706/14.png" alt="Resim 14" style="zoom:85%;" />
+
+<div class="note default"><p>Kaynaklar:</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly95b3V0dS5iZS9CRjc0OVg0dW0tST9saXN0PVBMLXYtWkRZb1dXaFNKY29DcGxGRUdKV0w2WFVOWTB5aGk=">CH340 Driver Kurulumu Nasıl Yapılır?<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly95b3V0dS5iZS9Gc3UtSjJLUUtxRT9saXN0PVBMLXYtWkRZb1dXaFNKY29DcGxGRUdKV0w2WFVOWTB5aGk=">WeMos Kütüphaneleri Arduino’ya Nasıl Eklenir?<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</div>]]></content>
+      <categories>
+        <category>Nesnelerin Interneti</category>
+      </categories>
+      <tags>
+        <tag>WeMos D1 R1</tag>
+        <tag>Arduino</tag>
+        <tag>ESP8266</tag>
+        <tag>CH340</tag>
+        <tag>Internet of Things</tag>
       </tags>
   </entry>
   <entry>
@@ -1705,289 +1907,87 @@
         <category>Nesnelerin Interneti</category>
       </categories>
       <tags>
-        <tag>Arduino Cloud Agent</tag>
-        <tag>Arduino</tag>
         <tag>WeMos D1 R1</tag>
+        <tag>Arduino</tag>
+        <tag>ESP8266</tag>
+        <tag>CH340</tag>
+        <tag>Internet of Things</tag>
+        <tag>Arduino Cloud Agent</tag>
         <tag>Cloud Application</tag>
         <tag>Led Blink Application</tag>
-        <tag>Internet of Things</tag>
-        <tag>ESP8266</tag>
-        <tag>CH340</tag>
       </tags>
   </entry>
   <entry>
-    <title>Wemos D1 R1 Yapılandırması Nasıl Yapılır?</title>
-    <url>/post/1729220706.html</url>
-    <content><![CDATA[<p>IoT dersi için satın aldığım Wemos D1 R1 kartının kullanabilmemiz için yapılması gereken yapılandırma ayarlarından bahsedeceğim. </p>
+    <title>STM32 - Interrupt</title>
+    <url>/post/3820960494.html</url>
+    <content><![CDATA[<p><strong>Interrupt:</strong> Program akışında devam ederken, kurulu olan özel durum için o an yapmakta olan işini bırakıp, bu özel durumun belirtmiş olduğu fonksiyona gitmesi ve sonrasında kaldığı yerden devam etmesidir.</p>
 <span id="more"></span>
 
-<p>Arduino programını bilgisayarımıza kurduktan sonra CH340 Driver kurulumunun nasıl yapılacağını ve son olarak Wemos kütüphanelerinin arduino’ya nasıl eklenebileceğini anlatacağım.</p>
-<h2 id="Arduino-Yazilimi-Nasil-Kurulur"><a href="#Arduino-Yazilimi-Nasil-Kurulur" class="headerlink" title="Arduino Yazılımı Nasıl Kurulur?"></a>Arduino Yazılımı Nasıl Kurulur?</h2><div class="note warning"><h4 id="Uyari"><a href="#Uyari" class="headerlink" title="Uyarı"></a>Uyarı</h4><p>Kurulum sırasında karşınıza çıkacak olan gerekli izinleri vermeyi unutmayınız!</p>
-</div>
+<p>Bir sekreteri düşünelim, sekreter normal çalışmasını yaparken telefon geldiğinde o an yaptığı işi bırakıp telefona cevap verir. Eğer telefon sayısı birden fazla ise öncelik sırasına göre telefonlara cevap verir.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">	<span class="keyword">if</span>(read_button_input)</span><br><span class="line">	<span class="built_in">exit</span>;</span><br><span class="line">&#125;</span><br><span class="line">turn_on_led;</span><br></pre></td></tr></table></figure>
 
-<h2 id="CH340-Driver-Kurulumu-Nasil-Yapilir"><a href="#CH340-Driver-Kurulumu-Nasil-Yapilir" class="headerlink" title="CH340 Driver Kurulumu Nasıl Yapılır?"></a>CH340 Driver Kurulumu Nasıl Yapılır?</h2><p>CH340 Driver kurulumunu yapmak üzere <span class="exturl" data-url="aHR0cHM6Ly93d3cud2Vtb3MuY2MvZW4vbGF0ZXN0L2NoMzQwX2RyaXZlci5odG1s">https://www.wemos.cc/en/latest/ch340_driver.html<i class="fa fa-external-link-alt"></i></span> adresine gidelim. Windows işletim sistemi üzerinde çalıştığım için Windows V3.5 bağlantısına tıklıyorum.</p>
-<img data-src="/post/1729220706/1.png" alt="Resim 1" style="zoom:85%;" />
+<p><strong>1.Durum:</strong> Telefonun zili yoksa arama olup olmadığını anlamak için belirli aralıklar ile sürekli telefona bakıyor.</p>
+<p><strong>2.Durum:</strong> Telefonun zili var, telefon çaldığında telefona bakıyor.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">interrupt_handler()&#123;</span><br><span class="line">	turn_on_led;</span><br><span class="line">	<span class="built_in">exit</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>İlgili arşiv dosyasını bilgisayarımızda kaydedelim.</p>
-<img data-src="/post/1729220706/2.png" alt="Resim 2" style="zoom:85%;" />
+<p><strong>Nested Vectored Interrupt:</strong></p>
+<p>STM32F Serisi nested vectored interrupt özelliğine sahiptir.</p>
+<p>Kısaca birden fazla kesmenin içiçe çalışabildiğini ifade eder.</p>
+<p>Önceliği düşük olan bir kesme aktif iken önceliği daha yüksek olan bir kesme aktif olursa;<br>işlemci içinde bulunduğu kesme fonksiyonunu durdurur ve önceliği yüksek olan kesme<br>fonksiyonuna gider.</p>
+<img data-src="/post/3820960494/1.png" class="">
 
-<p>Arşiv dosyasının içerisindeki .EXE uzantılı dosyayı çalıştıralım.</p>
-<img data-src="/post/1729220706/3.png" alt="Resim 3" style="zoom:85%;" />
+<p>Herhangi bir portun 0. pinini interrupt olarak ayarlmak istediğimizde ilgili registerı set etmemiz gerekiyor.</p>
+<img data-src="/post/3820960494/2.png" class="">
 
-<p>Son olarak INSTALL seçeneğine tıklayarak kurulumu başlatalım.</p>
-<img data-src="/post/1729220706/4.png" alt="Resim 4" style="zoom:85%;" />
+<p>Interrupt kullanabilmemiz için 0 numaralı biti 1 yapmamız gerekiyor.</p>
+<img data-src="/post/3820960494/3.png" class="">
 
-<p>Kurulum tamamlandı.</p>
-<img data-src="/post/1729220706/5.png" alt="Resim 5" style="zoom:85%;" />
+<img data-src="/post/3820960494/4.png" class="">
 
-<h2 id="Arduino-Yazilimina-Wemos-Kutuphaneleri-Nasil-Eklenir"><a href="#Arduino-Yazilimina-Wemos-Kutuphaneleri-Nasil-Eklenir" class="headerlink" title="Arduino Yazılımına Wemos Kütüphaneleri Nasıl Eklenir?"></a>Arduino Yazılımına Wemos Kütüphaneleri Nasıl Eklenir?</h2><p>Arduino programımızı açtıktan sonra File &gt; Preferences yolunu izleyelim.</p>
-<img data-src="/post/1729220706/6.png" alt="Resim 6" style="zoom:85%;" />
+<p>Burada kullanacağımız pini aktif hale getiriyoruz. Portun 0. pinini kullanmak için…</p>
+<img data-src="/post/3820960494/5.png" class="">
 
-<p>İlgili json dosyamızı ekleyelim.</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9hcmR1aW5vLmVzcDgyNjYuY29tL3N0YWJsZS9wYWNrYWdlX2VzcDgyNjZjb21faW5kZXguanNvbg==">https://arduino.esp8266.com/stable/package_esp8266com_index.json<i class="fa fa-external-link-alt"></i></span></p>
-<img data-src="/post/1729220706/7.png" alt="Resim 7" style="zoom:85%;" />
+<img data-src="/post/3820960494/6.png" class="">
 
-<p>Üst menü üzerinden Tools &gt; Board &gt; Boards Manager… yolunu izleyelim.</p>
-<img data-src="/post/1729220706/8.png" alt="Resim 8" style="zoom:85%;" />
+<img data-src="/post/3820960494/7.png" class="">
 
-<p>esp8266 olarak aramamızı gerçekleştirelim. Install diyerek 3.1.2 sürümünün kurulumunu başlatalım.</p>
-<img data-src="/post/1729220706/9.png" alt="Resim 9" style="zoom:85%;" />
+<p>Bu bayrak aktif olduğunda tekrardan interrupt’ın aktif olabilmesi için ilgili biti <strong>1</strong> yapmalıyız.</p>
+<img data-src="/post/3820960494/8.png" class="">
 
-<p>Wemos D1 R1 kartımızı kullanabilmek için önce kartımızı seçelim.</p>
-<p>Bunun için Tools &gt; Board &gt; esp8266 &gt; LOLIN(WeMos) D1 R1 seçeneğini işaretleyelim.</p>
-<img data-src="/post/1729220706/10.png" alt="Resim 10" style="zoom:85%;" />
-
-<p>Son olarak kartımızın takılı olduğu Port’u seçip kullanmaya başlayabiliriz.</p>
-<p>Bunun için Tools &gt; Port &gt; COMx işaretleyelim.</p>
-<img data-src="/post/1729220706/11.png" alt="Resim 11" style="zoom:85%;" />
-
-<h2 id="Buzzer’dan-Gelen-Gurultulu-Ses-Problemi-Nasil-Cozulur"><a href="#Buzzer’dan-Gelen-Gurultulu-Ses-Problemi-Nasil-Cozulur" class="headerlink" title="Buzzer’dan Gelen Gürültülü Ses Problemi Nasıl Çözülür?"></a>Buzzer’dan Gelen Gürültülü Ses Problemi Nasıl Çözülür?</h2><p>Aşağıdaki bağlantı üzerinden buzzer’ın gürültülü ses’ine ulaşabilirsiniz.</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xNlh1Y3diWEE5RFNYemFzVzc1cUgwcTdic0VOUi15R1Qvdmlldz91c3A9c2hhcmluZw==">https://drive.google.com/file/d/16XucwbXA9DSXzasW75qH0q7bsENR-yGT/view?usp=sharing<i class="fa fa-external-link-alt"></i></span></p>
-<p>WeMos D1 R1 kartı kullanıyorken basit bir led yakıp söndürme kodunu çalıştırdığımda Buzzer’dan arkaplanda gürültü olacak şekilde ilgili sesi duyabiliyordum.</p>
-<p>Hem WiFi modülümüze ulaşıp çalışmalarımızı yapabilmek hem de buzzer’dan sıkıntısız bir çıktı elde edebilmemiz için öncelikle Boards Manager’ı açalım ve esp8266 olarak aramamızı gerçekleştirelim. Yüklü olan 3.1.2 sürümünü REMOVE butonuna tıklayarak kaldıralım.</p>
-<img data-src="/post/1729220706/12.png" alt="Resim 12" style="zoom:85%;" />
-
-<p>ESP8266 modülünün 2.5.0 sürümünü seçip INSTALL butonuna tıklayarak kurulumumuzu gerçekleştirelim.</p>
-<img data-src="/post/1729220706/13.png" alt="Resim 13" style="zoom:85%;" />
-
-<p>Artık başarılı bir şekilde kodumuzu derleyip kartımıza yükleyebiliriz. Bu sayede buzzer’dan gelen rahatsız edici ses de kaybolmuş oldu.</p>
-<img data-src="/post/1729220706/14.png" alt="Resim 14" style="zoom:85%;" />
-
-<div class="note default"><p>Kaynaklar:</p>
+<p><strong>External Interrupt</strong></p>
+<p>RCC-APB2ENR</p>
 <ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly95b3V0dS5iZS9CRjc0OVg0dW0tST9saXN0PVBMLXYtWkRZb1dXaFNKY29DcGxGRUdKV0w2WFVOWTB5aGk=">CH340 Driver Kurulumu Nasıl Yapılır?<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly95b3V0dS5iZS9Gc3UtSjJLUUtxRT9saXN0PVBMLXYtWkRZb1dXaFNKY29DcGxGRUdKV0w2WFVOWTB5aGk=">WeMos Kütüphaneleri Arduino’ya Nasıl Eklenir?<i class="fa fa-external-link-alt"></i></span></li>
+<li><p>İlgili portun alternatif fonksiyonu 1 yapılır.</p>
+</li>
+<li><p>AFIO APB2ENR’nin 0 numaralı bitindedir.</p>
+</li>
 </ul>
-</div>]]></content>
-      <categories>
-        <category>Nesnelerin Interneti</category>
-      </categories>
-      <tags>
-        <tag>Arduino</tag>
-        <tag>WeMos D1 R1</tag>
-        <tag>Internet of Things</tag>
-        <tag>ESP8266</tag>
-        <tag>CH340</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>The authenticity of host github com cant be established</title>
-    <url>/post/2046058107.html</url>
-    <content><![CDATA[<p>Almış olduğum hatanın giderilmesi için izlenmesi gereken adım aşağıda yer almaktadır.</p>
-<span id="more"></span>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh-keyscan github.com &gt;&gt; ~/.ssh/known_hosts</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-
-<img data-src="/post/2046058107/1.png" alt="Resim 1" />
-
-<div class="note default"><p>Kaynaklar:</p>
+<p>AFIO-&gt;EXTICR[0-3]</p>
 <ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vdmlrcGUvMzQ0NTRkNjlmZTAzYTk2MTdmMmIwMDljYzNiYTIwMGI=">https://gist.github.com/vikpe<i class="fa fa-external-link-alt"></i></span></li>
+<li>Port ve pin seçimi yapılır.</li>
 </ul>
-</div>
+<p>EXTI-&gt;FTSR</p>
+<ul>
+<li>Tetikleme düşen kenar ile yapılacaksa ilgili bit 1 yapılır.</li>
+</ul>
+<p>EXTI-&gt;RTSR</p>
+<ul>
+<li>Tetikleme yükselen kenar ile yapılacaksa ilgili bit 1 yapılır.</li>
+</ul>
+<p>NVIC_EnableIRQ(EXTIxIRQn)</p>
+<ul>
+<li>Ayarlanan pin için interrupt aktif yapılır.</li>
+</ul>
+<img data-src="/post/3820960494/9.png" class="">
+
+<img data-src="/post/3820960494/10.png" class="">
 ]]></content>
       <categories>
-        <category>Git</category>
+        <category>Mikroişlemciler</category>
       </categories>
       <tags>
-        <tag>Git</tag>
-        <tag>Github</tag>
-        <tag>Ssh</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo Blog Rehberi</title>
-    <url>/post/1160298273.html</url>
-    <content><![CDATA[<p>Hexo içerisinde kullanabileceğimiz bazı özellikler ve bunların görünümlerini inceleyebilirsiniz.</p>
-<span id="more"></span>
-
-<h2 id="Basliklar"><a href="#Basliklar" class="headerlink" title="Başlıklar"></a>Başlıklar</h2><div class="tabs" id="başlıklar"><ul class="nav-tabs"><li class="tab active"><a href="#başlıklar-1">Kod</a></li><li class="tab"><a href="#başlıklar-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="başlıklar-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="section"># H1</span></span><br><span class="line"></span><br><span class="line"><span class="section">## H2</span></span><br><span class="line"></span><br><span class="line"><span class="section">### H3</span></span><br><span class="line"></span><br><span class="line"><span class="section">#### H4</span></span><br><span class="line"></span><br><span class="line"><span class="section">##### H5</span></span><br><span class="line"></span><br><span class="line"><span class="section">###### H6</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="başlıklar-2"><img data-src="/post/1160298273/1.png" alt="Resim 1" style="zoom:85%;" /></div></div></div>
-
-<h2 id="Metin-Stilleri"><a href="#Metin-Stilleri" class="headerlink" title="Metin Stilleri"></a>Metin Stilleri</h2><div class="tabs" id="metin-stilleri"><ul class="nav-tabs"><li class="tab active"><a href="#metin-stilleri-1">Kod</a></li><li class="tab"><a href="#metin-stilleri-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="metin-stilleri-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">u</span>&gt;</span></span>Altı çizili<span class="language-xml"><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span> metin</span><br><span class="line"><span class="strong">**Kalın**</span> metin</span><br><span class="line"><span class="strong">**Kalın**</span> metin</span><br><span class="line"><span class="emphasis">_İtalik_</span> metin</span><br><span class="line"><span class="emphasis">_İtalik_</span> metin</span><br><span class="line"><span class="strong">**<span class="emphasis">_Kalın ve İtalik_</span>**</span> metin</span><br><span class="line"><span class="code">`Vurgulanmış metin`</span></span><br><span class="line">~~Üstü çizili~~ metin</span><br><span class="line">Bu bir <span class="language-xml"><span class="tag">&lt;<span class="name">sub</span>&gt;</span></span>Alt simge<span class="language-xml"><span class="tag">&lt;/<span class="name">sub</span>&gt;</span></span> metin</span><br><span class="line">Bu bir <span class="language-xml"><span class="tag">&lt;<span class="name">sup</span>&gt;</span></span>Üst simge<span class="language-xml"><span class="tag">&lt;/<span class="name">sup</span>&gt;</span></span> metin</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span> = <span class="string">5</span>&gt;</span></span>Font büyüklüğü 5 olan<span class="language-xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span> metin</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">face</span>=<span class="string">&quot;Cascadia Code&quot;</span>&gt;</span></span>Cascadia Code<span class="language-xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">teal</span>&gt;</span></span>Teal renk<span class="language-xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span> metin</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">td</span> <span class="attr">color</span>=<span class="string">red</span> <span class="attr">bgcolor</span>=<span class="string">teal</span>&gt;</span></span>Arkaplan rengi：Teal olan metin.<span class="language-xml"><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="metin-stilleri-2"><p><u>Altı çizili</u> metin<br><strong>Kalın</strong> metin<br><strong>Kalın</strong> metin<br><em>İtalik</em> metin<br><em>İtalik</em> metin<br><strong><em>Kalın ve İtalik</em></strong> metin<br><code>Vurgulanmış metin</code><br><del>Üstü çizili</del> metin<br>Bu bir <sub>Alt simge</sub> metin<br>Bu bir <sup>Üst simge</sup> metin<br><font size = 5>Font büyüklüğü 5 olan</font> metin<br><font face="Cascadia Code">Cascadia Code</font> metin<br><font color=teal>Teal renk</font> metin</p>
-<table><tr><td bgcolor=teal>Arkaplan rengi Teal olan metin.</td></tr></table></div></div></div>
-
-<h2 id="Metinden-Alinti"><a href="#Metinden-Alinti" class="headerlink" title="Metinden Alıntı"></a>Metinden Alıntı</h2><div class="tabs" id="metinden-alıntı"><ul class="nav-tabs"><li class="tab active"><a href="#metinden-alıntı-1">Kod</a></li><li class="tab"><a href="#metinden-alıntı-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="metinden-alıntı-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="quote">&gt; Bir</span></span><br><span class="line"><span class="quote">&gt; İki</span></span><br><span class="line"><span class="quote">&gt; Üç</span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt; &gt; Üç Bir</span></span><br><span class="line"><span class="quote">&gt; &gt; Üç İki</span></span><br><span class="line"><span class="quote">&gt; &gt; Üç Üç</span></span><br><span class="line"><span class="quote">&gt; &gt; Üç Dört</span></span><br><span class="line"><span class="quote">&gt; &gt; <span class="strong">**Üç**</span> Beş</span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt; Dört</span></span><br><span class="line"><span class="quote">&gt; ....</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="metinden-alıntı-2"><blockquote>
-<p>Bir<br>İki<br>Üç</p>
-<blockquote>
-<p>Üç Bir<br>Üç İki<br>Üç Üç<br>Üç Dört<br><strong>Üç</strong> Beş</p>
-</blockquote>
-<p>Dört<br>….</p>
-</blockquote></div></div></div>
-
-<h2 id="Ayirma-Cizgisi"><a href="#Ayirma-Cizgisi" class="headerlink" title="Ayırma Çizgisi"></a>Ayırma Çizgisi</h2><div class="tabs" id="ayırma-çizgisi"><ul class="nav-tabs"><li class="tab active"><a href="#ayırma-çizgisi-1">Kod</a></li><li class="tab"><a href="#ayırma-çizgisi-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="ayırma-çizgisi-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="section">---</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="ayırma-çizgisi-2"><hr></div></div></div>
-
-<h2 id="Listeler"><a href="#Listeler" class="headerlink" title="Listeler"></a>Listeler</h2><div class="tabs" id="listeler"><ul class="nav-tabs"><li class="tab active"><a href="#listeler-1">Kod</a></li><li class="tab"><a href="#listeler-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="listeler-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> Yapay Zeka</span><br><span class="line"><span class="bullet">-</span> Makine Öğrenmesi</span><br><span class="line"><span class="bullet">-</span> ...</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> Derin Öğrenme</span><br><span class="line"><span class="bullet">*</span> Bilgisayar Mimarisi</span><br><span class="line"><span class="bullet">*</span> ...</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> Nümerik Analiz</span><br><span class="line"><span class="bullet">-</span> Diferansiyel Denklemler</span><br><span class="line"><span class="bullet">-</span> ...</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="listeler-2"><ul>
-<li>Yapay Zeka</li>
-<li>Makine Öğrenmesi</li>
-<li>…</li>
-</ul>
-<ul>
-<li>Derin Öğrenme</li>
-<li>Bilgisayar Mimarisi</li>
-<li>…</li>
-</ul>
-<ul>
-<li>Nümerik Analiz</li>
-<li>Diferansiyel Denklemler</li>
-<li>…</li>
-</ul></div></div></div>
-
-<h2 id="Sirali-Listeler"><a href="#Sirali-Listeler" class="headerlink" title="Sıralı Listeler"></a>Sıralı Listeler</h2><div class="tabs" id="sıralı-listeler"><ul class="nav-tabs"><li class="tab active"><a href="#sıralı-listeler-1">Kod</a></li><li class="tab"><a href="#sıralı-listeler-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="sıralı-listeler-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="section"># Sonrasında bir boşluk olduğuna dikkat edin.</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span></span><br><span class="line"><span class="bullet">2.</span></span><br><span class="line"><span class="bullet">3.</span></span><br><span class="line">4.</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="sıralı-listeler-2"><ol>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-</ol></div></div></div>
-
-<h2 id="Resim"><a href="#Resim" class="headerlink" title="Resim"></a>Resim</h2><div class="tabs" id="resim"><ul class="nav-tabs"><li class="tab active"><a href="#resim-1">Local</a></li><li class="tab"><a href="#resim-2">Local Görünüm</a></li><li class="tab"><a href="#resim-3">Çevrimiçi</a></li><li class="tab"><a href="#resim-4">Çevrimiçi Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="resim-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/uploads/custom-logo.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Default Cover&quot;</span> <span class="attr">style</span>=<span class="string">&quot;zoom:10%;&quot;</span> /&gt;</span></span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="resim-2"><img data-src="/uploads/custom-logo.png" alt="Default Cover" style="zoom:10%;" /></div><div class="tab-pane" id="resim-3"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">Default Cover</span>](<span class="link">https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg</span>)</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="resim-4"><p><img data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="Default Cover"></p></div></div></div>
-
-<h2 id="Tablo"><a href="#Tablo" class="headerlink" title="Tablo"></a>Tablo</h2><div class="tabs" id="tablo"><ul class="nav-tabs"><li class="tab active"><a href="#tablo-1">Kod</a></li><li class="tab"><a href="#tablo-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tablo-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">| Intel Mikroişlemciler | 4004      | 8008    | 8080   | 8086                 | 8088         |</span><br><span class="line">| --------------------- | --------- | ------- | ------ | -------------------- | ------------ |</span><br><span class="line">| Introduced            | 1971      | 1972    | 1974   | 1978                 | 1979         |</span><br><span class="line">| Clock speeds          | 108 kHz   | 108 kHz | 2 MHz  | 2 MHz, 8 MHz, 10 MHz | 5 MHz, 8 MHz |</span><br><span class="line">| Bus width             | 4 bits    | 8 bits  | 8 bits | 16 bits              | 8 bits       |</span><br><span class="line">| Number of transistors | 2,300     | 3,500   | 6,000  | 29,000               | 29,000       |</span><br><span class="line">| Feature size (um)     | 10        | 8       | 6      | 3                    | 6            |</span><br><span class="line">| Addresable memory     | 640 bytes | 16 KB   | 64 KB  | 1 MB                 | 1 MB         |</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="tablo-2"><table>
-<thead>
-<tr>
-<th>Intel Mikroişlemciler</th>
-<th>4004</th>
-<th>8008</th>
-<th>8080</th>
-<th>8086</th>
-<th>8088</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Introduced</td>
-<td>1971</td>
-<td>1972</td>
-<td>1974</td>
-<td>1978</td>
-<td>1979</td>
-</tr>
-<tr>
-<td>Clock speeds</td>
-<td>108 kHz</td>
-<td>108 kHz</td>
-<td>2 MHz</td>
-<td>2 MHz, 8 MHz, 10 MHz</td>
-<td>5 MHz, 8 MHz</td>
-</tr>
-<tr>
-<td>Bus width</td>
-<td>4 bits</td>
-<td>8 bits</td>
-<td>8 bits</td>
-<td>16 bits</td>
-<td>8 bits</td>
-</tr>
-<tr>
-<td>Number of transistors</td>
-<td>2,300</td>
-<td>3,500</td>
-<td>6,000</td>
-<td>29,000</td>
-<td>29,000</td>
-</tr>
-<tr>
-<td>Feature size (um)</td>
-<td>10</td>
-<td>8</td>
-<td>6</td>
-<td>3</td>
-<td>6</td>
-</tr>
-<tr>
-<td>Addresable memory</td>
-<td>640 bytes</td>
-<td>16 KB</td>
-<td>64 KB</td>
-<td>1 MB</td>
-<td>1 MB</td>
-</tr>
-</tbody></table></div></div></div>
-
-<h2 id="Matematik"><a href="#Matematik" class="headerlink" title="Matematik"></a>Matematik</h2><div class="tabs" id="matematik"><ul class="nav-tabs"><li class="tab active"><a href="#matematik-1">Kod</a></li><li class="tab"><a href="#matematik-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="matematik-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">$$</span><br><span class="line">\hat&#123;y&#125;=\theta<span class="emphasis">_0+\theta_</span>1 x<span class="emphasis">_1</span></span><br><span class="line"><span class="emphasis">$$</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">$$</span></span><br><span class="line"><span class="emphasis">\Gamma(z)=\int_</span>0^\infty t^&#123;z-1&#125;e^&#123;-t&#125;dt.</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="matematik-2"><p>$$<br>\hat{y}&#x3D;\theta_0+\theta_1 x_1<br>$$</p>
-<p>$$<br>\Gamma(z)&#x3D;\int_0^\infty t^{z-1}e^{-t}dt.<br>$$</p></div></div></div>
-
-<h2 id="Baglantilar"><a href="#Baglantilar" class="headerlink" title="Bağlantılar"></a>Bağlantılar</h2><div class="tabs" id="bağlantılar"><ul class="nav-tabs"><li class="tab active"><a href="#bağlantılar-1">Kod</a></li><li class="tab"><a href="#bağlantılar-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="bağlantılar-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">Kişisel Web Sitem : [<span class="string">Github</span>](<span class="link">https://ramazanaltintop.github.io</span>).</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="bağlantılar-2"><p>Kişisel Web Sitem : <a href="https://ramazanaltintop.github.io/">Github</a>.</p></div></div></div>
-
-<h2 id="Icice-Listeler"><a href="#Icice-Listeler" class="headerlink" title="İçiçe Listeler"></a>İçiçe Listeler</h2><div class="tabs" id="i̇çiçe-listeler"><ul class="nav-tabs"><li class="tab active"><a href="#i̇çiçe-listeler-1">Kod</a></li><li class="tab"><a href="#i̇çiçe-listeler-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="i̇çiçe-listeler-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> First list item</span><br><span class="line"></span><br><span class="line"><span class="bullet">   -</span> First nested list item</span><br><span class="line"><span class="bullet">     -</span> Second nested list item</span><br><span class="line"></span><br><span class="line"><span class="bullet">2.</span> First list item</span><br><span class="line"><span class="bullet">   -</span> First nested list item</span><br><span class="line"><span class="bullet">     -</span> Second nested list item</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="i̇çiçe-listeler-2"><ol>
-<li><p>First list item</p>
-<ul>
-<li>First nested list item<ul>
-<li>Second nested list item</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>First list item</p>
-<ul>
-<li>First nested list item<ul>
-<li>Second nested list item</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol></div></div></div>
-
-<h2 id="Footnotes"><a href="#Footnotes" class="headerlink" title="Footnotes"></a>Footnotes</h2><div class="tabs" id="footnotes"><ul class="nav-tabs"><li class="tab active"><a href="#footnotes-1">Kod</a></li><li class="tab"><a href="#footnotes-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="footnotes-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">Here is a simple footnote[^1].</span><br><span class="line"></span><br><span class="line">A footnote can also have multiple lines[^2].</span><br><span class="line"></span><br><span class="line">[<span class="symbol">^1</span>]: <span class="link">My reference.</span></span><br><span class="line">[<span class="symbol">^2</span>]: <span class="link">To add line breaks within a footnote, prefix new lines with 2 spaces. This is a second line.</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="footnotes-2"><p>Here is a simple footnote[^1].</p>
-<p>A footnote can also have multiple lines[^2].</p>
-<p>[^1]: My reference.<br>[^2]: To add line breaks within a footnote, prefix new lines with 2 spaces. This is a second line.</p></div></div></div>
-
-<h2 id="Yorum-Satiri"><a href="#Yorum-Satiri" class="headerlink" title="Yorum Satırı"></a>Yorum Satırı</h2><div class="tabs" id="yorum-satırı"><ul class="nav-tabs"><li class="tab active"><a href="#yorum-satırı-1">Kod</a></li><li class="tab"><a href="#yorum-satırı-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="yorum-satırı-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">&lt;!-- This content will not appear in the rendered Markdown --&gt;</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="yorum-satırı-2"><!-- This content will not appear in the rendered Markdown --></div></div></div>
-
-<h2 id="Tabs"><a href="#Tabs" class="headerlink" title="Tabs"></a>Tabs</h2><div class="tabs" id="tabs"><ul class="nav-tabs"><li class="tab active"><a href="#tabs-1">Kod</a></li><li class="tab"><a href="#tabs-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tabs-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">&#123;% tabs example %&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab test1 --&gt;</span><br><span class="line"></span><br><span class="line">This is tab1.</span><br><span class="line"></span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab test2 --&gt;</span><br><span class="line"></span><br><span class="line">This is tab2.</span><br><span class="line"></span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab test3 --&gt;</span><br><span class="line"></span><br><span class="line">This is tab3.</span><br><span class="line"></span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="tabs-2"><div class="tabs" id="example"><ul class="nav-tabs"><li class="tab active"><a href="#example-1">test1</a></li><li class="tab"><a href="#example-2">test2</a></li><li class="tab"><a href="#example-3">test3</a></li></ul><div class="tab-content"><div class="tab-pane active" id="example-1"><p>This is tab1.</p></div><div class="tab-pane" id="example-2"><p>This is tab2.</p></div><div class="tab-pane" id="example-3"><p>This is tab3.</p></div></div></div></div></div></div>
-
-<h2 id="Not"><a href="#Not" class="headerlink" title="Not"></a>Not</h2><div class="tabs" id="not"><ul class="nav-tabs"><li class="tab active"><a href="#not-1">Kod</a></li><li class="tab"><a href="#not-2">Görünüm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="not-1"><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">&#123;% note %&#125;Modern&#123;% endnote %&#125;</span><br><span class="line">&#123;% note default %&#125;Default&#123;% endnote %&#125;</span><br><span class="line">&#123;% note primary %&#125;Primary&#123;% endnote %&#125;</span><br><span class="line">&#123;% note success %&#125;Başarılı&#123;% endnote %&#125;</span><br><span class="line">&#123;% note info %&#125;Bilgi&#123;% endnote %&#125;</span><br><span class="line">&#123;% note warning %&#125;Uyarı&#123;% endnote %&#125;</span><br><span class="line">&#123;% note danger %&#125;Tehlike&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="not-2"><div class="note "><p>Modern</p>
-</div>
-<div class="note default"><p>Default</p>
-</div>
-<div class="note primary"><p>Primary</p>
-</div>
-<div class="note success"><p>Başarılı</p>
-</div>
-<div class="note info"><p>Bilgi</p>
-</div>
-<div class="note warning"><p>Uyarı</p>
-</div>
-<div class="note danger"><p>Tehlike</p>
-</div></div></div></div>
-
-<div class="note default"><p>Kaynaklar:</p>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vZW4vZ2V0LXN0YXJ0ZWQvd3JpdGluZy1vbi1naXRodWIvZ2V0dGluZy1zdGFydGVkLXdpdGgtd3JpdGluZy1hbmQtZm9ybWF0dGluZy1vbi1naXRodWI=">Getting started with writing and formatting on github<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0FraWxhcmx4aC9oZXhvLWJ1dHRlcmZseS10YWctcGx1Z2lucy1wbHVz">Hexo-butterfly-tag-plugins-plus<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZm9tYWwuY2MvcG9zdHMvMjAxMzQ1NGQuaHRtbA==">Markdown 语法与外挂标签写法汇总<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9neHlzdHJ1Z2dsZS50b3AvcG9zdHMvd3JpdGUyLw==">外挂标签<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-</div>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Markdown</tag>
+        <tag>stm32f103c8t6</tag>
+        <tag>interrupt</tag>
       </tags>
   </entry>
 </search>
