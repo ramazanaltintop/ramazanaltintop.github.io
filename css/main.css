@@ -1298,7 +1298,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #5bc229;
+    background: #dae4d7;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2996,6 +2996,24 @@ mark.search-keyword {
 }
 .post-copyright ul {
   border-left: 3px solid #008080;
+}
+/* Highlightjs */
+.highlight {
+  background: #011627;
+  border-radius: 5px;
+  box-shadow: 0 10px 30px 0 rgba(0,0,0,0.4);
+  padding-top: 30px;
+}
+.highlight::before {
+  background: #fc625d;
+  border-radius: 50%;
+  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+  content: ' ';
+  height: 12px;
+  left: 12px;
+  margin-top: -20px;
+  position: absolute;
+  width: 12px;
 }
 @keyframes shake-it {
   0% {
