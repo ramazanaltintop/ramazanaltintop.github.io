@@ -1,182 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Kernel Driver Yüklenmedi Problemi Nasıl Çözülür?</title>
-    <url>/post/1582768901.html</url>
-    <content><![CDATA[<p>Kernel driver yüklenmedi problemini çözmek için aşağıdaki adımları takip edelim.</p>
-<span id="more"></span>
-
-<img data-src="/post/1582768901/1.png" class="">
-
-<p>Terminali açalım ve root olalım.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[ramazan@ramazan ~]$ su</span><br><span class="line">Parola:</span><br><span class="line">[root@ramazan ramazan]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
-
-<p>Virtualbox kurulumunu gerçekleştirelim.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pacman -S virtualbox</span></span><br></pre></td></tr></table></figure>
-
-<p>Host modüllerini kuralım.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pacman -S virtualbox-host-modules</span></span><br></pre></td></tr></table></figure>
-
-<p>Ardından;</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># dkms autoinstall</span></span><br></pre></td></tr></table></figure>
-
-<p>Aktifleştirme işlemini gerçekleştirelim</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># modprobe vboxdrv</span></span><br></pre></td></tr></table></figure>
-
-<p>modprobe komutları daima root olarak çalıştırılır.</p>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>kernel</tag>
-        <tag>virtualbox</tag>
-        <tag>arch linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>KVM, BIOS Tarafından Devredışı Bırakıldı Problemi Nasıl Çözülür?</title>
-    <url>/post/3236384314.html</url>
-    <content><![CDATA[<p>KVM, linux çekirdekli sistemler üzerinde, “çekirdek seviyesinde” sanallaştırma yapmamıza imkan veren bir sanallaştırma uygulamasıdır. Diğer sanallaştırma teknolojilerinin aksine hızlı, ve çekirdek seviyesinde çalışmasından dolayıda çok güvenlidir.</p>
-<span id="more"></span>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ egrep <span class="string">&#x27;^flags.*(vmx|svm)&#x27;</span> /proc/cpuinfo</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br></pre></td></tr></table></figure>
-
-<p>komutu ile sisteminizin kvm ‘ yi destekleyip desteklemediğini görebilirsiniz.</p>
-<p>Açılışta aldığım kvm disabled by bios hatası için bios ayarlarımı düzenledim.</p>
-<p>Intel Virtual Technology kısmını Enable olarak ayarlayıp reboot ettikten sonra sorun düzeldi.</p>
-<img data-src="/post/3236384314/1.png" class="">]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
-        <tag>kvm</tag>
-        <tag>bios</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>İzin verilmedi, KVM başlatılamadı Problemi Nasıl Çözülür?</title>
-    <url>/post/2231193092.html</url>
-    <content><![CDATA[<p>Böyle bir hata ile karşılaşırsanız şu adımları izlemelisiniz.</p>
-<span id="more"></span>
-
-<img data-src="/post/2231193092/1.png" class="">
-
-<p>Aşağıdaki adımları yaptığınızdan emin olunuz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo modprobe kvm-intel</span><br><span class="line">$ sudo groupadd kvm</span><br><span class="line">$ sudo gpasswd -a USERNAME kvm</span><br><span class="line"><span class="built_in">chown</span> root:kvm /dev/kvm</span><br></pre></td></tr></table></figure>
-
-<p>Bu komut gerçekleşmezse aşağıdaki komutu deneyiniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">setfacl -m g::rw /dev/kvm</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
-        <tag>kvm</tag>
-        <tag>qemu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spice Grafikleri Desteklenmedi Problemi Nasıl Çözülür?</title>
-    <url>/post/331929281.html</url>
-    <content><![CDATA[<p>Virt-manager programını açtım. Sanal makineyi oluşturma esnasında hata aldım.</p>
-<span id="more"></span>
-
-<img data-src="/post/331929281/1.png" class="">
-
-<p>unsupported configuration: spice graphics are not supported with this QEMU.</p>
-<p>Bunun çözümü için;</p>
-<p>qemu-git paketini bağımlılıklarıyla beraber sildim. Sonra qemu-spice paketinin kurulumunu yaptım.</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9hdXIuYXJjaGxpbnV4Lm9yZy9wYWNrYWdlcy9xZW11LXNwaWNlLw==">qemu-spice-AUR<i class="fa fa-external-link-alt"></i></span></p>
-<p>Bu problemi bu paketin kurulumuyla çözdüm.</p>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
-        <tag>qemu</tag>
-        <tag>virt manager</tag>
-        <tag>spice</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Touchpad Kurulumu ve Yapılandırması Nasıl Yapılır?</title>
-    <url>/post/611388161.html</url>
-    <content><![CDATA[<p>Extra deposundaki xf86-input-synaptics paketini yüklemeliyiz. Aşağıdaki komutlarla kurulumu tamamlayalım.</p>
-<span id="more"></span>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S xf86-input-synaptics</span><br></pre></td></tr></table></figure>
-
-<p>Şimdi Touchpad’imizi yapılandıralım. Kurulumu tamamladıktan sonra öntanımlı yapılandırma dosyası aşağıdaki yere gidecektir.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/share/X11/xorg.conf.d/70-synaptics.conf</span><br></pre></td></tr></table></figure>
-
-<p>70-synaptics.conf dosyasını &#x2F;etc&#x2F;X11&#x2F;xorg.conf.d ‘ ye kopyalayalım.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo <span class="built_in">cp</span> /usr/share/X11/xorg.conf.d/70-synaptics.conf /etc/X11/xorg.conf.d</span><br></pre></td></tr></table></figure>
-
-<p>Bilgisayarımızı yeniden başlatalım.</p>
-<p>Bu yazıda touchpad yapılandırması ve kurulumundan bahsettik. Daha fazla bilgi için <span class="exturl" data-url="aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvaW5kZXgucGhwL1RvdWNocGFkX1N5bmFwdGljcyNDb25maWd1cmF0aW9u">https://wiki.archlinux.org/index.php/Touchpad_Synaptics#Configuration<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
-        <tag>touchpad</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>conky-lua-archers-git Derleme Hatası Nasıl Çözülür?</title>
-    <url>/post/524097281.html</url>
-    <content><![CDATA[<p>conky-lua-archers-git paketini derlerken karşılaşmış olduğum hatayı nasıl düzelteceğimizden bahsedeceğim.</p>
-<span id="more"></span>
-
-<img data-src="/post/524097281/1.png" class="">
-
-<p>paket:<span class="exturl" data-url="aHR0cHM6Ly9hdXIuYXJjaGxpbnV4Lm9yZy9wYWNrYWdlcy9jb25reS1sdWEtYXJjaGVycy1naXQ=">https://aur.archlinux.org/packages/conky-lua-archers-git<i class="fa fa-external-link-alt"></i></span></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span>: cannot create directory <span class="string">&#x27;build/&#x27;</span>: File exists.</span><br></pre></td></tr></table></figure>
-
-<p>Bu problemi şu şekilde çözeceğiz.</p>
-<p>PKGBUILD dosyasını şu şekilde düzenleyiniz..</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">prepare</span></span>() &#123;</span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="variable">$&#123;srcdir&#125;</span>/<span class="variable">$&#123;_pkgname&#125;</span>&quot;</span></span><br><span class="line"><span class="built_in">mkdir</span> -p build/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Şimdi tekrar derlemenizi yapabilirsiniz.</p>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
-        <tag>conky</tag>
-        <tag>compiling</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>glxinfo Komut Yok Hatası Nasıl Çözülür?</title>
-    <url>/post/950666780.html</url>
-    <content><![CDATA[<p>Komutu girdiğimde şu şekilde bir hata alıyorum.</p>
-<span id="more"></span>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ glxinfo | grep direct</span><br><span class="line">bash: glxinfo: <span class="built_in">command</span> not found</span><br></pre></td></tr></table></figure>
-
-<p>Bu problemin kalkması için aşağıdaki paketi kurunuz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S mesa-demos</span><br><span class="line">paket bağımlılıkları çözümleniyor...</span><br><span class="line">varsa paketler arası çakışmalara bakılıyor...</span><br><span class="line"></span><br><span class="line">Paketler (3) freeglut-3.0.0-2  glew-2.1.0-1  mesa-demos-8.4.0-1</span><br><span class="line"></span><br><span class="line">Toplam İndirme Boyutu:  1,84 MiB</span><br><span class="line">Toplam Kurulum Boyutu:  9,82 MiB</span><br><span class="line"></span><br><span class="line">:: Kuruluma onay veriyor musunuz? [E/h] E</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">:: Bağlantılı işlemler listesi çalışıyor...</span><br><span class="line">(1/1) Arming ConditionNeedsUpdate...</span><br></pre></td></tr></table></figure>
-
-<p>Ardından komutumuzu tekrar girelim.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ glxinfo | grep direct</span><br><span class="line">direct rendering: Yes</span><br><span class="line">    GL_ARB_depth_clamp, GL_ARB_derivative_control, GL_ARB_direct_state_access,</span><br><span class="line">    GL_ARB_draw_elements_base_vertex, GL_ARB_draw_indirect,</span><br><span class="line">    GL_ARB_indirect_parameters, GL_ARB_instanced_arrays,</span><br><span class="line">    GL_ARB_map_buffer_range, GL_ARB_multi_bind, GL_ARB_multi_draw_indirect,</span><br><span class="line">    GL_ARB_draw_elements_base_vertex, GL_ARB_draw_indirect,</span><br><span class="line">    GL_ARB_indirect_parameters, GL_ARB_instanced_arrays,</span><br><span class="line">    GL_ARB_map_buffer_range, GL_ARB_multi_bind, GL_ARB_multi_draw_indirect,</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
-        <tag>glxinfo</tag>
-        <tag>mesa demos</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>makepkg için GPG İmzaları Doğrulama Nasıl Yapılır?</title>
     <url>/post/315743461.html</url>
     <content><![CDATA[<p>Drush için php-box bağımlılığını kurmaya çalışırken imza hatasıyla karşılaştım ve bunun iki türlü çözümüne ulaştım. Birisi sadece kurulumu yapmama sağlayacak olan geçici çözüm. Diğeri ise resmi olmayan bir imzayı kalıcı olarak resmi yapmamı sağlayan çözüm. Burada geçici olarak bu sorunu nasıl çözdüğümden bahsedeceğim.</p>
@@ -206,29 +30,56 @@
         <category>GNU/Linux</category>
       </categories>
       <tags>
-        <tag>arch linux</tag>
         <tag>php-box</tag>
         <tag>makepkg</tag>
         <tag>gpg</tag>
+        <tag>arch linux</tag>
       </tags>
   </entry>
   <entry>
-    <title>Requested operation is not valid network &#39;default&#39; is not active Problemi Nasıl Çözülür?</title>
-    <url>/post/2393086311.html</url>
-    <content><![CDATA[<p>Bu problemin çözümü için aşağıdaki komutu yazmanız yeterli olacaktır.</p>
+    <title>KVM, BIOS Tarafından Devredışı Bırakıldı Problemi Nasıl Çözülür?</title>
+    <url>/post/3236384314.html</url>
+    <content><![CDATA[<p>KVM, linux çekirdekli sistemler üzerinde, “çekirdek seviyesinde” sanallaştırma yapmamıza imkan veren bir sanallaştırma uygulamasıdır. Diğer sanallaştırma teknolojilerinin aksine hızlı, ve çekirdek seviyesinde çalışmasından dolayıda çok güvenlidir.</p>
 <span id="more"></span>
 
-<img data-src="/post/2393086311/1.png" class="">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ egrep <span class="string">&#x27;^flags.*(vmx|svm)&#x27;</span> /proc/cpuinfo</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo virsh net-start default</span><br></pre></td></tr></table></figure>
+<p>komutu ile sisteminizin kvm ‘ yi destekleyip desteklemediğini görebilirsiniz.</p>
+<p>Açılışta aldığım kvm disabled by bios hatası için bios ayarlarımı düzenledim.</p>
+<p>Intel Virtual Technology kısmını Enable olarak ayarlayıp reboot ettikten sonra sorun düzeldi.</p>
+<img data-src="/post/3236384314/1.png" class="">]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>kvm</tag>
+        <tag>bios</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Touchpad Kurulumu ve Yapılandırması Nasıl Yapılır?</title>
+    <url>/post/611388161.html</url>
+    <content><![CDATA[<p>Extra deposundaki xf86-input-synaptics paketini yüklemeliyiz. Aşağıdaki komutlarla kurulumu tamamlayalım.</p>
+<span id="more"></span>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S xf86-input-synaptics</span><br></pre></td></tr></table></figure>
+
+<p>Şimdi Touchpad’imizi yapılandıralım. Kurulumu tamamladıktan sonra öntanımlı yapılandırma dosyası aşağıdaki yere gidecektir.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/share/X11/xorg.conf.d/70-synaptics.conf</span><br></pre></td></tr></table></figure>
+
+<p>70-synaptics.conf dosyasını &#x2F;etc&#x2F;X11&#x2F;xorg.conf.d ‘ ye kopyalayalım.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo <span class="built_in">cp</span> /usr/share/X11/xorg.conf.d/70-synaptics.conf /etc/X11/xorg.conf.d</span><br></pre></td></tr></table></figure>
+
+<p>Bilgisayarımızı yeniden başlatalım.</p>
+<p>Bu yazıda touchpad yapılandırması ve kurulumundan bahsettik. Daha fazla bilgi için <span class="exturl" data-url="aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvaW5kZXgucGhwL1RvdWNocGFkX1N5bmFwdGljcyNDb25maWd1cmF0aW9u">https://wiki.archlinux.org/index.php/Touchpad_Synaptics#Configuration<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <categories>
         <category>GNU/Linux</category>
       </categories>
       <tags>
         <tag>arch linux</tag>
-        <tag>virt manager</tag>
-        <tag>virsh</tag>
+        <tag>touchpad</tag>
       </tags>
   </entry>
   <entry>
@@ -250,6 +101,141 @@
       <tags>
         <tag>arch linux</tag>
         <tag>steam</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kernel Driver Yüklenmedi Problemi Nasıl Çözülür?</title>
+    <url>/post/1582768901.html</url>
+    <content><![CDATA[<p>Kernel driver yüklenmedi problemini çözmek için aşağıdaki adımları takip edelim.</p>
+<span id="more"></span>
+
+<img data-src="/post/1582768901/1.png" class="">
+
+<p>Terminali açalım ve root olalım.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[ramazan@ramazan ~]$ su</span><br><span class="line">Parola:</span><br><span class="line">[root@ramazan ramazan]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+<p>Virtualbox kurulumunu gerçekleştirelim.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pacman -S virtualbox</span></span><br></pre></td></tr></table></figure>
+
+<p>Host modüllerini kuralım.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pacman -S virtualbox-host-modules</span></span><br></pre></td></tr></table></figure>
+
+<p>Ardından;</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># dkms autoinstall</span></span><br></pre></td></tr></table></figure>
+
+<p>Aktifleştirme işlemini gerçekleştirelim</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># modprobe vboxdrv</span></span><br></pre></td></tr></table></figure>
+
+<p>modprobe komutları daima root olarak çalıştırılır.</p>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>kernel</tag>
+        <tag>virtualbox</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>İzin verilmedi, KVM başlatılamadı Problemi Nasıl Çözülür?</title>
+    <url>/post/2231193092.html</url>
+    <content><![CDATA[<p>Böyle bir hata ile karşılaşırsanız şu adımları izlemelisiniz.</p>
+<span id="more"></span>
+
+<img data-src="/post/2231193092/1.png" class="">
+
+<p>Aşağıdaki adımları yaptığınızdan emin olunuz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo modprobe kvm-intel</span><br><span class="line">$ sudo groupadd kvm</span><br><span class="line">$ sudo gpasswd -a USERNAME kvm</span><br><span class="line"><span class="built_in">chown</span> root:kvm /dev/kvm</span><br></pre></td></tr></table></figure>
+
+<p>Bu komut gerçekleşmezse aşağıdaki komutu deneyiniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">setfacl -m g::rw /dev/kvm</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>kvm</tag>
+        <tag>qemu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Bundler Bulunamadı Problemi Nasıl Çözülür?</title>
+    <url>/post/747398286.html</url>
+    <content><![CDATA[<p>Bundler bulunamadı problemini çözmek için aşağıdaki adımları takip etmeniz yeterlidir.</p>
+<span id="more"></span>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ramarcher /opt/development/metasploit-framework $ bundle install</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/lib/ruby/2.3.0/rubygems/dependency.rb:319:<span class="keyword">in</span> `to_specs<span class="string">&#x27;: Could not find &#x27;</span>bundler<span class="string">&#x27; (&gt;= 0.a) among 16 total gem(s) (Gem::LoadError)</span></span><br><span class="line"><span class="string">Checked in &#x27;</span>GEM_PATH=/home/ramarcher/.rvm/gems/ruby-2.3.1@metasploit-framework:/home/ramarcher/.rvm/gems/ruby-2.3.1@global<span class="string">&#x27;, execute `gem env` for more information</span></span><br><span class="line"><span class="string"> from /usr/lib/ruby/2.3.0/rubygems/dependency.rb:328:in `to_spec&#x27;</span></span><br><span class="line"> from /usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_gem.rb:65:<span class="keyword">in</span> `gem<span class="string">&#x27;</span></span><br><span class="line"><span class="string"> from /usr/bin/bundle:22:in `&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ramarcher /opt/development/metasploit-framework $ bundle update</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ramarcher /opt/development/metasploit-framework $ gem install bundler</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Fetching: bundler-1.12.5.gem (100%)</span><br><span class="line">Successfully installed bundler-1.12.5</span><br><span class="line">Parsing documentation <span class="keyword">for</span> bundler-1.12.5</span><br><span class="line">Installing ri documentation <span class="keyword">for</span> bundler-1.12.5</span><br><span class="line">Done installing documentation <span class="keyword">for</span> bundler after 5 seconds</span><br><span class="line">1 gem installed</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ramarcher /opt/development/metasploit-framework $ bundle install</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Fetching gem metadata from https://rubygems.org/</span><br><span class="line">Fetching version metadata from https://rubygems.org/</span><br><span class="line">Fetching dependency metadata from https://rubygems.org/</span><br><span class="line">Resolving dependencies....</span><br><span class="line">Installing rake 11.2.2</span><br><span class="line">Installing i18n 0.7.0</span><br><span class="line">Using json 1.8.3</span><br><span class="line">Installing minitest 5.9.0</span><br><span class="line">Installing thread_safe 0.3.5</span><br><span class="line">Installing builder 3.2.2</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>bundler</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>conky-lua-archers-git Derleme Hatası Nasıl Çözülür?</title>
+    <url>/post/524097281.html</url>
+    <content><![CDATA[<p>conky-lua-archers-git paketini derlerken karşılaşmış olduğum hatayı nasıl düzelteceğimizden bahsedeceğim.</p>
+<span id="more"></span>
+
+<img data-src="/post/524097281/1.png" class="">
+
+<p>paket:<span class="exturl" data-url="aHR0cHM6Ly9hdXIuYXJjaGxpbnV4Lm9yZy9wYWNrYWdlcy9jb25reS1sdWEtYXJjaGVycy1naXQ=">https://aur.archlinux.org/packages/conky-lua-archers-git<i class="fa fa-external-link-alt"></i></span></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span>: cannot create directory <span class="string">&#x27;build/&#x27;</span>: File exists.</span><br></pre></td></tr></table></figure>
+
+<p>Bu problemi şu şekilde çözeceğiz.</p>
+<p>PKGBUILD dosyasını şu şekilde düzenleyiniz..</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">prepare</span></span>() &#123;</span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="variable">$&#123;srcdir&#125;</span>/<span class="variable">$&#123;_pkgname&#125;</span>&quot;</span></span><br><span class="line"><span class="built_in">mkdir</span> -p build/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Şimdi tekrar derlemenizi yapabilirsiniz.</p>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>conky</tag>
+        <tag>compiling</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spice Grafikleri Desteklenmedi Problemi Nasıl Çözülür?</title>
+    <url>/post/331929281.html</url>
+    <content><![CDATA[<p>Virt-manager programını açtım. Sanal makineyi oluşturma esnasında hata aldım.</p>
+<span id="more"></span>
+
+<img data-src="/post/331929281/1.png" class="">
+
+<p>unsupported configuration: spice graphics are not supported with this QEMU.</p>
+<p>Bunun çözümü için;</p>
+<p>qemu-git paketini bağımlılıklarıyla beraber sildim. Sonra qemu-spice paketinin kurulumunu yaptım.</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9hdXIuYXJjaGxpbnV4Lm9yZy9wYWNrYWdlcy9xZW11LXNwaWNlLw==">qemu-spice-AUR<i class="fa fa-external-link-alt"></i></span></p>
+<p>Bu problemi bu paketin kurulumuyla çözdüm.</p>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>qemu</tag>
+        <tag>virt manager</tag>
+        <tag>spice</tag>
       </tags>
   </entry>
   <entry>
@@ -314,51 +300,136 @@
       </tags>
   </entry>
   <entry>
-    <title>Bundler Bulunamadı Problemi Nasıl Çözülür?</title>
-    <url>/post/747398286.html</url>
-    <content><![CDATA[<p>Bundler bulunamadı problemini çözmek için aşağıdaki adımları takip etmeniz yeterlidir.</p>
+    <title>glxinfo Komut Yok Hatası Nasıl Çözülür?</title>
+    <url>/post/950666780.html</url>
+    <content><![CDATA[<p>Komutu girdiğimde şu şekilde bir hata alıyorum.</p>
 <span id="more"></span>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ramarcher /opt/development/metasploit-framework $ bundle install</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ glxinfo | grep direct</span><br><span class="line">bash: glxinfo: <span class="built_in">command</span> not found</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/lib/ruby/2.3.0/rubygems/dependency.rb:319:<span class="keyword">in</span> `to_specs<span class="string">&#x27;: Could not find &#x27;</span>bundler<span class="string">&#x27; (&gt;= 0.a) among 16 total gem(s) (Gem::LoadError)</span></span><br><span class="line"><span class="string">Checked in &#x27;</span>GEM_PATH=/home/ramarcher/.rvm/gems/ruby-2.3.1@metasploit-framework:/home/ramarcher/.rvm/gems/ruby-2.3.1@global<span class="string">&#x27;, execute `gem env` for more information</span></span><br><span class="line"><span class="string"> from /usr/lib/ruby/2.3.0/rubygems/dependency.rb:328:in `to_spec&#x27;</span></span><br><span class="line"> from /usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_gem.rb:65:<span class="keyword">in</span> `gem<span class="string">&#x27;</span></span><br><span class="line"><span class="string"> from /usr/bin/bundle:22:in `&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>Bu problemin kalkması için aşağıdaki paketi kurunuz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S mesa-demos</span><br><span class="line">paket bağımlılıkları çözümleniyor...</span><br><span class="line">varsa paketler arası çakışmalara bakılıyor...</span><br><span class="line"></span><br><span class="line">Paketler (3) freeglut-3.0.0-2  glew-2.1.0-1  mesa-demos-8.4.0-1</span><br><span class="line"></span><br><span class="line">Toplam İndirme Boyutu:  1,84 MiB</span><br><span class="line">Toplam Kurulum Boyutu:  9,82 MiB</span><br><span class="line"></span><br><span class="line">:: Kuruluma onay veriyor musunuz? [E/h] E</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">:: Bağlantılı işlemler listesi çalışıyor...</span><br><span class="line">(1/1) Arming ConditionNeedsUpdate...</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ramarcher /opt/development/metasploit-framework $ bundle update</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ramarcher /opt/development/metasploit-framework $ gem install bundler</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Fetching: bundler-1.12.5.gem (100%)</span><br><span class="line">Successfully installed bundler-1.12.5</span><br><span class="line">Parsing documentation <span class="keyword">for</span> bundler-1.12.5</span><br><span class="line">Installing ri documentation <span class="keyword">for</span> bundler-1.12.5</span><br><span class="line">Done installing documentation <span class="keyword">for</span> bundler after 5 seconds</span><br><span class="line">1 gem installed</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ramarcher /opt/development/metasploit-framework $ bundle install</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Fetching gem metadata from https://rubygems.org/</span><br><span class="line">Fetching version metadata from https://rubygems.org/</span><br><span class="line">Fetching dependency metadata from https://rubygems.org/</span><br><span class="line">Resolving dependencies....</span><br><span class="line">Installing rake 11.2.2</span><br><span class="line">Installing i18n 0.7.0</span><br><span class="line">Using json 1.8.3</span><br><span class="line">Installing minitest 5.9.0</span><br><span class="line">Installing thread_safe 0.3.5</span><br><span class="line">Installing builder 3.2.2</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<p>Ardından komutumuzu tekrar girelim.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ glxinfo | grep direct</span><br><span class="line">direct rendering: Yes</span><br><span class="line">    GL_ARB_depth_clamp, GL_ARB_derivative_control, GL_ARB_direct_state_access,</span><br><span class="line">    GL_ARB_draw_elements_base_vertex, GL_ARB_draw_indirect,</span><br><span class="line">    GL_ARB_indirect_parameters, GL_ARB_instanced_arrays,</span><br><span class="line">    GL_ARB_map_buffer_range, GL_ARB_multi_bind, GL_ARB_multi_draw_indirect,</span><br><span class="line">    GL_ARB_draw_elements_base_vertex, GL_ARB_draw_indirect,</span><br><span class="line">    GL_ARB_indirect_parameters, GL_ARB_instanced_arrays,</span><br><span class="line">    GL_ARB_map_buffer_range, GL_ARB_multi_bind, GL_ARB_multi_draw_indirect,</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>GNU/Linux</category>
       </categories>
       <tags>
         <tag>arch linux</tag>
-        <tag>bundler</tag>
+        <tag>glxinfo</tag>
+        <tag>mesa demos</tag>
       </tags>
   </entry>
   <entry>
-    <title>İşlem gerçekleştirilemedi (Çakışan dosyalar) Hatası Nasıl Çözülür?</title>
-    <url>/post/1871179136.html</url>
-    <content><![CDATA[<p>Aşağıdaki komut ile kurulum yapmaya çalıştığımda hata ile karşılaştım.</p>
+    <title>Device /dev/loop/ not initialized in udev database even after waiting 100000000 microseconds.</title>
+    <url>/post/2777482735.html</url>
+    <content><![CDATA[<p>Arch Linux kurulumu grup yapılandırması esnasında böyle bir uyarıyla karşılaşıyor ve kurulumunuzu tamamlıyamıyor iseniz şu adımları izleyebilirsiniz.</p>
 <span id="more"></span>
 
-<p>Bu hatayı aşağıdaki çıktıdan görüntüleyebilirsiniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S retext</span><br><span class="line">[sudo] password <span class="keyword">for</span> ramarcher:</span><br><span class="line">paket bağımlılıkları çözümleniyor...</span><br><span class="line">varsa paketler arası çakışmalara bakılıyor...</span><br><span class="line"></span><br><span class="line">Paketler (4) python-markdown-2.6.11-2  python-markdown-math-0.6-2  python-markups-3.0.0-5  retext-7.0.4-3</span><br><span class="line"></span><br><span class="line">Toplam Kurulum Boyutu:  1,60 MiB</span><br><span class="line"></span><br><span class="line">:: Kuruluma onay veriyor musunuz? [E/h] e</span><br><span class="line">(4/4) anahtarlıktaki anahtarlar kontrol ediliyor                                           [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) paket bütü<span class="built_in">nl</span>üğü kontrol ediliyor                                                     [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) paket dosyaları yükleniyor                                                           [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) dosya çakışmaları kontrol ediliyor                                                   [<span class="comment">#####################################################] 100%</span></span><br><span class="line">hata: işlem gerçekleştirilemedi (çakışan dosyalar)</span><br><span class="line">python-markdown: /usr/bin/markdown_py dosya sisteminde mevcut</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/__init__.py dosya sisteminde mevcut</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/__main__.py dosya sisteminde mevcut</span><br><span class="line">..</span><br><span class="line">..</span><br><span class="line">..</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/util.py dosya sisteminde mevcut</span><br><span class="line">Hata oluştu, hiçbir paket güncellenmedi.</span><br></pre></td></tr></table></figure>
+<p>Karşılaşılan uyarı:</p>
+<p>Device &#x2F;dev&#x2F;loop&#x2F; not initialized in udev database even after waiting 100000000 microseconds.<br>şeklinde başlayıp döngüden çıkmayan bir uyarı ile karşılaşırsınız.</p>
+<p>Öncelikle kurulumda bu işlemi sonlandırmak için Ctrl+C tuşlarına basınız.</p>
+<p>Chroot iseniz</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exit</span></span><br></pre></td></tr></table></figure>
 
-<p>Böyle bir hata ile karşılaştığımız için aşağıdaki komutla bu paketi yükleyebilirsiniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pip install retext</span><br><span class="line">Collecting retext</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/31/91/6eff0afd947ca945dd63bb4f7fd0ea1872f80acef338eec4076642a824a8/ReText-7.0.4.tar.gz (402kB)</span><br><span class="line">    100% |████████████████████████████████| 409kB 2.1MB/s</span><br><span class="line">Collecting docutils (from retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/36/fa/08e9e6e0e3cbd1d362c3bbee8d01d0aedb2155c4ac112b19ef3cae8eed8d/docutils-0.14-py3-none-any.whl (543kB)</span><br><span class="line">    100% |████████████████████████████████| 552kB 7.3MB/s</span><br><span class="line">Requirement already satisfied: Markdown <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (3.0.1)</span><br><span class="line">Collecting Markups&gt;=2.0 (from retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/56/c0/d77c6af4f43c00268372fcbaee715dc798ce70c6c6a93ae30bec32af94ed/Markups-3.0.0-py2.py3-none-any.whl</span><br><span class="line">Requirement already satisfied: Pygments <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (2.3.1)</span><br><span class="line">Requirement already satisfied: chardet&gt;=2.3 <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (3.0.4)</span><br><span class="line">Collecting python-markdown-math (from Markups&gt;=2.0-&gt;retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/7c/81/2c86570437821d77b90a6d939d54e11b507b71785850840a5e56d8febeca/python_markdown_math-0.6-py2.py3-none-any.whl</span><br><span class="line">Installing collected packages: docutils, python-markdown-math, Markups, retext</span><br><span class="line">  Running setup.py install <span class="keyword">for</span> retext ... <span class="keyword">done</span></span><br><span class="line">Successfully installed Markups-3.0.0 docutils-0.14 python-markdown-math-0.6 retext-7.0.4</span><br></pre></td></tr></table></figure>
+<p>komutu ile çıkış yapınız ve sırasıyla aşağıdaki dört komutu giriniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># mkdir /mnt/hostlvm</span></span><br><span class="line"><span class="comment"># mount --bind /run/lvm /mnt/hostlvm</span></span><br><span class="line"><span class="comment"># arch-chroot /mnt</span></span><br><span class="line"><span class="comment"># ln -s /hostlvm /run/lvm</span></span><br></pre></td></tr></table></figure>
+
+<p>Ardından girmeniz gereken gerekli komutu başarıyla çalıştırabilirsiniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># grub-mkconfig -o /boot/grub/grub.cfg</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>GNU/Linux</category>
       </categories>
       <tags>
         <tag>arch linux</tag>
-        <tag>retext</tag>
+        <tag>grub</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Requested operation is not valid network &#39;default&#39; is not active Problemi Nasıl Çözülür?</title>
+    <url>/post/2393086311.html</url>
+    <content><![CDATA[<p>Bu problemin çözümü için aşağıdaki komutu yazmanız yeterli olacaktır.</p>
+<span id="more"></span>
+
+<img data-src="/post/2393086311/1.png" class="">
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo virsh net-start default</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>virt manager</tag>
+        <tag>virsh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python Anaconda Kurulumu Nasıl Yapılır?</title>
+    <url>/post/1631539360.html</url>
+    <content><![CDATA[<p>Wget ile .sh uzantılı kurulum dosyasını indirmemiz için aşağıdaki paketlerin sisteminizde kurulu olduğundan emin olunuz.</p>
+<span id="more"></span>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S wget bzip2</span><br></pre></td></tr></table></figure>
+
+<p>Bu <span class="exturl" data-url="aHR0cHM6Ly93d3cuYW5hY29uZGEuY29tL2Rvd25sb2FkLyNsaW51eA==">Link’e<i class="fa fa-external-link-alt"></i></span> tıklayınız.</p>
+<p>Download butonunun üzerinde sağ tıklayıp linki kopyalayınız.</p>
+<img data-src="/post/1631539360/1.png" class="">
+
+<p>Ardından terminali açınız.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget https://repo.continuum.io/archive/Anaconda3-2018.12-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+
+<p>Ardından kurulum dosyasını açınız.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo sh Anaconda3-2018.12-Linux-x86_64.sh</span><br><span class="line">Please answer <span class="string">&#x27;yes&#x27;</span> or <span class="string">&#x27;no&#x27;</span>:<span class="string">&#x27;</span></span><br><span class="line"><span class="string"> &gt;&gt;&gt; yes</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Anaconda3 will now be installed into this location:</span></span><br><span class="line"><span class="string"> /home/ramarcher/anaconda3</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">- Press ENTER to confirm the location</span></span><br><span class="line"><span class="string"> - Press CTRL-C to abort the installation</span></span><br><span class="line"><span class="string"> - Or specify a different location below</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[/home/ramarcher/anaconda3] &gt;&gt;&gt; /usr/local/anaconda/</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo vim /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>En alta aşağıdaki değişkeni ekleyiniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># added by Anaconda3 installer</span></span><br><span class="line"> <span class="built_in">export</span> PATH=<span class="string">&quot;/usr/local/anaconda/bin:<span class="variable">$PATH</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>Ardından bilgisayarınızı yeniden başlatınız. Jupyter Notebook ve Spyder’ı açmaya çalışalım. Uçbirim üzerinde spyder yazalım.</p>
+<img data-src="/post/1631539360/2.png" class="">
+
+<p>Terminal üzerinde jupyter notebook yazıp enter’a basalım.</p>
+<img data-src="/post/1631539360/3.png" class="">
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>python</tag>
+        <tag>anaconda</tag>
+        <tag>spyder</tag>
+        <tag>jupyter notebook</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unrecognized Archive Format Hatası Nasıl Çözülür?</title>
+    <url>/post/3747547321.html</url>
+    <content><![CDATA[<p>Arch Linux sistemimi güncellemek istediğimde bir hata ile karşılaştım.</p>
+<span id="more"></span>
+
+<img data-src="/post/3747547321/1.png" class="">
+
+<p>Hatanın çıktısını aşağıdan inceleyebilirsiniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -Syu</span><br><span class="line">[sudo] password <span class="keyword">for</span> ramazan:</span><br><span class="line">:: Synchronizing package databases...</span><br><span class="line"> core is up to <span class="built_in">date</span>         0,0   B  0,00B/s 00:00 [co  o  o  o  o  o  o  ]   0%</span><br><span class="line"> extra is up to <span class="built_in">date</span>        0,0   B  0,00B/s 00:00 [co  o  o  o  o  o  o  ]   0%</span><br><span class="line"> community is up to <span class="built_in">date</span>    0,0   B  0,00B/s 00:00 [co  o  o  o  o  o  o  ]   0%</span><br><span class="line"> multilib is up to <span class="built_in">date</span>     0,0   B  0,00B/s 00:00 [co  o  o  o  o  o  o  ]   0%</span><br><span class="line"> archmanrepo is up to <span class="built_in">date</span></span><br><span class="line">:: Starting full system upgrade...</span><br><span class="line">error: could not open file /var/lib/pacman/sync/archmanrepo.db: Unrecognized archive format</span><br><span class="line">error: failed to prepare transaction (invalid or corrupted database)</span><br></pre></td></tr></table></figure>
+
+<p>Bu hatanın çözümü için yukarıdaki çıktıyı okumamız bize çok yardımcı olacaktır.</p>
+<p>İlk önce hataya sebebiyet veren dosyayı siliniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo <span class="built_in">rm</span> -R /var/lib/pacman/sync/</span><br></pre></td></tr></table></figure>
+
+<p>Ardından sistemi ve paketleri güncelleme işlemlerini başarıyla gerçekleştirebilirsiniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -Syu</span><br><span class="line">:: Synchronizing package databases...</span><br><span class="line"> core                             134,2 KiB   610K/s 00:00 [-------------------------------] 100%</span><br><span class="line"> extra                           1692,7 KiB  1141K/s 00:01 [-------------------------------] 100%</span><br><span class="line"> community                          4,8 MiB  3,03M/s 00:02 [-------------------------------] 100%</span><br><span class="line"> multilib                         174,6 KiB  10,7M/s 00:00 [-------------------------------] 100%</span><br><span class="line"> archmanrepo                       11,6 KiB  3,78M/s 00:00 [-------------------------------] 100%</span><br><span class="line">:: Starting full system upgrade...</span><br><span class="line">resolving dependencies...</span><br><span class="line">looking <span class="keyword">for</span> conflicting packages...</span><br><span class="line"></span><br><span class="line">Packages (17) bind-tools-9.13.5-4  curl-7.63.0-4  dnsmasq-2.80-2  gnutls-3.6.5-4</span><br><span class="line">              iputils-20180629.f6aac8d-3  kauth-5.54.0-2  lftp-4.8.4-4  libidn2-2.1.0-1</span><br><span class="line">              libpsl-0.20.2-3  libsystemd-240.34-3  s-nail-14.9.11-2  systemd-240.34-3</span><br><span class="line">              systemd-sysvcompat-240.34-3  tar-1.31-2  vim-8.1.0751-1  vim-runtime-8.1.0751-1</span><br><span class="line">              wget-1.20.1-2</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">( 5/12) Updating udev hardware database...</span><br><span class="line">( 6/12) Applying kernel sysctl settings...</span><br><span class="line">( 7/12) Creating system user accounts...</span><br><span class="line">( 8/12) Creating temporary files...</span><br><span class="line">( 9/12) Reloading device manager configuration...</span><br><span class="line">(10/12) Arming ConditionNeedsUpdate...</span><br><span class="line">(11/12) Updating the info directory file...</span><br><span class="line">(12/12) Updating the desktop file MIME <span class="built_in">type</span> cache...</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
       </tags>
   </entry>
   <entry>
@@ -398,57 +469,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Unrecognized Archive Format Hatası Nasıl Çözülür?</title>
-    <url>/post/3747547321.html</url>
-    <content><![CDATA[<p>Arch Linux sistemimi güncellemek istediğimde bir hata ile karşılaştım.</p>
-<span id="more"></span>
-
-<img data-src="/post/3747547321/1.png" class="">
-
-<p>Hatanın çıktısını aşağıdan inceleyebilirsiniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -Syu</span><br><span class="line">[sudo] password <span class="keyword">for</span> ramazan:</span><br><span class="line">:: Synchronizing package databases...</span><br><span class="line"> core is up to <span class="built_in">date</span>         0,0   B  0,00B/s 00:00 [co  o  o  o  o  o  o  ]   0%</span><br><span class="line"> extra is up to <span class="built_in">date</span>        0,0   B  0,00B/s 00:00 [co  o  o  o  o  o  o  ]   0%</span><br><span class="line"> community is up to <span class="built_in">date</span>    0,0   B  0,00B/s 00:00 [co  o  o  o  o  o  o  ]   0%</span><br><span class="line"> multilib is up to <span class="built_in">date</span>     0,0   B  0,00B/s 00:00 [co  o  o  o  o  o  o  ]   0%</span><br><span class="line"> archmanrepo is up to <span class="built_in">date</span></span><br><span class="line">:: Starting full system upgrade...</span><br><span class="line">error: could not open file /var/lib/pacman/sync/archmanrepo.db: Unrecognized archive format</span><br><span class="line">error: failed to prepare transaction (invalid or corrupted database)</span><br></pre></td></tr></table></figure>
-
-<p>Bu hatanın çözümü için yukarıdaki çıktıyı okumamız bize çok yardımcı olacaktır.</p>
-<p>İlk önce hataya sebebiyet veren dosyayı siliniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo <span class="built_in">rm</span> -R /var/lib/pacman/sync/</span><br></pre></td></tr></table></figure>
-
-<p>Ardından sistemi ve paketleri güncelleme işlemlerini başarıyla gerçekleştirebilirsiniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -Syu</span><br><span class="line">:: Synchronizing package databases...</span><br><span class="line"> core                             134,2 KiB   610K/s 00:00 [-------------------------------] 100%</span><br><span class="line"> extra                           1692,7 KiB  1141K/s 00:01 [-------------------------------] 100%</span><br><span class="line"> community                          4,8 MiB  3,03M/s 00:02 [-------------------------------] 100%</span><br><span class="line"> multilib                         174,6 KiB  10,7M/s 00:00 [-------------------------------] 100%</span><br><span class="line"> archmanrepo                       11,6 KiB  3,78M/s 00:00 [-------------------------------] 100%</span><br><span class="line">:: Starting full system upgrade...</span><br><span class="line">resolving dependencies...</span><br><span class="line">looking <span class="keyword">for</span> conflicting packages...</span><br><span class="line"></span><br><span class="line">Packages (17) bind-tools-9.13.5-4  curl-7.63.0-4  dnsmasq-2.80-2  gnutls-3.6.5-4</span><br><span class="line">              iputils-20180629.f6aac8d-3  kauth-5.54.0-2  lftp-4.8.4-4  libidn2-2.1.0-1</span><br><span class="line">              libpsl-0.20.2-3  libsystemd-240.34-3  s-nail-14.9.11-2  systemd-240.34-3</span><br><span class="line">              systemd-sysvcompat-240.34-3  tar-1.31-2  vim-8.1.0751-1  vim-runtime-8.1.0751-1</span><br><span class="line">              wget-1.20.1-2</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">( 5/12) Updating udev hardware database...</span><br><span class="line">( 6/12) Applying kernel sysctl settings...</span><br><span class="line">( 7/12) Creating system user accounts...</span><br><span class="line">( 8/12) Creating temporary files...</span><br><span class="line">( 9/12) Reloading device manager configuration...</span><br><span class="line">(10/12) Arming ConditionNeedsUpdate...</span><br><span class="line">(11/12) Updating the info directory file...</span><br><span class="line">(12/12) Updating the desktop file MIME <span class="built_in">type</span> cache...</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Device /dev/loop/ not initialized in udev database even after waiting 100000000 microseconds.</title>
-    <url>/post/2777482735.html</url>
-    <content><![CDATA[<p>Arch Linux kurulumu grup yapılandırması esnasında böyle bir uyarıyla karşılaşıyor ve kurulumunuzu tamamlıyamıyor iseniz şu adımları izleyebilirsiniz.</p>
-<span id="more"></span>
-
-<p>Karşılaşılan uyarı:</p>
-<p>Device &#x2F;dev&#x2F;loop&#x2F; not initialized in udev database even after waiting 100000000 microseconds.<br>şeklinde başlayıp döngüden çıkmayan bir uyarı ile karşılaşırsınız.</p>
-<p>Öncelikle kurulumda bu işlemi sonlandırmak için Ctrl+C tuşlarına basınız.</p>
-<p>Chroot iseniz</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exit</span></span><br></pre></td></tr></table></figure>
-
-<p>komutu ile çıkış yapınız ve sırasıyla aşağıdaki dört komutu giriniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># mkdir /mnt/hostlvm</span></span><br><span class="line"><span class="comment"># mount --bind /run/lvm /mnt/hostlvm</span></span><br><span class="line"><span class="comment"># arch-chroot /mnt</span></span><br><span class="line"><span class="comment"># ln -s /hostlvm /run/lvm</span></span><br></pre></td></tr></table></figure>
-
-<p>Ardından girmeniz gereken gerekli komutu başarıyla çalıştırabilirsiniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># grub-mkconfig -o /boot/grub/grub.cfg</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
-        <tag>grub</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Failed to open disk image file Hatası Nasıl Çözülür?</title>
     <url>/post/2158402559.html</url>
     <content><![CDATA[<p>Archman Linux dağıtımı üzerinde Oracle VirtualBox kullanımı esnasında bir hata ile karşılaştım.</p>
@@ -468,8 +488,54 @@
         <category>GNU/Linux</category>
       </categories>
       <tags>
-        <tag>virtualbox</tag>
         <tag>arch linux</tag>
+        <tag>virtualbox</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Yığınlar</title>
+    <url>/post/1582621396.html</url>
+    <content><![CDATA[<p>Veri Yapıları dersinde işlenen Stack konusunu bu gönderi altında inceleyebilirsiniz.</p>
+<span id="more"></span>
+
+<ul>
+<li><a href="#1">Örnek-1</a></li>
+<li><a href="#2">Örnek-2</a></li>
+</ul>
+<img data-src="/post/1582621396/1.png" class="">
+
+<p><a name="1"></a> <strong>Örnek-1:</strong></p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">stack</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span>[] stack = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">100</span>];</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span>(<span class="params"><span class="built_in">int</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            sp++;</span><br><span class="line">            stack[sp] = data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">int</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> data = stack[sp];</span><br><span class="line">            sp--;</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            push(<span class="number">10</span>);</span><br><span class="line">            push(<span class="number">20</span>);</span><br><span class="line">            push(<span class="number">30</span>);</span><br><span class="line">            push(<span class="number">40</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(pop());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a name="2"></a> <strong>Örnek-2:</strong></p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">stack_2</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> max = <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span>[] stack = <span class="keyword">new</span> <span class="built_in">int</span>[max];</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">push</span>(<span class="params"><span class="built_in">int</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &gt;= max)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Overflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                sp++;</span><br><span class="line">                stack[sp] = data;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">int</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Underflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">int</span> data = stack[sp];</span><br><span class="line">                sp--;</span><br><span class="line">                <span class="keyword">return</span> data;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStack</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Underflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Yığın İçeriği&quot;</span>);</span><br><span class="line">                <span class="keyword">for</span> (<span class="built_in">int</span> i = sp; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">                &#123;</span><br><span class="line">                    Console.WriteLine(stack[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Peek</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Underflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Yığının en üstündeki eleman: &#123;0&#125;&quot;</span>, stack[sp]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// Şu an sp=-1</span></span><br><span class="line">            push(<span class="number">10</span>); <span class="comment">// sp&#x27;yi 1 arttır. 10&#x27;u ekle              sp = 0  stack[0] = 10;</span></span><br><span class="line">            push(<span class="number">20</span>); <span class="comment">// sp&#x27;yi 1 arttır 20&#x27;yi ekle              sp = 1  stack[1] = 20;</span></span><br><span class="line">            push(<span class="number">30</span>); <span class="comment">// sp&#x27;yi 1 arttır 30&#x27;u ekle               sp = 2  stack[2] = 30;</span></span><br><span class="line">            push(<span class="number">40</span>); <span class="comment">// sp&#x27;yi 1 arttır 40&#x27;ı ekle               sp = 3  stack[3] = 40;</span></span><br><span class="line">            printStack();</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Stack&#x27;tan silindi: &#123;0&#125;&quot;</span>, pop()); <span class="comment">// 40&#x27;ı döndür sp&#x27;yi 1 azalt.            sp = 2</span></span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Stack&#x27;tan silindi: &#123;0&#125;&quot;</span>, pop()); <span class="comment">// 30&#x27;u döndür sp&#x27;yi 1 azalt.            sp = 1</span></span><br><span class="line">            printStack();</span><br><span class="line">            Peek();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Veri Yapıları</category>
+      </categories>
+      <tags>
+        <tag>stack</tag>
+        <tag>dotnet core</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>İşlem gerçekleştirilemedi (Çakışan dosyalar) Hatası Nasıl Çözülür?</title>
+    <url>/post/1871179136.html</url>
+    <content><![CDATA[<p>Aşağıdaki komut ile kurulum yapmaya çalıştığımda hata ile karşılaştım.</p>
+<span id="more"></span>
+
+<p>Bu hatayı aşağıdaki çıktıdan görüntüleyebilirsiniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S retext</span><br><span class="line">[sudo] password <span class="keyword">for</span> ramarcher:</span><br><span class="line">paket bağımlılıkları çözümleniyor...</span><br><span class="line">varsa paketler arası çakışmalara bakılıyor...</span><br><span class="line"></span><br><span class="line">Paketler (4) python-markdown-2.6.11-2  python-markdown-math-0.6-2  python-markups-3.0.0-5  retext-7.0.4-3</span><br><span class="line"></span><br><span class="line">Toplam Kurulum Boyutu:  1,60 MiB</span><br><span class="line"></span><br><span class="line">:: Kuruluma onay veriyor musunuz? [E/h] e</span><br><span class="line">(4/4) anahtarlıktaki anahtarlar kontrol ediliyor                                           [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) paket bütü<span class="built_in">nl</span>üğü kontrol ediliyor                                                     [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) paket dosyaları yükleniyor                                                           [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) dosya çakışmaları kontrol ediliyor                                                   [<span class="comment">#####################################################] 100%</span></span><br><span class="line">hata: işlem gerçekleştirilemedi (çakışan dosyalar)</span><br><span class="line">python-markdown: /usr/bin/markdown_py dosya sisteminde mevcut</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/__init__.py dosya sisteminde mevcut</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/__main__.py dosya sisteminde mevcut</span><br><span class="line">..</span><br><span class="line">..</span><br><span class="line">..</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/util.py dosya sisteminde mevcut</span><br><span class="line">Hata oluştu, hiçbir paket güncellenmedi.</span><br></pre></td></tr></table></figure>
+
+<p>Böyle bir hata ile karşılaştığımız için aşağıdaki komutla bu paketi yükleyebilirsiniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pip install retext</span><br><span class="line">Collecting retext</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/31/91/6eff0afd947ca945dd63bb4f7fd0ea1872f80acef338eec4076642a824a8/ReText-7.0.4.tar.gz (402kB)</span><br><span class="line">    100% |████████████████████████████████| 409kB 2.1MB/s</span><br><span class="line">Collecting docutils (from retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/36/fa/08e9e6e0e3cbd1d362c3bbee8d01d0aedb2155c4ac112b19ef3cae8eed8d/docutils-0.14-py3-none-any.whl (543kB)</span><br><span class="line">    100% |████████████████████████████████| 552kB 7.3MB/s</span><br><span class="line">Requirement already satisfied: Markdown <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (3.0.1)</span><br><span class="line">Collecting Markups&gt;=2.0 (from retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/56/c0/d77c6af4f43c00268372fcbaee715dc798ce70c6c6a93ae30bec32af94ed/Markups-3.0.0-py2.py3-none-any.whl</span><br><span class="line">Requirement already satisfied: Pygments <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (2.3.1)</span><br><span class="line">Requirement already satisfied: chardet&gt;=2.3 <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (3.0.4)</span><br><span class="line">Collecting python-markdown-math (from Markups&gt;=2.0-&gt;retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/7c/81/2c86570437821d77b90a6d939d54e11b507b71785850840a5e56d8febeca/python_markdown_math-0.6-py2.py3-none-any.whl</span><br><span class="line">Installing collected packages: docutils, python-markdown-math, Markups, retext</span><br><span class="line">  Running setup.py install <span class="keyword">for</span> retext ... <span class="keyword">done</span></span><br><span class="line">Successfully installed Markups-3.0.0 docutils-0.14 python-markdown-math-0.6 retext-7.0.4</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>retext</tag>
       </tags>
   </entry>
   <entry>
@@ -571,50 +637,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Yığın ile Dizinlerin İçiçe Listelenmesi Nasıl Yapılır?</title>
-    <url>/post/4002331297.html</url>
-    <content><![CDATA[<p><strong>Örnek:</strong> Yığın(Stack) yapısını kullanarak dizinleri alt dizinleriyle beraber listeleyen kodu yazınız.</p>
-<span id="more"></span>
-
-<img data-src="/post/4002331297/1.png" class="">
-
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.IO;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">stack_4</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            Stack myStack = <span class="keyword">new</span> Stack();</span><br><span class="line">            myStack.Push(<span class="string">@&quot;/home/ramazan/Paketler&quot;</span>);</span><br><span class="line">            <span class="keyword">while</span> (myStack.Count &gt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Object o = myStack.Pop();</span><br><span class="line">                System.IO.DirectoryInfo di = <span class="keyword">new</span> System.IO.DirectoryInfo(o.ToString());</span><br><span class="line">                System.IO.DirectoryInfo[] directories = di.GetDirectories();</span><br><span class="line">                <span class="keyword">foreach</span> (DirectoryInfo dir <span class="keyword">in</span> directories)</span><br><span class="line">                &#123;</span><br><span class="line">                    myStack.Push(dir.FullName);</span><br><span class="line">                    Console.WriteLine(<span class="string">&quot;--&gt;&quot;</span> + dir.FullName + <span class="string">&quot;\r\n&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Veri Yapıları</category>
-      </categories>
-      <tags>
-        <tag>stack</tag>
-        <tag>dotnet core</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Yığınlar</title>
-    <url>/post/1582621396.html</url>
-    <content><![CDATA[<p>Veri Yapıları dersinde işlenen Stack konusunu bu gönderi altında inceleyebilirsiniz.</p>
-<span id="more"></span>
-
-<ul>
-<li><a href="#1">Örnek-1</a></li>
-<li><a href="#2">Örnek-2</a></li>
-</ul>
-<img data-src="/post/1582621396/1.png" class="">
-
-<p><a name="1"></a> <strong>Örnek-1:</strong></p>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">stack</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span>[] stack = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">100</span>];</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span>(<span class="params"><span class="built_in">int</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            sp++;</span><br><span class="line">            stack[sp] = data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">int</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> data = stack[sp];</span><br><span class="line">            sp--;</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            push(<span class="number">10</span>);</span><br><span class="line">            push(<span class="number">20</span>);</span><br><span class="line">            push(<span class="number">30</span>);</span><br><span class="line">            push(<span class="number">40</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(pop());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><a name="2"></a> <strong>Örnek-2:</strong></p>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">stack_2</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> max = <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span>[] stack = <span class="keyword">new</span> <span class="built_in">int</span>[max];</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">push</span>(<span class="params"><span class="built_in">int</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &gt;= max)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Overflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                sp++;</span><br><span class="line">                stack[sp] = data;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">int</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Underflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">int</span> data = stack[sp];</span><br><span class="line">                sp--;</span><br><span class="line">                <span class="keyword">return</span> data;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStack</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Underflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Yığın İçeriği&quot;</span>);</span><br><span class="line">                <span class="keyword">for</span> (<span class="built_in">int</span> i = sp; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">                &#123;</span><br><span class="line">                    Console.WriteLine(stack[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Peek</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Underflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Yığının en üstündeki eleman: &#123;0&#125;&quot;</span>, stack[sp]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// Şu an sp=-1</span></span><br><span class="line">            push(<span class="number">10</span>); <span class="comment">// sp&#x27;yi 1 arttır. 10&#x27;u ekle              sp = 0  stack[0] = 10;</span></span><br><span class="line">            push(<span class="number">20</span>); <span class="comment">// sp&#x27;yi 1 arttır 20&#x27;yi ekle              sp = 1  stack[1] = 20;</span></span><br><span class="line">            push(<span class="number">30</span>); <span class="comment">// sp&#x27;yi 1 arttır 30&#x27;u ekle               sp = 2  stack[2] = 30;</span></span><br><span class="line">            push(<span class="number">40</span>); <span class="comment">// sp&#x27;yi 1 arttır 40&#x27;ı ekle               sp = 3  stack[3] = 40;</span></span><br><span class="line">            printStack();</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Stack&#x27;tan silindi: &#123;0&#125;&quot;</span>, pop()); <span class="comment">// 40&#x27;ı döndür sp&#x27;yi 1 azalt.            sp = 2</span></span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Stack&#x27;tan silindi: &#123;0&#125;&quot;</span>, pop()); <span class="comment">// 30&#x27;u döndür sp&#x27;yi 1 azalt.            sp = 1</span></span><br><span class="line">            printStack();</span><br><span class="line">            Peek();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Veri Yapıları</category>
-      </categories>
-      <tags>
-        <tag>stack</tag>
-        <tag>dotnet core</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Çiftli Bağlı Liste Yapısını Kullanarak Yığın Nasıl Oluşturulur?</title>
     <url>/post/1183902384.html</url>
     <content><![CDATA[<p>Örnek: Çiftli Bağlı Liste yapısını kullanarak Yığın oluşturunuz.</p>
@@ -628,10 +650,75 @@
         <category>Veri Yapıları</category>
       </categories>
       <tags>
-        <tag>linked list</tag>
         <tag>stack</tag>
         <tag>dotnet core</tag>
+        <tag>linked list</tag>
         <tag>çiftli bağlı listeler</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Çiftli Bağlı Listeler</title>
+    <url>/post/3237563777.html</url>
+    <content><![CDATA[<p>Çiftli bağlı liste oluşturma ve bunun bir döngü ile gerçekleştirilmesi, listenen başına ve sonuna eleman ekleme, ilgili listeden eleman silme örneklerini inceleyebilirsiniz.</p>
+<span id="more"></span>
+
+<ul>
+<li><a href="#1">Çiftli Bağlı Liste Oluşturma</a></li>
+<li><a href="#2">For döngüsüyle Çiftli Bağlı Liste Oluşturma</a></li>
+<li><a href="#3">Listenin Başına Eleman Ekleme</a></li>
+<li><a href="#4">Listenin Sonuna Eleman Ekleme</a></li>
+<li><a href="#5">Listeden Eleman Silme</a></li>
+</ul>
+<p><a name="1"></a> <strong>Örnek-1:</strong> 3 elemanlı çiftli bağlı bir liste oluşturunuz.</p>
+<img data-src="/post/3237563777/1.png" class="">
+
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ciftliBagliListe</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> Ciftli Head;</span><br><span class="line">        <span class="keyword">class</span> <span class="title">Ciftli</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">public</span> <span class="built_in">int</span> data;</span><br><span class="line">            <span class="keyword">public</span> Ciftli next;</span><br><span class="line">            <span class="keyword">public</span> Ciftli prev;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            Ciftli a = <span class="keyword">new</span> Ciftli();</span><br><span class="line">            a.data = <span class="number">0</span>;</span><br><span class="line">            a.next = <span class="literal">null</span>;</span><br><span class="line">            a.prev = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">            Ciftli b = <span class="keyword">new</span> Ciftli();</span><br><span class="line">            b.data = <span class="number">1</span>;</span><br><span class="line">            a.next = b;</span><br><span class="line">            b.prev = a;</span><br><span class="line">            b.next = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">            Ciftli c = <span class="keyword">new</span> Ciftli();</span><br><span class="line">            c.data = <span class="number">2</span>;</span><br><span class="line">            b.next = c;</span><br><span class="line">            c.prev = b;</span><br><span class="line">            c.next = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">            Head = a;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> (a != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(a.data);</span><br><span class="line">                a = a.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a name="2"></a> <strong>Örnek-2:</strong> Head, çiftli bağlı listenin ilk elemanına bakmaktadır. 10 elemanlı, veri değeri indis değerine eşit olan çiftli bağlı liste oluşturunuz. Bu listeyi baştan sona ve sondan başa yazdırarak kontrol ediniz.</p>
+<img data-src="/post/3237563777/2.png" class="">
+
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ciftliBagliListe_2</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> Ciftli Head;</span><br><span class="line">        <span class="keyword">class</span> <span class="title">Ciftli</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">public</span> <span class="built_in">int</span> data;</span><br><span class="line">            <span class="keyword">public</span> Ciftli next;</span><br><span class="line">            <span class="keyword">public</span> Ciftli prev;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            Ciftli a = <span class="literal">null</span>;</span><br><span class="line">            Ciftli x = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                a = <span class="keyword">new</span> Ciftli();</span><br><span class="line">                a.data = i;</span><br><span class="line">                a.next = <span class="literal">null</span>;</span><br><span class="line">                <span class="keyword">if</span> (Head == <span class="literal">null</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    Head = a;</span><br><span class="line">                    a.prev = <span class="literal">null</span>;</span><br><span class="line">                    x = a;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    a.prev = x;</span><br><span class="line">                    x.next = a;</span><br><span class="line">                    x = a;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            x = Head;</span><br><span class="line">            <span class="keyword">while</span> (x != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(x.data);</span><br><span class="line">                x = x.next;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Console.WriteLine(<span class="string">&quot;-----&quot;</span>);</span><br><span class="line"></span><br><span class="line">            x = a;</span><br><span class="line">            <span class="keyword">while</span> (x != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(x.data);</span><br><span class="line">                x = x.prev;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a name="3"></a> <strong>Örnek-3:</strong> Head, çiftli bağlı listenin ilk elemanına bakmaktadır. Listenin başına eleman ekleyiniz.</p>
+<img data-src="/post/3237563777/3.png" class="">
+
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ciftliBagliListe_3</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> Ciftli Head;</span><br><span class="line">        <span class="keyword">class</span> <span class="title">Ciftli</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">public</span> <span class="built_in">int</span> data;</span><br><span class="line">            <span class="keyword">public</span> Ciftli next;</span><br><span class="line">            <span class="keyword">public</span> Ciftli prev;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            Ciftli a = <span class="literal">null</span>;</span><br><span class="line">            Ciftli x = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                a = <span class="keyword">new</span> Ciftli();</span><br><span class="line">                a.data = i;</span><br><span class="line">                a.next = <span class="literal">null</span>;</span><br><span class="line">                <span class="keyword">if</span> (Head == <span class="literal">null</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    Head = a;</span><br><span class="line">                    a.prev = <span class="literal">null</span>;</span><br><span class="line">                    x = a;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    a.prev = x;</span><br><span class="line">                    x.next = a;</span><br><span class="line">                    x = a;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            Ciftli b = <span class="keyword">new</span> Ciftli();</span><br><span class="line">            b.data = <span class="number">1234</span>;</span><br><span class="line">            b.next = Head;</span><br><span class="line">            b.prev = <span class="literal">null</span>;</span><br><span class="line">            Head.prev = b;</span><br><span class="line">            Head = b;</span><br><span class="line"></span><br><span class="line">            x = Head;</span><br><span class="line">            <span class="keyword">while</span> (x != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(x.data);</span><br><span class="line">                x = x.next;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Console.WriteLine(<span class="string">&quot;----&quot;</span>);</span><br><span class="line"></span><br><span class="line">            x = a;</span><br><span class="line">            <span class="keyword">while</span>(x != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(x.data);</span><br><span class="line">                x = x.prev;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a name="4"></a> <strong>Örnek-4:</strong> Head, çiftli bağlı listenin ilk elamanına bakmaktadır. Listenin sonuna 1 eleman ekleyiniz.<br>Listeyi baştan sona ve sondan başa yazdırarak elemanın eklenip eklenmediğini ve çiftli bağlı liste yapısının oluşup oluşmadığını gözlemleyiniz.</p>
+<img data-src="/post/3237563777/4.png" class="">
+
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ciftliBagliListe_4</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> Ciftli Head;</span><br><span class="line">        <span class="keyword">class</span> <span class="title">Ciftli</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">public</span> <span class="built_in">int</span> data;</span><br><span class="line">            <span class="keyword">public</span> Ciftli next;</span><br><span class="line">            <span class="keyword">public</span> Ciftli prev;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            Ciftli a = <span class="literal">null</span>;</span><br><span class="line">            Ciftli x = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                a = <span class="keyword">new</span> Ciftli();</span><br><span class="line">                a.data = i;</span><br><span class="line">                a.next = <span class="literal">null</span>;</span><br><span class="line">                <span class="keyword">if</span> (Head == <span class="literal">null</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    Head = a;</span><br><span class="line">                    a.prev = <span class="literal">null</span>;</span><br><span class="line">                    x = a;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    a.prev = x;</span><br><span class="line">                    x.next = a;</span><br><span class="line">                    x = a;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            Ciftli b = <span class="keyword">new</span> Ciftli();</span><br><span class="line">            b.data = <span class="number">1234</span>;</span><br><span class="line">            x.next = b;</span><br><span class="line">            b.prev = x;</span><br><span class="line">            b.next = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">            x = Head;</span><br><span class="line">            <span class="keyword">while</span> (x != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(x.data);</span><br><span class="line">                x = x.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a name="5"></a> <strong>Örnek-5:</strong> Head, çiftli bağlı listenin başına bakmaktadır. Çiftli bağlı listeden 5 olan elemanı siliniz.<br>Ardından listenin elemanlarını yazdırarak elemanın silinip silinmediğini kontrol ediniz.</p>
+<img data-src="/post/3237563777/5.png" class="">
+
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ciftliBagliListe_5</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> Ciftli Head;</span><br><span class="line">        <span class="keyword">class</span> <span class="title">Ciftli</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">public</span> <span class="built_in">int</span> data;</span><br><span class="line">            <span class="keyword">public</span> Ciftli next;</span><br><span class="line">            <span class="keyword">public</span> Ciftli prev;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            Ciftli a = <span class="literal">null</span>;</span><br><span class="line">            Ciftli x = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                a = <span class="keyword">new</span> Ciftli();</span><br><span class="line">                a.data = i;</span><br><span class="line">                a.next = <span class="literal">null</span>;</span><br><span class="line">                <span class="keyword">if</span> (Head == <span class="literal">null</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    Head = a;</span><br><span class="line">                    a.prev = <span class="literal">null</span>;</span><br><span class="line">                    x = a;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    a.prev = x;</span><br><span class="line">                    x.next = a;</span><br><span class="line">                    x = a;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            x = Head;</span><br><span class="line">            <span class="keyword">while</span> (x != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (x.data == <span class="number">5</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    x.next.prev = x.next.prev.prev;</span><br><span class="line">                    x.prev.next = x.prev.next.next;</span><br><span class="line">                &#125;</span><br><span class="line">                x = x.next;</span><br><span class="line">            &#125;</span><br><span class="line">            x = Head;</span><br><span class="line">            <span class="keyword">while</span> (x != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(x.data);</span><br><span class="line">                x = x.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Veri Yapıları</category>
+      </categories>
+      <tags>
+        <tag>dotnet core</tag>
+        <tag>linked list</tag>
+        <tag>çiftli bağlı listeler</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kuyruklar</title>
+    <url>/post/1062291645.html</url>
+    <content><![CDATA[<p>Kuyruğa 10 adet eleman ekledik. Ardından kuyruktaki eleman sayısını yazdırdık.<br>Kuyruktan 10 tane eleman aldık. Ardından tekrar kuyruktaki eleman sayısını yazdırdık.</p>
+<span id="more"></span>
+
+<img data-src="/post/1062291645/1.png" class="">
+
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">kuyruk</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span>[] kuyruk = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">100</span>];</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> front = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> rear = <span class="number">-1</span>;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">elemanEkle</span>(<span class="params"><span class="built_in">int</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            rear++;</span><br><span class="line">            kuyruk[rear] = data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">elemanAl</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> data = kuyruk[front];</span><br><span class="line">            front++;</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">kuyrukCount</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> rear - front + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                elemanEkle(i);</span><br><span class="line">            &#125;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;10 adet eleman eklendi!&quot;</span>);</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Kuyruktaki eleman sayısı: &quot;</span>);</span><br><span class="line">            Console.WriteLine(kuyrukCount());</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(elemanAl());</span><br><span class="line">            &#125;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Elemanlar alındı!&quot;</span>);</span><br><span class="line">            Console.WriteLine(kuyrukCount());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Veri Yapıları</category>
+      </categories>
+      <tags>
+        <tag>dotnet core</tag>
+        <tag>kuyruklar</tag>
       </tags>
   </entry>
   <entry>
@@ -680,71 +767,6 @@
         <tag>dotnet core</tag>
         <tag>infix</tag>
         <tag>postfix</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Kuyruklar</title>
-    <url>/post/1062291645.html</url>
-    <content><![CDATA[<p>Kuyruğa 10 adet eleman ekledik. Ardından kuyruktaki eleman sayısını yazdırdık.<br>Kuyruktan 10 tane eleman aldık. Ardından tekrar kuyruktaki eleman sayısını yazdırdık.</p>
-<span id="more"></span>
-
-<img data-src="/post/1062291645/1.png" class="">
-
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">kuyruk</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span>[] kuyruk = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">100</span>];</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> front = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> rear = <span class="number">-1</span>;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">elemanEkle</span>(<span class="params"><span class="built_in">int</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            rear++;</span><br><span class="line">            kuyruk[rear] = data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">elemanAl</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> data = kuyruk[front];</span><br><span class="line">            front++;</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">kuyrukCount</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> rear - front + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                elemanEkle(i);</span><br><span class="line">            &#125;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;10 adet eleman eklendi!&quot;</span>);</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Kuyruktaki eleman sayısı: &quot;</span>);</span><br><span class="line">            Console.WriteLine(kuyrukCount());</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(elemanAl());</span><br><span class="line">            &#125;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Elemanlar alındı!&quot;</span>);</span><br><span class="line">            Console.WriteLine(kuyrukCount());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Veri Yapıları</category>
-      </categories>
-      <tags>
-        <tag>dotnet core</tag>
-        <tag>kuyruklar</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Çiftli Bağlı Listeler</title>
-    <url>/post/3237563777.html</url>
-    <content><![CDATA[<p>Çiftli bağlı liste oluşturma ve bunun bir döngü ile gerçekleştirilmesi, listenen başına ve sonuna eleman ekleme, ilgili listeden eleman silme örneklerini inceleyebilirsiniz.</p>
-<span id="more"></span>
-
-<ul>
-<li><a href="#1">Çiftli Bağlı Liste Oluşturma</a></li>
-<li><a href="#2">For döngüsüyle Çiftli Bağlı Liste Oluşturma</a></li>
-<li><a href="#3">Listenin Başına Eleman Ekleme</a></li>
-<li><a href="#4">Listenin Sonuna Eleman Ekleme</a></li>
-<li><a href="#5">Listeden Eleman Silme</a></li>
-</ul>
-<p><a name="1"></a> <strong>Örnek-1:</strong> 3 elemanlı çiftli bağlı bir liste oluşturunuz.</p>
-<img data-src="/post/3237563777/1.png" class="">
-
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ciftliBagliListe</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> Ciftli Head;</span><br><span class="line">        <span class="keyword">class</span> <span class="title">Ciftli</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">public</span> <span class="built_in">int</span> data;</span><br><span class="line">            <span class="keyword">public</span> Ciftli next;</span><br><span class="line">            <span class="keyword">public</span> Ciftli prev;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            Ciftli a = <span class="keyword">new</span> Ciftli();</span><br><span class="line">            a.data = <span class="number">0</span>;</span><br><span class="line">            a.next = <span class="literal">null</span>;</span><br><span class="line">            a.prev = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">            Ciftli b = <span class="keyword">new</span> Ciftli();</span><br><span class="line">            b.data = <span class="number">1</span>;</span><br><span class="line">            a.next = b;</span><br><span class="line">            b.prev = a;</span><br><span class="line">            b.next = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">            Ciftli c = <span class="keyword">new</span> Ciftli();</span><br><span class="line">            c.data = <span class="number">2</span>;</span><br><span class="line">            b.next = c;</span><br><span class="line">            c.prev = b;</span><br><span class="line">            c.next = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">            Head = a;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> (a != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(a.data);</span><br><span class="line">                a = a.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><a name="2"></a> <strong>Örnek-2:</strong> Head, çiftli bağlı listenin ilk elemanına bakmaktadır. 10 elemanlı, veri değeri indis değerine eşit olan çiftli bağlı liste oluşturunuz. Bu listeyi baştan sona ve sondan başa yazdırarak kontrol ediniz.</p>
-<img data-src="/post/3237563777/2.png" class="">
-
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ciftliBagliListe_2</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> Ciftli Head;</span><br><span class="line">        <span class="keyword">class</span> <span class="title">Ciftli</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">public</span> <span class="built_in">int</span> data;</span><br><span class="line">            <span class="keyword">public</span> Ciftli next;</span><br><span class="line">            <span class="keyword">public</span> Ciftli prev;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            Ciftli a = <span class="literal">null</span>;</span><br><span class="line">            Ciftli x = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                a = <span class="keyword">new</span> Ciftli();</span><br><span class="line">                a.data = i;</span><br><span class="line">                a.next = <span class="literal">null</span>;</span><br><span class="line">                <span class="keyword">if</span> (Head == <span class="literal">null</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    Head = a;</span><br><span class="line">                    a.prev = <span class="literal">null</span>;</span><br><span class="line">                    x = a;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    a.prev = x;</span><br><span class="line">                    x.next = a;</span><br><span class="line">                    x = a;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            x = Head;</span><br><span class="line">            <span class="keyword">while</span> (x != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(x.data);</span><br><span class="line">                x = x.next;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Console.WriteLine(<span class="string">&quot;-----&quot;</span>);</span><br><span class="line"></span><br><span class="line">            x = a;</span><br><span class="line">            <span class="keyword">while</span> (x != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(x.data);</span><br><span class="line">                x = x.prev;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><a name="3"></a> <strong>Örnek-3:</strong> Head, çiftli bağlı listenin ilk elemanına bakmaktadır. Listenin başına eleman ekleyiniz.</p>
-<img data-src="/post/3237563777/3.png" class="">
-
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ciftliBagliListe_3</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> Ciftli Head;</span><br><span class="line">        <span class="keyword">class</span> <span class="title">Ciftli</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">public</span> <span class="built_in">int</span> data;</span><br><span class="line">            <span class="keyword">public</span> Ciftli next;</span><br><span class="line">            <span class="keyword">public</span> Ciftli prev;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            Ciftli a = <span class="literal">null</span>;</span><br><span class="line">            Ciftli x = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                a = <span class="keyword">new</span> Ciftli();</span><br><span class="line">                a.data = i;</span><br><span class="line">                a.next = <span class="literal">null</span>;</span><br><span class="line">                <span class="keyword">if</span> (Head == <span class="literal">null</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    Head = a;</span><br><span class="line">                    a.prev = <span class="literal">null</span>;</span><br><span class="line">                    x = a;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    a.prev = x;</span><br><span class="line">                    x.next = a;</span><br><span class="line">                    x = a;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            Ciftli b = <span class="keyword">new</span> Ciftli();</span><br><span class="line">            b.data = <span class="number">1234</span>;</span><br><span class="line">            b.next = Head;</span><br><span class="line">            b.prev = <span class="literal">null</span>;</span><br><span class="line">            Head.prev = b;</span><br><span class="line">            Head = b;</span><br><span class="line"></span><br><span class="line">            x = Head;</span><br><span class="line">            <span class="keyword">while</span> (x != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(x.data);</span><br><span class="line">                x = x.next;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Console.WriteLine(<span class="string">&quot;----&quot;</span>);</span><br><span class="line"></span><br><span class="line">            x = a;</span><br><span class="line">            <span class="keyword">while</span>(x != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(x.data);</span><br><span class="line">                x = x.prev;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><a name="4"></a> <strong>Örnek-4:</strong> Head, çiftli bağlı listenin ilk elamanına bakmaktadır. Listenin sonuna 1 eleman ekleyiniz.<br>Listeyi baştan sona ve sondan başa yazdırarak elemanın eklenip eklenmediğini ve çiftli bağlı liste yapısının oluşup oluşmadığını gözlemleyiniz.</p>
-<img data-src="/post/3237563777/4.png" class="">
-
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ciftliBagliListe_4</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> Ciftli Head;</span><br><span class="line">        <span class="keyword">class</span> <span class="title">Ciftli</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">public</span> <span class="built_in">int</span> data;</span><br><span class="line">            <span class="keyword">public</span> Ciftli next;</span><br><span class="line">            <span class="keyword">public</span> Ciftli prev;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            Ciftli a = <span class="literal">null</span>;</span><br><span class="line">            Ciftli x = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                a = <span class="keyword">new</span> Ciftli();</span><br><span class="line">                a.data = i;</span><br><span class="line">                a.next = <span class="literal">null</span>;</span><br><span class="line">                <span class="keyword">if</span> (Head == <span class="literal">null</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    Head = a;</span><br><span class="line">                    a.prev = <span class="literal">null</span>;</span><br><span class="line">                    x = a;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    a.prev = x;</span><br><span class="line">                    x.next = a;</span><br><span class="line">                    x = a;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            Ciftli b = <span class="keyword">new</span> Ciftli();</span><br><span class="line">            b.data = <span class="number">1234</span>;</span><br><span class="line">            x.next = b;</span><br><span class="line">            b.prev = x;</span><br><span class="line">            b.next = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">            x = Head;</span><br><span class="line">            <span class="keyword">while</span> (x != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(x.data);</span><br><span class="line">                x = x.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><a name="5"></a> <strong>Örnek-5:</strong> Head, çiftli bağlı listenin başına bakmaktadır. Çiftli bağlı listeden 5 olan elemanı siliniz.<br>Ardından listenin elemanlarını yazdırarak elemanın silinip silinmediğini kontrol ediniz.</p>
-<img data-src="/post/3237563777/5.png" class="">
-
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ciftliBagliListe_5</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> Ciftli Head;</span><br><span class="line">        <span class="keyword">class</span> <span class="title">Ciftli</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">public</span> <span class="built_in">int</span> data;</span><br><span class="line">            <span class="keyword">public</span> Ciftli next;</span><br><span class="line">            <span class="keyword">public</span> Ciftli prev;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            Ciftli a = <span class="literal">null</span>;</span><br><span class="line">            Ciftli x = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                a = <span class="keyword">new</span> Ciftli();</span><br><span class="line">                a.data = i;</span><br><span class="line">                a.next = <span class="literal">null</span>;</span><br><span class="line">                <span class="keyword">if</span> (Head == <span class="literal">null</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    Head = a;</span><br><span class="line">                    a.prev = <span class="literal">null</span>;</span><br><span class="line">                    x = a;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    a.prev = x;</span><br><span class="line">                    x.next = a;</span><br><span class="line">                    x = a;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            x = Head;</span><br><span class="line">            <span class="keyword">while</span> (x != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (x.data == <span class="number">5</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    x.next.prev = x.next.prev.prev;</span><br><span class="line">                    x.prev.next = x.prev.next.next;</span><br><span class="line">                &#125;</span><br><span class="line">                x = x.next;</span><br><span class="line">            &#125;</span><br><span class="line">            x = Head;</span><br><span class="line">            <span class="keyword">while</span> (x != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(x.data);</span><br><span class="line">                x = x.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Veri Yapıları</category>
-      </categories>
-      <tags>
-        <tag>linked list</tag>
-        <tag>dotnet core</tag>
-        <tag>çiftli bağlı listeler</tag>
       </tags>
   </entry>
   <entry>
@@ -831,34 +853,6 @@
       </tags>
   </entry>
   <entry>
-    <title>VirtualBox Secure Boot Problemi Nasıl Çözülür?</title>
-    <url>/post/25933388.html</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Geçersiz bir parola girdiniz. Lütfen kontrol edip tekrar deneyin." data-whm="Şifresi çözülen bu içerik doğrulanamıyor. Ancak yine de göz atabilirsiniz.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="ffde7cfdc3ce23bb6fcf58a911eae162630e775af30915cafd1e47ffe787d31c">e38c519f27c752bb12217325efcdb83e9d173f0cebdf30151c6a86876115c908c2799672f5af98ce10360dfca820d1f633367339a3004c8f0ce0e8a8205ab23570852e24205860f4acd9be531eeea4b6c9f310c21556be687bbc8b498248cebbb294600ee16b50f5fec601023c43d3b9f1588713975cb4608112c6e034b26812e9b8692ab8b451f530f35fc5b281a0bc5e79e167e3982350ff57a6cd1a56ce018ad7df6e32d418aeac110f8dac5c17905e09dbe9000c3a0d65c721169b65f708d72e7027107258e1dcf8bf78dd92879b710b7e052b35840828fe823e38bb4d0a407051c6c51b04a674392a5161a59b664a4ef28addafe87c9aa2435b0c2595a9ae020e3a8c0ad481428930f9ff49012df1c05412ef0bbd402939c8d9a7006a5323d350537de46e276c55e0215f4ff409</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-xray">
-      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">VirtualBox Secure Boot Problemi Nasıl Çözülür</span>
-      </label>
-      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
-        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
-        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>
-      </svg>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>Debian</tag>
-        <tag>Secure Boot</tag>
-        <tag>VirtualBox</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Algoritmalar Ders Notları</title>
     <url>/post/2905381219.html</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Geçersiz bir parola girdiniz. Lütfen kontrol edip tekrar deneyin." data-whm="Şifresi çözülen bu içerik doğrulanamıyor. Ancak yine de göz atabilirsiniz.">
@@ -920,6 +914,109 @@
       <tags>
         <tag>Hexo Butterfly</tag>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VirtualBox Secure Boot Problemi Nasıl Çözülür?</title>
+    <url>/post/25933388.html</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Geçersiz bir parola girdiniz. Lütfen kontrol edip tekrar deneyin." data-whm="Şifresi çözülen bu içerik doğrulanamıyor. Ancak yine de göz atabilirsiniz.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="ffde7cfdc3ce23bb6fcf58a911eae162630e775af30915cafd1e47ffe787d31c">e38c519f27c752bb12217325efcdb83e9d173f0cebdf30151c6a86876115c908c2799672f5af98ce10360dfca820d1f633367339a3004c8f0ce0e8a8205ab23570852e24205860f4acd9be531eeea4b6c9f310c21556be687bbc8b498248cebbb294600ee16b50f5fec601023c43d3b9f1588713975cb4608112c6e034b26812e9b8692ab8b451f530f35fc5b281a0bc5e79e167e3982350ff57a6cd1a56ce018ad7df6e32d418aeac110f8dac5c17905e09dbe9000c3a0d65c721169b65f708d72e7027107258e1dcf8bf78dd92879b710b7e052b35840828fe823e38bb4d0a407051c6c51b04a674392a5161a59b664a4ef28addafe87c9aa2435b0c2595a9ae020e3a8c0ad481428930f9ff49012df1c05412ef0bbd402939c8d9a7006a5323d350537de46e276c55e0215f4ff409</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-xray">
+      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">VirtualBox Secure Boot Problemi Nasıl Çözülür</span>
+      </label>
+      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>
+      </svg>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>Debian</tag>
+        <tag>Secure Boot</tag>
+        <tag>VirtualBox</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Wemos D1 R1 Yapılandırması Nasıl Yapılır?</title>
+    <url>/post/1729220706.html</url>
+    <content><![CDATA[<p>IoT dersi için satın aldığım Wemos D1 R1 kartının kullanabilmemiz için yapılması gereken yapılandırma ayarlarından bahsedeceğim. </p>
+<span id="more"></span>
+
+<p>Arduino programını bilgisayarımıza kurduktan sonra CH340 Driver kurulumunun nasıl yapılacağını ve son olarak Wemos kütüphanelerinin arduino’ya nasıl eklenebileceğini anlatacağım.</p>
+<h2 id="Arduino-Yazilimi-Nasil-Kurulur"><a href="#Arduino-Yazilimi-Nasil-Kurulur" class="headerlink" title="Arduino Yazılımı Nasıl Kurulur?"></a>Arduino Yazılımı Nasıl Kurulur?</h2><div class="note warning"><h4 id="Uyari"><a href="#Uyari" class="headerlink" title="Uyarı"></a>Uyarı</h4><p>Kurulum sırasında karşınıza çıkacak olan gerekli izinleri vermeyi unutmayınız!</p>
+</div>
+
+<h2 id="CH340-Driver-Kurulumu-Nasil-Yapilir"><a href="#CH340-Driver-Kurulumu-Nasil-Yapilir" class="headerlink" title="CH340 Driver Kurulumu Nasıl Yapılır?"></a>CH340 Driver Kurulumu Nasıl Yapılır?</h2><p>CH340 Driver kurulumunu yapmak üzere <span class="exturl" data-url="aHR0cHM6Ly93d3cud2Vtb3MuY2MvZW4vbGF0ZXN0L2NoMzQwX2RyaXZlci5odG1s">https://www.wemos.cc/en/latest/ch340_driver.html<i class="fa fa-external-link-alt"></i></span> adresine gidelim. Windows işletim sistemi üzerinde çalıştığım için Windows V3.5 bağlantısına tıklıyorum.</p>
+<img data-src="/post/1729220706/1.png" alt="Resim 1" style="zoom:85%;" />
+
+<p>İlgili arşiv dosyasını bilgisayarımızda kaydedelim.</p>
+<img data-src="/post/1729220706/2.png" alt="Resim 2" style="zoom:85%;" />
+
+<p>Arşiv dosyasının içerisindeki .EXE uzantılı dosyayı çalıştıralım.</p>
+<img data-src="/post/1729220706/3.png" alt="Resim 3" style="zoom:85%;" />
+
+<p>Son olarak INSTALL seçeneğine tıklayarak kurulumu başlatalım.</p>
+<img data-src="/post/1729220706/4.png" alt="Resim 4" style="zoom:85%;" />
+
+<p>Kurulum tamamlandı.</p>
+<img data-src="/post/1729220706/5.png" alt="Resim 5" style="zoom:85%;" />
+
+<h2 id="Arduino-Yazilimina-Wemos-Kutuphaneleri-Nasil-Eklenir"><a href="#Arduino-Yazilimina-Wemos-Kutuphaneleri-Nasil-Eklenir" class="headerlink" title="Arduino Yazılımına Wemos Kütüphaneleri Nasıl Eklenir?"></a>Arduino Yazılımına Wemos Kütüphaneleri Nasıl Eklenir?</h2><p>Arduino programımızı açtıktan sonra File &gt; Preferences yolunu izleyelim.</p>
+<img data-src="/post/1729220706/6.png" alt="Resim 6" style="zoom:85%;" />
+
+<p>İlgili json dosyamızı ekleyelim.</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9hcmR1aW5vLmVzcDgyNjYuY29tL3N0YWJsZS9wYWNrYWdlX2VzcDgyNjZjb21faW5kZXguanNvbg==">https://arduino.esp8266.com/stable/package_esp8266com_index.json<i class="fa fa-external-link-alt"></i></span></p>
+<img data-src="/post/1729220706/7.png" alt="Resim 7" style="zoom:85%;" />
+
+<p>Üst menü üzerinden Tools &gt; Board &gt; Boards Manager… yolunu izleyelim.</p>
+<img data-src="/post/1729220706/8.png" alt="Resim 8" style="zoom:85%;" />
+
+<p>esp8266 olarak aramamızı gerçekleştirelim. Install diyerek 3.1.2 sürümünün kurulumunu başlatalım.</p>
+<img data-src="/post/1729220706/9.png" alt="Resim 9" style="zoom:85%;" />
+
+<p>Wemos D1 R1 kartımızı kullanabilmek için önce kartımızı seçelim.</p>
+<p>Bunun için Tools &gt; Board &gt; esp8266 &gt; LOLIN(WeMos) D1 R1 seçeneğini işaretleyelim.</p>
+<img data-src="/post/1729220706/10.png" alt="Resim 10" style="zoom:85%;" />
+
+<p>Son olarak kartımızın takılı olduğu Port’u seçip kullanmaya başlayabiliriz.</p>
+<p>Bunun için Tools &gt; Port &gt; COMx işaretleyelim.</p>
+<img data-src="/post/1729220706/11.png" alt="Resim 11" style="zoom:85%;" />
+
+<h2 id="Buzzer’dan-Gelen-Gurultulu-Ses-Problemi-Nasil-Cozulur"><a href="#Buzzer’dan-Gelen-Gurultulu-Ses-Problemi-Nasil-Cozulur" class="headerlink" title="Buzzer’dan Gelen Gürültülü Ses Problemi Nasıl Çözülür?"></a>Buzzer’dan Gelen Gürültülü Ses Problemi Nasıl Çözülür?</h2><p>Aşağıdaki bağlantı üzerinden buzzer’ın gürültülü ses’ine ulaşabilirsiniz.</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xNlh1Y3diWEE5RFNYemFzVzc1cUgwcTdic0VOUi15R1Qvdmlldz91c3A9c2hhcmluZw==">https://drive.google.com/file/d/16XucwbXA9DSXzasW75qH0q7bsENR-yGT/view?usp=sharing<i class="fa fa-external-link-alt"></i></span></p>
+<p>WeMos D1 R1 kartı kullanıyorken basit bir led yakıp söndürme kodunu çalıştırdığımda Buzzer’dan arkaplanda gürültü olacak şekilde ilgili sesi duyabiliyordum.</p>
+<p>Hem WiFi modülümüze ulaşıp çalışmalarımızı yapabilmek hem de buzzer’dan sıkıntısız bir çıktı elde edebilmemiz için öncelikle Boards Manager’ı açalım ve esp8266 olarak aramamızı gerçekleştirelim. Yüklü olan 3.1.2 sürümünü REMOVE butonuna tıklayarak kaldıralım.</p>
+<img data-src="/post/1729220706/12.png" alt="Resim 12" style="zoom:85%;" />
+
+<p>ESP8266 modülünün 2.5.0 sürümünü seçip INSTALL butonuna tıklayarak kurulumumuzu gerçekleştirelim.</p>
+<img data-src="/post/1729220706/13.png" alt="Resim 13" style="zoom:85%;" />
+
+<p>Artık başarılı bir şekilde kodumuzu derleyip kartımıza yükleyebiliriz. Bu sayede buzzer’dan gelen rahatsız edici ses de kaybolmuş oldu.</p>
+<img data-src="/post/1729220706/14.png" alt="Resim 14" style="zoom:85%;" />
+
+<div class="note default"><p>Kaynaklar:</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly95b3V0dS5iZS9CRjc0OVg0dW0tST9saXN0PVBMLXYtWkRZb1dXaFNKY29DcGxGRUdKV0w2WFVOWTB5aGk=">CH340 Driver Kurulumu Nasıl Yapılır?<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly95b3V0dS5iZS9Gc3UtSjJLUUtxRT9saXN0PVBMLXYtWkRZb1dXaFNKY29DcGxGRUdKV0w2WFVOWTB5aGk=">WeMos Kütüphaneleri Arduino’ya Nasıl Eklenir?<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</div>]]></content>
+      <categories>
+        <category>Nesnelerin Interneti</category>
+      </categories>
+      <tags>
+        <tag>WeMos D1 R1</tag>
+        <tag>Arduino</tag>
+        <tag>ESP8266</tag>
+        <tag>CH340</tag>
+        <tag>Internet of Things</tag>
       </tags>
   </entry>
   <entry>
@@ -1091,81 +1188,6 @@
       <tags>
         <tag>Hexo</tag>
         <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Wemos D1 R1 Yapılandırması Nasıl Yapılır?</title>
-    <url>/post/1729220706.html</url>
-    <content><![CDATA[<p>IoT dersi için satın aldığım Wemos D1 R1 kartının kullanabilmemiz için yapılması gereken yapılandırma ayarlarından bahsedeceğim. </p>
-<span id="more"></span>
-
-<p>Arduino programını bilgisayarımıza kurduktan sonra CH340 Driver kurulumunun nasıl yapılacağını ve son olarak Wemos kütüphanelerinin arduino’ya nasıl eklenebileceğini anlatacağım.</p>
-<h2 id="Arduino-Yazilimi-Nasil-Kurulur"><a href="#Arduino-Yazilimi-Nasil-Kurulur" class="headerlink" title="Arduino Yazılımı Nasıl Kurulur?"></a>Arduino Yazılımı Nasıl Kurulur?</h2><div class="note warning"><h4 id="Uyari"><a href="#Uyari" class="headerlink" title="Uyarı"></a>Uyarı</h4><p>Kurulum sırasında karşınıza çıkacak olan gerekli izinleri vermeyi unutmayınız!</p>
-</div>
-
-<h2 id="CH340-Driver-Kurulumu-Nasil-Yapilir"><a href="#CH340-Driver-Kurulumu-Nasil-Yapilir" class="headerlink" title="CH340 Driver Kurulumu Nasıl Yapılır?"></a>CH340 Driver Kurulumu Nasıl Yapılır?</h2><p>CH340 Driver kurulumunu yapmak üzere <span class="exturl" data-url="aHR0cHM6Ly93d3cud2Vtb3MuY2MvZW4vbGF0ZXN0L2NoMzQwX2RyaXZlci5odG1s">https://www.wemos.cc/en/latest/ch340_driver.html<i class="fa fa-external-link-alt"></i></span> adresine gidelim. Windows işletim sistemi üzerinde çalıştığım için Windows V3.5 bağlantısına tıklıyorum.</p>
-<img data-src="/post/1729220706/1.png" alt="Resim 1" style="zoom:85%;" />
-
-<p>İlgili arşiv dosyasını bilgisayarımızda kaydedelim.</p>
-<img data-src="/post/1729220706/2.png" alt="Resim 2" style="zoom:85%;" />
-
-<p>Arşiv dosyasının içerisindeki .EXE uzantılı dosyayı çalıştıralım.</p>
-<img data-src="/post/1729220706/3.png" alt="Resim 3" style="zoom:85%;" />
-
-<p>Son olarak INSTALL seçeneğine tıklayarak kurulumu başlatalım.</p>
-<img data-src="/post/1729220706/4.png" alt="Resim 4" style="zoom:85%;" />
-
-<p>Kurulum tamamlandı.</p>
-<img data-src="/post/1729220706/5.png" alt="Resim 5" style="zoom:85%;" />
-
-<h2 id="Arduino-Yazilimina-Wemos-Kutuphaneleri-Nasil-Eklenir"><a href="#Arduino-Yazilimina-Wemos-Kutuphaneleri-Nasil-Eklenir" class="headerlink" title="Arduino Yazılımına Wemos Kütüphaneleri Nasıl Eklenir?"></a>Arduino Yazılımına Wemos Kütüphaneleri Nasıl Eklenir?</h2><p>Arduino programımızı açtıktan sonra File &gt; Preferences yolunu izleyelim.</p>
-<img data-src="/post/1729220706/6.png" alt="Resim 6" style="zoom:85%;" />
-
-<p>İlgili json dosyamızı ekleyelim.</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9hcmR1aW5vLmVzcDgyNjYuY29tL3N0YWJsZS9wYWNrYWdlX2VzcDgyNjZjb21faW5kZXguanNvbg==">https://arduino.esp8266.com/stable/package_esp8266com_index.json<i class="fa fa-external-link-alt"></i></span></p>
-<img data-src="/post/1729220706/7.png" alt="Resim 7" style="zoom:85%;" />
-
-<p>Üst menü üzerinden Tools &gt; Board &gt; Boards Manager… yolunu izleyelim.</p>
-<img data-src="/post/1729220706/8.png" alt="Resim 8" style="zoom:85%;" />
-
-<p>esp8266 olarak aramamızı gerçekleştirelim. Install diyerek 3.1.2 sürümünün kurulumunu başlatalım.</p>
-<img data-src="/post/1729220706/9.png" alt="Resim 9" style="zoom:85%;" />
-
-<p>Wemos D1 R1 kartımızı kullanabilmek için önce kartımızı seçelim.</p>
-<p>Bunun için Tools &gt; Board &gt; esp8266 &gt; LOLIN(WeMos) D1 R1 seçeneğini işaretleyelim.</p>
-<img data-src="/post/1729220706/10.png" alt="Resim 10" style="zoom:85%;" />
-
-<p>Son olarak kartımızın takılı olduğu Port’u seçip kullanmaya başlayabiliriz.</p>
-<p>Bunun için Tools &gt; Port &gt; COMx işaretleyelim.</p>
-<img data-src="/post/1729220706/11.png" alt="Resim 11" style="zoom:85%;" />
-
-<h2 id="Buzzer’dan-Gelen-Gurultulu-Ses-Problemi-Nasil-Cozulur"><a href="#Buzzer’dan-Gelen-Gurultulu-Ses-Problemi-Nasil-Cozulur" class="headerlink" title="Buzzer’dan Gelen Gürültülü Ses Problemi Nasıl Çözülür?"></a>Buzzer’dan Gelen Gürültülü Ses Problemi Nasıl Çözülür?</h2><p>Aşağıdaki bağlantı üzerinden buzzer’ın gürültülü ses’ine ulaşabilirsiniz.</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xNlh1Y3diWEE5RFNYemFzVzc1cUgwcTdic0VOUi15R1Qvdmlldz91c3A9c2hhcmluZw==">https://drive.google.com/file/d/16XucwbXA9DSXzasW75qH0q7bsENR-yGT/view?usp=sharing<i class="fa fa-external-link-alt"></i></span></p>
-<p>WeMos D1 R1 kartı kullanıyorken basit bir led yakıp söndürme kodunu çalıştırdığımda Buzzer’dan arkaplanda gürültü olacak şekilde ilgili sesi duyabiliyordum.</p>
-<p>Hem WiFi modülümüze ulaşıp çalışmalarımızı yapabilmek hem de buzzer’dan sıkıntısız bir çıktı elde edebilmemiz için öncelikle Boards Manager’ı açalım ve esp8266 olarak aramamızı gerçekleştirelim. Yüklü olan 3.1.2 sürümünü REMOVE butonuna tıklayarak kaldıralım.</p>
-<img data-src="/post/1729220706/12.png" alt="Resim 12" style="zoom:85%;" />
-
-<p>ESP8266 modülünün 2.5.0 sürümünü seçip INSTALL butonuna tıklayarak kurulumumuzu gerçekleştirelim.</p>
-<img data-src="/post/1729220706/13.png" alt="Resim 13" style="zoom:85%;" />
-
-<p>Artık başarılı bir şekilde kodumuzu derleyip kartımıza yükleyebiliriz. Bu sayede buzzer’dan gelen rahatsız edici ses de kaybolmuş oldu.</p>
-<img data-src="/post/1729220706/14.png" alt="Resim 14" style="zoom:85%;" />
-
-<div class="note default"><p>Kaynaklar:</p>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly95b3V0dS5iZS9CRjc0OVg0dW0tST9saXN0PVBMLXYtWkRZb1dXaFNKY29DcGxGRUdKV0w2WFVOWTB5aGk=">CH340 Driver Kurulumu Nasıl Yapılır?<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly95b3V0dS5iZS9Gc3UtSjJLUUtxRT9saXN0PVBMLXYtWkRZb1dXaFNKY29DcGxGRUdKV0w2WFVOWTB5aGk=">WeMos Kütüphaneleri Arduino’ya Nasıl Eklenir?<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-</div>]]></content>
-      <categories>
-        <category>Nesnelerin Interneti</category>
-      </categories>
-      <tags>
-        <tag>WeMos D1 R1</tag>
-        <tag>Arduino</tag>
-        <tag>ESP8266</tag>
-        <tag>CH340</tag>
-        <tag>Internet of Things</tag>
       </tags>
   </entry>
   <entry>
@@ -1383,46 +1405,6 @@
         <tag>Arduino Cloud Agent</tag>
         <tag>Cloud Application</tag>
         <tag>Led Blink Application</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python Anaconda Kurulumu Nasıl Yapılır?</title>
-    <url>/post/1631539360.html</url>
-    <content><![CDATA[<p>Wget ile .sh uzantılı kurulum dosyasını indirmemiz için aşağıdaki paketlerin sisteminizde kurulu olduğundan emin olunuz.</p>
-<span id="more"></span>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S wget bzip2</span><br></pre></td></tr></table></figure>
-
-<p>Bu <span class="exturl" data-url="aHR0cHM6Ly93d3cuYW5hY29uZGEuY29tL2Rvd25sb2FkLyNsaW51eA==">Link’e<i class="fa fa-external-link-alt"></i></span> tıklayınız.</p>
-<p>Download butonunun üzerinde sağ tıklayıp linki kopyalayınız.</p>
-<img data-src="/post/1631539360/1.png" class="">
-
-<p>Ardından terminali açınız.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget https://repo.continuum.io/archive/Anaconda3-2018.12-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
-
-<p>Ardından kurulum dosyasını açınız.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo sh Anaconda3-2018.12-Linux-x86_64.sh</span><br><span class="line">Please answer <span class="string">&#x27;yes&#x27;</span> or <span class="string">&#x27;no&#x27;</span>:<span class="string">&#x27;</span></span><br><span class="line"><span class="string"> &gt;&gt;&gt; yes</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Anaconda3 will now be installed into this location:</span></span><br><span class="line"><span class="string"> /home/ramarcher/anaconda3</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">- Press ENTER to confirm the location</span></span><br><span class="line"><span class="string"> - Press CTRL-C to abort the installation</span></span><br><span class="line"><span class="string"> - Or specify a different location below</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[/home/ramarcher/anaconda3] &gt;&gt;&gt; /usr/local/anaconda/</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo vim /etc/profile</span><br></pre></td></tr></table></figure>
-
-<p>En alta aşağıdaki değişkeni ekleyiniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># added by Anaconda3 installer</span></span><br><span class="line"> <span class="built_in">export</span> PATH=<span class="string">&quot;/usr/local/anaconda/bin:<span class="variable">$PATH</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>Ardından bilgisayarınızı yeniden başlatınız. Jupyter Notebook ve Spyder’ı açmaya çalışalım. Uçbirim üzerinde spyder yazalım.</p>
-<img data-src="/post/1631539360/2.png" class="">
-
-<p>Terminal üzerinde jupyter notebook yazıp enter’a basalım.</p>
-<img data-src="/post/1631539360/3.png" class="">
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
-        <tag>python</tag>
-        <tag>anaconda</tag>
-        <tag>spyder</tag>
-        <tag>jupyter notebook</tag>
       </tags>
   </entry>
 </search>

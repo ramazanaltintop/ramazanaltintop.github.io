@@ -1298,7 +1298,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #38ff55;
+    background: #aa4f24;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1362,10 +1362,6 @@ pre code {
   max-width: 120px;
   padding: 2px;
   border-radius: 50%;
-  transition: transform 1s ease-out;
-}
-.site-author-image:hover {
-  transform: rotateZ(360deg);
 }
 .site-author-name {
   color: var(--text-color);
@@ -2955,9 +2951,34 @@ header.header {
   }
 }
 /* Profile Picture Animation */
+/*
 .site-author-image {
   animation: huxi_dark 4s ease-in-out infinite;
 }
+
+@keyframes huxi_light {
+  0% {
+    box-shadow: 0px 0px 1px 1px #e9f5fa;
+  }
+  50% {
+    box-shadow: 0px 0px 5px 5px #e9f5fa;
+  }
+  100% {
+    box-shadow: 0px 0px 1px 1px #e9f5fa;
+  }
+}
+@keyframes huxi_dark {
+  0% {
+    box-shadow: 0px 0px 1px 1px #39c5bb;
+  }
+  50% {
+    box-shadow: 0px 0px 5px 5px #39c5bb;
+  }
+  100% {
+    box-shadow: 0px 0px 1px 1px #39c5bb;
+  }
+}
+*/
 .sidebar-overview-active .sidebar-panel.site-overview-wrap,
 .sidebar-toc-active .sidebar-panel.post-toc-wrap {
   padding-top: 10px;
@@ -3027,27 +3048,5 @@ mark.search-keyword {
   }
   100% {
     text-shadow: 3px 0 rgba(0,255,255,0.5), 5px 0 rgba(255,0,0,0.5);
-  }
-}
-@keyframes huxi_light {
-  0% {
-    box-shadow: 0px 0px 1px 1px #e9f5fa;
-  }
-  50% {
-    box-shadow: 0px 0px 5px 5px #e9f5fa;
-  }
-  100% {
-    box-shadow: 0px 0px 1px 1px #e9f5fa;
-  }
-}
-@keyframes huxi_dark {
-  0% {
-    box-shadow: 0px 0px 1px 1px #39c5bb;
-  }
-  50% {
-    box-shadow: 0px 0px 5px 5px #39c5bb;
-  }
-  100% {
-    box-shadow: 0px 0px 1px 1px #39c5bb;
   }
 }
