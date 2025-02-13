@@ -28,7 +28,6 @@
 <meta property="og:site_name" content="Ramazan Altıntop">
 <meta property="og:description" content="Dotnet uygulamalarının çalışma yapısı, gerçekleşecek olan derleme ve çalıştırma süreçleri Language Specific Compiler, Intermediate Language, Common Language Runtime, Just-In-Time Compiler ve Native Co">
 <meta property="og:locale" content="tr_TR">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_390419117001.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_390419117002.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_390419117003.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_390419117004.png">
@@ -36,7 +35,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_390419117006.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_390419117007.png">
 <meta property="article:published_time" content="2025-02-06T09:00:00.000Z">
-<meta property="article:modified_time" content="2025-02-06T12:13:40.584Z">
+<meta property="article:modified_time" content="2025-02-13T14:00:42.647Z">
 <meta property="article:author" content="Ramazan Altıntop">
 <meta property="article:tag" content="Dotnet">
 <meta property="article:tag" content="C#">
@@ -44,7 +43,7 @@
 <meta property="article:tag" content="CLR">
 <meta property="article:tag" content="MSIL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_390419117001.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_390419117002.png">
 
 
 <link rel="canonical" href="https://ramazanaltintop.github.io/post/390419117.html">
@@ -281,10 +280,8 @@
     
     
     <div class="post-body" itemprop="articleBody"><p>Dotnet uygulamalarının çalışma yapısı, gerçekleşecek olan derleme ve çalıştırma süreçleri Language Specific Compiler, Intermediate Language, Common Language Runtime, Just-In-Time Compiler ve Native Code kavramları ile birlikte ele alınacaktır.</p>
-<p>Konunun daha iyi anlaşılması açısından aşağıdaki yer alan diyagramı inceleyelim.</p>
 <span id="more"></span>
 
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_390419117001.png"></p>
 <h2 id="Compilation-Derleme-Asamasi"><a href="#Compilation-Derleme-Asamasi" class="headerlink" title="Compilation (Derleme Aşaması)"></a>Compilation (Derleme Aşaması)</h2><mark class="label primary">Language Specific Compiler</mark>, yani dile özgü derleyiciler bulunmaktadır. C# dilini kullanarak bir uygulama geliştirdiğimizi varsayalım. Yazmış olduğumuz uygulamayı build ettiğimizde Language Specific Compiler, yazmış olduğumuz uygulamayı bir ara dile çevirir. Bu ara dil, <mark class="label primary">Microsoft Intermediate Language</mark>, <mark class="label primary">Common Intermediate Language</mark> veya <mark class="label primary">Intermediate Language</mark> olarak bilinmektedir. Ara dile çevrilmesi ile birlikte oluşacak olan dosyalar <mark class="label primary">.EXE</mark> veya <mark class="label primary">.DLL</mark> uzantılı dosyalar olacaktır.
 
 <h2 id="Runtime-Calisma-Zamani-Asamasi"><a href="#Runtime-Calisma-Zamani-Asamasi" class="headerlink" title="Runtime (Çalışma Zamanı) Aşaması"></a>Runtime (Çalışma Zamanı) Aşaması</h2><p>Uygulamayı çalıştırdım. Uygulama çalıştırıldığı anda <mark class="label primary">Common Language Runtime</mark> devreye girmektedir. Common Language Runtime’ın devreye girmesi ile birlikte <mark class="label primary">Just-In-Time Compiler</mark> oluşan ilgili Microsoft Intermediate Language kodunu, <mark class="label primary">Native code</mark>‘a dönüştürmektedir. Native code, makine koduna karşılık gelmektedir. Yani işletim sistemimize özgü olarak, işletim sistemimizde ilgili uygulamanın çalışabilmesi için oluşturalan koddan bahsediyoruz. Native code’a dönüştürülme işleminden sonra uygulama başarılı bir şekilde çalıştırılır.</p>
