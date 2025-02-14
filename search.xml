@@ -1,200 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Kernel Driver Yüklenmedi Problemi Nasıl Çözülür?</title>
-    <url>/post/1582768901.html</url>
-    <content><![CDATA[<p>Kernel driver yüklenmedi problemini çözmek için aşağıdaki adımları takip edelim.</p>
-<span id="more"></span>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1582768901001.png"></p>
-<p>Terminali açalım ve root olalım.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[ramazan@ramazan ~]$ su</span><br><span class="line">Parola:</span><br><span class="line">[root@ramazan ramazan]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
-
-<p>Virtualbox kurulumunu gerçekleştirelim.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pacman -S virtualbox</span></span><br></pre></td></tr></table></figure>
-
-<p>Host modüllerini kuralım.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pacman -S virtualbox-host-modules</span></span><br></pre></td></tr></table></figure>
-
-<p>Ardından;</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># dkms autoinstall</span></span><br></pre></td></tr></table></figure>
-
-<p>Aktifleştirme işlemini gerçekleştirelim</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># modprobe vboxdrv</span></span><br></pre></td></tr></table></figure>
-
-<p>modprobe komutları daima root olarak çalıştırılır.</p>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>kernel</tag>
-        <tag>virtualbox</tag>
-        <tag>arch linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Touchpad Kurulumu ve Yapılandırması Nasıl Yapılır?</title>
-    <url>/post/611388161.html</url>
-    <content><![CDATA[<p>Extra deposundaki xf86-input-synaptics paketini yüklemeliyiz. Aşağıdaki komutlarla kurulumu tamamlayalım.</p>
-<span id="more"></span>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S xf86-input-synaptics</span><br></pre></td></tr></table></figure>
-
-<p>Şimdi Touchpad’imizi yapılandıralım. Kurulumu tamamladıktan sonra öntanımlı yapılandırma dosyası aşağıdaki yere gidecektir.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/share/X11/xorg.conf.d/70-synaptics.conf</span><br></pre></td></tr></table></figure>
-
-<p>70-synaptics.conf dosyasını &#x2F;etc&#x2F;X11&#x2F;xorg.conf.d ‘ ye kopyalayalım.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo <span class="built_in">cp</span> /usr/share/X11/xorg.conf.d/70-synaptics.conf /etc/X11/xorg.conf.d</span><br></pre></td></tr></table></figure>
-
-<p>Bilgisayarımızı yeniden başlatalım.</p>
-<p>Bu yazıda touchpad yapılandırması ve kurulumundan bahsettik. Daha fazla bilgi için <span class="exturl" data-url="aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvaW5kZXgucGhwL1RvdWNocGFkX1N5bmFwdGljcyNDb25maWd1cmF0aW9u">https://wiki.archlinux.org/index.php/Touchpad_Synaptics#Configuration<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
-        <tag>touchpad</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Steam Kurulum Problemi Nasıl Çözülür?</title>
-    <url>/post/1616795057.html</url>
-    <content><![CDATA[<p>Birkaç gün önce steam yükledim. Fakat Steam’i açmaya çalıştığımda açılmadı. Bu yüzden uçbirim üzerinde Steam’i açıp çıktılarına baktım ve aşağıdaki çıktıları elde ettim.</p>
-<span id="more"></span>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/home/ramazan/.local/share/Steam/steam.sh: line 154: VERSION_ID: unbound variable</span><br><span class="line">/home/ramazan/.local/share/Steam/steam.sh: line 154: VERSION_ID: unbound variable</span><br><span class="line">Running Steam on <span class="built_in">arch</span>  64-bit</span><br><span class="line">/home/ramazan/.local/share/Steam/steam.sh: line 154: VERSION_ID: unbound variable</span><br><span class="line">STEAM_RUNTIME is enabled automatically</span><br><span class="line">Installing breakpad exception handler <span class="keyword">for</span> appid(steam)/version(1468023329)</span><br><span class="line">libGL error: unable to load driver: i965_dri.so</span><br><span class="line">libGL error: driver pointer missing</span><br><span class="line">libGL error: failed to load driver: i965</span><br><span class="line">libGL error: unable to load driver: i965_dri.so</span><br><span class="line">libGL error: driver pointer missing</span><br><span class="line">libGL error: failed to load driver: i965</span><br><span class="line">libGL error: unable to load driver: swrast_dri.so</span><br><span class="line">libGL error: failed to load driver: swrast</span><br></pre></td></tr></table></figure>
-
-<p>Bunun çözümü için Aşağıdaki komutları sırasıyla girdim.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find ~/.steam/root/ \( -name <span class="string">&quot;libgcc_s.so*&quot;</span> -o -name <span class="string">&quot;libstdc++.so*&quot;</span> -o -name <span class="string">&quot;libxcb.so*&quot;</span> -o -name <span class="string">&quot;libgpg-error.so*&quot;</span> \) -<span class="built_in">print</span> -delete</span><br><span class="line">find ~/.local/share/Steam/ \( -name <span class="string">&quot;libgcc_s.so*&quot;</span> -o -name <span class="string">&quot;libstdc++.so*&quot;</span> -o -name <span class="string">&quot;libxcb.so*&quot;</span> -o -name <span class="string">&quot;libgpg-error.so*&quot;</span> \) -<span class="built_in">print</span> -delete</span><br><span class="line"><span class="built_in">rm</span> -f ~/.local/share/Steam/ubuntu12_32/steam-runtime/i386/usr/lib/i386-linux-gnu/libstdc++.so.6</span><br><span class="line"><span class="built_in">rm</span> -f ~/.local/share/Steam/ubuntu12_32/steam-runtime/i386/usr/lib/i386-linux-gnu/libgcc_s.so.1</span><br><span class="line">LC_ALL=C steam</span><br></pre></td></tr></table></figure>
-
-<p>Kurulumdan sonra menümde steam’i açabilirim.</p>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
-        <tag>steam</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spice Grafikleri Desteklenmedi Problemi Nasıl Çözülür?</title>
-    <url>/post/331929281.html</url>
-    <content><![CDATA[<p>Virt-manager programını açtım. Sanal makineyi oluşturma esnasında hata aldım.</p>
-<span id="more"></span>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_331929281001.png"></p>
-<p>unsupported configuration: spice graphics are not supported with this QEMU.</p>
-<p>Bunun çözümü için;</p>
-<p>qemu-git paketini bağımlılıklarıyla beraber sildim. Sonra qemu-spice paketinin kurulumunu yaptım.</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9hdXIuYXJjaGxpbnV4Lm9yZy9wYWNrYWdlcy9xZW11LXNwaWNlLw==">qemu-spice-AUR<i class="fa fa-external-link-alt"></i></span></p>
-<p>Bu problemi bu paketin kurulumuyla çözdüm.</p>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
-        <tag>virt manager</tag>
-        <tag>qemu</tag>
-        <tag>spice</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>conky-lua-archers-git Derleme Hatası Nasıl Çözülür?</title>
-    <url>/post/524097281.html</url>
-    <content><![CDATA[<p>conky-lua-archers-git paketini derlerken karşılaşmış olduğum hatayı nasıl düzelteceğimizden bahsedeceğim.</p>
-<span id="more"></span>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_524097281001.png"></p>
-<p>paket:<span class="exturl" data-url="aHR0cHM6Ly9hdXIuYXJjaGxpbnV4Lm9yZy9wYWNrYWdlcy9jb25reS1sdWEtYXJjaGVycy1naXQ=">https://aur.archlinux.org/packages/conky-lua-archers-git<i class="fa fa-external-link-alt"></i></span></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span>: cannot create directory <span class="string">&#x27;build/&#x27;</span>: File exists.</span><br></pre></td></tr></table></figure>
-
-<p>Bu problemi şu şekilde çözeceğiz.</p>
-<p>PKGBUILD dosyasını şu şekilde düzenleyiniz..</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">prepare</span></span>() &#123;</span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="variable">$&#123;srcdir&#125;</span>/<span class="variable">$&#123;_pkgname&#125;</span>&quot;</span></span><br><span class="line"><span class="built_in">mkdir</span> -p build/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Şimdi tekrar derlemenizi yapabilirsiniz.</p>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
-        <tag>conky</tag>
-        <tag>compiling</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>İzin verilmedi, KVM başlatılamadı Problemi Nasıl Çözülür?</title>
-    <url>/post/2231193092.html</url>
-    <content><![CDATA[<p>Böyle bir hata ile karşılaşırsanız şu adımları izlemelisiniz.</p>
-<span id="more"></span>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2231193092001.png"></p>
-<p>Aşağıdaki adımları yaptığınızdan emin olunuz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo modprobe kvm-intel</span><br><span class="line">$ sudo groupadd kvm</span><br><span class="line">$ sudo gpasswd -a USERNAME kvm</span><br><span class="line"><span class="built_in">chown</span> root:kvm /dev/kvm</span><br></pre></td></tr></table></figure>
-
-<p>Bu komut gerçekleşmezse aşağıdaki komutu deneyiniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">setfacl -m g::rw /dev/kvm</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
-        <tag>qemu</tag>
-        <tag>kvm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>glxinfo Komut Yok Hatası Nasıl Çözülür?</title>
-    <url>/post/950666780.html</url>
-    <content><![CDATA[<p>Komutu girdiğimde şu şekilde bir hata alıyorum.</p>
-<span id="more"></span>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ glxinfo | grep direct</span><br><span class="line">bash: glxinfo: <span class="built_in">command</span> not found</span><br></pre></td></tr></table></figure>
-
-<p>Bu problemin kalkması için aşağıdaki paketi kurunuz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S mesa-demos</span><br><span class="line">paket bağımlılıkları çözümleniyor...</span><br><span class="line">varsa paketler arası çakışmalara bakılıyor...</span><br><span class="line"></span><br><span class="line">Paketler (3) freeglut-3.0.0-2  glew-2.1.0-1  mesa-demos-8.4.0-1</span><br><span class="line"></span><br><span class="line">Toplam İndirme Boyutu:  1,84 MiB</span><br><span class="line">Toplam Kurulum Boyutu:  9,82 MiB</span><br><span class="line"></span><br><span class="line">:: Kuruluma onay veriyor musunuz? [E/h] E</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">:: Bağlantılı işlemler listesi çalışıyor...</span><br><span class="line">(1/1) Arming ConditionNeedsUpdate...</span><br></pre></td></tr></table></figure>
-
-<p>Ardından komutumuzu tekrar girelim.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ glxinfo | grep direct</span><br><span class="line">direct rendering: Yes</span><br><span class="line">    GL_ARB_depth_clamp, GL_ARB_derivative_control, GL_ARB_direct_state_access,</span><br><span class="line">    GL_ARB_draw_elements_base_vertex, GL_ARB_draw_indirect,</span><br><span class="line">    GL_ARB_indirect_parameters, GL_ARB_instanced_arrays,</span><br><span class="line">    GL_ARB_map_buffer_range, GL_ARB_multi_bind, GL_ARB_multi_draw_indirect,</span><br><span class="line">    GL_ARB_draw_elements_base_vertex, GL_ARB_draw_indirect,</span><br><span class="line">    GL_ARB_indirect_parameters, GL_ARB_instanced_arrays,</span><br><span class="line">    GL_ARB_map_buffer_range, GL_ARB_multi_bind, GL_ARB_multi_draw_indirect,</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
-        <tag>glxinfo</tag>
-        <tag>mesa demos</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>KVM, BIOS Tarafından Devredışı Bırakıldı Problemi Nasıl Çözülür?</title>
-    <url>/post/3236384314.html</url>
-    <content><![CDATA[<p>KVM, linux çekirdekli sistemler üzerinde, “çekirdek seviyesinde” sanallaştırma yapmamıza imkan veren bir sanallaştırma uygulamasıdır. Diğer sanallaştırma teknolojilerinin aksine hızlı, ve çekirdek seviyesinde çalışmasından dolayıda çok güvenlidir.</p>
-<span id="more"></span>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ egrep <span class="string">&#x27;^flags.*(vmx|svm)&#x27;</span> /proc/cpuinfo</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br></pre></td></tr></table></figure>
-
-<p>komutu ile sisteminizin kvm ‘ yi destekleyip desteklemediğini görebilirsiniz.</p>
-<p>Açılışta aldığım kvm disabled by bios hatası için bios ayarlarımı düzenledim.</p>
-<p>Intel Virtual Technology kısmını Enable olarak ayarlayıp reboot ettikten sonra sorun düzeldi.</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_3236384314001.png"></p>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
-        <tag>kvm</tag>
-        <tag>bios</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>makepkg için GPG İmzaları Doğrulama Nasıl Yapılır?</title>
     <url>/post/315743461.html</url>
     <content><![CDATA[<p>Drush için php-box bağımlılığını kurmaya çalışırken imza hatasıyla karşılaştım ve bunun iki türlü çözümüne ulaştım. Birisi sadece kurulumu yapmama sağlayacak olan geçici çözüm. Diğeri ise resmi olmayan bir imzayı kalıcı olarak resmi yapmamı sağlayan çözüm. Burada geçici olarak bu sorunu nasıl çözdüğümden bahsedeceğim.</p>
@@ -224,30 +30,159 @@
         <category>GNU/Linux</category>
       </categories>
       <tags>
-        <tag>arch linux</tag>
         <tag>php-box</tag>
         <tag>makepkg</tag>
         <tag>gpg</tag>
+        <tag>arch linux</tag>
       </tags>
   </entry>
   <entry>
-    <title>İşlem gerçekleştirilemedi (Çakışan dosyalar) Hatası Nasıl Çözülür?</title>
-    <url>/post/1871179136.html</url>
-    <content><![CDATA[<p>Aşağıdaki komut ile kurulum yapmaya çalıştığımda hata ile karşılaştım.</p>
+    <title>Kernel Driver Yüklenmedi Problemi Nasıl Çözülür?</title>
+    <url>/post/1582768901.html</url>
+    <content><![CDATA[<p>Kernel driver yüklenmedi problemini çözmek için aşağıdaki adımları takip edelim.</p>
 <span id="more"></span>
 
-<p>Bu hatayı aşağıdaki çıktıdan görüntüleyebilirsiniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S retext</span><br><span class="line">[sudo] password <span class="keyword">for</span> ramarcher:</span><br><span class="line">paket bağımlılıkları çözümleniyor...</span><br><span class="line">varsa paketler arası çakışmalara bakılıyor...</span><br><span class="line"></span><br><span class="line">Paketler (4) python-markdown-2.6.11-2  python-markdown-math-0.6-2  python-markups-3.0.0-5  retext-7.0.4-3</span><br><span class="line"></span><br><span class="line">Toplam Kurulum Boyutu:  1,60 MiB</span><br><span class="line"></span><br><span class="line">:: Kuruluma onay veriyor musunuz? [E/h] e</span><br><span class="line">(4/4) anahtarlıktaki anahtarlar kontrol ediliyor                                           [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) paket bütü<span class="built_in">nl</span>üğü kontrol ediliyor                                                     [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) paket dosyaları yükleniyor                                                           [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) dosya çakışmaları kontrol ediliyor                                                   [<span class="comment">#####################################################] 100%</span></span><br><span class="line">hata: işlem gerçekleştirilemedi (çakışan dosyalar)</span><br><span class="line">python-markdown: /usr/bin/markdown_py dosya sisteminde mevcut</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/__init__.py dosya sisteminde mevcut</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/__main__.py dosya sisteminde mevcut</span><br><span class="line">..</span><br><span class="line">..</span><br><span class="line">..</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/util.py dosya sisteminde mevcut</span><br><span class="line">Hata oluştu, hiçbir paket güncellenmedi.</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1582768901001.png"></p>
+<p>Terminali açalım ve root olalım.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[ramazan@ramazan ~]$ su</span><br><span class="line">Parola:</span><br><span class="line">[root@ramazan ramazan]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
 
-<p>Böyle bir hata ile karşılaştığımız için aşağıdaki komutla bu paketi yükleyebilirsiniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pip install retext</span><br><span class="line">Collecting retext</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/31/91/6eff0afd947ca945dd63bb4f7fd0ea1872f80acef338eec4076642a824a8/ReText-7.0.4.tar.gz (402kB)</span><br><span class="line">    100% |████████████████████████████████| 409kB 2.1MB/s</span><br><span class="line">Collecting docutils (from retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/36/fa/08e9e6e0e3cbd1d362c3bbee8d01d0aedb2155c4ac112b19ef3cae8eed8d/docutils-0.14-py3-none-any.whl (543kB)</span><br><span class="line">    100% |████████████████████████████████| 552kB 7.3MB/s</span><br><span class="line">Requirement already satisfied: Markdown <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (3.0.1)</span><br><span class="line">Collecting Markups&gt;=2.0 (from retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/56/c0/d77c6af4f43c00268372fcbaee715dc798ce70c6c6a93ae30bec32af94ed/Markups-3.0.0-py2.py3-none-any.whl</span><br><span class="line">Requirement already satisfied: Pygments <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (2.3.1)</span><br><span class="line">Requirement already satisfied: chardet&gt;=2.3 <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (3.0.4)</span><br><span class="line">Collecting python-markdown-math (from Markups&gt;=2.0-&gt;retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/7c/81/2c86570437821d77b90a6d939d54e11b507b71785850840a5e56d8febeca/python_markdown_math-0.6-py2.py3-none-any.whl</span><br><span class="line">Installing collected packages: docutils, python-markdown-math, Markups, retext</span><br><span class="line">  Running setup.py install <span class="keyword">for</span> retext ... <span class="keyword">done</span></span><br><span class="line">Successfully installed Markups-3.0.0 docutils-0.14 python-markdown-math-0.6 retext-7.0.4</span><br></pre></td></tr></table></figure>
+<p>Virtualbox kurulumunu gerçekleştirelim.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pacman -S virtualbox</span></span><br></pre></td></tr></table></figure>
+
+<p>Host modüllerini kuralım.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pacman -S virtualbox-host-modules</span></span><br></pre></td></tr></table></figure>
+
+<p>Ardından;</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># dkms autoinstall</span></span><br></pre></td></tr></table></figure>
+
+<p>Aktifleştirme işlemini gerçekleştirelim</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># modprobe vboxdrv</span></span><br></pre></td></tr></table></figure>
+
+<p>modprobe komutları daima root olarak çalıştırılır.</p>
 ]]></content>
       <categories>
         <category>GNU/Linux</category>
       </categories>
       <tags>
         <tag>arch linux</tag>
-        <tag>retext</tag>
+        <tag>kernel</tag>
+        <tag>virtualbox</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>KVM, BIOS Tarafından Devredışı Bırakıldı Problemi Nasıl Çözülür?</title>
+    <url>/post/3236384314.html</url>
+    <content><![CDATA[<p>KVM, linux çekirdekli sistemler üzerinde, “çekirdek seviyesinde” sanallaştırma yapmamıza imkan veren bir sanallaştırma uygulamasıdır. Diğer sanallaştırma teknolojilerinin aksine hızlı, ve çekirdek seviyesinde çalışmasından dolayıda çok güvenlidir.</p>
+<span id="more"></span>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ egrep <span class="string">&#x27;^flags.*(vmx|svm)&#x27;</span> /proc/cpuinfo</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br><span class="line">flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts</span><br></pre></td></tr></table></figure>
+
+<p>komutu ile sisteminizin kvm ‘ yi destekleyip desteklemediğini görebilirsiniz.</p>
+<p>Açılışta aldığım kvm disabled by bios hatası için bios ayarlarımı düzenledim.</p>
+<p>Intel Virtual Technology kısmını Enable olarak ayarlayıp reboot ettikten sonra sorun düzeldi.</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_3236384314001.png"></p>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>kvm</tag>
+        <tag>bios</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spice Grafikleri Desteklenmedi Problemi Nasıl Çözülür?</title>
+    <url>/post/331929281.html</url>
+    <content><![CDATA[<p>Virt-manager programını açtım. Sanal makineyi oluşturma esnasında hata aldım.</p>
+<span id="more"></span>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_331929281001.png"></p>
+<p>unsupported configuration: spice graphics are not supported with this QEMU.</p>
+<p>Bunun çözümü için;</p>
+<p>qemu-git paketini bağımlılıklarıyla beraber sildim. Sonra qemu-spice paketinin kurulumunu yaptım.</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9hdXIuYXJjaGxpbnV4Lm9yZy9wYWNrYWdlcy9xZW11LXNwaWNlLw==">qemu-spice-AUR<i class="fa fa-external-link-alt"></i></span></p>
+<p>Bu problemi bu paketin kurulumuyla çözdüm.</p>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>virt manager</tag>
+        <tag>qemu</tag>
+        <tag>spice</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Steam Kurulum Problemi Nasıl Çözülür?</title>
+    <url>/post/1616795057.html</url>
+    <content><![CDATA[<p>Birkaç gün önce steam yükledim. Fakat Steam’i açmaya çalıştığımda açılmadı. Bu yüzden uçbirim üzerinde Steam’i açıp çıktılarına baktım ve aşağıdaki çıktıları elde ettim.</p>
+<span id="more"></span>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/home/ramazan/.local/share/Steam/steam.sh: line 154: VERSION_ID: unbound variable</span><br><span class="line">/home/ramazan/.local/share/Steam/steam.sh: line 154: VERSION_ID: unbound variable</span><br><span class="line">Running Steam on <span class="built_in">arch</span>  64-bit</span><br><span class="line">/home/ramazan/.local/share/Steam/steam.sh: line 154: VERSION_ID: unbound variable</span><br><span class="line">STEAM_RUNTIME is enabled automatically</span><br><span class="line">Installing breakpad exception handler <span class="keyword">for</span> appid(steam)/version(1468023329)</span><br><span class="line">libGL error: unable to load driver: i965_dri.so</span><br><span class="line">libGL error: driver pointer missing</span><br><span class="line">libGL error: failed to load driver: i965</span><br><span class="line">libGL error: unable to load driver: i965_dri.so</span><br><span class="line">libGL error: driver pointer missing</span><br><span class="line">libGL error: failed to load driver: i965</span><br><span class="line">libGL error: unable to load driver: swrast_dri.so</span><br><span class="line">libGL error: failed to load driver: swrast</span><br></pre></td></tr></table></figure>
+
+<p>Bunun çözümü için Aşağıdaki komutları sırasıyla girdim.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find ~/.steam/root/ \( -name <span class="string">&quot;libgcc_s.so*&quot;</span> -o -name <span class="string">&quot;libstdc++.so*&quot;</span> -o -name <span class="string">&quot;libxcb.so*&quot;</span> -o -name <span class="string">&quot;libgpg-error.so*&quot;</span> \) -<span class="built_in">print</span> -delete</span><br><span class="line">find ~/.local/share/Steam/ \( -name <span class="string">&quot;libgcc_s.so*&quot;</span> -o -name <span class="string">&quot;libstdc++.so*&quot;</span> -o -name <span class="string">&quot;libxcb.so*&quot;</span> -o -name <span class="string">&quot;libgpg-error.so*&quot;</span> \) -<span class="built_in">print</span> -delete</span><br><span class="line"><span class="built_in">rm</span> -f ~/.local/share/Steam/ubuntu12_32/steam-runtime/i386/usr/lib/i386-linux-gnu/libstdc++.so.6</span><br><span class="line"><span class="built_in">rm</span> -f ~/.local/share/Steam/ubuntu12_32/steam-runtime/i386/usr/lib/i386-linux-gnu/libgcc_s.so.1</span><br><span class="line">LC_ALL=C steam</span><br></pre></td></tr></table></figure>
+
+<p>Kurulumdan sonra menümde steam’i açabilirim.</p>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>steam</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Bundler Bulunamadı Problemi Nasıl Çözülür?</title>
+    <url>/post/747398286.html</url>
+    <content><![CDATA[<p>Bundler bulunamadı problemini çözmek için aşağıdaki adımları takip etmeniz yeterlidir.</p>
+<span id="more"></span>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ramarcher /opt/development/metasploit-framework $ bundle install</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/lib/ruby/2.3.0/rubygems/dependency.rb:319:<span class="keyword">in</span> `to_specs<span class="string">&#x27;: Could not find &#x27;</span>bundler<span class="string">&#x27; (&gt;= 0.a) among 16 total gem(s) (Gem::LoadError)</span></span><br><span class="line"><span class="string">Checked in &#x27;</span>GEM_PATH=/home/ramarcher/.rvm/gems/ruby-2.3.1@metasploit-framework:/home/ramarcher/.rvm/gems/ruby-2.3.1@global<span class="string">&#x27;, execute `gem env` for more information</span></span><br><span class="line"><span class="string"> from /usr/lib/ruby/2.3.0/rubygems/dependency.rb:328:in `to_spec&#x27;</span></span><br><span class="line"> from /usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_gem.rb:65:<span class="keyword">in</span> `gem<span class="string">&#x27;</span></span><br><span class="line"><span class="string"> from /usr/bin/bundle:22:in `&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ramarcher /opt/development/metasploit-framework $ bundle update</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ramarcher /opt/development/metasploit-framework $ gem install bundler</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Fetching: bundler-1.12.5.gem (100%)</span><br><span class="line">Successfully installed bundler-1.12.5</span><br><span class="line">Parsing documentation <span class="keyword">for</span> bundler-1.12.5</span><br><span class="line">Installing ri documentation <span class="keyword">for</span> bundler-1.12.5</span><br><span class="line">Done installing documentation <span class="keyword">for</span> bundler after 5 seconds</span><br><span class="line">1 gem installed</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ramarcher /opt/development/metasploit-framework $ bundle install</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Fetching gem metadata from https://rubygems.org/</span><br><span class="line">Fetching version metadata from https://rubygems.org/</span><br><span class="line">Fetching dependency metadata from https://rubygems.org/</span><br><span class="line">Resolving dependencies....</span><br><span class="line">Installing rake 11.2.2</span><br><span class="line">Installing i18n 0.7.0</span><br><span class="line">Using json 1.8.3</span><br><span class="line">Installing minitest 5.9.0</span><br><span class="line">Installing thread_safe 0.3.5</span><br><span class="line">Installing builder 3.2.2</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>bundler</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>İzin verilmedi, KVM başlatılamadı Problemi Nasıl Çözülür?</title>
+    <url>/post/2231193092.html</url>
+    <content><![CDATA[<p>Böyle bir hata ile karşılaşırsanız şu adımları izlemelisiniz.</p>
+<span id="more"></span>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2231193092001.png"></p>
+<p>Aşağıdaki adımları yaptığınızdan emin olunuz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo modprobe kvm-intel</span><br><span class="line">$ sudo groupadd kvm</span><br><span class="line">$ sudo gpasswd -a USERNAME kvm</span><br><span class="line"><span class="built_in">chown</span> root:kvm /dev/kvm</span><br></pre></td></tr></table></figure>
+
+<p>Bu komut gerçekleşmezse aşağıdaki komutu deneyiniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">setfacl -m g::rw /dev/kvm</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>kvm</tag>
+        <tag>qemu</tag>
       </tags>
   </entry>
   <entry>
@@ -311,6 +246,31 @@
       </tags>
   </entry>
   <entry>
+    <title>conky-lua-archers-git Derleme Hatası Nasıl Çözülür?</title>
+    <url>/post/524097281.html</url>
+    <content><![CDATA[<p>conky-lua-archers-git paketini derlerken karşılaşmış olduğum hatayı nasıl düzelteceğimizden bahsedeceğim.</p>
+<span id="more"></span>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_524097281001.png"></p>
+<p>paket:<span class="exturl" data-url="aHR0cHM6Ly9hdXIuYXJjaGxpbnV4Lm9yZy9wYWNrYWdlcy9jb25reS1sdWEtYXJjaGVycy1naXQ=">https://aur.archlinux.org/packages/conky-lua-archers-git<i class="fa fa-external-link-alt"></i></span></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span>: cannot create directory <span class="string">&#x27;build/&#x27;</span>: File exists.</span><br></pre></td></tr></table></figure>
+
+<p>Bu problemi şu şekilde çözeceğiz.</p>
+<p>PKGBUILD dosyasını şu şekilde düzenleyiniz..</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">prepare</span></span>() &#123;</span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="variable">$&#123;srcdir&#125;</span>/<span class="variable">$&#123;_pkgname&#125;</span>&quot;</span></span><br><span class="line"><span class="built_in">mkdir</span> -p build/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Şimdi tekrar derlemenizi yapabilirsiniz.</p>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>conky</tag>
+        <tag>compiling</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Requested operation is not valid network &#39;default&#39; is not active Problemi Nasıl Çözülür?</title>
     <url>/post/2393086311.html</url>
     <content><![CDATA[<p>Bu problemin çözümü için aşağıdaki komutu yazmanız yeterli olacaktır.</p>
@@ -329,31 +289,113 @@
       </tags>
   </entry>
   <entry>
-    <title>Bundler Bulunamadı Problemi Nasıl Çözülür?</title>
-    <url>/post/747398286.html</url>
-    <content><![CDATA[<p>Bundler bulunamadı problemini çözmek için aşağıdaki adımları takip etmeniz yeterlidir.</p>
+    <title>Touchpad Kurulumu ve Yapılandırması Nasıl Yapılır?</title>
+    <url>/post/611388161.html</url>
+    <content><![CDATA[<p>Extra deposundaki xf86-input-synaptics paketini yüklemeliyiz. Aşağıdaki komutlarla kurulumu tamamlayalım.</p>
 <span id="more"></span>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ramarcher /opt/development/metasploit-framework $ bundle install</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S xf86-input-synaptics</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/lib/ruby/2.3.0/rubygems/dependency.rb:319:<span class="keyword">in</span> `to_specs<span class="string">&#x27;: Could not find &#x27;</span>bundler<span class="string">&#x27; (&gt;= 0.a) among 16 total gem(s) (Gem::LoadError)</span></span><br><span class="line"><span class="string">Checked in &#x27;</span>GEM_PATH=/home/ramarcher/.rvm/gems/ruby-2.3.1@metasploit-framework:/home/ramarcher/.rvm/gems/ruby-2.3.1@global<span class="string">&#x27;, execute `gem env` for more information</span></span><br><span class="line"><span class="string"> from /usr/lib/ruby/2.3.0/rubygems/dependency.rb:328:in `to_spec&#x27;</span></span><br><span class="line"> from /usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_gem.rb:65:<span class="keyword">in</span> `gem<span class="string">&#x27;</span></span><br><span class="line"><span class="string"> from /usr/bin/bundle:22:in `&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>Şimdi Touchpad’imizi yapılandıralım. Kurulumu tamamladıktan sonra öntanımlı yapılandırma dosyası aşağıdaki yere gidecektir.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/share/X11/xorg.conf.d/70-synaptics.conf</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ramarcher /opt/development/metasploit-framework $ bundle update</span><br></pre></td></tr></table></figure>
+<p>70-synaptics.conf dosyasını &#x2F;etc&#x2F;X11&#x2F;xorg.conf.d ‘ ye kopyalayalım.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo <span class="built_in">cp</span> /usr/share/X11/xorg.conf.d/70-synaptics.conf /etc/X11/xorg.conf.d</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ramarcher /opt/development/metasploit-framework $ gem install bundler</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Fetching: bundler-1.12.5.gem (100%)</span><br><span class="line">Successfully installed bundler-1.12.5</span><br><span class="line">Parsing documentation <span class="keyword">for</span> bundler-1.12.5</span><br><span class="line">Installing ri documentation <span class="keyword">for</span> bundler-1.12.5</span><br><span class="line">Done installing documentation <span class="keyword">for</span> bundler after 5 seconds</span><br><span class="line">1 gem installed</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ramarcher /opt/development/metasploit-framework $ bundle install</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Fetching gem metadata from https://rubygems.org/</span><br><span class="line">Fetching version metadata from https://rubygems.org/</span><br><span class="line">Fetching dependency metadata from https://rubygems.org/</span><br><span class="line">Resolving dependencies....</span><br><span class="line">Installing rake 11.2.2</span><br><span class="line">Installing i18n 0.7.0</span><br><span class="line">Using json 1.8.3</span><br><span class="line">Installing minitest 5.9.0</span><br><span class="line">Installing thread_safe 0.3.5</span><br><span class="line">Installing builder 3.2.2</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<p>Bilgisayarımızı yeniden başlatalım.</p>
+<p>Bu yazıda touchpad yapılandırması ve kurulumundan bahsettik. Daha fazla bilgi için <span class="exturl" data-url="aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvaW5kZXgucGhwL1RvdWNocGFkX1N5bmFwdGljcyNDb25maWd1cmF0aW9u">https://wiki.archlinux.org/index.php/Touchpad_Synaptics#Configuration<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <categories>
         <category>GNU/Linux</category>
       </categories>
       <tags>
         <tag>arch linux</tag>
-        <tag>bundler</tag>
+        <tag>touchpad</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>glxinfo Komut Yok Hatası Nasıl Çözülür?</title>
+    <url>/post/950666780.html</url>
+    <content><![CDATA[<p>Komutu girdiğimde şu şekilde bir hata alıyorum.</p>
+<span id="more"></span>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ glxinfo | grep direct</span><br><span class="line">bash: glxinfo: <span class="built_in">command</span> not found</span><br></pre></td></tr></table></figure>
+
+<p>Bu problemin kalkması için aşağıdaki paketi kurunuz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S mesa-demos</span><br><span class="line">paket bağımlılıkları çözümleniyor...</span><br><span class="line">varsa paketler arası çakışmalara bakılıyor...</span><br><span class="line"></span><br><span class="line">Paketler (3) freeglut-3.0.0-2  glew-2.1.0-1  mesa-demos-8.4.0-1</span><br><span class="line"></span><br><span class="line">Toplam İndirme Boyutu:  1,84 MiB</span><br><span class="line">Toplam Kurulum Boyutu:  9,82 MiB</span><br><span class="line"></span><br><span class="line">:: Kuruluma onay veriyor musunuz? [E/h] E</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">:: Bağlantılı işlemler listesi çalışıyor...</span><br><span class="line">(1/1) Arming ConditionNeedsUpdate...</span><br></pre></td></tr></table></figure>
+
+<p>Ardından komutumuzu tekrar girelim.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ glxinfo | grep direct</span><br><span class="line">direct rendering: Yes</span><br><span class="line">    GL_ARB_depth_clamp, GL_ARB_derivative_control, GL_ARB_direct_state_access,</span><br><span class="line">    GL_ARB_draw_elements_base_vertex, GL_ARB_draw_indirect,</span><br><span class="line">    GL_ARB_indirect_parameters, GL_ARB_instanced_arrays,</span><br><span class="line">    GL_ARB_map_buffer_range, GL_ARB_multi_bind, GL_ARB_multi_draw_indirect,</span><br><span class="line">    GL_ARB_draw_elements_base_vertex, GL_ARB_draw_indirect,</span><br><span class="line">    GL_ARB_indirect_parameters, GL_ARB_instanced_arrays,</span><br><span class="line">    GL_ARB_map_buffer_range, GL_ARB_multi_bind, GL_ARB_multi_draw_indirect,</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>glxinfo</tag>
+        <tag>mesa demos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Device /dev/loop/ not initialized in udev database even after waiting 100000000 microseconds.</title>
+    <url>/post/2777482735.html</url>
+    <content><![CDATA[<p>Arch Linux kurulumu grup yapılandırması esnasında böyle bir uyarıyla karşılaşıyor ve kurulumunuzu tamamlıyamıyor iseniz şu adımları izleyebilirsiniz.</p>
+<span id="more"></span>
+
+<p>Karşılaşılan uyarı:</p>
+<p>Device &#x2F;dev&#x2F;loop&#x2F; not initialized in udev database even after waiting 100000000 microseconds.<br>şeklinde başlayıp döngüden çıkmayan bir uyarı ile karşılaşırsınız.</p>
+<p>Öncelikle kurulumda bu işlemi sonlandırmak için Ctrl+C tuşlarına basınız.</p>
+<p>Chroot iseniz</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exit</span></span><br></pre></td></tr></table></figure>
+
+<p>komutu ile çıkış yapınız ve sırasıyla aşağıdaki dört komutu giriniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># mkdir /mnt/hostlvm</span></span><br><span class="line"><span class="comment"># mount --bind /run/lvm /mnt/hostlvm</span></span><br><span class="line"><span class="comment"># arch-chroot /mnt</span></span><br><span class="line"><span class="comment"># ln -s /hostlvm /run/lvm</span></span><br></pre></td></tr></table></figure>
+
+<p>Ardından girmeniz gereken gerekli komutu başarıyla çalıştırabilirsiniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># grub-mkconfig -o /boot/grub/grub.cfg</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>grub</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Arch Linux üzerinde Adobe Digital Editions Kurulumu Nasıl Yapılır?</title>
+    <url>/post/4088382439.html</url>
+    <content><![CDATA[<p>Aşağıdaki komutlarla kurulumu yapmaya çalışalım.</p>
+<span id="more"></span>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://aur-dev.archlinux.org/adobe-digital-editions.git</span><br><span class="line">$ <span class="built_in">cd</span> adobe-digital-editions/</span><br><span class="line">$ makepkg -g &gt;&gt; PKGBUILD</span><br><span class="line">$ makepkg -sri</span><br></pre></td></tr></table></figure>
+
+<p>Ardından gerekli bağımlılıklar yüklendikten sonra kurulum döngüye girip çalışmayacaktır.</p>
+<p>Ctrl+C tuş kombinasyonuyla döngüden çıkınız.</p>
+<p>Ardından uçbirim üzerinde aşağıdaki komutla açmaya programı açmaya çalışınız.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">env</span> WINEPREFIX=<span class="string">&quot;/home/ramazan/.wine&quot;</span> wine C:\\windows\\<span class="built_in">command</span>\\start.exe /Unix /home/ramazan/.wine/dosdevices/c:/users/Public/Desktop/Adobe\ Digital\ Editions\ 4.0.lnk</span><br></pre></td></tr></table></figure>
+
+<p>Hata ile karşılaşacaksınız. İndirmiş olduğunuz dizine gidiniz.</p>
+<p>ADE_4.0_Installer.exe uzantılı dosya üzerinde sağ tık yapınız.</p>
+<p>Open with wine windows program loader’a tıklayıp kurulumu yapınız.</p>
+<p>Program yine açılmayacaktır.</p>
+<p>Bunun için eksik olan bir bağımlılığı yüklemelisiniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S lib32-mpg123</span><br></pre></td></tr></table></figure>
+
+<p>.NET ile ilgili bir problemle karşılaşacaksınız ve program açılmayacaktır.</p>
+<p>Bu problem için;</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ winetricks dotnet46</span><br></pre></td></tr></table></figure>
+
+<p>Komutu girip kurulumları tamamlayınız. Kurulum işlemleri uzun sürecektir.</p>
+<p>Artık programı başarılı bir şekilde açabilirsiniz.</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_4088382439001.png"></p>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>adobe digital editions</tag>
       </tags>
   </entry>
   <entry>
@@ -395,55 +437,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Device /dev/loop/ not initialized in udev database even after waiting 100000000 microseconds.</title>
-    <url>/post/2777482735.html</url>
-    <content><![CDATA[<p>Arch Linux kurulumu grup yapılandırması esnasında böyle bir uyarıyla karşılaşıyor ve kurulumunuzu tamamlıyamıyor iseniz şu adımları izleyebilirsiniz.</p>
-<span id="more"></span>
-
-<p>Karşılaşılan uyarı:</p>
-<p>Device &#x2F;dev&#x2F;loop&#x2F; not initialized in udev database even after waiting 100000000 microseconds.<br>şeklinde başlayıp döngüden çıkmayan bir uyarı ile karşılaşırsınız.</p>
-<p>Öncelikle kurulumda bu işlemi sonlandırmak için Ctrl+C tuşlarına basınız.</p>
-<p>Chroot iseniz</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exit</span></span><br></pre></td></tr></table></figure>
-
-<p>komutu ile çıkış yapınız ve sırasıyla aşağıdaki dört komutu giriniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># mkdir /mnt/hostlvm</span></span><br><span class="line"><span class="comment"># mount --bind /run/lvm /mnt/hostlvm</span></span><br><span class="line"><span class="comment"># arch-chroot /mnt</span></span><br><span class="line"><span class="comment"># ln -s /hostlvm /run/lvm</span></span><br></pre></td></tr></table></figure>
-
-<p>Ardından girmeniz gereken gerekli komutu başarıyla çalıştırabilirsiniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># grub-mkconfig -o /boot/grub/grub.cfg</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>arch linux</tag>
-        <tag>grub</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Failed to open disk image file Hatası Nasıl Çözülür?</title>
-    <url>/post/2158402559.html</url>
-    <content><![CDATA[<p>Archman Linux dağıtımı üzerinde Oracle VirtualBox kullanımı esnasında bir hata ile karşılaştım.</p>
-<span id="more"></span>
-
-<p>Daha öncesinde osboxes.org adresi üzerinden indirmiş olduğum .vdi uzantılı hazır arch linux’un CLI versiyonunu kurmuştum.</p>
-<p>Ardından bir vdi dosyası ile ikinci bir sanal makine oluşturmaya çalıştığımda ise şöyle bir hata ile karşılaştım.</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2158402559001.png"></p>
-<p>Bu hatanın çözümünü yeni bir UUID ayarlaması yapmak olacaktır.</p>
-<p>Bunun için uçbirimi açınız ve aşağıdaki komutu giriniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">VBoxManage internalcommands sethduuid <span class="string">&#x27;vdi/uzantılı/dosyanin/dizini/dosya.vdi&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>Ardından başarılı bir şekilde .vdi uzantılı dosyanızı ekleyip sanal makinenizi oluşturabilirsiniz.</p>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>virtualbox</tag>
-        <tag>arch linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Unrecognized Archive Format Hatası Nasıl Çözülür?</title>
     <url>/post/3747547321.html</url>
     <content><![CDATA[<p>Arch Linux sistemimi güncellemek istediğimde bir hata ile karşılaştım.</p>
@@ -468,39 +461,48 @@
       </tags>
   </entry>
   <entry>
-    <title>Arch Linux üzerinde Adobe Digital Editions Kurulumu Nasıl Yapılır?</title>
-    <url>/post/4088382439.html</url>
-    <content><![CDATA[<p>Aşağıdaki komutlarla kurulumu yapmaya çalışalım.</p>
+    <title>İşlem gerçekleştirilemedi (Çakışan dosyalar) Hatası Nasıl Çözülür?</title>
+    <url>/post/1871179136.html</url>
+    <content><![CDATA[<p>Aşağıdaki komut ile kurulum yapmaya çalıştığımda hata ile karşılaştım.</p>
 <span id="more"></span>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://aur-dev.archlinux.org/adobe-digital-editions.git</span><br><span class="line">$ <span class="built_in">cd</span> adobe-digital-editions/</span><br><span class="line">$ makepkg -g &gt;&gt; PKGBUILD</span><br><span class="line">$ makepkg -sri</span><br></pre></td></tr></table></figure>
+<p>Bu hatayı aşağıdaki çıktıdan görüntüleyebilirsiniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S retext</span><br><span class="line">[sudo] password <span class="keyword">for</span> ramarcher:</span><br><span class="line">paket bağımlılıkları çözümleniyor...</span><br><span class="line">varsa paketler arası çakışmalara bakılıyor...</span><br><span class="line"></span><br><span class="line">Paketler (4) python-markdown-2.6.11-2  python-markdown-math-0.6-2  python-markups-3.0.0-5  retext-7.0.4-3</span><br><span class="line"></span><br><span class="line">Toplam Kurulum Boyutu:  1,60 MiB</span><br><span class="line"></span><br><span class="line">:: Kuruluma onay veriyor musunuz? [E/h] e</span><br><span class="line">(4/4) anahtarlıktaki anahtarlar kontrol ediliyor                                           [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) paket bütü<span class="built_in">nl</span>üğü kontrol ediliyor                                                     [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) paket dosyaları yükleniyor                                                           [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) dosya çakışmaları kontrol ediliyor                                                   [<span class="comment">#####################################################] 100%</span></span><br><span class="line">hata: işlem gerçekleştirilemedi (çakışan dosyalar)</span><br><span class="line">python-markdown: /usr/bin/markdown_py dosya sisteminde mevcut</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/__init__.py dosya sisteminde mevcut</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/__main__.py dosya sisteminde mevcut</span><br><span class="line">..</span><br><span class="line">..</span><br><span class="line">..</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/util.py dosya sisteminde mevcut</span><br><span class="line">Hata oluştu, hiçbir paket güncellenmedi.</span><br></pre></td></tr></table></figure>
 
-<p>Ardından gerekli bağımlılıklar yüklendikten sonra kurulum döngüye girip çalışmayacaktır.</p>
-<p>Ctrl+C tuş kombinasyonuyla döngüden çıkınız.</p>
-<p>Ardından uçbirim üzerinde aşağıdaki komutla açmaya programı açmaya çalışınız.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">env</span> WINEPREFIX=<span class="string">&quot;/home/ramazan/.wine&quot;</span> wine C:\\windows\\<span class="built_in">command</span>\\start.exe /Unix /home/ramazan/.wine/dosdevices/c:/users/Public/Desktop/Adobe\ Digital\ Editions\ 4.0.lnk</span><br></pre></td></tr></table></figure>
-
-<p>Hata ile karşılaşacaksınız. İndirmiş olduğunuz dizine gidiniz.</p>
-<p>ADE_4.0_Installer.exe uzantılı dosya üzerinde sağ tık yapınız.</p>
-<p>Open with wine windows program loader’a tıklayıp kurulumu yapınız.</p>
-<p>Program yine açılmayacaktır.</p>
-<p>Bunun için eksik olan bir bağımlılığı yüklemelisiniz.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S lib32-mpg123</span><br></pre></td></tr></table></figure>
-
-<p>.NET ile ilgili bir problemle karşılaşacaksınız ve program açılmayacaktır.</p>
-<p>Bu problem için;</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ winetricks dotnet46</span><br></pre></td></tr></table></figure>
-
-<p>Komutu girip kurulumları tamamlayınız. Kurulum işlemleri uzun sürecektir.</p>
-<p>Artık programı başarılı bir şekilde açabilirsiniz.</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_4088382439001.png"></p>
+<p>Böyle bir hata ile karşılaştığımız için aşağıdaki komutla bu paketi yükleyebilirsiniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pip install retext</span><br><span class="line">Collecting retext</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/31/91/6eff0afd947ca945dd63bb4f7fd0ea1872f80acef338eec4076642a824a8/ReText-7.0.4.tar.gz (402kB)</span><br><span class="line">    100% |████████████████████████████████| 409kB 2.1MB/s</span><br><span class="line">Collecting docutils (from retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/36/fa/08e9e6e0e3cbd1d362c3bbee8d01d0aedb2155c4ac112b19ef3cae8eed8d/docutils-0.14-py3-none-any.whl (543kB)</span><br><span class="line">    100% |████████████████████████████████| 552kB 7.3MB/s</span><br><span class="line">Requirement already satisfied: Markdown <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (3.0.1)</span><br><span class="line">Collecting Markups&gt;=2.0 (from retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/56/c0/d77c6af4f43c00268372fcbaee715dc798ce70c6c6a93ae30bec32af94ed/Markups-3.0.0-py2.py3-none-any.whl</span><br><span class="line">Requirement already satisfied: Pygments <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (2.3.1)</span><br><span class="line">Requirement already satisfied: chardet&gt;=2.3 <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (3.0.4)</span><br><span class="line">Collecting python-markdown-math (from Markups&gt;=2.0-&gt;retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/7c/81/2c86570437821d77b90a6d939d54e11b507b71785850840a5e56d8febeca/python_markdown_math-0.6-py2.py3-none-any.whl</span><br><span class="line">Installing collected packages: docutils, python-markdown-math, Markups, retext</span><br><span class="line">  Running setup.py install <span class="keyword">for</span> retext ... <span class="keyword">done</span></span><br><span class="line">Successfully installed Markups-3.0.0 docutils-0.14 python-markdown-math-0.6 retext-7.0.4</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>GNU/Linux</category>
       </categories>
       <tags>
         <tag>arch linux</tag>
-        <tag>adobe digital editions</tag>
+        <tag>retext</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Yığınlar</title>
+    <url>/post/1582621396.html</url>
+    <content><![CDATA[<p>Veri Yapıları dersinde işlenen Stack konusunu bu gönderi altında inceleyebilirsiniz.</p>
+<span id="more"></span>
+
+<ul>
+<li><a href="#1">Örnek-1</a></li>
+<li><a href="#2">Örnek-2</a></li>
+</ul>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1582621396001.png"></p>
+<p><a name="1"></a> <strong>Örnek-1:</strong></p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">stack</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span>[] stack = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">100</span>];</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span>(<span class="params"><span class="built_in">int</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            sp++;</span><br><span class="line">            stack[sp] = data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">int</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> data = stack[sp];</span><br><span class="line">            sp--;</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            push(<span class="number">10</span>);</span><br><span class="line">            push(<span class="number">20</span>);</span><br><span class="line">            push(<span class="number">30</span>);</span><br><span class="line">            push(<span class="number">40</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(pop());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a name="2"></a> <strong>Örnek-2:</strong></p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">stack_2</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> max = <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span>[] stack = <span class="keyword">new</span> <span class="built_in">int</span>[max];</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">push</span>(<span class="params"><span class="built_in">int</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &gt;= max)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Overflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                sp++;</span><br><span class="line">                stack[sp] = data;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">int</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Underflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">int</span> data = stack[sp];</span><br><span class="line">                sp--;</span><br><span class="line">                <span class="keyword">return</span> data;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStack</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Underflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Yığın İçeriği&quot;</span>);</span><br><span class="line">                <span class="keyword">for</span> (<span class="built_in">int</span> i = sp; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">                &#123;</span><br><span class="line">                    Console.WriteLine(stack[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Peek</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Underflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Yığının en üstündeki eleman: &#123;0&#125;&quot;</span>, stack[sp]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// Şu an sp=-1</span></span><br><span class="line">            push(<span class="number">10</span>); <span class="comment">// sp&#x27;yi 1 arttır. 10&#x27;u ekle              sp = 0  stack[0] = 10;</span></span><br><span class="line">            push(<span class="number">20</span>); <span class="comment">// sp&#x27;yi 1 arttır 20&#x27;yi ekle              sp = 1  stack[1] = 20;</span></span><br><span class="line">            push(<span class="number">30</span>); <span class="comment">// sp&#x27;yi 1 arttır 30&#x27;u ekle               sp = 2  stack[2] = 30;</span></span><br><span class="line">            push(<span class="number">40</span>); <span class="comment">// sp&#x27;yi 1 arttır 40&#x27;ı ekle               sp = 3  stack[3] = 40;</span></span><br><span class="line">            printStack();</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Stack&#x27;tan silindi: &#123;0&#125;&quot;</span>, pop()); <span class="comment">// 40&#x27;ı döndür sp&#x27;yi 1 azalt.            sp = 2</span></span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Stack&#x27;tan silindi: &#123;0&#125;&quot;</span>, pop()); <span class="comment">// 30&#x27;u döndür sp&#x27;yi 1 azalt.            sp = 1</span></span><br><span class="line">            printStack();</span><br><span class="line">            Peek();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Veri Yapıları</category>
+      </categories>
+      <tags>
+        <tag>stack</tag>
+        <tag>dotnet core</tag>
       </tags>
   </entry>
   <entry>
@@ -626,9 +628,32 @@
         <category>Veri Yapıları</category>
       </categories>
       <tags>
+        <tag>dotnet core</tag>
         <tag>linked list</tag>
         <tag>çiftli bağlı listeler</tag>
-        <tag>dotnet core</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Failed to open disk image file Hatası Nasıl Çözülür?</title>
+    <url>/post/2158402559.html</url>
+    <content><![CDATA[<p>Archman Linux dağıtımı üzerinde Oracle VirtualBox kullanımı esnasında bir hata ile karşılaştım.</p>
+<span id="more"></span>
+
+<p>Daha öncesinde osboxes.org adresi üzerinden indirmiş olduğum .vdi uzantılı hazır arch linux’un CLI versiyonunu kurmuştum.</p>
+<p>Ardından bir vdi dosyası ile ikinci bir sanal makine oluşturmaya çalıştığımda ise şöyle bir hata ile karşılaştım.</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2158402559001.png"></p>
+<p>Bu hatanın çözümünü yeni bir UUID ayarlaması yapmak olacaktır.</p>
+<p>Bunun için uçbirimi açınız ve aşağıdaki komutu giriniz.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">VBoxManage internalcommands sethduuid <span class="string">&#x27;vdi/uzantılı/dosyanin/dizini/dosya.vdi&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>Ardından başarılı bir şekilde .vdi uzantılı dosyanızı ekleyip sanal makinenizi oluşturabilirsiniz.</p>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>arch linux</tag>
+        <tag>virtualbox</tag>
       </tags>
   </entry>
   <entry>
@@ -644,48 +669,10 @@
         <category>Veri Yapıları</category>
       </categories>
       <tags>
+        <tag>stack</tag>
+        <tag>dotnet core</tag>
         <tag>linked list</tag>
         <tag>çiftli bağlı listeler</tag>
-        <tag>dotnet core</tag>
-        <tag>stack</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Yığınlarla Infix Postfix İşlemleri Nasıl Yapılır?</title>
-    <url>/post/2431698849.html</url>
-    <content><![CDATA[<p>Yığın yapısı kullanarak Infix’ten Postfix’e dönüşüm işlemlerini şu şekillerle daha iyi anlayabiliriz.</p>
-<span id="more"></span>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849001.png"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849002.png"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849003.png"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849004.png"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849005.png"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849006.png"></p>
-<p><strong>Örnek</strong></p>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">postfix</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">char</span>[] stack = <span class="keyword">new</span> <span class="built_in">char</span>[<span class="number">100</span>];</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">push</span>(<span class="params"><span class="built_in">char</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            sp++;</span><br><span class="line">            stack[sp] = data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">char</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">char</span> data = stack[sp];</span><br><span class="line">            sp--;</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">char</span> <span class="title">peek</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> stack[sp];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">string</span> infix = <span class="string">&quot;a+b-c+d*e*f/g-h&quot;</span>;</span><br><span class="line">            push(<span class="string">&#x27;$&#x27;</span>);</span><br><span class="line">            <span class="built_in">string</span> vars = <span class="string">&quot;abcdefgh&quot;</span>;</span><br><span class="line">            <span class="built_in">string</span> ops = <span class="string">&quot;$+-*/&quot;</span>;</span><br><span class="line">            <span class="built_in">int</span>[] onc = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">5</span>];</span><br><span class="line">            onc[<span class="number">0</span>] = <span class="number">0</span>; <span class="comment">// $</span></span><br><span class="line">            onc[<span class="number">1</span>] = <span class="number">1</span>; <span class="comment">// +</span></span><br><span class="line">            onc[<span class="number">2</span>] = <span class="number">1</span>; <span class="comment">// -</span></span><br><span class="line">            onc[<span class="number">3</span>] = <span class="number">2</span>; <span class="comment">// *</span></span><br><span class="line">            onc[<span class="number">4</span>] = <span class="number">2</span>; <span class="comment">// /</span></span><br><span class="line">            <span class="built_in">string</span> postfix = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; infix.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(vars.IndexOf(infix[i]) &gt;= <span class="number">0</span>)</span><br><span class="line">                    postfix += infix[i];</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(onc[ops.IndexOf(infix[i])] &gt; onc[ops.IndexOf(peek())])</span><br><span class="line">                        push(infix[i]);</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        postfix += pop();</span><br><span class="line">                        push(infix[i]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(peek() != <span class="string">&#x27;$&#x27;</span>) postfix += pop();</span><br><span class="line">            Console.WriteLine(postfix);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>Eğer parantez içeren bir infix işlemini postfix işlemine dönüştürme isteseydik kod aşağıdaki hali alacaktı.</strong></p>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">postfix_parantezli</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">char</span>[] stack = <span class="keyword">new</span> <span class="built_in">char</span>[<span class="number">100</span>];</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">push</span>(<span class="params"><span class="built_in">char</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            sp++;</span><br><span class="line">            stack[sp] = data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">char</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">char</span> data = stack[sp];</span><br><span class="line">            sp--;</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">char</span> <span class="title">peek</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> stack[sp];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">string</span> infix = <span class="string">&quot;a+b+c/d*(a-b-c*d)&quot;</span>;</span><br><span class="line">            push(<span class="string">&#x27;$&#x27;</span>);</span><br><span class="line">            <span class="built_in">string</span> vars = <span class="string">&quot;abcd&quot;</span>;</span><br><span class="line">            <span class="built_in">string</span> ops = <span class="string">&quot;$(+-*/&quot;</span>;</span><br><span class="line">            <span class="built_in">int</span>[] onc = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">6</span>];</span><br><span class="line">            onc[<span class="number">0</span>] = <span class="number">0</span>; <span class="comment">// $</span></span><br><span class="line">            onc[<span class="number">1</span>] = <span class="number">0</span>; <span class="comment">// (</span></span><br><span class="line">            onc[<span class="number">2</span>] = <span class="number">1</span>; <span class="comment">// +</span></span><br><span class="line">            onc[<span class="number">3</span>] = <span class="number">1</span>; <span class="comment">// -</span></span><br><span class="line">            onc[<span class="number">4</span>] = <span class="number">2</span>; <span class="comment">// *</span></span><br><span class="line">            onc[<span class="number">5</span>] = <span class="number">2</span>; <span class="comment">// /</span></span><br><span class="line">            <span class="built_in">string</span> postfix = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; infix.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(infix[i] == <span class="string">&#x27;(&#x27;</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    push(infix[i]);</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(infix[i] == <span class="string">&#x27;)&#x27;</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">while</span>(peek() != <span class="string">&#x27;(&#x27;</span>) postfix += pop();</span><br><span class="line">                    pop();</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(vars.IndexOf(infix[i]) &gt;= <span class="number">0</span>)</span><br><span class="line">                    postfix += infix[i];</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(onc[ops.IndexOf(infix[i])] &gt; onc[ops.IndexOf(peek())])</span><br><span class="line">                        push(infix[i]);</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        postfix += pop();</span><br><span class="line">                        push(infix[i]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (peek() != <span class="string">&#x27;$&#x27;</span>) postfix += pop();</span><br><span class="line">            Console.WriteLine(postfix);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>Şimdi herhangi bir üslü sayı içerecek olan infix ifadenin postfix ifadeye nasıl dönüştürüleceğini ele alalım.</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849007.png"></p>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">postfix_uslu</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">char</span>[] stack = <span class="keyword">new</span> <span class="built_in">char</span>[<span class="number">100</span>];</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">push</span>(<span class="params"><span class="built_in">char</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            sp++;</span><br><span class="line">            stack[sp] = data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">char</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">char</span> data = stack[sp];</span><br><span class="line">            sp--;</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">char</span> <span class="title">peek</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> stack[sp];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">string</span> infix = <span class="string">&quot;a*b^c-d&quot;</span>;</span><br><span class="line">            push(<span class="string">&#x27;$&#x27;</span>);</span><br><span class="line">            <span class="built_in">string</span> vars = <span class="string">&quot;abcd&quot;</span>;</span><br><span class="line">            <span class="built_in">string</span> ops = <span class="string">&quot;$(+-*/^&quot;</span>;</span><br><span class="line">            <span class="built_in">int</span>[] onc = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">7</span>];</span><br><span class="line">            onc[<span class="number">0</span>] = <span class="number">0</span>; <span class="comment">// $</span></span><br><span class="line">            onc[<span class="number">1</span>] = <span class="number">0</span>; <span class="comment">// (</span></span><br><span class="line">            onc[<span class="number">2</span>] = <span class="number">1</span>; <span class="comment">// +</span></span><br><span class="line">            onc[<span class="number">3</span>] = <span class="number">1</span>; <span class="comment">// -</span></span><br><span class="line">            onc[<span class="number">4</span>] = <span class="number">2</span>; <span class="comment">// *</span></span><br><span class="line">            onc[<span class="number">5</span>] = <span class="number">2</span>; <span class="comment">// /</span></span><br><span class="line">            onc[<span class="number">6</span>] = <span class="number">3</span>; <span class="comment">// ^</span></span><br><span class="line">            <span class="built_in">string</span> postfix = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; infix.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (infix[i] == <span class="string">&#x27;(&#x27;</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    push(infix[i]);</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (infix[i] == <span class="string">&#x27;)&#x27;</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">while</span>(peek() != <span class="string">&#x27;(&#x27;</span>) postfix += pop();</span><br><span class="line">                    pop();</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (vars.IndexOf(infix[i]) &gt;= <span class="number">0</span>)</span><br><span class="line">                    postfix += infix[i];</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (onc[ops.IndexOf(infix[i])] &gt; onc[ops.IndexOf(peek())])</span><br><span class="line">                        push(infix[i]);</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        postfix += pop();</span><br><span class="line">                        push(infix[i]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (peek() != <span class="string">&#x27;$&#x27;</span>) postfix += pop();</span><br><span class="line">            Console.WriteLine(postfix);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>Şimdi postfix bir ifadeyi yığın yapısı kullanarak sayısal karşılığını bulalım.</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849008.png"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849009.png"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849010.png"></p>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">postfix_sayisal_karsilik</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span>[] stack = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">100</span>];</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">push</span>(<span class="params"><span class="built_in">int</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            sp++;</span><br><span class="line">            stack[sp] = data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> data = stack[sp];</span><br><span class="line">            sp--;</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">peek</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> stack[sp];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">topla</span>(<span class="params"><span class="built_in">int</span> p1, <span class="built_in">int</span> p2</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> p1 + p2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">cikar</span>(<span class="params"><span class="built_in">int</span> p1, <span class="built_in">int</span> p2</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> p1 - p2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">carp</span>(<span class="params"><span class="built_in">int</span> p1, <span class="built_in">int</span> p2</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> p1 * p2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">bol</span>(<span class="params"><span class="built_in">int</span> p1, <span class="built_in">int</span> p2</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> p1 / p2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">string</span> postfix = <span class="string">&quot;abc*+&quot;</span>;</span><br><span class="line">            <span class="built_in">string</span> ops = <span class="string">&quot;+-*/&quot;</span>;</span><br><span class="line">            <span class="built_in">string</span> vars = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">            <span class="built_in">int</span>[] vals = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">3</span>];</span><br><span class="line">            vals[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">            vals[<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">            vals[<span class="number">2</span>] = <span class="number">3</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; postfix.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (ops.IndexOf(postfix[i]) == <span class="number">-1</span>)</span><br><span class="line">                    push(vals[vars.IndexOf(postfix[i])]);</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="built_in">int</span> p1 = pop();</span><br><span class="line">                    <span class="built_in">int</span> p2 = pop();</span><br><span class="line">                    <span class="keyword">if</span> (postfix[i] == <span class="string">&#x27;+&#x27;</span>) push(topla(p2,p1));</span><br><span class="line">                    <span class="keyword">if</span> (postfix[i] == <span class="string">&#x27;-&#x27;</span>) push(cikar(p2,p1));</span><br><span class="line">                    <span class="keyword">if</span> (postfix[i] == <span class="string">&#x27;*&#x27;</span>) push(carp(p2,p1));</span><br><span class="line">                    <span class="keyword">if</span> (postfix[i] == <span class="string">&#x27;/&#x27;</span>) push(bol(p2,p1));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            Console.WriteLine(pop());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Veri Yapıları</category>
-      </categories>
-      <tags>
-        <tag>dotnet core</tag>
-        <tag>stack</tag>
-        <tag>infix</tag>
-        <tag>postfix</tag>
       </tags>
   </entry>
   <entry>
@@ -703,58 +690,6 @@
       <tags>
         <tag>dotnet core</tag>
         <tag>kuyruklar</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unable to locate theme engine in module path murrine</title>
-    <url>/post/2544525991.html</url>
-    <content><![CDATA[<p>.xsession-errors çıktısını incelediğimizde bazı uyarılarla karşılaşıyoruz.</p>
-<span id="more"></span>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2544525991001.png"></p>
-<p>Problemin kaynağı bir paketin sistemimizde yüklü olmamasından kaynaklanıyor.</p>
-<p>Aşağıdaki komutu kullanarak gtk2-engines-murrine paketini sistemimize kuralım.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install gtk2-engines-murrine</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2544525991002.png"></p>
-<p>Ardından sistemimizi yeniden başlatalım.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo reboot</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2544525991003.png"></p>
-<p>Şimdi .xsession-errors çıktısını tekrar kontrol edelim. Daha önceden karşılaştığımız uyarının kaybolduğunu göreceğiz.</p>
-]]></content>
-      <categories>
-        <category>GNU/Linux</category>
-      </categories>
-      <tags>
-        <tag>murrine</tag>
-        <tag>gtk</tag>
-        <tag>debian</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Yığınlar</title>
-    <url>/post/1582621396.html</url>
-    <content><![CDATA[<p>Veri Yapıları dersinde işlenen Stack konusunu bu gönderi altında inceleyebilirsiniz.</p>
-<span id="more"></span>
-
-<ul>
-<li><a href="#1">Örnek-1</a></li>
-<li><a href="#2">Örnek-2</a></li>
-</ul>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1582621396001.png"></p>
-<p><a name="1"></a> <strong>Örnek-1:</strong></p>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">stack</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span>[] stack = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">100</span>];</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span>(<span class="params"><span class="built_in">int</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            sp++;</span><br><span class="line">            stack[sp] = data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">int</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> data = stack[sp];</span><br><span class="line">            sp--;</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            push(<span class="number">10</span>);</span><br><span class="line">            push(<span class="number">20</span>);</span><br><span class="line">            push(<span class="number">30</span>);</span><br><span class="line">            push(<span class="number">40</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(pop());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><a name="2"></a> <strong>Örnek-2:</strong></p>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">stack_2</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> max = <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span>[] stack = <span class="keyword">new</span> <span class="built_in">int</span>[max];</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">push</span>(<span class="params"><span class="built_in">int</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &gt;= max)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Overflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                sp++;</span><br><span class="line">                stack[sp] = data;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="built_in">int</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Underflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">int</span> data = stack[sp];</span><br><span class="line">                sp--;</span><br><span class="line">                <span class="keyword">return</span> data;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStack</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Underflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Yığın İçeriği&quot;</span>);</span><br><span class="line">                <span class="keyword">for</span> (<span class="built_in">int</span> i = sp; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">                &#123;</span><br><span class="line">                    Console.WriteLine(stack[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Peek</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sp &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Stack Underflow&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Yığının en üstündeki eleman: &#123;0&#125;&quot;</span>, stack[sp]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// Şu an sp=-1</span></span><br><span class="line">            push(<span class="number">10</span>); <span class="comment">// sp&#x27;yi 1 arttır. 10&#x27;u ekle              sp = 0  stack[0] = 10;</span></span><br><span class="line">            push(<span class="number">20</span>); <span class="comment">// sp&#x27;yi 1 arttır 20&#x27;yi ekle              sp = 1  stack[1] = 20;</span></span><br><span class="line">            push(<span class="number">30</span>); <span class="comment">// sp&#x27;yi 1 arttır 30&#x27;u ekle               sp = 2  stack[2] = 30;</span></span><br><span class="line">            push(<span class="number">40</span>); <span class="comment">// sp&#x27;yi 1 arttır 40&#x27;ı ekle               sp = 3  stack[3] = 40;</span></span><br><span class="line">            printStack();</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Stack&#x27;tan silindi: &#123;0&#125;&quot;</span>, pop()); <span class="comment">// 40&#x27;ı döndür sp&#x27;yi 1 azalt.            sp = 2</span></span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Stack&#x27;tan silindi: &#123;0&#125;&quot;</span>, pop()); <span class="comment">// 30&#x27;u döndür sp&#x27;yi 1 azalt.            sp = 1</span></span><br><span class="line">            printStack();</span><br><span class="line">            Peek();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Veri Yapıları</category>
-      </categories>
-      <tags>
-        <tag>dotnet core</tag>
-        <tag>stack</tag>
       </tags>
   </entry>
   <entry>
@@ -802,6 +737,44 @@
       </tags>
   </entry>
   <entry>
+    <title>Yığınlarla Infix Postfix İşlemleri Nasıl Yapılır?</title>
+    <url>/post/2431698849.html</url>
+    <content><![CDATA[<p>Yığın yapısı kullanarak Infix’ten Postfix’e dönüşüm işlemlerini şu şekillerle daha iyi anlayabiliriz.</p>
+<span id="more"></span>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849001.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849002.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849003.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849004.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849005.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849006.png"></p>
+<p><strong>Örnek</strong></p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">postfix</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">char</span>[] stack = <span class="keyword">new</span> <span class="built_in">char</span>[<span class="number">100</span>];</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">push</span>(<span class="params"><span class="built_in">char</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            sp++;</span><br><span class="line">            stack[sp] = data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">char</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">char</span> data = stack[sp];</span><br><span class="line">            sp--;</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">char</span> <span class="title">peek</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> stack[sp];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">string</span> infix = <span class="string">&quot;a+b-c+d*e*f/g-h&quot;</span>;</span><br><span class="line">            push(<span class="string">&#x27;$&#x27;</span>);</span><br><span class="line">            <span class="built_in">string</span> vars = <span class="string">&quot;abcdefgh&quot;</span>;</span><br><span class="line">            <span class="built_in">string</span> ops = <span class="string">&quot;$+-*/&quot;</span>;</span><br><span class="line">            <span class="built_in">int</span>[] onc = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">5</span>];</span><br><span class="line">            onc[<span class="number">0</span>] = <span class="number">0</span>; <span class="comment">// $</span></span><br><span class="line">            onc[<span class="number">1</span>] = <span class="number">1</span>; <span class="comment">// +</span></span><br><span class="line">            onc[<span class="number">2</span>] = <span class="number">1</span>; <span class="comment">// -</span></span><br><span class="line">            onc[<span class="number">3</span>] = <span class="number">2</span>; <span class="comment">// *</span></span><br><span class="line">            onc[<span class="number">4</span>] = <span class="number">2</span>; <span class="comment">// /</span></span><br><span class="line">            <span class="built_in">string</span> postfix = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; infix.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(vars.IndexOf(infix[i]) &gt;= <span class="number">0</span>)</span><br><span class="line">                    postfix += infix[i];</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(onc[ops.IndexOf(infix[i])] &gt; onc[ops.IndexOf(peek())])</span><br><span class="line">                        push(infix[i]);</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        postfix += pop();</span><br><span class="line">                        push(infix[i]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(peek() != <span class="string">&#x27;$&#x27;</span>) postfix += pop();</span><br><span class="line">            Console.WriteLine(postfix);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>Eğer parantez içeren bir infix işlemini postfix işlemine dönüştürme isteseydik kod aşağıdaki hali alacaktı.</strong></p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">postfix_parantezli</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">char</span>[] stack = <span class="keyword">new</span> <span class="built_in">char</span>[<span class="number">100</span>];</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">push</span>(<span class="params"><span class="built_in">char</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            sp++;</span><br><span class="line">            stack[sp] = data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">char</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">char</span> data = stack[sp];</span><br><span class="line">            sp--;</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">char</span> <span class="title">peek</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> stack[sp];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">string</span> infix = <span class="string">&quot;a+b+c/d*(a-b-c*d)&quot;</span>;</span><br><span class="line">            push(<span class="string">&#x27;$&#x27;</span>);</span><br><span class="line">            <span class="built_in">string</span> vars = <span class="string">&quot;abcd&quot;</span>;</span><br><span class="line">            <span class="built_in">string</span> ops = <span class="string">&quot;$(+-*/&quot;</span>;</span><br><span class="line">            <span class="built_in">int</span>[] onc = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">6</span>];</span><br><span class="line">            onc[<span class="number">0</span>] = <span class="number">0</span>; <span class="comment">// $</span></span><br><span class="line">            onc[<span class="number">1</span>] = <span class="number">0</span>; <span class="comment">// (</span></span><br><span class="line">            onc[<span class="number">2</span>] = <span class="number">1</span>; <span class="comment">// +</span></span><br><span class="line">            onc[<span class="number">3</span>] = <span class="number">1</span>; <span class="comment">// -</span></span><br><span class="line">            onc[<span class="number">4</span>] = <span class="number">2</span>; <span class="comment">// *</span></span><br><span class="line">            onc[<span class="number">5</span>] = <span class="number">2</span>; <span class="comment">// /</span></span><br><span class="line">            <span class="built_in">string</span> postfix = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; infix.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(infix[i] == <span class="string">&#x27;(&#x27;</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    push(infix[i]);</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(infix[i] == <span class="string">&#x27;)&#x27;</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">while</span>(peek() != <span class="string">&#x27;(&#x27;</span>) postfix += pop();</span><br><span class="line">                    pop();</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(vars.IndexOf(infix[i]) &gt;= <span class="number">0</span>)</span><br><span class="line">                    postfix += infix[i];</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(onc[ops.IndexOf(infix[i])] &gt; onc[ops.IndexOf(peek())])</span><br><span class="line">                        push(infix[i]);</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        postfix += pop();</span><br><span class="line">                        push(infix[i]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (peek() != <span class="string">&#x27;$&#x27;</span>) postfix += pop();</span><br><span class="line">            Console.WriteLine(postfix);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>Şimdi herhangi bir üslü sayı içerecek olan infix ifadenin postfix ifadeye nasıl dönüştürüleceğini ele alalım.</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849007.png"></p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">postfix_uslu</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">char</span>[] stack = <span class="keyword">new</span> <span class="built_in">char</span>[<span class="number">100</span>];</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">push</span>(<span class="params"><span class="built_in">char</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            sp++;</span><br><span class="line">            stack[sp] = data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">char</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">char</span> data = stack[sp];</span><br><span class="line">            sp--;</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">char</span> <span class="title">peek</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> stack[sp];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">string</span> infix = <span class="string">&quot;a*b^c-d&quot;</span>;</span><br><span class="line">            push(<span class="string">&#x27;$&#x27;</span>);</span><br><span class="line">            <span class="built_in">string</span> vars = <span class="string">&quot;abcd&quot;</span>;</span><br><span class="line">            <span class="built_in">string</span> ops = <span class="string">&quot;$(+-*/^&quot;</span>;</span><br><span class="line">            <span class="built_in">int</span>[] onc = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">7</span>];</span><br><span class="line">            onc[<span class="number">0</span>] = <span class="number">0</span>; <span class="comment">// $</span></span><br><span class="line">            onc[<span class="number">1</span>] = <span class="number">0</span>; <span class="comment">// (</span></span><br><span class="line">            onc[<span class="number">2</span>] = <span class="number">1</span>; <span class="comment">// +</span></span><br><span class="line">            onc[<span class="number">3</span>] = <span class="number">1</span>; <span class="comment">// -</span></span><br><span class="line">            onc[<span class="number">4</span>] = <span class="number">2</span>; <span class="comment">// *</span></span><br><span class="line">            onc[<span class="number">5</span>] = <span class="number">2</span>; <span class="comment">// /</span></span><br><span class="line">            onc[<span class="number">6</span>] = <span class="number">3</span>; <span class="comment">// ^</span></span><br><span class="line">            <span class="built_in">string</span> postfix = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; infix.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (infix[i] == <span class="string">&#x27;(&#x27;</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    push(infix[i]);</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (infix[i] == <span class="string">&#x27;)&#x27;</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">while</span>(peek() != <span class="string">&#x27;(&#x27;</span>) postfix += pop();</span><br><span class="line">                    pop();</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (vars.IndexOf(infix[i]) &gt;= <span class="number">0</span>)</span><br><span class="line">                    postfix += infix[i];</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (onc[ops.IndexOf(infix[i])] &gt; onc[ops.IndexOf(peek())])</span><br><span class="line">                        push(infix[i]);</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        postfix += pop();</span><br><span class="line">                        push(infix[i]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (peek() != <span class="string">&#x27;$&#x27;</span>) postfix += pop();</span><br><span class="line">            Console.WriteLine(postfix);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>Şimdi postfix bir ifadeyi yığın yapısı kullanarak sayısal karşılığını bulalım.</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849008.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849009.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2431698849010.png"></p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">postfix_sayisal_karsilik</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span>[] stack = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">100</span>];</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">int</span> sp = <span class="number">-1</span>;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">push</span>(<span class="params"><span class="built_in">int</span> data</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            sp++;</span><br><span class="line">            stack[sp] = data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">pop</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> data = stack[sp];</span><br><span class="line">            sp--;</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">peek</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> stack[sp];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">topla</span>(<span class="params"><span class="built_in">int</span> p1, <span class="built_in">int</span> p2</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> p1 + p2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">cikar</span>(<span class="params"><span class="built_in">int</span> p1, <span class="built_in">int</span> p2</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> p1 - p2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">carp</span>(<span class="params"><span class="built_in">int</span> p1, <span class="built_in">int</span> p2</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> p1 * p2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">bol</span>(<span class="params"><span class="built_in">int</span> p1, <span class="built_in">int</span> p2</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> p1 / p2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">string</span> postfix = <span class="string">&quot;abc*+&quot;</span>;</span><br><span class="line">            <span class="built_in">string</span> ops = <span class="string">&quot;+-*/&quot;</span>;</span><br><span class="line">            <span class="built_in">string</span> vars = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">            <span class="built_in">int</span>[] vals = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">3</span>];</span><br><span class="line">            vals[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">            vals[<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">            vals[<span class="number">2</span>] = <span class="number">3</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; postfix.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (ops.IndexOf(postfix[i]) == <span class="number">-1</span>)</span><br><span class="line">                    push(vals[vars.IndexOf(postfix[i])]);</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="built_in">int</span> p1 = pop();</span><br><span class="line">                    <span class="built_in">int</span> p2 = pop();</span><br><span class="line">                    <span class="keyword">if</span> (postfix[i] == <span class="string">&#x27;+&#x27;</span>) push(topla(p2,p1));</span><br><span class="line">                    <span class="keyword">if</span> (postfix[i] == <span class="string">&#x27;-&#x27;</span>) push(cikar(p2,p1));</span><br><span class="line">                    <span class="keyword">if</span> (postfix[i] == <span class="string">&#x27;*&#x27;</span>) push(carp(p2,p1));</span><br><span class="line">                    <span class="keyword">if</span> (postfix[i] == <span class="string">&#x27;/&#x27;</span>) push(bol(p2,p1));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            Console.WriteLine(pop());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Veri Yapıları</category>
+      </categories>
+      <tags>
+        <tag>stack</tag>
+        <tag>dotnet core</tag>
+        <tag>infix</tag>
+        <tag>postfix</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>VirtualBox Secure Boot Problemi Nasıl Çözülür?</title>
     <url>/post/25933388.html</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Geçersiz bir parola girdiniz. Lütfen kontrol edip tekrar deneyin." data-whm="Şifresi çözülen bu içerik doğrulanamıyor. Ancak yine de göz atabilirsiniz.">
@@ -830,6 +803,33 @@
       </tags>
   </entry>
   <entry>
+    <title>Unable to locate theme engine in module path murrine</title>
+    <url>/post/2544525991.html</url>
+    <content><![CDATA[<p>.xsession-errors çıktısını incelediğimizde bazı uyarılarla karşılaşıyoruz.</p>
+<span id="more"></span>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2544525991001.png"></p>
+<p>Problemin kaynağı bir paketin sistemimizde yüklü olmamasından kaynaklanıyor.</p>
+<p>Aşağıdaki komutu kullanarak gtk2-engines-murrine paketini sistemimize kuralım.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install gtk2-engines-murrine</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2544525991002.png"></p>
+<p>Ardından sistemimizi yeniden başlatalım.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo reboot</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_2544525991003.png"></p>
+<p>Şimdi .xsession-errors çıktısını tekrar kontrol edelim. Daha önceden karşılaştığımız uyarının kaybolduğunu göreceğiz.</p>
+]]></content>
+      <categories>
+        <category>GNU/Linux</category>
+      </categories>
+      <tags>
+        <tag>murrine</tag>
+        <tag>gtk</tag>
+        <tag>debian</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Algoritmalar Ders Notları</title>
     <url>/post/2905381219.html</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Geçersiz bir parola girdiniz. Lütfen kontrol edip tekrar deneyin." data-whm="Şifresi çözülen bu içerik doğrulanamıyor. Ancak yine de göz atabilirsiniz.">
@@ -854,6 +854,43 @@
       <tags>
         <tag>recursive</tag>
         <tag>bitwise operations</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Merhaba Dünya</title>
+    <url>/post/1658322667.html</url>
+    <content><![CDATA[<p><span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>‘ya hoşgeldin! Bu senin ilk gönderin. Daha fazla bilgi için <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">dökümantasyonu<i class="fa fa-external-link-alt"></i></span> inceleyebilirsin. Hexo kullanırken herhangi bir problemle karşılaşırsan, probleminin cevabını <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">burada<i class="fa fa-external-link-alt"></i></span> bulabilirsin yada <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span> üzerinde bize sorabilirsin.</p>
+<span id="more"></span>
+
+<h2 id="Hizli-Baslangic"><a href="#Hizli-Baslangic" class="headerlink" title="Hızlı Başlangıç"></a>Hızlı Başlangıç</h2><h3 id="Yeni-bir-gonderi-olusturun"><a href="#Yeni-bir-gonderi-olusturun" class="headerlink" title="Yeni bir gönderi oluşturun"></a>Yeni bir gönderi oluşturun</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new &lt;post-title&gt;         <span class="comment"># create new post</span></span><br><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Yeni-bir-sayfa-olusturun"><a href="#Yeni-bir-sayfa-olusturun" class="headerlink" title="Yeni bir sayfa oluşturun"></a>Yeni bir sayfa oluşturun</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new page &lt;page-title&gt;    <span class="comment"># create new page</span></span><br></pre></td></tr></table></figure>
+
+<p>Daha fazla bilgi için: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Sunucuyu-calistir"><a href="#Sunucuyu-calistir" class="headerlink" title="Sunucuyu çalıştır"></a>Sunucuyu çalıştır</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s                        <span class="comment"># [server] starts a local server</span></span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>Daha fazla bilgi için: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Statik-dosyalari-olustur"><a href="#Statik-dosyalari-olustur" class="headerlink" title="Statik dosyaları oluştur"></a>Statik dosyaları oluştur</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g                        <span class="comment"># [generate] generate static files</span></span><br><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>Daha fazla bilgi için: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Uzak-sitelere-dagitin"><a href="#Uzak-sitelere-dagitin" class="headerlink" title="Uzak sitelere dağıtın"></a>Uzak sitelere dağıtın</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d                        <span class="comment"># [deploy] deploy to github</span></span><br><span class="line">$ hexo g -d                     <span class="comment"># deploy after generation finishes</span></span><br><span class="line">$ hexo g -d -m <span class="string">&quot;message&quot;</span></span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>Daha fazla bilgi için: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Onbellek-dosyasini-ve-olusturulmus-dosyalari-temizleyin"><a href="#Onbellek-dosyasini-ve-olusturulmus-dosyalari-temizleyin" class="headerlink" title="Önbellek dosyasını ve oluşturulmuş dosyaları temizleyin"></a>Önbellek dosyasını ve oluşturulmuş dosyaları temizleyin</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean                    <span class="comment"># cleans the cache file (db.json) and generated files (public)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Blogunuzu-Github-uzerinde-dagitin"><a href="#Blogunuzu-Github-uzerinde-dagitin" class="headerlink" title="Blogunuzu Github üzerinde dağıtın"></a>Blogunuzu Github üzerinde dağıtın</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d <span class="comment"># deploy</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Commit-gecmisini-silme-ve-sadece-en-son-surumu-nasil-gosterilir"><a href="#Commit-gecmisini-silme-ve-sadece-en-son-surumu-nasil-gosterilir" class="headerlink" title="Commit geçmişini silme ve sadece en son sürümü nasıl gösterilir"></a>Commit geçmişini silme ve sadece en son sürümü nasıl gösterilir</h3><ol>
+<li>“<strong>.deploy_git</strong>“ dizinini silin.</li>
+<li>Gitbash’i açın ve aşağıdaki komutları sırasıyla girin.</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g -d</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo Butterfly</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1023,106 +1060,8 @@
         <category>Hexo</category>
       </categories>
       <tags>
+        <tag>Hexo</tag>
         <tag>Markdown</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Merhaba Dünya</title>
-    <url>/post/1658322667.html</url>
-    <content><![CDATA[<p><span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>‘ya hoşgeldin! Bu senin ilk gönderin. Daha fazla bilgi için <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">dökümantasyonu<i class="fa fa-external-link-alt"></i></span> inceleyebilirsin. Hexo kullanırken herhangi bir problemle karşılaşırsan, probleminin cevabını <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">burada<i class="fa fa-external-link-alt"></i></span> bulabilirsin yada <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span> üzerinde bize sorabilirsin.</p>
-<span id="more"></span>
-
-<h2 id="Hizli-Baslangic"><a href="#Hizli-Baslangic" class="headerlink" title="Hızlı Başlangıç"></a>Hızlı Başlangıç</h2><h3 id="Yeni-bir-gonderi-olusturun"><a href="#Yeni-bir-gonderi-olusturun" class="headerlink" title="Yeni bir gönderi oluşturun"></a>Yeni bir gönderi oluşturun</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new &lt;post-title&gt;         <span class="comment"># create new post</span></span><br><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Yeni-bir-sayfa-olusturun"><a href="#Yeni-bir-sayfa-olusturun" class="headerlink" title="Yeni bir sayfa oluşturun"></a>Yeni bir sayfa oluşturun</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new page &lt;page-title&gt;    <span class="comment"># create new page</span></span><br></pre></td></tr></table></figure>
-
-<p>Daha fazla bilgi için: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Sunucuyu-calistir"><a href="#Sunucuyu-calistir" class="headerlink" title="Sunucuyu çalıştır"></a>Sunucuyu çalıştır</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s                        <span class="comment"># [server] starts a local server</span></span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>Daha fazla bilgi için: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Statik-dosyalari-olustur"><a href="#Statik-dosyalari-olustur" class="headerlink" title="Statik dosyaları oluştur"></a>Statik dosyaları oluştur</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g                        <span class="comment"># [generate] generate static files</span></span><br><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>Daha fazla bilgi için: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Uzak-sitelere-dagitin"><a href="#Uzak-sitelere-dagitin" class="headerlink" title="Uzak sitelere dağıtın"></a>Uzak sitelere dağıtın</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d                        <span class="comment"># [deploy] deploy to github</span></span><br><span class="line">$ hexo g -d                     <span class="comment"># deploy after generation finishes</span></span><br><span class="line">$ hexo g -d -m <span class="string">&quot;message&quot;</span></span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>Daha fazla bilgi için: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Onbellek-dosyasini-ve-olusturulmus-dosyalari-temizleyin"><a href="#Onbellek-dosyasini-ve-olusturulmus-dosyalari-temizleyin" class="headerlink" title="Önbellek dosyasını ve oluşturulmuş dosyaları temizleyin"></a>Önbellek dosyasını ve oluşturulmuş dosyaları temizleyin</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean                    <span class="comment"># cleans the cache file (db.json) and generated files (public)</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Blogunuzu-Github-uzerinde-dagitin"><a href="#Blogunuzu-Github-uzerinde-dagitin" class="headerlink" title="Blogunuzu Github üzerinde dağıtın"></a>Blogunuzu Github üzerinde dağıtın</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d <span class="comment"># deploy</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Commit-gecmisini-silme-ve-sadece-en-son-surumu-nasil-gosterilir"><a href="#Commit-gecmisini-silme-ve-sadece-en-son-surumu-nasil-gosterilir" class="headerlink" title="Commit geçmişini silme ve sadece en son sürümü nasıl gösterilir"></a>Commit geçmişini silme ve sadece en son sürümü nasıl gösterilir</h3><ol>
-<li>“<strong>.deploy_git</strong>“ dizinini silin.</li>
-<li>Gitbash’i açın ve aşağıdaki komutları sırasıyla girin.</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g -d</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Hexo Butterfly</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Wemos D1 R1 Yapılandırması Nasıl Yapılır?</title>
-    <url>/post/1729220706.html</url>
-    <content><![CDATA[<p>IoT dersi için satın aldığım Wemos D1 R1 kartının kullanabilmemiz için yapılması gereken yapılandırma ayarlarından bahsedeceğim. </p>
-<span id="more"></span>
-
-<p>Arduino programını bilgisayarımıza kurduktan sonra CH340 Driver kurulumunun nasıl yapılacağını ve son olarak Wemos kütüphanelerinin arduino’ya nasıl eklenebileceğini anlatacağım.</p>
-<h2 id="Arduino-Yazilimi-Nasil-Kurulur"><a href="#Arduino-Yazilimi-Nasil-Kurulur" class="headerlink" title="Arduino Yazılımı Nasıl Kurulur?"></a>Arduino Yazılımı Nasıl Kurulur?</h2><div class="note warning"><h4 id="Uyari"><a href="#Uyari" class="headerlink" title="Uyarı"></a>Uyarı</h4><p>Kurulum sırasında karşınıza çıkacak olan gerekli izinleri vermeyi unutmayınız!</p>
-</div>
-
-<h2 id="CH340-Driver-Kurulumu-Nasil-Yapilir"><a href="#CH340-Driver-Kurulumu-Nasil-Yapilir" class="headerlink" title="CH340 Driver Kurulumu Nasıl Yapılır?"></a>CH340 Driver Kurulumu Nasıl Yapılır?</h2><p>CH340 Driver kurulumunu yapmak üzere <span class="exturl" data-url="aHR0cHM6Ly93d3cud2Vtb3MuY2MvZW4vbGF0ZXN0L2NoMzQwX2RyaXZlci5odG1s">https://www.wemos.cc/en/latest/ch340_driver.html<i class="fa fa-external-link-alt"></i></span> adresine gidelim. Windows işletim sistemi üzerinde çalıştığım için Windows V3.5 bağlantısına tıklıyorum.</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706001.png"></p>
-<p>İlgili arşiv dosyasını bilgisayarımızda kaydedelim.</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706002.png"></p>
-<p>Arşiv dosyasının içerisindeki .EXE uzantılı dosyayı çalıştıralım.</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706003.png"></p>
-<p>Son olarak INSTALL seçeneğine tıklayarak kurulumu başlatalım.</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706004.png"></p>
-<p>Kurulum tamamlandı.</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706005.png"></p>
-<h2 id="Arduino-Yazilimina-Wemos-Kutuphaneleri-Nasil-Eklenir"><a href="#Arduino-Yazilimina-Wemos-Kutuphaneleri-Nasil-Eklenir" class="headerlink" title="Arduino Yazılımına Wemos Kütüphaneleri Nasıl Eklenir?"></a>Arduino Yazılımına Wemos Kütüphaneleri Nasıl Eklenir?</h2><p>Arduino programımızı açtıktan sonra File &gt; Preferences yolunu izleyelim.</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706006.png"></p>
-<p>İlgili json dosyamızı ekleyelim.</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9hcmR1aW5vLmVzcDgyNjYuY29tL3N0YWJsZS9wYWNrYWdlX2VzcDgyNjZjb21faW5kZXguanNvbg==">https://arduino.esp8266.com/stable/package_esp8266com_index.json<i class="fa fa-external-link-alt"></i></span></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706007.png"></p>
-<p>Üst menü üzerinden Tools &gt; Board &gt; Boards Manager… yolunu izleyelim.</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706008.png"></p>
-<p>esp8266 olarak aramamızı gerçekleştirelim. Install diyerek 3.1.2 sürümünün kurulumunu başlatalım.</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706009.png"></p>
-<p>Wemos D1 R1 kartımızı kullanabilmek için önce kartımızı seçelim.</p>
-<p>Bunun için Tools &gt; Board &gt; esp8266 &gt; LOLIN(WeMos) D1 R1 seçeneğini işaretleyelim.</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706010.png"></p>
-<p>Son olarak kartımızın takılı olduğu Port’u seçip kullanmaya başlayabiliriz.</p>
-<p>Bunun için Tools &gt; Port &gt; COMx işaretleyelim.</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706011.png"></p>
-<h2 id="Buzzer’dan-Gelen-Gurultulu-Ses-Problemi-Nasil-Cozulur"><a href="#Buzzer’dan-Gelen-Gurultulu-Ses-Problemi-Nasil-Cozulur" class="headerlink" title="Buzzer’dan Gelen Gürültülü Ses Problemi Nasıl Çözülür?"></a>Buzzer’dan Gelen Gürültülü Ses Problemi Nasıl Çözülür?</h2><p>Aşağıdaki bağlantı üzerinden buzzer’ın gürültülü ses’ine ulaşabilirsiniz.</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xNlh1Y3diWEE5RFNYemFzVzc1cUgwcTdic0VOUi15R1Qvdmlldz91c3A9c2hhcmluZw==">https://drive.google.com/file/d/16XucwbXA9DSXzasW75qH0q7bsENR-yGT/view?usp=sharing<i class="fa fa-external-link-alt"></i></span></p>
-<p>WeMos D1 R1 kartı kullanıyorken basit bir led yakıp söndürme kodunu çalıştırdığımda Buzzer’dan arkaplanda gürültü olacak şekilde ilgili sesi duyabiliyordum.</p>
-<p>Hem WiFi modülümüze ulaşıp çalışmalarımızı yapabilmek hem de buzzer’dan sıkıntısız bir çıktı elde edebilmemiz için öncelikle Boards Manager’ı açalım ve esp8266 olarak aramamızı gerçekleştirelim. Yüklü olan 3.1.2 sürümünü REMOVE butonuna tıklayarak kaldıralım.</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706012.png"></p>
-<p>ESP8266 modülünün 2.5.0 sürümünü seçip INSTALL butonuna tıklayarak kurulumumuzu gerçekleştirelim.</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706013.png"></p>
-<p>Artık başarılı bir şekilde kodumuzu derleyip kartımıza yükleyebiliriz. Bu sayede buzzer’dan gelen rahatsız edici ses de kaybolmuş oldu.</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706014.png"></p>
-<div class="note default"><p>Kaynaklar:</p>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly95b3V0dS5iZS9CRjc0OVg0dW0tST9saXN0PVBMLXYtWkRZb1dXaFNKY29DcGxGRUdKV0w2WFVOWTB5aGk=">CH340 Driver Kurulumu Nasıl Yapılır?<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly95b3V0dS5iZS9Gc3UtSjJLUUtxRT9saXN0PVBMLXYtWkRZb1dXaFNKY29DcGxGRUdKV0w2WFVOWTB5aGk=">WeMos Kütüphaneleri Arduino’ya Nasıl Eklenir?<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-</div>]]></content>
-      <categories>
-        <category>Nesnelerin Interneti</category>
-      </categories>
-      <tags>
-        <tag>WeMos D1 R1</tag>
-        <tag>Arduino</tag>
-        <tag>ESP8266</tag>
-        <tag>CH340</tag>
-        <tag>Internet of Things</tag>
       </tags>
   </entry>
   <entry>
@@ -1283,14 +1222,14 @@
         <category>Nesnelerin Interneti</category>
       </categories>
       <tags>
-        <tag>WeMos D1 R1</tag>
-        <tag>Arduino</tag>
-        <tag>ESP8266</tag>
-        <tag>CH340</tag>
-        <tag>Internet of Things</tag>
         <tag>Arduino Cloud Agent</tag>
+        <tag>Arduino</tag>
+        <tag>WeMos D1 R1</tag>
         <tag>Cloud Application</tag>
         <tag>Led Blink Application</tag>
+        <tag>Internet of Things</tag>
+        <tag>ESP8266</tag>
+        <tag>CH340</tag>
       </tags>
   </entry>
   <entry>
@@ -1332,6 +1271,67 @@
         <tag>JIT</tag>
         <tag>CLR</tag>
         <tag>MSIL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Wemos D1 R1 Yapılandırması Nasıl Yapılır?</title>
+    <url>/post/1729220706.html</url>
+    <content><![CDATA[<p>IoT dersi için satın aldığım Wemos D1 R1 kartının kullanabilmemiz için yapılması gereken yapılandırma ayarlarından bahsedeceğim. </p>
+<span id="more"></span>
+
+<p>Arduino programını bilgisayarımıza kurduktan sonra CH340 Driver kurulumunun nasıl yapılacağını ve son olarak Wemos kütüphanelerinin arduino’ya nasıl eklenebileceğini anlatacağım.</p>
+<h2 id="Arduino-Yazilimi-Nasil-Kurulur"><a href="#Arduino-Yazilimi-Nasil-Kurulur" class="headerlink" title="Arduino Yazılımı Nasıl Kurulur?"></a>Arduino Yazılımı Nasıl Kurulur?</h2><div class="note warning"><h4 id="Uyari"><a href="#Uyari" class="headerlink" title="Uyarı"></a>Uyarı</h4><p>Kurulum sırasında karşınıza çıkacak olan gerekli izinleri vermeyi unutmayınız!</p>
+</div>
+
+<h2 id="CH340-Driver-Kurulumu-Nasil-Yapilir"><a href="#CH340-Driver-Kurulumu-Nasil-Yapilir" class="headerlink" title="CH340 Driver Kurulumu Nasıl Yapılır?"></a>CH340 Driver Kurulumu Nasıl Yapılır?</h2><p>CH340 Driver kurulumunu yapmak üzere <span class="exturl" data-url="aHR0cHM6Ly93d3cud2Vtb3MuY2MvZW4vbGF0ZXN0L2NoMzQwX2RyaXZlci5odG1s">https://www.wemos.cc/en/latest/ch340_driver.html<i class="fa fa-external-link-alt"></i></span> adresine gidelim. Windows işletim sistemi üzerinde çalıştığım için Windows V3.5 bağlantısına tıklıyorum.</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706001.png"></p>
+<p>İlgili arşiv dosyasını bilgisayarımızda kaydedelim.</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706002.png"></p>
+<p>Arşiv dosyasının içerisindeki .EXE uzantılı dosyayı çalıştıralım.</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706003.png"></p>
+<p>Son olarak INSTALL seçeneğine tıklayarak kurulumu başlatalım.</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706004.png"></p>
+<p>Kurulum tamamlandı.</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706005.png"></p>
+<h2 id="Arduino-Yazilimina-Wemos-Kutuphaneleri-Nasil-Eklenir"><a href="#Arduino-Yazilimina-Wemos-Kutuphaneleri-Nasil-Eklenir" class="headerlink" title="Arduino Yazılımına Wemos Kütüphaneleri Nasıl Eklenir?"></a>Arduino Yazılımına Wemos Kütüphaneleri Nasıl Eklenir?</h2><p>Arduino programımızı açtıktan sonra File &gt; Preferences yolunu izleyelim.</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706006.png"></p>
+<p>İlgili json dosyamızı ekleyelim.</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9hcmR1aW5vLmVzcDgyNjYuY29tL3N0YWJsZS9wYWNrYWdlX2VzcDgyNjZjb21faW5kZXguanNvbg==">https://arduino.esp8266.com/stable/package_esp8266com_index.json<i class="fa fa-external-link-alt"></i></span></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706007.png"></p>
+<p>Üst menü üzerinden Tools &gt; Board &gt; Boards Manager… yolunu izleyelim.</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706008.png"></p>
+<p>esp8266 olarak aramamızı gerçekleştirelim. Install diyerek 3.1.2 sürümünün kurulumunu başlatalım.</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706009.png"></p>
+<p>Wemos D1 R1 kartımızı kullanabilmek için önce kartımızı seçelim.</p>
+<p>Bunun için Tools &gt; Board &gt; esp8266 &gt; LOLIN(WeMos) D1 R1 seçeneğini işaretleyelim.</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706010.png"></p>
+<p>Son olarak kartımızın takılı olduğu Port’u seçip kullanmaya başlayabiliriz.</p>
+<p>Bunun için Tools &gt; Port &gt; COMx işaretleyelim.</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706011.png"></p>
+<h2 id="Buzzer’dan-Gelen-Gurultulu-Ses-Problemi-Nasil-Cozulur"><a href="#Buzzer’dan-Gelen-Gurultulu-Ses-Problemi-Nasil-Cozulur" class="headerlink" title="Buzzer’dan Gelen Gürültülü Ses Problemi Nasıl Çözülür?"></a>Buzzer’dan Gelen Gürültülü Ses Problemi Nasıl Çözülür?</h2><p>Aşağıdaki bağlantı üzerinden buzzer’ın gürültülü ses’ine ulaşabilirsiniz.</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xNlh1Y3diWEE5RFNYemFzVzc1cUgwcTdic0VOUi15R1Qvdmlldz91c3A9c2hhcmluZw==">https://drive.google.com/file/d/16XucwbXA9DSXzasW75qH0q7bsENR-yGT/view?usp=sharing<i class="fa fa-external-link-alt"></i></span></p>
+<p>WeMos D1 R1 kartı kullanıyorken basit bir led yakıp söndürme kodunu çalıştırdığımda Buzzer’dan arkaplanda gürültü olacak şekilde ilgili sesi duyabiliyordum.</p>
+<p>Hem WiFi modülümüze ulaşıp çalışmalarımızı yapabilmek hem de buzzer’dan sıkıntısız bir çıktı elde edebilmemiz için öncelikle Boards Manager’ı açalım ve esp8266 olarak aramamızı gerçekleştirelim. Yüklü olan 3.1.2 sürümünü REMOVE butonuna tıklayarak kaldıralım.</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706012.png"></p>
+<p>ESP8266 modülünün 2.5.0 sürümünü seçip INSTALL butonuna tıklayarak kurulumumuzu gerçekleştirelim.</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706013.png"></p>
+<p>Artık başarılı bir şekilde kodumuzu derleyip kartımıza yükleyebiliriz. Bu sayede buzzer’dan gelen rahatsız edici ses de kaybolmuş oldu.</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1729220706014.png"></p>
+<div class="note default"><p>Kaynaklar:</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly95b3V0dS5iZS9CRjc0OVg0dW0tST9saXN0PVBMLXYtWkRZb1dXaFNKY29DcGxGRUdKV0w2WFVOWTB5aGk=">CH340 Driver Kurulumu Nasıl Yapılır?<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly95b3V0dS5iZS9Gc3UtSjJLUUtxRT9saXN0PVBMLXYtWkRZb1dXaFNKY29DcGxGRUdKV0w2WFVOWTB5aGk=">WeMos Kütüphaneleri Arduino’ya Nasıl Eklenir?<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</div>]]></content>
+      <categories>
+        <category>Nesnelerin Interneti</category>
+      </categories>
+      <tags>
+        <tag>Arduino</tag>
+        <tag>WeMos D1 R1</tag>
+        <tag>Internet of Things</tag>
+        <tag>ESP8266</tag>
+        <tag>CH340</tag>
       </tags>
   </entry>
 </search>
