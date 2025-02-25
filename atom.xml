@@ -6,7 +6,7 @@
   <link href="https://ramazanaltintop.github.io/atom.xml" rel="self"/>
   
   <link href="https://ramazanaltintop.github.io/"/>
-  <updated>2025-02-13T14:36:34.320Z</updated>
+  <updated>2025-02-25T21:36:11.525Z</updated>
   <id>https://ramazanaltintop.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>My unqualified hostname (foo.bar) unknown: sleeping for retry</title>
+    <link href="https://ramazanaltintop.github.io/post/1659074625.html"/>
+    <id>https://ramazanaltintop.github.io/post/1659074625.html</id>
+    <published>2025-02-25T21:05:00.000Z</published>
+    <updated>2025-02-25T21:36:11.525Z</updated>
+    
+    <content type="html"><![CDATA[<p>FreeBSD Server’ımız oldukça yavaş açılıyor. Çıktılarımızı gözlemlediğimiz zaman şu şekilde çıktılar olduğunu görüyoruz.</p><span id="more"></span><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Feb 26 01:49:45 foo bar: My unqualified host name (tar) unknown; sleeping for retry</span><br><span class="line">Feb 26 01:50:45 foo bar: unable to qualify my own domain name (tar) -- using short name</span><br><span class="line">Feb 26 01:50:45 foo bar: My unqualified host name (infrastructure) unknown; sleeping for retry</span><br><span class="line">Feb 26 01:51:45 foo bar: unable to qualify my own domain name (tar) -- using short name</span><br></pre></td></tr></table></figure><p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1659074625001.png"></p><p>Sistemin açılış esnasında uzun süre bekleme problemini çözmek için <mark class="label primary">hostname</mark>’i düzenlemek yeterli olacaktır.</p><p>Yapılandırma dosyamızı düzenleyelim.</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ee /etc/rc.conf</span><br></pre></td></tr></table></figure><p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1659074625002.png"></p><mark class="label primary">hostname</mark> sonuna <mark class="label primary">.local</mark> eklemek yeterli olacaktır.<p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1659074625003.png"></p><p>Yapılandırma dosyamızın son şekli şu şekilde olacaktır.</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat /etc/rc.conf</span><br></pre></td></tr></table></figure><p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1659074625004.png"></p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure><p>Yeniden başlattığımızda ilgili uyarıların kalktığını ve daha hızlı bir şekilde server’ımızın ayağa kalktığını gözlemliyoruz.</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;FreeBSD Server’ımız oldukça yavaş açılıyor. Çıktılarımızı gözlemlediğimiz zaman şu şekilde çıktılar olduğunu görüyoruz.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="FreeBSD" scheme="https://ramazanaltintop.github.io/categories/FreeBSD/"/>
+    
+    <category term="GNU/Linux" scheme="https://ramazanaltintop.github.io/categories/FreeBSD/GNU-Linux/"/>
+    
+    
+    <category term="FreeBSD" scheme="https://ramazanaltintop.github.io/tags/FreeBSD/"/>
+    
+    <category term="Server" scheme="https://ramazanaltintop.github.io/tags/Server/"/>
+    
+    <category term="GNU/Linux" scheme="https://ramazanaltintop.github.io/tags/GNU-Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>.NET Uygulamalarının Çalışma Yapısı: Derleme ve Çalıştırma Süreçleri</title>
@@ -62,21 +89,21 @@
     <category term="Nesnelerin Interneti" scheme="https://ramazanaltintop.github.io/categories/Nesnelerin-Interneti/"/>
     
     
-    <category term="WeMos D1 R1" scheme="https://ramazanaltintop.github.io/tags/WeMos-D1-R1/"/>
+    <category term="Arduino Cloud Agent" scheme="https://ramazanaltintop.github.io/tags/Arduino-Cloud-Agent/"/>
     
     <category term="Arduino" scheme="https://ramazanaltintop.github.io/tags/Arduino/"/>
     
-    <category term="ESP8266" scheme="https://ramazanaltintop.github.io/tags/ESP8266/"/>
-    
-    <category term="CH340" scheme="https://ramazanaltintop.github.io/tags/CH340/"/>
-    
-    <category term="Internet of Things" scheme="https://ramazanaltintop.github.io/tags/Internet-of-Things/"/>
-    
-    <category term="Arduino Cloud Agent" scheme="https://ramazanaltintop.github.io/tags/Arduino-Cloud-Agent/"/>
+    <category term="WeMos D1 R1" scheme="https://ramazanaltintop.github.io/tags/WeMos-D1-R1/"/>
     
     <category term="Cloud Application" scheme="https://ramazanaltintop.github.io/tags/Cloud-Application/"/>
     
     <category term="Led Blink Application" scheme="https://ramazanaltintop.github.io/tags/Led-Blink-Application/"/>
+    
+    <category term="Internet of Things" scheme="https://ramazanaltintop.github.io/tags/Internet-of-Things/"/>
+    
+    <category term="ESP8266" scheme="https://ramazanaltintop.github.io/tags/ESP8266/"/>
+    
+    <category term="CH340" scheme="https://ramazanaltintop.github.io/tags/CH340/"/>
     
   </entry>
   
@@ -97,15 +124,15 @@
     <category term="Nesnelerin Interneti" scheme="https://ramazanaltintop.github.io/categories/Nesnelerin-Interneti/"/>
     
     
+    <category term="Arduino" scheme="https://ramazanaltintop.github.io/tags/Arduino/"/>
+    
     <category term="WeMos D1 R1" scheme="https://ramazanaltintop.github.io/tags/WeMos-D1-R1/"/>
     
-    <category term="Arduino" scheme="https://ramazanaltintop.github.io/tags/Arduino/"/>
+    <category term="Internet of Things" scheme="https://ramazanaltintop.github.io/tags/Internet-of-Things/"/>
     
     <category term="ESP8266" scheme="https://ramazanaltintop.github.io/tags/ESP8266/"/>
     
     <category term="CH340" scheme="https://ramazanaltintop.github.io/tags/CH340/"/>
-    
-    <category term="Internet of Things" scheme="https://ramazanaltintop.github.io/tags/Internet-of-Things/"/>
     
   </entry>
   
@@ -126,9 +153,9 @@
     <category term="Hexo" scheme="https://ramazanaltintop.github.io/categories/Hexo/"/>
     
     
-    <category term="Markdown" scheme="https://ramazanaltintop.github.io/tags/Markdown/"/>
-    
     <category term="Hexo" scheme="https://ramazanaltintop.github.io/tags/Hexo/"/>
+    
+    <category term="Markdown" scheme="https://ramazanaltintop.github.io/tags/Markdown/"/>
     
   </entry>
   
@@ -149,9 +176,9 @@
     <category term="Hexo" scheme="https://ramazanaltintop.github.io/categories/Hexo/"/>
     
     
-    <category term="Hexo" scheme="https://ramazanaltintop.github.io/tags/Hexo/"/>
-    
     <category term="Hexo Butterfly" scheme="https://ramazanaltintop.github.io/tags/Hexo-Butterfly/"/>
+    
+    <category term="Hexo" scheme="https://ramazanaltintop.github.io/tags/Hexo/"/>
     
   </entry>
   
@@ -316,11 +343,11 @@
     <category term="Veri Yapıları" scheme="https://ramazanaltintop.github.io/categories/Veri-Yapilari/"/>
     
     
-    <category term="linked list" scheme="https://ramazanaltintop.github.io/tags/linked-list/"/>
-    
     <category term="çiftli bağlı listeler" scheme="https://ramazanaltintop.github.io/tags/ciftli-bagli-listeler/"/>
     
     <category term="dotnet core" scheme="https://ramazanaltintop.github.io/tags/dotnet-core/"/>
+    
+    <category term="linked list" scheme="https://ramazanaltintop.github.io/tags/linked-list/"/>
     
     <category term="stack" scheme="https://ramazanaltintop.github.io/tags/stack/"/>
     
@@ -366,11 +393,11 @@
     <category term="Veri Yapıları" scheme="https://ramazanaltintop.github.io/categories/Veri-Yapilari/"/>
     
     
-    <category term="linked list" scheme="https://ramazanaltintop.github.io/tags/linked-list/"/>
-    
     <category term="çiftli bağlı listeler" scheme="https://ramazanaltintop.github.io/tags/ciftli-bagli-listeler/"/>
     
     <category term="dotnet core" scheme="https://ramazanaltintop.github.io/tags/dotnet-core/"/>
+    
+    <category term="linked list" scheme="https://ramazanaltintop.github.io/tags/linked-list/"/>
     
   </entry>
   
@@ -391,9 +418,9 @@
     <category term="Veri Yapıları" scheme="https://ramazanaltintop.github.io/categories/Veri-Yapilari/"/>
     
     
-    <category term="tekli bağlı listeler" scheme="https://ramazanaltintop.github.io/tags/tekli-bagli-listeler/"/>
-    
     <category term="linked list" scheme="https://ramazanaltintop.github.io/tags/linked-list/"/>
+    
+    <category term="tekli bağlı listeler" scheme="https://ramazanaltintop.github.io/tags/tekli-bagli-listeler/"/>
     
   </entry>
   
@@ -490,29 +517,6 @@
     <category term="spyder" scheme="https://ramazanaltintop.github.io/tags/spyder/"/>
     
     <category term="jupyter notebook" scheme="https://ramazanaltintop.github.io/tags/jupyter-notebook/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>İşlem gerçekleştirilemedi (Çakışan dosyalar) Hatası Nasıl Çözülür?</title>
-    <link href="https://ramazanaltintop.github.io/post/1871179136.html"/>
-    <id>https://ramazanaltintop.github.io/post/1871179136.html</id>
-    <published>2022-01-03T07:00:00.000Z</published>
-    <updated>2024-04-25T11:16:11.734Z</updated>
-    
-    <content type="html"><![CDATA[<p>Aşağıdaki komut ile kurulum yapmaya çalıştığımda hata ile karşılaştım.</p><span id="more"></span><p>Bu hatayı aşağıdaki çıktıdan görüntüleyebilirsiniz.</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S retext</span><br><span class="line">[sudo] password <span class="keyword">for</span> ramarcher:</span><br><span class="line">paket bağımlılıkları çözümleniyor...</span><br><span class="line">varsa paketler arası çakışmalara bakılıyor...</span><br><span class="line"></span><br><span class="line">Paketler (4) python-markdown-2.6.11-2  python-markdown-math-0.6-2  python-markups-3.0.0-5  retext-7.0.4-3</span><br><span class="line"></span><br><span class="line">Toplam Kurulum Boyutu:  1,60 MiB</span><br><span class="line"></span><br><span class="line">:: Kuruluma onay veriyor musunuz? [E/h] e</span><br><span class="line">(4/4) anahtarlıktaki anahtarlar kontrol ediliyor                                           [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) paket bütü<span class="built_in">nl</span>üğü kontrol ediliyor                                                     [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) paket dosyaları yükleniyor                                                           [<span class="comment">#####################################################] 100%</span></span><br><span class="line">(4/4) dosya çakışmaları kontrol ediliyor                                                   [<span class="comment">#####################################################] 100%</span></span><br><span class="line">hata: işlem gerçekleştirilemedi (çakışan dosyalar)</span><br><span class="line">python-markdown: /usr/bin/markdown_py dosya sisteminde mevcut</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/__init__.py dosya sisteminde mevcut</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/__main__.py dosya sisteminde mevcut</span><br><span class="line">..</span><br><span class="line">..</span><br><span class="line">..</span><br><span class="line">python-markdown: /usr/lib/python3.7/site-packages/markdown/util.py dosya sisteminde mevcut</span><br><span class="line">Hata oluştu, hiçbir paket güncellenmedi.</span><br></pre></td></tr></table></figure><p>Böyle bir hata ile karşılaştığımız için aşağıdaki komutla bu paketi yükleyebilirsiniz.</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pip install retext</span><br><span class="line">Collecting retext</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/31/91/6eff0afd947ca945dd63bb4f7fd0ea1872f80acef338eec4076642a824a8/ReText-7.0.4.tar.gz (402kB)</span><br><span class="line">    100% |████████████████████████████████| 409kB 2.1MB/s</span><br><span class="line">Collecting docutils (from retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/36/fa/08e9e6e0e3cbd1d362c3bbee8d01d0aedb2155c4ac112b19ef3cae8eed8d/docutils-0.14-py3-none-any.whl (543kB)</span><br><span class="line">    100% |████████████████████████████████| 552kB 7.3MB/s</span><br><span class="line">Requirement already satisfied: Markdown <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (3.0.1)</span><br><span class="line">Collecting Markups&gt;=2.0 (from retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/56/c0/d77c6af4f43c00268372fcbaee715dc798ce70c6c6a93ae30bec32af94ed/Markups-3.0.0-py2.py3-none-any.whl</span><br><span class="line">Requirement already satisfied: Pygments <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (2.3.1)</span><br><span class="line">Requirement already satisfied: chardet&gt;=2.3 <span class="keyword">in</span> /usr/lib/python3.7/site-packages (from retext) (3.0.4)</span><br><span class="line">Collecting python-markdown-math (from Markups&gt;=2.0-&gt;retext)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/7c/81/2c86570437821d77b90a6d939d54e11b507b71785850840a5e56d8febeca/python_markdown_math-0.6-py2.py3-none-any.whl</span><br><span class="line">Installing collected packages: docutils, python-markdown-math, Markups, retext</span><br><span class="line">  Running setup.py install <span class="keyword">for</span> retext ... <span class="keyword">done</span></span><br><span class="line">Successfully installed Markups-3.0.0 docutils-0.14 python-markdown-math-0.6 retext-7.0.4</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;Aşağıdaki komut ile kurulum yapmaya çalıştığımda hata ile karşılaştım.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="GNU/Linux" scheme="https://ramazanaltintop.github.io/categories/GNU-Linux/"/>
-    
-    
-    <category term="arch linux" scheme="https://ramazanaltintop.github.io/tags/arch-linux/"/>
-    
-    <category term="retext" scheme="https://ramazanaltintop.github.io/tags/retext/"/>
     
   </entry>
   
