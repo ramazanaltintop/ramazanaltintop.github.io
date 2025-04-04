@@ -6,7 +6,7 @@
   <link href="https://ramazanaltintop.github.io/atom.xml" rel="self"/>
   
   <link href="https://ramazanaltintop.github.io/"/>
-  <updated>2025-02-25T21:36:11.525Z</updated>
+  <updated>2025-04-04T18:04:56.437Z</updated>
   <id>https://ramazanaltintop.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Binary Tree Traversals</title>
+    <link href="https://ramazanaltintop.github.io/post/4258517504.html"/>
+    <id>https://ramazanaltintop.github.io/post/4258517504.html</id>
+    <published>2025-04-04T17:30:00.000Z</published>
+    <updated>2025-04-04T18:04:56.437Z</updated>
+    
+    <content type="html"><![CDATA[<p>İkili ağaç üzerinde Preorder, InOrder, PostOrder gezinme problemlerini aşağıdan çözebilirsiniz</p><span id="more"></span><h2 id="PreOrder-Traversal"><a href="#PreOrder-Traversal" class="headerlink" title="PreOrder Traversal"></a>PreOrder Traversal</h2><iframe src="https://opendsa-server.cs.vt.edu/embed/btTravPreorderPRO" height="450" width="100%" scrolling="no" style="border: none;"></iframe><h2 id="PostOrder-Traversal"><a href="#PostOrder-Traversal" class="headerlink" title="PostOrder Traversal"></a>PostOrder Traversal</h2><iframe src="https://opendsa-server.cs.vt.edu/embed/btTravPostorderPRO" height="450" width="100%" scrolling="no" style="border: none;"></iframe><h2 id="InOrder-Traversal"><a href="#InOrder-Traversal" class="headerlink" title="InOrder Traversal"></a>InOrder Traversal</h2><iframe src="https://opendsa-server.cs.vt.edu/embed/btTravInorderPRO" height="450" width="100%" scrolling="no" style="border: none;"></iframe>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;İkili ağaç üzerinde Preorder, InOrder, PostOrder gezinme problemlerini aşağıdan çözebilirsiniz&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Veri Yapıları" scheme="https://ramazanaltintop.github.io/categories/Veri-Yapilari/"/>
+    
+    <category term="Algoritmalar" scheme="https://ramazanaltintop.github.io/categories/Veri-Yapilari/Algoritmalar/"/>
+    
+    
+    <category term="Algoritmalar" scheme="https://ramazanaltintop.github.io/tags/Algoritmalar/"/>
+    
+    <category term="Veri Yapıları" scheme="https://ramazanaltintop.github.io/tags/Veri-Yapilari/"/>
+    
+    <category term="Binary Tree" scheme="https://ramazanaltintop.github.io/tags/Binary-Tree/"/>
+    
+    <category term="Postorder Traversal" scheme="https://ramazanaltintop.github.io/tags/Postorder-Traversal/"/>
+    
+    <category term="Preorder Traversal" scheme="https://ramazanaltintop.github.io/tags/Preorder-Traversal/"/>
+    
+    <category term="Inorder Traversal" scheme="https://ramazanaltintop.github.io/tags/Inorder-Traversal/"/>
+    
+  </entry>
   
   <entry>
     <title>My unqualified hostname (foo.bar) unknown: sleeping for retry</title>
@@ -89,21 +122,21 @@
     <category term="Nesnelerin Interneti" scheme="https://ramazanaltintop.github.io/categories/Nesnelerin-Interneti/"/>
     
     
-    <category term="Arduino Cloud Agent" scheme="https://ramazanaltintop.github.io/tags/Arduino-Cloud-Agent/"/>
-    
-    <category term="Arduino" scheme="https://ramazanaltintop.github.io/tags/Arduino/"/>
-    
     <category term="WeMos D1 R1" scheme="https://ramazanaltintop.github.io/tags/WeMos-D1-R1/"/>
     
-    <category term="Cloud Application" scheme="https://ramazanaltintop.github.io/tags/Cloud-Application/"/>
-    
-    <category term="Led Blink Application" scheme="https://ramazanaltintop.github.io/tags/Led-Blink-Application/"/>
-    
-    <category term="Internet of Things" scheme="https://ramazanaltintop.github.io/tags/Internet-of-Things/"/>
+    <category term="Arduino" scheme="https://ramazanaltintop.github.io/tags/Arduino/"/>
     
     <category term="ESP8266" scheme="https://ramazanaltintop.github.io/tags/ESP8266/"/>
     
     <category term="CH340" scheme="https://ramazanaltintop.github.io/tags/CH340/"/>
+    
+    <category term="Internet of Things" scheme="https://ramazanaltintop.github.io/tags/Internet-of-Things/"/>
+    
+    <category term="Arduino Cloud Agent" scheme="https://ramazanaltintop.github.io/tags/Arduino-Cloud-Agent/"/>
+    
+    <category term="Cloud Application" scheme="https://ramazanaltintop.github.io/tags/Cloud-Application/"/>
+    
+    <category term="Led Blink Application" scheme="https://ramazanaltintop.github.io/tags/Led-Blink-Application/"/>
     
   </entry>
   
@@ -124,15 +157,15 @@
     <category term="Nesnelerin Interneti" scheme="https://ramazanaltintop.github.io/categories/Nesnelerin-Interneti/"/>
     
     
-    <category term="Arduino" scheme="https://ramazanaltintop.github.io/tags/Arduino/"/>
-    
     <category term="WeMos D1 R1" scheme="https://ramazanaltintop.github.io/tags/WeMos-D1-R1/"/>
     
-    <category term="Internet of Things" scheme="https://ramazanaltintop.github.io/tags/Internet-of-Things/"/>
+    <category term="Arduino" scheme="https://ramazanaltintop.github.io/tags/Arduino/"/>
     
     <category term="ESP8266" scheme="https://ramazanaltintop.github.io/tags/ESP8266/"/>
     
     <category term="CH340" scheme="https://ramazanaltintop.github.io/tags/CH340/"/>
+    
+    <category term="Internet of Things" scheme="https://ramazanaltintop.github.io/tags/Internet-of-Things/"/>
     
   </entry>
   
@@ -316,13 +349,13 @@
     <category term="Veri Yapıları" scheme="https://ramazanaltintop.github.io/categories/Veri-Yapilari/"/>
     
     
-    <category term="dotnet core" scheme="https://ramazanaltintop.github.io/tags/dotnet-core/"/>
-    
     <category term="stack" scheme="https://ramazanaltintop.github.io/tags/stack/"/>
     
     <category term="infix" scheme="https://ramazanaltintop.github.io/tags/infix/"/>
     
     <category term="postfix" scheme="https://ramazanaltintop.github.io/tags/postfix/"/>
+    
+    <category term="dotnet core" scheme="https://ramazanaltintop.github.io/tags/dotnet-core/"/>
     
   </entry>
   
@@ -343,13 +376,13 @@
     <category term="Veri Yapıları" scheme="https://ramazanaltintop.github.io/categories/Veri-Yapilari/"/>
     
     
-    <category term="çiftli bağlı listeler" scheme="https://ramazanaltintop.github.io/tags/ciftli-bagli-listeler/"/>
-    
-    <category term="dotnet core" scheme="https://ramazanaltintop.github.io/tags/dotnet-core/"/>
-    
     <category term="linked list" scheme="https://ramazanaltintop.github.io/tags/linked-list/"/>
     
     <category term="stack" scheme="https://ramazanaltintop.github.io/tags/stack/"/>
+    
+    <category term="dotnet core" scheme="https://ramazanaltintop.github.io/tags/dotnet-core/"/>
+    
+    <category term="çiftli bağlı listeler" scheme="https://ramazanaltintop.github.io/tags/ciftli-bagli-listeler/"/>
     
   </entry>
   
@@ -370,9 +403,9 @@
     <category term="Veri Yapıları" scheme="https://ramazanaltintop.github.io/categories/Veri-Yapilari/"/>
     
     
-    <category term="dotnet core" scheme="https://ramazanaltintop.github.io/tags/dotnet-core/"/>
-    
     <category term="stack" scheme="https://ramazanaltintop.github.io/tags/stack/"/>
+    
+    <category term="dotnet core" scheme="https://ramazanaltintop.github.io/tags/dotnet-core/"/>
     
   </entry>
   
@@ -393,11 +426,11 @@
     <category term="Veri Yapıları" scheme="https://ramazanaltintop.github.io/categories/Veri-Yapilari/"/>
     
     
-    <category term="çiftli bağlı listeler" scheme="https://ramazanaltintop.github.io/tags/ciftli-bagli-listeler/"/>
+    <category term="linked list" scheme="https://ramazanaltintop.github.io/tags/linked-list/"/>
     
     <category term="dotnet core" scheme="https://ramazanaltintop.github.io/tags/dotnet-core/"/>
     
-    <category term="linked list" scheme="https://ramazanaltintop.github.io/tags/linked-list/"/>
+    <category term="çiftli bağlı listeler" scheme="https://ramazanaltintop.github.io/tags/ciftli-bagli-listeler/"/>
     
   </entry>
   
@@ -418,9 +451,9 @@
     <category term="Veri Yapıları" scheme="https://ramazanaltintop.github.io/categories/Veri-Yapilari/"/>
     
     
-    <category term="linked list" scheme="https://ramazanaltintop.github.io/tags/linked-list/"/>
-    
     <category term="tekli bağlı listeler" scheme="https://ramazanaltintop.github.io/tags/tekli-bagli-listeler/"/>
+    
+    <category term="linked list" scheme="https://ramazanaltintop.github.io/tags/linked-list/"/>
     
   </entry>
   
@@ -488,35 +521,6 @@
     
     
     <category term="arch linux" scheme="https://ramazanaltintop.github.io/tags/arch-linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python Anaconda Kurulumu Nasıl Yapılır?</title>
-    <link href="https://ramazanaltintop.github.io/post/1631539360.html"/>
-    <id>https://ramazanaltintop.github.io/post/1631539360.html</id>
-    <published>2022-01-10T07:00:00.000Z</published>
-    <updated>2024-12-22T18:29:45.256Z</updated>
-    
-    <content type="html"><![CDATA[<p>Wget ile .sh uzantılı kurulum dosyasını indirmemiz için aşağıdaki paketlerin sisteminizde kurulu olduğundan emin olunuz.</p><span id="more"></span><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S wget bzip2</span><br></pre></td></tr></table></figure><p>Bu <span class="exturl" data-url="aHR0cHM6Ly93d3cuYW5hY29uZGEuY29tL2Rvd25sb2FkLyNsaW51eA==">Link’e<i class="fa fa-external-link-alt"></i></span> tıklayınız.</p><p>Download butonunun üzerinde sağ tıklayıp linki kopyalayınız.</p><p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1631539360001.png"></p><p>Ardından terminali açınız.</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget https://repo.continuum.io/archive/Anaconda3-2018.12-Linux-x86_64.sh</span><br></pre></td></tr></table></figure><p>Ardından kurulum dosyasını açınız.</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo sh Anaconda3-2018.12-Linux-x86_64.sh</span><br><span class="line">Please answer <span class="string">&#x27;yes&#x27;</span> or <span class="string">&#x27;no&#x27;</span>:<span class="string">&#x27;</span></span><br><span class="line"><span class="string"> &gt;&gt;&gt; yes</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Anaconda3 will now be installed into this location:</span></span><br><span class="line"><span class="string"> /home/ramarcher/anaconda3</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">- Press ENTER to confirm the location</span></span><br><span class="line"><span class="string"> - Press CTRL-C to abort the installation</span></span><br><span class="line"><span class="string"> - Or specify a different location below</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[/home/ramarcher/anaconda3] &gt;&gt;&gt; /usr/local/anaconda/</span></span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo vim /etc/profile</span><br></pre></td></tr></table></figure><p>En alta aşağıdaki değişkeni ekleyiniz.</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># added by Anaconda3 installer</span></span><br><span class="line"> <span class="built_in">export</span> PATH=<span class="string">&quot;/usr/local/anaconda/bin:<span class="variable">$PATH</span>&quot;</span></span><br></pre></td></tr></table></figure><p>Ardından bilgisayarınızı yeniden başlatınız. Jupyter Notebook ve Spyder’ı açmaya çalışalım. Uçbirim üzerinde spyder yazalım.</p><p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1631539360002.png"></p><p>Terminal üzerinde jupyter notebook yazıp enter’a basalım.</p><p><img data-src="https://cdn.jsdelivr.net/gh/ramazanaltintop/Image/IMG_1631539360003.png"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;Wget ile .sh uzantılı kurulum dosyasını indirmemiz için aşağıdaki paketlerin sisteminizde kurulu olduğundan emin olunuz.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="GNU/Linux" scheme="https://ramazanaltintop.github.io/categories/GNU-Linux/"/>
-    
-    
-    <category term="arch linux" scheme="https://ramazanaltintop.github.io/tags/arch-linux/"/>
-    
-    <category term="python" scheme="https://ramazanaltintop.github.io/tags/python/"/>
-    
-    <category term="anaconda" scheme="https://ramazanaltintop.github.io/tags/anaconda/"/>
-    
-    <category term="spyder" scheme="https://ramazanaltintop.github.io/tags/spyder/"/>
-    
-    <category term="jupyter notebook" scheme="https://ramazanaltintop.github.io/tags/jupyter-notebook/"/>
     
   </entry>
   
