@@ -21,28 +21,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"ramazanaltintop.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.24.1","exturl":true,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"mono-blue","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-hopscotch.min"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"teal","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"zoomInLeft","post_block":"zoomInLeft","post_header":"zoomInLeft","post_body":"zoomInLeft","coll_header":"zoomInLeft","sidebar":"zoomInLeft"}},"i18n":{"placeholder":"Aranıyor...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="Düzenlenmektedir!…">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hakkımda">
-<meta property="og:url" content="https://ramazanaltintop.github.io/about/index.html">
+    <meta name="description" content="Bu yazımızda Angular’ın ne olduğunu, Single Page Application (SPA) mantığını ve Angular’ın temelinde kullanılan TypeScript dilini ele alacağız.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular Temelleri: SPA, TypeScript ve İlk Adımlar">
+<meta property="og:url" content="https://ramazanaltintop.github.io/post/1919449830.html">
 <meta property="og:site_name" content="Ramazan Altıntop">
-<meta property="og:description" content="Düzenlenmektedir!…">
+<meta property="og:description" content="Bu yazımızda Angular’ın ne olduğunu, Single Page Application (SPA) mantığını ve Angular’ın temelinde kullanılan TypeScript dilini ele alacağız.">
 <meta property="og:locale" content="tr_TR">
-<meta property="article:published_time" content="2025-05-13T06:49:31.085Z">
-<meta property="article:modified_time" content="2024-12-03T20:06:11.971Z">
+<meta property="article:published_time" content="2025-09-04T09:45:00.000Z">
+<meta property="article:modified_time" content="2025-09-04T09:54:39.922Z">
 <meta property="article:author" content="Ramazan Altıntop">
-<meta property="article:tag" content="ASP.NET Core, C#, Architectural Patterns, Clean Architecture, Web Development, Software, Programming, Technology, Blog">
+<meta property="article:tag" content="Angular">
+<meta property="article:tag" content="Single Page Application">
+<meta property="article:tag" content="TypeScript">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://ramazanaltintop.github.io/about/">
+<link rel="canonical" href="https://ramazanaltintop.github.io/post/1919449830.html">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"tr","comments":true,"permalink":"https://ramazanaltintop.github.io/about/index.html","path":"about/index.html","title":"Hakkımda"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"tr","comments":true,"permalink":"https://ramazanaltintop.github.io/post/1919449830.html","path":"post/1919449830.html","title":"Angular Temelleri: SPA, TypeScript ve İlk Adımlar"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hakkımda | Ramazan Altıntop
-</title>
+<title>Angular Temelleri: SPA, TypeScript ve İlk Adımlar | Ramazan Altıntop</title>
   
 
 
@@ -163,7 +164,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           İçindekiler
@@ -176,6 +177,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Angular-Nedir"><span class="nav-number">1.</span> <span class="nav-text">1.Angular Nedir?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Single-Page-Application-Nedir"><span class="nav-number">2.</span> <span class="nav-text">2.Single Page Application Nedir?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-TypeScript-Nedir"><span class="nav-number">3.</span> <span class="nav-text">3.TypeScript Nedir?</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -243,36 +245,156 @@
 
     </div>
 
-    <div class="main-inner page posts-expand">
+    <div class="main-inner post posts-expand">
 
 
-    
-    
-    
-    <div class="post-block" lang="tr"><header class="post-header">
+  
 
-<h1 class="post-title" itemprop="name headline">Hakkımda
-</h1>
 
-<div class="post-meta-container">
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="tr">
+    <link itemprop="mainEntityOfPage" href="https://ramazanaltintop.github.io/post/1919449830.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.png">
+      <meta itemprop="name" content="Ramazan Altıntop">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ramazan Altıntop">
+      <meta itemprop="description" content="Edinmiş olduğum tecrübeleri, karşılaşmış olduğum problemlerin çözümlerini paylaştığım kişisel web siteme hoşgeldiniz.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Angular Temelleri: SPA, TypeScript ve İlk Adımlar | Ramazan Altıntop">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Angular Temelleri: SPA, TypeScript ve İlk Adımlar
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Yayınlandı</span>
+
+      <time title="Oluşturuldu: 04-09-2025 12:45:00" itemprop="dateCreated datePublished" datetime="2025-09-04T12:45:00+03:00">04-09-2025</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">İçinde</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Angular/" itemprop="url" rel="index"><span itemprop="name">Angular</span></a>
+        </span>
+    </span>
+
+  
 </div>
 
-</header>
+        </div>
+      </header>
 
-      
-      
-      
-      <div class="post-body">
-          <p>Düzenlenmektedir!…</p>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>Bu yazımızda Angular’ın ne olduğunu, Single Page Application (SPA) mantığını ve Angular’ın temelinde kullanılan TypeScript dilini ele alacağız.</p>
+<span id="more"></span>
 
-      </div>
-      
-      
-      
+<h2 id="1-Angular-Nedir"><a href="#1-Angular-Nedir" class="headerlink" title="1.Angular Nedir?"></a>1.Angular Nedir?</h2><p>Angular; Google tarafından geliştirilen ve desteklenen, TypeScript tabanlı bir frontend framework’tür.</p>
+<p>Modern web uygulamaları geliştirmek için kullanılan güçlü bir araçtır. Single Page Application (SPA) mantığıyla çalışır.</p>
+<p>Angular’ın öne çıkan özellikleri şunlardır.</p>
+<ul>
+<li>Google tarafından geliştirilen ve düzenli olarak güncellenen bir framework’tür (6 ayda bir yeni versiyon yayınlanır).</li>
+<li>MVC (Model - View - Controller) mimarisine sahiptir.</li>
+<li>Web API’leri destekler ve farklı backend teknolojileri ile kolayca entegre edilebilir.</li>
+<li>Tip güvenliği sunan TypeScript dilini kullanır.</li>
+</ul>
+<h2 id="2-Single-Page-Application-Nedir"><a href="#2-Single-Page-Application-Nedir" class="headerlink" title="2.Single Page Application Nedir?"></a>2.Single Page Application Nedir?</h2><p>Bir web uygulaması geliştiriyorken 2 temel yaklaşım vardır:</p>
+<ol>
+<li>Multi-Page Application (MPA)</li>
+<li>Single-Page Application (SPA)</li>
+</ol>
+<p>Multi-Page Application (MPA) yapısında:</p>
+<ul>
+<li>Her sayfa ayrı bir HTML dosyasıdır.</li>
+<li>Sayfalar arası geçişte tüm içerik (navbar, layout vb.) sıfırdan yüklenir.</li>
+<li>Her sayfaya tıklandığında yeniden yükleme yapılır, bu da daha fazla veri transferine sebep olur.</li>
+</ul>
+<p>Single-Page Application (SPA) yapısında:</p>
+<ul>
+<li>Tek bir ana HTML dosyası vardır.</li>
+<li>Sayfa geçişleri, JavaScript tarafından yönetilir ve içerik dinamik olarak güncellenir.</li>
+<li>Bu yaklaşım, uygulamanın daha hafif ve hızlı çalışmasını sağlar.</li>
+<li>Angular gibi modern framework’ler SPA yapısını benimser.</li>
+</ul>
+<h2 id="3-TypeScript-Nedir"><a href="#3-TypeScript-Nedir" class="headerlink" title="3.TypeScript Nedir?"></a>3.TypeScript Nedir?</h2><p>TypeScript; Microsoft tarafından geliştirilen, JavaScript üzerine inşa edilmiş bir programlama dilidir.</p>
+<p>Öne çıkan özellikleri:</p>
+<ul>
+<li>JavaScript’in üst sürümü gibi düşünülebilir.</li>
+<li>Tip desteği (type safety) sunarak kodun daha güvenli bir okunabilir olmasını sağlar.</li>
+<li>Kodlar önce TypeScript olarak yazılır. Ardından derlenerek JavaScript’e dönüştürülür.</li>
+<li>Hataları derleme aşamasında yakalayabilmek avantajı sunar.</li>
+<li>Geniş bir yapılandırma (config) dosyasına sahiptir.</li>
+</ul>
+<p>TypeScript’i doğrudan HTML içerisinde çalıştırmak mümkün değildir. Önce derlenip JavaScript’e çevrilmesi gerekir.</p>
+
     </div>
 
     
     
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Gönderiyi yazan:  </strong>Ramazan Altıntop
+  </li>
+  <li class="post-copyright-link">
+      <strong>Gönderi bağlantısı: </strong>
+      <a href="https://ramazanaltintop.github.io/post/1919449830.html" title="Angular Temelleri: SPA, TypeScript ve İlk Adımlar">https://ramazanaltintop.github.io/post/1919449830.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Telif Hakkı Bildirimi:  </strong>Bu blogdaki tüm makaleler aksi belirtilmediği sürece <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC90cg=="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> altında lisanslıdır.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Angular/" rel="tag"><i class="fa fa-tag"></i> Angular</a>
+              <a href="/tags/Single-Page-Application/" rel="tag"><i class="fa fa-tag"></i> Single Page Application</a>
+              <a href="/tags/TypeScript/" rel="tag"><i class="fa fa-tag"></i> TypeScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/390419117.html" rel="prev" title=".NET Uygulamalarının Çalışma Yapısı: Derleme ve Çalıştırma Süreçleri">
+                  <i class="fa fa-angle-left"></i> .NET Uygulamalarının Çalışma Yapısı: Derleme ve Çalıştırma Süreçleri
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
 
 
 </div>

@@ -47,4 +47,57 @@
         <tag>.NET derleme süreci</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Angular Temelleri: SPA, TypeScript ve İlk Adımlar</title>
+    <url>/post/1919449830.html</url>
+    <content><![CDATA[<p>Bu yazımızda Angular’ın ne olduğunu, Single Page Application (SPA) mantığını ve Angular’ın temelinde kullanılan TypeScript dilini ele alacağız.</p>
+<span id="more"></span>
+
+<h2 id="1-Angular-Nedir"><a href="#1-Angular-Nedir" class="headerlink" title="1.Angular Nedir?"></a>1.Angular Nedir?</h2><p>Angular; Google tarafından geliştirilen ve desteklenen, TypeScript tabanlı bir frontend framework’tür.</p>
+<p>Modern web uygulamaları geliştirmek için kullanılan güçlü bir araçtır. Single Page Application (SPA) mantığıyla çalışır.</p>
+<p>Angular’ın öne çıkan özellikleri şunlardır.</p>
+<ul>
+<li>Google tarafından geliştirilen ve düzenli olarak güncellenen bir framework’tür (6 ayda bir yeni versiyon yayınlanır).</li>
+<li>MVC (Model - View - Controller) mimarisine sahiptir.</li>
+<li>Web API’leri destekler ve farklı backend teknolojileri ile kolayca entegre edilebilir.</li>
+<li>Tip güvenliği sunan TypeScript dilini kullanır.</li>
+</ul>
+<h2 id="2-Single-Page-Application-Nedir"><a href="#2-Single-Page-Application-Nedir" class="headerlink" title="2.Single Page Application Nedir?"></a>2.Single Page Application Nedir?</h2><p>Bir web uygulaması geliştiriyorken 2 temel yaklaşım vardır:</p>
+<ol>
+<li>Multi-Page Application (MPA)</li>
+<li>Single-Page Application (SPA)</li>
+</ol>
+<p>Multi-Page Application (MPA) yapısında:</p>
+<ul>
+<li>Her sayfa ayrı bir HTML dosyasıdır.</li>
+<li>Sayfalar arası geçişte tüm içerik (navbar, layout vb.) sıfırdan yüklenir.</li>
+<li>Her sayfaya tıklandığında yeniden yükleme yapılır, bu da daha fazla veri transferine sebep olur.</li>
+</ul>
+<p>Single-Page Application (SPA) yapısında:</p>
+<ul>
+<li>Tek bir ana HTML dosyası vardır.</li>
+<li>Sayfa geçişleri, JavaScript tarafından yönetilir ve içerik dinamik olarak güncellenir.</li>
+<li>Bu yaklaşım, uygulamanın daha hafif ve hızlı çalışmasını sağlar.</li>
+<li>Angular gibi modern framework’ler SPA yapısını benimser.</li>
+</ul>
+<h2 id="3-TypeScript-Nedir"><a href="#3-TypeScript-Nedir" class="headerlink" title="3.TypeScript Nedir?"></a>3.TypeScript Nedir?</h2><p>TypeScript; Microsoft tarafından geliştirilen, JavaScript üzerine inşa edilmiş bir programlama dilidir.</p>
+<p>Öne çıkan özellikleri:</p>
+<ul>
+<li>JavaScript’in üst sürümü gibi düşünülebilir.</li>
+<li>Tip desteği (type safety) sunarak kodun daha güvenli bir okunabilir olmasını sağlar.</li>
+<li>Kodlar önce TypeScript olarak yazılır. Ardından derlenerek JavaScript’e dönüştürülür.</li>
+<li>Hataları derleme aşamasında yakalayabilmek avantajı sunar.</li>
+<li>Geniş bir yapılandırma (config) dosyasına sahiptir.</li>
+</ul>
+<p>TypeScript’i doğrudan HTML içerisinde çalıştırmak mümkün değildir. Önce derlenip JavaScript’e çevrilmesi gerekir.</p>
+]]></content>
+      <categories>
+        <category>Angular</category>
+      </categories>
+      <tags>
+        <tag>Angular</tag>
+        <tag>Single Page Application</tag>
+        <tag>TypeScript</tag>
+      </tags>
+  </entry>
 </search>
