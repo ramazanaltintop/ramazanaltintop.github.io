@@ -6,7 +6,7 @@
   <link href="https://ramazanaltintop.github.io/atom.xml" rel="self"/>
   
   <link href="https://ramazanaltintop.github.io/"/>
-  <updated>2025-09-05T20:29:20.786Z</updated>
+  <updated>2025-09-03T16:07:27.415Z</updated>
   <id>https://ramazanaltintop.github.io/</id>
   
   <author>
@@ -15,56 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Angular Geliştirme Ortamı Kurulumu: Node.js, Angular CLI ve VS Code</title>
-    <link href="https://ramazanaltintop.github.io/post/2294571003.html"/>
-    <id>https://ramazanaltintop.github.io/post/2294571003.html</id>
-    <published>2025-09-05T20:30:00.000Z</published>
-    <updated>2025-09-05T20:29:20.786Z</updated>
-    
-    <content type="html"><![CDATA[<p>Angular ile uygulama geliştirmek için Node.js, Angular CLI ve Visual Studio Code gibi araçları kurmamız gerekir. Bu bölümde, Angular geliştirme ortamını hazırlamak için gerekli kurulum adımlarını inceleyeceğiz.</p><span id="more"></span><h2 id="1-Node-js-Kurulumu-Nasil-Yapilir"><a href="#1-Node-js-Kurulumu-Nasil-Yapilir" class="headerlink" title="1.Node.js Kurulumu Nasıl Yapılır?"></a>1.Node.js Kurulumu Nasıl Yapılır?</h2><p>Angular’ı kurmak ve projelerimizi çalıştırmak için Node.js kurulumu şarttır.</p><p><code>Node.js</code>, JavaScript kodlarını tarayıcı dışında çalıştırmamızı sağlayan bir platformdur. Normalde JavaScript kodları yalnızca web tarayıcılarındaki JS motorları üzerinden çalıştırılırken, Node.js sayesinde bu koda doğrudan terminal veya komut satırı üzerinden erişebilir ve çalıştırabiliriz.</p><p>Önemli Noktalar:</p><ul><li>NPM (Node Package Manager): JavaScript kütüphanelerinin bulunduğu bir paket yöneticisidir. Hem kendi kütüphanelerimizi buraya yükleyebilir hem de başkalarının geliştirdiği paketleri kullanabiliriz.</li><li>Angular, CLI (Command Line Interface) adı verilen bir araçla kurulum, derleme ve proje yönetimini kolaylaştırır.</li><li>Angular CLI, bir NPM paketi olduğundan önce Node.js kurulmalıdır.</li></ul><p>Node.js İndirme Bağlantısı:<br><span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuL2Rvd25sb2Fk">https://nodejs.org/en/download<i class="fa fa-external-link-alt"></i></span></p><img data-src="/post/2294571003/1.png" class="" title="Node.js Kurulumu Nasıl Yapılır"><h2 id="2-Angular-CLI-Kurulumu-Nasil-Yapilir"><a href="#2-Angular-CLI-Kurulumu-Nasil-Yapilir" class="headerlink" title="2.Angular CLI Kurulumu Nasıl Yapılır?"></a>2.Angular CLI Kurulumu Nasıl Yapılır?</h2><p>Angular projeleri oluşturmak için Angular CLI aracını kurmamız gerekir. Bu araç, Angular uygulamalarını başlatmak, yapılandırmak ve yönetmek için komut satırı üzerinden komutlar çalıştırmamızı sağlar.</p><p>CLI belgelendirmesi:<br><span class="exturl" data-url="aHR0cHM6Ly9hbmd1bGFyLmRldi8=">https://angular.dev/<i class="fa fa-external-link-alt"></i></span></p><p>Menü üzerinden şu yolu izleyelim.</p><p><em>Docs → Developer Tools → Angular CLI → Local set-up</em></p><p>PowerShell Ayarı (Bir Kez Çalıştırılır) yapalım.</p><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-Scope</span> CurrentUser <span class="literal">-ExecutionPolicy</span> RemoteSigned</span><br></pre></td></tr></table></figure><p>Angular CLI Kurulumunu gerçekleştirelim.</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g @angular/cli</span><br></pre></td></tr></table></figure><img data-src="/post/2294571003/2.png" class="" title="Angular CLI Kurulumu Nasıl Yapılır"><p>Versiyon Kontrolümüzü gerçekleştirelim.</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ng version</span><br></pre></td></tr></table></figure><img data-src="/post/2294571003/3.png" class="" title="Angular CLI Kurulumu Nasıl Yapılır"><p>Angular her 6 ayda bir yeni sürüm yayınlar. Yukarıdaki <code>npm install -g @angular/cli</code> komutunu tekrar çalıştırarak CLI’yi güncel tutabilirsiniz.</p><p>Her projede, projeyi oluşturduğunuz anda mevcut olan CLI sürümü kaydedilir. Örneğin, CLI sürümü 20 ise oluşturduğunuz proje Angular 20 sürümüyle gelir.</p><h2 id="3-Visual-Studio-Code-Kurulumu-Nasil-Yapilir"><a href="#3-Visual-Studio-Code-Kurulumu-Nasil-Yapilir" class="headerlink" title="3.Visual Studio Code Kurulumu Nasıl Yapılır?"></a>3.Visual Studio Code Kurulumu Nasıl Yapılır?</h2><p>Angular projelerini geliştirmek için Visual Studio Code (VS Code) kullanmanız önerilir.</p><p>İndirme linki: <span class="exturl" data-url="aHR0cHM6Ly9jb2RlLnZpc3VhbHN0dWRpby5jb20v">https://code.visualstudio.com/<i class="fa fa-external-link-alt"></i></span></p><p>Önerilen Eklentiler:</p><ul><li>Angular Language Service</li><li>Path Intellisense</li><li>Postman</li><li>Split HTML Attributes (Vue, React, Angular)</li><li>Auto Close Tag</li><li>Auto Rename Tag</li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;Angular ile uygulama geliştirmek için Node.js, Angular CLI ve Visual Studio Code gibi araçları kurmamız gerekir. Bu bölümde, Angular geliştirme ortamını hazırlamak için gerekli kurulum adımlarını inceleyeceğiz.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Angular" scheme="https://ramazanaltintop.github.io/categories/Angular/"/>
-    
-    
-    <category term="Node.js" scheme="https://ramazanaltintop.github.io/tags/Node-js/"/>
-    
-    <category term="VS Code" scheme="https://ramazanaltintop.github.io/tags/VS-Code/"/>
-    
-    <category term="Angular CLI" scheme="https://ramazanaltintop.github.io/tags/Angular-CLI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Angular Temelleri: SPA, TypeScript ve İlk Adımlar</title>
-    <link href="https://ramazanaltintop.github.io/post/1919449830.html"/>
-    <id>https://ramazanaltintop.github.io/post/1919449830.html</id>
-    <published>2025-09-04T09:45:00.000Z</published>
-    <updated>2025-09-04T09:54:39.922Z</updated>
-    
-    <content type="html"><![CDATA[<p>Bu yazımızda Angular’ın ne olduğunu, Single Page Application (SPA) mantığını ve Angular’ın temelinde kullanılan TypeScript dilini ele alacağız.</p><span id="more"></span><h2 id="1-Angular-Nedir"><a href="#1-Angular-Nedir" class="headerlink" title="1.Angular Nedir?"></a>1.Angular Nedir?</h2><p>Angular; Google tarafından geliştirilen ve desteklenen, TypeScript tabanlı bir frontend framework’tür.</p><p>Modern web uygulamaları geliştirmek için kullanılan güçlü bir araçtır. Single Page Application (SPA) mantığıyla çalışır.</p><p>Angular’ın öne çıkan özellikleri şunlardır.</p><ul><li>Google tarafından geliştirilen ve düzenli olarak güncellenen bir framework’tür (6 ayda bir yeni versiyon yayınlanır).</li><li>MVC (Model - View - Controller) mimarisine sahiptir.</li><li>Web API’leri destekler ve farklı backend teknolojileri ile kolayca entegre edilebilir.</li><li>Tip güvenliği sunan TypeScript dilini kullanır.</li></ul><h2 id="2-Single-Page-Application-Nedir"><a href="#2-Single-Page-Application-Nedir" class="headerlink" title="2.Single Page Application Nedir?"></a>2.Single Page Application Nedir?</h2><p>Bir web uygulaması geliştiriyorken 2 temel yaklaşım vardır:</p><ol><li>Multi-Page Application (MPA)</li><li>Single-Page Application (SPA)</li></ol><p>Multi-Page Application (MPA) yapısında:</p><ul><li>Her sayfa ayrı bir HTML dosyasıdır.</li><li>Sayfalar arası geçişte tüm içerik (navbar, layout vb.) sıfırdan yüklenir.</li><li>Her sayfaya tıklandığında yeniden yükleme yapılır, bu da daha fazla veri transferine sebep olur.</li></ul><p>Single-Page Application (SPA) yapısında:</p><ul><li>Tek bir ana HTML dosyası vardır.</li><li>Sayfa geçişleri, JavaScript tarafından yönetilir ve içerik dinamik olarak güncellenir.</li><li>Bu yaklaşım, uygulamanın daha hafif ve hızlı çalışmasını sağlar.</li><li>Angular gibi modern framework’ler SPA yapısını benimser.</li></ul><h2 id="3-TypeScript-Nedir"><a href="#3-TypeScript-Nedir" class="headerlink" title="3.TypeScript Nedir?"></a>3.TypeScript Nedir?</h2><p>TypeScript; Microsoft tarafından geliştirilen, JavaScript üzerine inşa edilmiş bir programlama dilidir.</p><p>Öne çıkan özellikleri:</p><ul><li>JavaScript’in üst sürümü gibi düşünülebilir.</li><li>Tip desteği (type safety) sunarak kodun daha güvenli bir okunabilir olmasını sağlar.</li><li>Kodlar önce TypeScript olarak yazılır. Ardından derlenerek JavaScript’e dönüştürülür.</li><li>Hataları derleme aşamasında yakalayabilmek avantajı sunar.</li><li>Geniş bir yapılandırma (config) dosyasına sahiptir.</li></ul><p>TypeScript’i doğrudan HTML içerisinde çalıştırmak mümkün değildir. Önce derlenip JavaScript’e çevrilmesi gerekir.</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;Bu yazımızda Angular’ın ne olduğunu, Single Page Application (SPA) mantığını ve Angular’ın temelinde kullanılan TypeScript dilini ele alacağız.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Angular" scheme="https://ramazanaltintop.github.io/categories/Angular/"/>
-    
-    
-    <category term="Angular" scheme="https://ramazanaltintop.github.io/tags/Angular/"/>
-    
-    <category term="Single Page Application" scheme="https://ramazanaltintop.github.io/tags/Single-Page-Application/"/>
-    
-    <category term="TypeScript" scheme="https://ramazanaltintop.github.io/tags/TypeScript/"/>
-    
-  </entry>
   
   <entry>
     <title>.NET Uygulamalarının Çalışma Yapısı: Derleme ve Çalıştırma Süreçleri</title>
