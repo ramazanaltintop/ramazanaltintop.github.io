@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Ramazan Altıntop</title>
   
-  <subtitle>C#, ASP.NET Core ve Teknoloji Blogu</subtitle>
+  <subtitle>Kişisel Web Sitesi</subtitle>
   <link href="https://ramazanaltintop.github.io/atom.xml" rel="self"/>
   
   <link href="https://ramazanaltintop.github.io/"/>
@@ -380,9 +380,9 @@
     <category term="Veri Yapıları" scheme="https://ramazanaltintop.github.io/categories/Veri-Yapilari/"/>
     
     
-    <category term="stack" scheme="https://ramazanaltintop.github.io/tags/stack/"/>
-    
     <category term="dotnet core" scheme="https://ramazanaltintop.github.io/tags/dotnet-core/"/>
+    
+    <category term="stack" scheme="https://ramazanaltintop.github.io/tags/stack/"/>
     
     <category term="infix" scheme="https://ramazanaltintop.github.io/tags/infix/"/>
     
@@ -411,9 +411,9 @@
     
     <category term="çiftli bağlı listeler" scheme="https://ramazanaltintop.github.io/tags/ciftli-bagli-listeler/"/>
     
-    <category term="stack" scheme="https://ramazanaltintop.github.io/tags/stack/"/>
-    
     <category term="dotnet core" scheme="https://ramazanaltintop.github.io/tags/dotnet-core/"/>
+    
+    <category term="stack" scheme="https://ramazanaltintop.github.io/tags/stack/"/>
     
   </entry>
   
@@ -434,9 +434,9 @@
     <category term="Veri Yapıları" scheme="https://ramazanaltintop.github.io/categories/Veri-Yapilari/"/>
     
     
-    <category term="stack" scheme="https://ramazanaltintop.github.io/tags/stack/"/>
-    
     <category term="dotnet core" scheme="https://ramazanaltintop.github.io/tags/dotnet-core/"/>
+    
+    <category term="stack" scheme="https://ramazanaltintop.github.io/tags/stack/"/>
     
   </entry>
   

@@ -108,7 +108,7 @@
       <p class="site-title">Ramazan Altıntop</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">C#, ASP.NET Core ve Teknoloji Blogu</p>
+      <p class="site-subtitle" itemprop="description">Kişisel Web Sitesi</p>
       <img class="custom-logo-image" src="/uploads/custom-logo.png" alt="Ramazan Altıntop">
   </div>
 
@@ -334,6 +334,18 @@
             if(parent_div_git && location.pathname =='/'){
                 console.log("已挂载hexo-github-calendar https://github.com/Barry-Flynn/hexo-github-calendar");
                 // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementsByClassName('main-inner')[0]){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style></style><!-- hexo injector body_end end --></body>
+</html>
+        // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
                 parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
             };
             GithubCalendar(git_githubapiurl,git_color,git_user)
